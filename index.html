@@ -138,6 +138,23 @@
               <div class="project-visual image-visual image-visual-tall"><img src="assets/crossrealm.webp" alt="跨界纪元游戏世界海报" /><span class="visual-tag">THREE.JS / RPG</span></div>
               <div class="project-content"><div class="project-topline"><span class="project-number">04</span><span class="project-type">INTERACTIVE WORLD</span></div><h3>跨界纪元</h3><p>浏览器端第三人称开放世界动作 RPG，把奇幻、魔法与星际碎片拼成一套可玩的系统。</p><div class="tag-row"><span>Three.js</span><span>Vite</span><span>Combat</span><span>World</span></div><div class="project-links"><a href="https://xiaodernan.github.io/crossrealm-chronicles/" target="_blank" rel="noreferrer">进入试玩 ↗</a><a href="https://github.com/xiaodernan/crossrealm-chronicles" target="_blank" rel="noreferrer">源码</a></div></div>
             </article>
+            <article class="project-card project-footos">
+              <div class="project-visual image-visual" style="display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%, #143b23 0%, #0f2416 55%, #08110b 100%);color:#4ef0a0;font:800 clamp(28px, 6vw, 44px)/1.05 'DM Mono', monospace;letter-spacing:.01em;text-align:center"><span>FOOTBALL<br/>OS</span><span class="visual-tag" style="position:absolute;top:14px;right:14px;background:#0f2416;color:#4ef0a0;border:1px solid #1d5f3a;padding:4px 10px;font:600 11px 'DM Mono',monospace;letter-spacing:.08em">PAGES / LIVE</span></div>
+              <div class="project-content"><div class="project-topline"><span class="project-number">05</span><span class="project-type">FOOTBALL OS</span></div><h3>Football OS Web</h3><p>确定性种子驱动的足球情报、训练、战术与模拟平台，100+ 路由，Spring Cloud plane，前缀缓存亲和真跑。</p><div class="tag-row"><span>React</span><span>Vite</span><span>Spring Cloud</span><span>PWA · Redis</span><span>Best in class PC</span></div><div class="project-links"><a href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">进入足球世界 ↗</a><a href="https://github.com/xiaodernan/football-os-web" target="_blank" rel="noreferrer">源码</a></div></div>
+            </article>
+            <!-- footos:latest-start -->
+            <div class="minicc-latest" id="footos-latest" aria-label="Football OS Web 最新指标">
+              <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code id="fw-head">—</code></div>
+              <div class="minicc-latest-grid">
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-commits">—</span><span class="minicc-latest-label">提交总数</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-milestone">—</span><span class="minicc-latest-label">最新里程碑</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-screens">—</span><span class="minicc-latest-label">动态屏幕</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-pwa">—</span><span class="minicc-latest-label">PWA KB</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-assets">—</span><span class="minicc-latest-label">静态资产</span></div>
+              </div>
+              <div class="minicc-latest-foot"><span id="fw-generated">—</span><span>特性面：<code id="fw-features">—</code></span></div>
+            </div>
+            <!-- footos:latest-end -->
           </div>
         </section>
 
@@ -283,6 +300,25 @@
       set('np-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : (d.milestone_full ?? ''));
       set('np-features-list', Array.isArray(d.features) ? d.features.slice(0, 4).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
+  })();
+</script>
+<script>
+  (async function () {
+    try {
+      const r = await fetch('https://raw.githubusercontent.com/xiaodernan/football-os-web/master/docs/latest.json', { cache: 'no-store' })
+        .catch(() => fetch('assets/football/latest.json', { cache: 'no-store' }));
+      if (!r.ok) return;
+      const d = await r.json();
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('fw-head', `master @ ${d.head}`);
+      set('fw-commits', String(d.total_commits ?? '—'));
+      set('fw-milestone', d.milestone ?? '—');
+      set('fw-screens', String(d.screens ?? '—'));
+      set('fw-pwa', d.pwa_kb != null ? `${d.pwa_kb} KB` : '—');
+      set('fw-assets', String(d.assets ?? '—'));
+      set('fw-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : '');
+      set('fw-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '—');
+    } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   })();
 </script>
 </body>
