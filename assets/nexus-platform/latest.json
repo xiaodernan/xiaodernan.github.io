@@ -1,19 +1,19 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T13:10:13.287638Z",
+  "generated_at": "2026-11-14T13:21:37.491901Z",
   "branch": "master",
-  "head": "9beb502",
-  "total_commits": 1320,
-  "pushed_at": "2026-11-14T13:04:02Z",
-  "milestone": "D1120",
-  "milestone_full": "香港系列十章 + 內建使用說明書",
+  "head": "b1e1b58",
+  "total_commits": 1322,
+  "pushed_at": "2026-11-14T13:20:00Z",
+  "milestone": "D1123",
+  "milestone_full": "香港系列十一章 + 內建使用說明書 + 新手上路條",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: ten Traditional-script chapters, dawn→dessert · search/amp rails",
-    "Today: 今日食運 daily almanac (FNV-1a, Hong Kong clock)",
+    "HK series: eleven Traditional-script chapters, dawn→dessert→cart",
+    "今日食運 daily almanac (FNV-1a, Hong Kong clock)",
     "每日一句 Cantonese-of-the-day, hand-checked Jyutping",
     "/hk-type: ten questions, five archetypes, zero telemetry",
-    "/handbook: the full bilingual usage manual, new-user tour, quiz tutorial",
+    "/handbook + newcomer strip: five-anchor first-run tour",
     "Spring Cloud: eureka, gateway, config-server, bus-lite, insight, events"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
