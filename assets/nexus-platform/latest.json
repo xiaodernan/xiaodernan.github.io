@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T18:50:34.298080Z",
+  "generated_at": "2026-11-14T18:53:03.043482Z",
   "branch": "master",
-  "head": "960b724",
-  "total_commits": 1348,
-  "pushed_at": "2026-11-14T18:50:02Z",
-  "milestone": "D1146",
-  "milestone_full": "香港系列篇二十三章 · 00:30→22:45 · /daily 每日儀式 · LangGraph 引擎",
+  "head": "a8a98d4",
+  "total_commits": 1349,
+  "pushed_at": "2026-11-14T18:52:45Z",
+  "milestone": "D1147",
+  "milestone_full": "香港系列篇二十三章 · /daily · WORLD_ROADMAP（23章 已落地 + 6 層展望）",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: twenty-three Traditional chapters — 00:30→22:45 full day arc",
-    "/hong-kong: twenty-three-checkpoint arc clock — chronological, both locales",
-    "Edition XXIII — 洗碗阿姨的第二幕, the 13:30 dish-pit custody story",
-    "/daily: the daily ritual page — almanac + Cantonese phrase + one chapter by date hash + copy-the-card",
-    "D1142: LangGraph opt-in engine — parallel fan-out of independent reads",
-    "D1140: Spring Cloud edge rate limiter shares ONE Redis bucket across processes"
+    "HK series: twenty-three Traditional chapters — 00:30→22:45 full day arc · 46-chip clock both locales",
+    "/hong-kong: twenty-three-checkpoint arc clock · bilingual · HK Traditional throughout",
+    "/daily: the daily ritual page — almanac + Cantonese phrase + one chapter by date hash",
+    "/handbook: complete bilingual manual · quiz tutorial · newcomer strip · D1145 teaches /daily too",
+    "WORLD_ROADMAP.md: six Layers beyond the day-arc (outlying islands, foreign substrate, Sunday cycle, Shenzhen counter-flow) + three canonical arcs",
+    "D1142: LangGraph opt-in engine · D1140: Redis shared token bucket · 22 chapters · web 346/346 · census 1474 clean"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
