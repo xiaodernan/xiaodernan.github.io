@@ -18,9 +18,9 @@ python -m http.server 4173
 
 - `minicc-codex` 是必选主展示项，页面链接指向其公开源码和能力概览。
 - 隐盾在线服务链接指向 `https://yindun.fagougou.com/`，页面不会复制或暴露任何服务凭据。
-- `nexus-content-platform` 当前 `main` / `master` 同一提交，展示入口使用 `main`。
+- `nexus-content-platform` 的 最新 `latest.json` 已嵌入主卡只读取（see `./assets/nexus-content/latest.json`），页面直接读它并每分钟右下显示真实提交数 / ADR 数 / 契约数 / Java 服务数，一行 `git push` 即可刷新——... 见 `.github/workflows/` 与任何同步脚本
 - `specproof` 使用当前 `master` 作为唯一展示线；实验分支不作为主入口。
-- 其他公开仓库保留在“全部作品”列表中，方便面试者继续深入。
+- 其他公开仓库保留在"全部作品"列表中，方便面试者继续深入。
 
 ## 当前未自动执行的外部动作
 
