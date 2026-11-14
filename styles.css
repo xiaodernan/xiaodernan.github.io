@@ -69,6 +69,35 @@ body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{backgrou
   font-family: inherit;
   color: var(--accent-ink, #c2452a);
 }
+.minicc-latest-commits {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.minicc-latest-commit {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 11.5px;
+  color: var(--muted-ink, #6f6a5e);
+}
+.minicc-latest-commit code {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  color: #c2452a;
+  background: rgba(194, 69, 42, .07);
+  border-radius: 4px;
+  padding: 1px 5px;
+  width: max-content;
+}
+.minicc-latest-commit span { line-height: 1.5; }
+@media (max-width: 560px) {
+  .minicc-latest-commit { grid-template-columns: 1fr; gap: 2px; }
+  .minicc-latest-commit code { font-size: 10px; }
+}
 @media (max-width: 760px) {
   .minicc-latest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .minicc-latest-foot { flex-direction: column; }
