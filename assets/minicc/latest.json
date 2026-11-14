@@ -1,41 +1,41 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-14T18:02:53.375Z",
+  "generated_at": "2026-11-14T18:51:54.836Z",
   "branch": "main",
-  "head": "7ccdf97",
-  "total_commits": 1499,
+  "head": "49335be",
+  "total_commits": 1507,
   "recent_commits": [
     {
-      "short": "7ccdf97",
-      "at": "2026-11-15T02:02:28+08:00",
-      "subject": "M8-T956: almanac volume X The Unfinished - the wing is still under construction; live commits instrument (commits/chapters/HEAD) plus the six newest shipments r"
+      "short": "49335be",
+      "at": "2026-11-15T02:51:33+08:00",
+      "subject": "M8-T961: The Keys & Vault chapter - the full credential journey in the manual (gitignored .env, --doctor, affinity-safe gateway switch, hit_pct receipts, cost_i"
     },
     {
-      "short": "9842116",
-      "at": "2026-11-15T01:54:58+08:00",
-      "subject": "M8-T955b: manual (workbench chapter) documents the flame chip in both languages"
-    },
-    {
-      "short": "bfa18c3",
-      "at": "2026-11-14T17:54:03Z",
+      "short": "bee4176",
+      "at": "2026-11-14T18:43:00Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "93e1b78",
-      "at": "2026-11-15T01:53:44+08:00",
-      "subject": "M8-T955: the flame chip - daily streak counter for completed tasks (localStorage, zero network, per-calendar-day +1, two-day gap resets), flame icon added, bili"
+      "short": "9277dc3",
+      "at": "2026-11-15T02:42:36+08:00",
+      "subject": "M8-T960: '/' filters the recent-task list in the sidebar - live debounced search, Enter opens first match, Esc clears, MutationObserver re-applies across the hi"
     },
     {
-      "short": "e389b6e",
-      "at": "2026-11-14T17:45:46Z",
+      "short": "ccedb4e",
+      "at": "2026-11-14T18:21:54Z",
       "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "e60c415",
+      "at": "2026-11-15T02:21:30+08:00",
+      "subject": "M8-T958: almanac hydrates in two waves - metrics+digest re-render immediately, stats lands whenever it lands; tap-to-numbers from ~9.8s to ~1.7s measured on the"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 276,
+  "roadmap_batches": 280,
   "changelog_entries": 1,
-  "roadmap_lines": 51735,
-  "tracked_files": 1052,
+  "roadmap_lines": 51815,
+  "tracked_files": 1053,
   "test_files": 702,
   "almanac_chapters": 11,
   "module_count": 14,
