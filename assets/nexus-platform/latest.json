@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T19:25:11.380928Z",
+  "generated_at": "2026-11-14T19:36:36.977086Z",
   "branch": "master",
-  "head": "440113a",
-  "total_commits": 1353,
-  "pushed_at": "2026-11-14T19:24:51Z",
-  "milestone": "D1151",
-  "milestone_full": "香港系列篇二十八章 · 00:30→22:45 · /daily · WORLD_ROADMAP",
+  "head": "1bbb6f8",
+  "total_commits": 1355,
+  "pushed_at": "2026-11-14T19:36:19Z",
+  "milestone": "D1153",
+  "milestone_full": "香港系列篇三十三章 · 00:30→22:45 · /daily · WORLD_ROADMAP Layer C 全部落地",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: twenty-eight Traditional chapters — 00:30→22:45 full day arc · 56-chip clock both locales",
+    "HK series: thirty-three Traditional chapters — 00:30→22:45 full day arc · 66-chip clock both locales",
     "/hong-kong: the arc clock speaks 00:30→22:45 in chronological order",
-    "Edition XXVII+XXVIII — 報館放送 (11:00) and 九龍公園的雀籠房 (15:00)",
+    "Edition XXXII+XXXIII — 麥當勞得來速 (23:00, the light whose promise never breaks) and 屋邨飲品販賣機 (00:00, the estate's unspoken supervisor)",
+    "WORLD_ROADMAP Layer C (rows 24-33) now mapped & landed · next cadences: Layer D (Lantau outlying islands)",
     "/daily: the daily ritual page — almanac + Cantonese phrase + one chapter by date hash",
-    "Layer C landed rows 24-28; WORLD_ROADMAP rows 29-33 mapped",
-    "D1150: the teaching manual lives inside product chrome (handbook as a visible door); D1142: LangGraph engine · D1140: Redis shared token bucket · census 1521 clean"
+    "D1150: the teaching manual lives inside product chrome; D1142: LangGraph engine · D1140: Redis shared token bucket · census 1566 clean"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
