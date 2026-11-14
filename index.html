@@ -237,9 +237,9 @@
       return r.json();
     };
     try {
-      // 每次访问实时读取 main 上的最新事实包；raw.githubusercontent.com 有 CORS *，
-      // 远程失败时回退到本站静态副本（每周被 cron 刷新）。
-      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/minicc-codex/main/docs/latest.json')
+      // 每次访问实时读取 main 上的最新事实包；raw.githubusercontent.com 有 CORS *。
+      // ?ts=Date.now() 保证每个访客都拿到最新的边缘缓存，远程失败时回退到本站静态副本（每周被 cron 刷新）。
+      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/minicc-codex/main/docs/latest.json?ts=' + Date.now())
         .catch(() => fetchJson('assets/minicc/latest.json'));
       const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
       set('minicc-latest-head', `main @ ${d.head}`);
