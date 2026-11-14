@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T22:17:13.083439Z",
+  "generated_at": "2026-11-14T22:55:26.025683Z",
   "branch": "master",
-  "head": "54cd62a",
-  "total_commits": 1365,
-  "pushed_at": "2026-11-14T22:14:52Z",
-  "milestone": "D1164",
-  "milestone_full": "香港系列篇四十五章 · 00:30→22:45 · Layer F 星期一日循環圓滿 — 晨至暮",
+  "head": "98f100b",
+  "total_commits": 1367,
+  "pushed_at": "2026-11-14T22:55:00Z",
+  "milestone": "D1166",
+  "milestone_full": "香港系列篇四十六章 · 00:30→22:45 · WORLD_ROADMAP Layer G 開卷 — 羅湖站的雙向貨幣",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: forty-five Traditional chapters — 00:30→22:45 full day arc · 90-chip clock both locales",
-    "/hong-kong: every chapter card wears its Roman badge (XLII–XLIV · XLV …) — D1163",
-    "Edition XLV — 星期天最後一間有排隊的餐廳 (21:00) · Layer F closes the Sunday circuit",
-    "Layer F: XLII 維園 (09:00) · XLIII 霍普韋爾 (13:00) · XLIV 觀音借 (17:30) · XLV 最後一間排隊 (21:00)",
+    "HK series: forty-six Traditional chapters — 00:30→22:45 full day arc · 92-chip clock both locales",
+    "Edition XLVI — 羅湖站的雙向貨幣 (14:30) · Layer G opens the outpost of the outpost",
+    "WORLD_ROADMAP Layer F closes (the Sunday circuit), Layer G opens (the border crossing)",
+    "D1165: the stampede — two gateways, one shared Redis token bucket, 2000 requests @128 in flight, full store accounting",
     "D1163: chapter cards wear print-annual Roman numerals · D1160: replay cache whitespace-folded",
-    "D1150: manual inside chrome · D1142: LangGraph engine · D1140: Redis shared token bucket · census 1674 clean"
+    "D1150: manual inside chrome · D1142: LangGraph engine · D1140: Redis shared token bucket · census 1683 clean"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
