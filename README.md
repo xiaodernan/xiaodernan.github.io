@@ -17,6 +17,7 @@ python -m http.server 4173
 ## 项目取舍
 
 - `minicc-codex` 是必选主展示项，页面链接指向其公开源码和能力概览。
+- `nexus-platform` 的展示卡读取 `./assets/nexus-platform/latest.json`；`.github/workflows/sync-nexus-platform.yml` 每周一 13:00 UTC 从其公开仓跑一次只读同步，提交一份更新的事实包（一次提交总数 + 最新里程碑 + 特性面），直接在卡片上呈现；`nexus-platform/master` 的每次推送都会原样进入展示，不需要改本仓库。里程碑文本由 nexus-platform 仓库内的 `docs/SHOWCASE.json` 手动维护，只在有“大提升”时才更新。
 - 隐盾在线服务链接指向 `https://yindun.fagougou.com/`，页面不会复制或暴露任何服务凭据。
 - `nexus-content-platform` 的 最新 `latest.json` 已嵌入主卡只读取（see `./assets/nexus-content/latest.json`），页面直接读它并每分钟右下显示真实提交数 / ADR 数 / 契约数 / Java 服务数，一行 `git push` 即可刷新——... 见 `.github/workflows/` 与任何同步脚本
 - `specproof` 使用当前 `master` 作为唯一展示线；实验分支不作为主入口。

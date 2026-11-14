@@ -119,6 +119,19 @@
             </div>
             <!-- nexus-content:latest-end -->
 
+            <!-- nexus-platform:latest-start -->
+            <div class="minicc-latest" id="nexus-platform-latest" aria-label="NEXUS Platform 最新展示指标">
+              <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code id="np-head">—</code></div>
+              <div class="minicc-latest-grid">
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="np-commits">—</span><span class="minicc-latest-label">提交总数</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="np-milestone">—</span><span class="minicc-latest-label">最新里程碑</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="np-featurecount">—</span><span class="minicc-latest-label">功能面</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="np-asof">—</span><span class="minicc-latest-label">更新于</span></div>
+              </div>
+              <div class="minicc-latest-foot"><span id="np-generated">—</span><span>特性面：<code id="np-features-list">—</code></span></div>
+            </div>
+            <!-- nexus-platform:latest-end -->
+
 
             <article class="project-card project-crossrealm">
               <div class="project-visual image-visual image-visual-tall"><img src="assets/crossrealm.webp" alt="跨界纪元游戏世界海报" /><span class="visual-tag">THREE.JS / RPG</span></div>
@@ -178,7 +191,7 @@
           <div class="project-table" data-project-table>
             <a class="index-row" data-category="systems" href="https://github.com/xiaodernan/specproof" target="_blank" rel="noreferrer"><span class="index-id">05</span><span class="index-main"><strong>SpecProof</strong><small>代码变更验收与证据工作台</small></span><span class="index-stack">Python · FastAPI · React</span><span class="index-state state-green">MASTER / 2026.11</span><span class="index-arrow">↗</span></a>
             <a class="index-row" data-category="systems" href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer"><span class="index-id">06</span><span class="index-main"><strong>AI Career OS</strong><small>面向求职的 AI 工作操作系统</small></span><span class="index-stack">Next.js · Spring · FastAPI</span><span class="index-state state-blue">MAIN / ACTIVE</span><span class="index-arrow">↗</span></a>
-            <a class="index-row" data-category="systems" href="https://github.com/xiaodernan/nexus-platform" target="_blank" rel="noreferrer"><span class="index-id">07</span><span class="index-main"><strong>NEXUS Platform</strong><small>AI 原生商业与本地发现平台</small></span><span class="index-stack">Next.js · Spring Cloud · RAG</span><span class="index-state state-orange">MASTER / MVP</span><span class="index-arrow">↗</span></a>
+            <a class="index-row" data-category="systems" href="https://github.com/xiaodernan/nexus-platform" target="_blank" rel="noreferrer"><span class="index-id">07</span><span class="index-main"><strong>NEXUS Platform</strong><small>AI 原生商业与本地发现平台 · 每周自动同步最新指标</small></span><span class="index-stack">Next.js · Spring Cloud · RAG</span><span class="index-state state-orange">MASTER / 2026.11</span><span class="index-arrow">↗</span></a>
             <a class="index-row" data-category="creative" href="https://github.com/xiaodernan/caesura" target="_blank" rel="noreferrer"><span class="index-id">08</span><span class="index-main"><strong>CAESURA《止音纪元》</strong><small>Three.js 第三人称动作 RPG 垂直切片</small></span><span class="index-stack">TypeScript · Three.js · Vite</span><span class="index-state state-purple">MASTER / SLICE</span><span class="index-arrow">↗</span></a>
             <a class="index-row" data-category="football" href="https://github.com/xiaodernan/football-os-web" target="_blank" rel="noreferrer"><span class="index-id">09</span><span class="index-main"><strong>Football OS Web</strong><small>足球成长与分析的浏览器端体验</small></span><span class="index-stack">React · Vite · Playwright</span><span class="index-state state-green">MASTER / WEB</span><span class="index-arrow">↗</span></a>
             <a class="index-row" data-category="football" href="https://github.com/xiaodernan/football-os" target="_blank" rel="noreferrer"><span class="index-id">10</span><span class="index-main"><strong>Football OS</strong><small>足球知识、训练、战术与模拟系统</small></span><span class="index-stack">Next.js · FastAPI · PostgreSQL</span><span class="index-state state-blue">MASTER / M0—M6</span><span class="index-arrow">↗</span></a>
@@ -230,6 +243,23 @@
       set('nc-testfiles', String(d.test_files ?? '—'));
       set('nc-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.first_commit_at ?? ''} 开局` : '');
       set('nc-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 5).join(' · ') : '—');
+    } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
+  })();
+</script>
+<script>
+  (async function () {
+    try {
+      const r = await fetch('assets/nexus-platform/latest.json', { cache: 'no-store' });
+      if (!r.ok) return;
+      const d = await r.json();
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('np-head', `master @ ${d.head}`);
+      set('np-commits', String(d.total_commits ?? '—'));
+      set('np-milestone', d.milestone ?? '—');
+      set('np-featurecount', Array.isArray(d.features) ? String(d.features.length) : '—');
+      set('np-asof', String(d.pushed_at ?? '').slice(0, 10));
+      set('np-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : (d.milestone_full ?? ''));
+      set('np-features-list', Array.isArray(d.features) ? d.features.slice(0, 4).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
   })();
 </script>

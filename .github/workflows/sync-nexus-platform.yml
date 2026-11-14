@@ -1,0 +1,69 @@
+name: Sync nexus-platform showcase card
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"   # weekly Monday 13:00 UTC — one sync per heavy milestone, not per push
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/sync-nexus-platform.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-nexus-platform
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the nexus-platform fact pack
+        run: |
+          set -euo pipefail
+          mkdir -p assets/nexus-platform
+          REPO=xiaodernan/nexus-platform
+          HEAD_JSON=$(curl -fsSL -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${REPO}/commits?sha=master&per_page=1")
+          HEAD=$(printf '%s' "$HEAD_JSON" | jq -r '.[0].sha' | cut -c1-7)
+          PUSHED=$(printf '%s' "$HEAD_JSON" | jq -r '.[0].commit.committer.date')
+          LINK=$(curl -sI -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${REPO}/commits?sha=master&per_page=1" | grep -i '^link:' || true)
+          TOTAL=$(printf '%s' "$LINK" | sed -n 's/.*[?&]page=\([0-9]*\)>; rel="last".*/\1/p')
+          TOTAL=${TOTAL:-1}
+          CURATED=$(curl -fsSL "https://raw.githubusercontent.com/${REPO}/master/docs/SHOWCASE.json")
+          HEAD="$HEAD" TOTAL="$TOTAL" PUSHED="$PUSHED" CURATED="$CURATED" \
+          python3 - <<'PY'
+          import json, os, datetime
+          curated = json.loads(os.environ['CURATED'])
+          pack = {
+              'schema_version': 'nexus-platform.latest.v1',
+              'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
+              'branch': 'master',
+              'head': os.environ['HEAD'],
+              'total_commits': int(os.environ['TOTAL'] or 1),
+              'pushed_at': os.environ['PUSHED'],
+              'milestone': curated.get('milestone', '—'),
+              'milestone_full': curated.get('milestone_full', '—'),
+              'headline': curated.get('headline', 'NEXUS Platform'),
+              'features': curated.get('features', []),
+              'privacy_note': curated.get('privacy_note', ''),
+          }
+          with open('assets/nexus-platform/latest.json', 'w', encoding='utf-8') as fh:
+              json.dump(pack, fh, indent=2, ensure_ascii=False)
+          PY
+          echo "assembled assets/nexus-platform/latest.json (head $HEAD, $TOTAL commits)"
+
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- assets/nexus-platform/latest.json 2>/dev/null; then
+            echo "no change"
+          else
+            git config user.name "pages-sync-bot"
+            git config user.email "pages-sync-bot@users.noreply.github.com"
+            git add assets/nexus-platform/latest.json
+            git commit -m "sync(nexus-platform): refresh the showcase fact pack from master"
+            git push
+          fi
