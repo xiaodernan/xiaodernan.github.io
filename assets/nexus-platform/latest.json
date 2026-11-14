@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T15:52:30.541800Z",
+  "generated_at": "2026-11-14T17:43:08.577856Z",
   "branch": "master",
-  "head": "3ab38c1",
-  "total_commits": 1340,
-  "pushed_at": "2026-11-14T15:50:53Z",
-  "milestone": "D1138",
-  "milestone_full": "香港系列十九章 · 時鐘全天 02:00→22:45 已展完",
+  "head": "f9707a5",
+  "total_commits": 1342,
+  "pushed_at": "2026-11-14T17:42:19Z",
+  "milestone": "D1140",
+  "milestone_full": "香港系列二十章 · 動態時鐘全天 · Edge 限流 redis 共享桶登場 (D1140)",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: nineteen Traditional chapters — 02:00→22:45 full day arc",
-    "/hong-kong: nineteen-checkpoints arc clock — chronological",
-    "今日食運 daily almanac · 每日一句 Cantonese-of-the-day",
+    "HK series: twenty Traditional chapters - 02:00→22:45 full day arc",
+    "/hong-kong: twenty-checkpoint arc clock - chronological, both locales",
+    "D1140: Spring Cloud edge rate limiter now shares ONE Redis bucket across processes",
     "/handbook: complete bilingual manual · quiz tutorial · newcomer strip",
-    "scroll-behavior:smooth removal · 12-chapter arc · 346/346 web suite",
-    "LLM cache probe: identical 100% · contract prefix 100% · tiny 95.5%"
+    "scroll-behavior:smooth removal - 12-chapter arc · 346/346 web suite",
+    "LLM cache probe: identical burst 100% · contract prefix 100% · tiny 95.5%"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
