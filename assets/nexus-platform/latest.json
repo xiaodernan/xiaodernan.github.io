@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-14T15:32:55.271988Z",
+  "generated_at": "2026-11-14T15:52:30.541800Z",
   "branch": "master",
-  "head": "3a301d8",
-  "total_commits": 1338,
-  "pushed_at": "2026-11-14T15:32:30Z",
-  "milestone": "D1136",
-  "milestone_full": "香港系列十七章 + 簡明說明書 + 前五×壓力測試 + 出函煙火",
+  "head": "3ab38c1",
+  "total_commits": 1340,
+  "pushed_at": "2026-11-14T15:50:53Z",
+  "milestone": "D1138",
+  "milestone_full": "香港系列十九章 · 時鐘全天 02:00→22:45 已展完",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: seventeen Traditional chapters — 02:00→02:30→03:10→03:30 bookended",
-    "/hong-kong: seventeen-checkpoints arc clock — chronological, with tap-to-chalk",
+    "HK series: nineteen Traditional chapters — 02:00→22:45 full day arc",
+    "/hong-kong: nineteen-checkpoints arc clock — chronological",
     "今日食運 daily almanac · 每日一句 Cantonese-of-the-day",
     "/handbook: complete bilingual manual · quiz tutorial · newcomer strip",
-    "scroll-behavior:smooth removed — the finger belongs to the reader again",
-    "LLM cache probe: weekly Tue 00:00 UTC — identical 100% warm · tiny 95.5% · contract 100%"
+    "scroll-behavior:smooth removal · 12-chapter arc · 346/346 web suite",
+    "LLM cache probe: identical 100% · contract prefix 100% · tiny 95.5%"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
