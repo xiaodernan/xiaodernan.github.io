@@ -213,10 +213,16 @@
   
 <script>
   (async function () {
+    const fetchJson = async (url) => {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    };
     try {
-      const r = await fetch('assets/minicc/latest.json', { cache: 'no-store' });
-      if (!r.ok) return;
-      const d = await r.json();
+      // 每次访问实时读取 main 上的最新事实包；raw.githubusercontent.com 有 CORS *，
+      // 远程失败时回退到本站静态副本（每周被 cron 刷新）。
+      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/minicc-codex/main/docs/latest.json')
+        .catch(() => fetchJson('assets/minicc/latest.json'));
       const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
       set('minicc-latest-head', `main @ ${d.head}`);
       set('ml-commits', String(d.total_commits ?? '—'));
@@ -225,7 +231,7 @@
       set('ml-tests', String(d.test_files ?? '—'));
       set('ml-chapters', `${d.almanac_chapters ?? '—'} 卷`);
       set('ml-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.roadmap_lines?.toLocaleString?.() ?? ''} 行 roadmap` : '');
-    } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
+    } catch (_) { /* strip stays placeholding when the fact pack is unreachable */ }
   })();
 </script>
 <script>
