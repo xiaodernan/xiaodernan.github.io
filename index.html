@@ -91,7 +91,7 @@
                 <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-tests">—</span><span class="minicc-latest-label">测试文件</span></div>
                 <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-chapters">—</span><span class="minicc-latest-label">年鉴章节</span></div>
               </div>
-              <div class="minicc-latest-foot"><span id="ml-generated">—</span><span>特性面：<code>13 项 · 两语对账</code></span></div>
+              <div class="minicc-latest-foot"><span id="ml-generated">—</span><span>特性面：<code id="ml-features">—</code></span></div>
             </div>
             <!-- minicc:latest-end -->
 
@@ -231,6 +231,7 @@
       set('ml-tests', String(d.test_files ?? '—'));
       set('ml-chapters', `${d.almanac_chapters ?? '—'} 卷`);
       set('ml-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.roadmap_lines?.toLocaleString?.() ?? ''} 行 roadmap` : '');
+      if (Array.isArray(d.feature_surface)) set('ml-features', `${d.module_count ?? d.feature_surface.length} 项 · 两语对账`);
     } catch (_) { /* strip stays placeholding when the fact pack is unreachable */ }
   })();
 </script>
