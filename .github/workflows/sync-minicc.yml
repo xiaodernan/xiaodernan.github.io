@@ -1,0 +1,42 @@
+name: Sync minicc-codex showcase card
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # weekly Monday 12:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/sync-minicc.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-minicc
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the latest minicc-codex fact pack
+        run: |
+          mkdir -p assets/minicc
+          curl -fsSL https://raw.githubusercontent.com/xiaodernan/minicc-codex/main/docs/latest.json \
+            -o assets/minicc/latest.json
+          echo "fetched $(wc -c assets/minicc/latest.json) bytes"
+
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- assets/minicc/latest.json 2>/dev/null; then
+            echo "no change"
+          else
+            git config user.name "pages-sync-bot"
+            git config user.email "pages-sync-bot@users.noreply.github.com"
+            git add assets/minicc/latest.json
+            git commit -m "sync(minicc): refresh the showcase fact pack from main"
+            git push
+          fi

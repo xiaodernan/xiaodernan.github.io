@@ -6,3 +6,73 @@
 @media(max-width:900px){.lab-grid{grid-template-columns:repeat(2,1fr)}.lab-rail{flex-wrap:wrap}.lab-rail span{flex:1 1 40%}}
 @media(max-width:560px){.lab-section{padding-top:84px;padding-bottom:84px}.lab-grid{grid-template-columns:1fr}.lab-card{min-height:230px}.lab-card-top{margin-bottom:26px}.lab-rail{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lab-rail span{min-width:0}}
 body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{background:var(--surface)}
+/* minicc latest strip */
+.minicc-latest {
+  margin: 18px 0 0;
+  border: 1px solid var(--line, #e3dfd3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--accent-soft, #f7efe0) 60%, transparent);
+}
+.minicc-latest-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-ink, #c2452a);
+}
+.minicc-latest-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ca872;
+  box-shadow: 0 0 0 0 rgba(44, 168, 114, .45);
+  animation: minicc-dot-breathe 2.2s ease-in-out infinite;
+}
+@keyframes minicc-dot-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(44, 168, 114, .45); }
+  50% { box-shadow: 0 0 0 6px rgba(44, 168, 114, .08); }
+}
+.minicc-latest-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px 16px;
+  margin-top: 12px;
+}
+.minicc-latest-cell { display: grid; gap: 2px; }
+.minicc-latest-number {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.minicc-latest-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--muted-ink, #6f6a5e);
+}
+.minicc-latest-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line, #e3dfd3);
+  font-size: 10.5px;
+  color: var(--muted-ink, #6f6a5e);
+}
+.minicc-latest-foot code {
+  font-family: inherit;
+  color: var(--accent-ink, #c2452a);
+}
+@media (max-width: 760px) {
+  .minicc-latest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .minicc-latest-foot { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .minicc-latest-dot { animation: none; }
+}
