@@ -103,8 +103,22 @@
 
             <article class="project-card project-nexus">
               <div class="project-visual image-visual"><img src="assets/nexus-scene.png" alt="NEXUS Studio 3D 场景工作台截图" /><span class="visual-tag">STUDIO / 3D</span></div>
-              <div class="project-content"><div class="project-topline"><span class="project-number">03</span><span class="project-type">CREATIVE OS</span></div><h3>NEXUS Content Platform</h3><p>把想法变成可编辑、可运行、可发布的数字世界。包含 Studio、Agent Runtime、创意模型和证据化验证链路。</p><div class="tag-row"><span>TypeScript</span><span>Turbo</span><span>WebGL</span><span>Agents</span></div><div class="project-links"><a href="https://github.com/xiaodernan/nexus-content-platform" target="_blank" rel="noreferrer">查看源码 ↗</a><span>main / master 已对齐</span></div></div>
+              <div class="project-content"><div class="project-topline"><span class="project-number">03</span><span class="project-type">CREATIVE OS</span></div><h3>NEXUS Content Platform</h3><p>把想法变成可编辑、可运行、可发布的数字世界。包含 Studio、Agent Runtime、创意模型和证据化验证链路。</p><div class="project-links"><a href="https://github.com/xiaodernan/nexus-content-platform" target="_blank" rel="noreferrer">查看源码 ↗</a><span>main 持续演进</span></div></div>
             </article>
+            <!-- nexus-content:latest-start -->
+            <div class="minicc-latest" id="nexus-content-latest" aria-label="Nexus Content Platform 最新指标">
+              <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code id="nc-head">—</code></div>
+              <div class="minicc-latest-grid">
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="nc-commits">—</span><span class="minicc-latest-label">提交总数</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="nc-adrs">—</span><span class="minicc-latest-label">ADR 决策</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="nc-contracts">—</span><span class="minicc-latest-label">跨端契约</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="nc-services">—</span><span class="minicc-latest-label">Java 服务</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="nc-testfiles">—</span><span class="minicc-latest-label">测试文件</span></div>
+              </div>
+              <div class="minicc-latest-foot"><span id="nc-generated">—</span><span>特性面：<code id="nc-features">—</code></span></div>
+            </div>
+            <!-- nexus-content:latest-end -->
+
 
             <article class="project-card project-crossrealm">
               <div class="project-visual image-visual image-visual-tall"><img src="assets/crossrealm.webp" alt="跨界纪元游戏世界海报" /><span class="visual-tag">THREE.JS / RPG</span></div>
@@ -198,6 +212,24 @@
       set('ml-tests', String(d.test_files ?? '—'));
       set('ml-chapters', `${d.almanac_chapters ?? '—'} 卷`);
       set('ml-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.roadmap_lines?.toLocaleString?.() ?? ''} 行 roadmap` : '');
+    } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
+  })();
+</script>
+<script>
+  (async function () {
+    try {
+      const r = await fetch('assets/nexus-content/latest.json', { cache: 'no-store' });
+      if (!r.ok) return;
+      const d = await r.json();
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('nc-head', `main @ ${d.head}`);
+      set('nc-commits', String(d.total_commits ?? '—'));
+      set('nc-adrs', String(d.adrs ?? '—'));
+      set('nc-contracts', String(d.contracts ?? '—'));
+      set('nc-services', String(d.services ?? '—'));
+      set('nc-testfiles', String(d.test_files ?? '—'));
+      set('nc-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.first_commit_at ?? ''} 开局` : '');
+      set('nc-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 5).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
   })();
 </script>
