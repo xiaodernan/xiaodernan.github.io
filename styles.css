@@ -105,3 +105,4 @@ body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{backgrou
 @media (prefers-reduced-motion: reduce) {
   .minicc-latest-dot { animation: none; }
 }
+.sub-link{display:inline-flex;align-items:center;padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--muted);text-decoration:none;transition:.2s;background:var(--surface)}.sub-link:hover{border-color:var(--accent);color:var(--accent)}.sub-link-accent{border-color:var(--accent);color:var(--accent)}.sub-link-accent:hover{background:var(--accent);color:var(--surface)}
