@@ -1,0 +1,57 @@
+name: Sync AI Career OS showcase card
+
+# The portfolio card for AI Career OS. Two paths:
+#   1) this workflow, Monday 13:30 UTC, refreshes assets/career-os/latest.json
+#   2) the page fetches raw.githubusercontent.com/.../main/docs/LATEST.json
+#      at load — the live number beats the weekly snapshot, and CI throttles
+#      the commit noise with a diff check.
+on:
+  schedule:
+    - cron: "30 13 * * 1"  # Monday 13:30 UTC, 30 min behind the nexus sync
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/sync-career-os.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-career-os
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the fact pack from the source repo
+        run: |
+          set -euo pipefail
+          mkdir -p assets/career-os
+          REPO=xiaodernan/ai-career-os
+          HEAD=$(curl -fsSL -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${REPO}/commits?sha=main&per_page=1" | jq -r '.[0].sha' | cut -c1-7)
+          STATUS_JSON=$(curl -fsSL "https://raw.githubusercontent.com/${REPO}/main/docs/LATEST.json")
+          HEAD="$HEAD" STATUS_JSON="$STATUS_JSON" python3 - <<'PY'
+          import json, os, datetime
+          pack = json.loads(os.environ['STATUS_JSON'])
+          pack['head'] = os.environ['HEAD']
+          pack['generated_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z')
+          with open('assets/career-os/latest.json', 'w', encoding='utf-8') as fh:
+              json.dump(pack, fh, indent=2, ensure_ascii=False)
+          print("assembled assets/career-os/latest.json from head", os.environ['HEAD'])
+          PY
+
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- assets/career-os/latest.json 2>/dev/null; then
+            echo "no change"
+          else
+            git config user.name "pages-sync-bot"
+            git config user.email "pages-sync-bot@users.noreply.github.com"
+            git add assets/career-os/latest.json
+            git commit -m "sync(career-os): refresh the showcase fact pack from main"
+            git push
+          fi
