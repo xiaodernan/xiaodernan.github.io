@@ -1,12 +1,22 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-15T11:40:39.271Z",
+  "generated_at": "2026-11-15T11:42:33.342Z",
   "branch": "main",
-  "head": "2a7d1d7",
-  "total_commits": 1681,
-  "pushed_at": "2026-11-15T19:37:57+08:00",
+  "head": "34fe42b",
+  "total_commits": 1683,
+  "pushed_at": "2026-11-15T11:42:27Z",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
+    {
+      "short": "34fe42b",
+      "at": "2026-11-15T11:42:27Z",
+      "subject": "chore(latest): refresh the showcase fact pack from main"
+    },
+    {
+      "short": "bf09d52",
+      "at": "2026-11-15T11:40:36Z",
+      "subject": "chore(latest): refresh the showcase fact pack from main"
+    },
     {
       "short": "2a7d1d7",
       "at": "2026-11-15T19:37:57+08:00",
@@ -20,16 +30,6 @@
     {
       "short": "0d41538",
       "at": "2026-11-15T11:04:52Z",
-      "subject": "chore(latest): refresh the showcase fact pack from main"
-    },
-    {
-      "short": "e3f08e0",
-      "at": "2026-11-15T19:04:29+08:00",
-      "subject": "feat(server): W-Z130 遥测落地盘——Postgres 原生批量插入 + UPSERT roll-up + 炉边盘 Live 卡"
-    },
-    {
-      "short": "6a6caf1",
-      "at": "2026-11-15T10:43:43Z",
       "subject": "chore(latest): refresh the showcase fact pack from main"
     }
   ],
