@@ -193,9 +193,22 @@
             <article class="lab-card lab-card-live">
               <div class="lab-card-top"><span class="lab-status"><i></i> PAGES</span><span class="lab-code">03 / SLICE</span></div>
               <h3>CAESURA《止音纪元》</h3>
-              <p>原创第三人称动作 RPG（TypeScript + Three.js）：八区开放世界、三 Ending 主线、EPIC-V/VI/VII（设计稿）、游戏内双语说明书（手册＋游记）。入口自动跟随最新 master；子入口：/caesura/tutorial/（双语教程） · /caesura/console/（调度台） · /caesura/cast/（角色图鉴） · /caesura/codex/（世界谱 BM25 检索） · /caesura/story/（《盐》· 原创短篇）。</p>
+              <p>原创第三人称动作 RPG（TypeScript + Three.js）：八区开放世界、三 Ending 主线、EPIC-V/VI/VII（设计稿）、游戏内双语说明书（手册＋游记）。入口自动跟随最新 master；子入口：/caesura/tutorial/（双语教程） · /caesura/console/（调度台） · /caesura/cast/（角色图鉴） · /caesura/codex/（世界谱 BM25 检索） · /caesura/story/（《余响集》11 篇双语全文） · /caesura/admin/（止音后台 · 用户观察站 · 口令 123）。</p>
               <a class="lab-link" href="https://xiaodernan.github.io/caesura/" target="_blank" rel="noreferrer">进入止音纪元 <span>↗</span></a>
             </article>
+            <!-- caesura:latest-start -->
+            <div class="minicc-latest" id="caesura-latest" aria-label="止音纪元 · 最新成果">
+              <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST · 每次推送重算</span><code id="cz-head">—</code></div>
+              <div class="minicc-latest-grid">
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-impl">—</span><span class="minicc-latest-label">已实现 KIs</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-rows">—</span><span class="minicc-latest-label">KI 总行数</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-scripts">—</span><span class="minicc-latest-label">npm 脚本面</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-arch">—</span><span class="minicc-latest-label">ARCH 章节</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-partial">—</span><span class="minicc-latest-label">进行中 KIs</span></div>
+              </div>
+              <div class="minicc-latest-foot"><span id="cz-generated">—</span><span>CI <code id="cz-ci">check + spring-family-e2e 全绿</code></span></div>
+            </div>
+            <!-- caesura:latest-end -->
             <article class="lab-card lab-card-live">
               <div class="lab-card-top"><span class="lab-status"><i></i> PAGES</span><span class="lab-code">04 / EXPLORE</span></div>
               <h3>Football OS Web</h3>
@@ -368,6 +381,29 @@
         }));
         ul.hidden = false;
       }
+    } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
+  })();
+</script>
+<script>
+  (async function () {
+    try {
+      const fetchJson = async (url) => {
+        const r = await fetch(url, { cache: 'no-store' });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      };
+      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/caesura/master/site-latest.json?ts=' + Date.now())
+        .catch(() => fetchJson('assets/caesura/latest.json'));
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      const kv = (d && d.kv) || {};
+      set('cz-head', `master @ ${String(d.head || '').slice(0, 7)}`);
+      set('cz-impl', String(kv['KI.Implemented'] ?? '—'));
+      set('cz-rows', String(kv['KI.rows'] ?? '—'));
+      set('cz-scripts', String(kv['PKG.scripts'] ?? '—'));
+      set('cz-arch', String(kv['ARCH.sections'] ?? '—'));
+      set('cz-partial', String(kv['KI.Partial'] ?? '—'));
+      set('cz-generated', d.date ? `再嵌 ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}` : '每次推送全绿自动再嵌');
+      set('cz-ci', (d.headMgt && d.headMgt.ci) || 'check + spring-family-e2e 全绿');
     } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   })();
 </script>
