@@ -153,18 +153,18 @@
             </div>
             <!-- crossrealm:latest-end -->
             <article class="project-card project-footos">
-              <div class="project-visual image-visual" style="display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%, #143b23 0%, #0f2416 55%, #08110b 100%);color:#4ef0a0;font:800 clamp(28px, 6vw, 44px)/1.05 'DM Mono', monospace;letter-spacing:.01em;text-align:center"><span>FOOTBALL<br/>OS</span><span class="visual-tag" style="position:absolute;top:14px;right:14px;background:#0f2416;color:#4ef0a0;border:1px solid #1d5f3a;padding:4px 10px;font:600 11px 'DM Mono',monospace;letter-spacing:.08em">PAGES / LIVE</span></div>
-              <div class="project-content"><div class="project-topline"><span class="project-number">05</span><span class="project-type">FOOTBALL OS</span></div><h3>Football OS Web</h3><p>确定性种子驱动的足球情报、训练、战术与模拟平台，100+ 路由，Spring Cloud plane，前缀缓存亲和真跑。</p><div class="tag-row"><span>React</span><span>Vite</span><span>Spring Cloud</span><span>PWA · Redis</span><span>Best in class PC</span></div><div class="project-links"><a href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">进入足球世界 ↗</a><a href="https://github.com/xiaodernan/football-os-web" target="_blank" rel="noreferrer">源码</a></div></div>
+              <div class="project-visual image-visual" style="display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%, #143b23 0%, #0f2416 55%, #08110b 100%);color:#4ef0a0;font:800 clamp(28px, 6vw, 44px)/1.05 'DM Mono', monospace;letter-spacing:.01em;text-align:center"><span>FOOTBALL<br/>OS</span><span class="visual-tag" style="position:absolute;top:14px;right:14px;background:#0f2416;color:#4ef0a0;border:1px solid #1d5f3a;padding:4px 10px;font:600 11px 'DM Mono',monospace;letter-spacing:.08em">MASTER / CI<span></div>
+              <div class="project-content"><div class="project-topline"><span class="project-number">05</span><span class="project-type">FOOTBALL OS</span></div><h3>Football OS</h3><p>确定性种子驱动的足球操作系统：训练、成长、战术实验室、AI 教练（真跑 gpt-6-sol）、完整的四赛季世界。Next.js + FastAPI + Spring Cloud plane，前缀缓存实测 ~95%，Lighthouse 全绿。</p><div class="tag-row"><span>Next.js</span><span>FastAPI</span><span>Spring Cloud</span><span>Redis</span><span>WCAG 1.00</span><span>六语 i18n</span></div><div class="project-links"><a href="https://github.com/xiaodernan/football-os" target="_blank" rel="noreferrer">源码（master 持续提交） ↗</a><a href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">早期 React 演示</a></div></div>
             </article>
             <!-- footos:latest-start -->
-            <div class="minicc-latest" id="footos-latest" aria-label="Football OS Web 最新指标">
+            <div class="minicc-latest" id="footos-latest" aria-label="Football OS 最新指标">
               <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code id="fw-head">—</code></div>
               <div class="minicc-latest-grid">
                 <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-commits">—</span><span class="minicc-latest-label">提交总数</span></div>
                 <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-milestone">—</span><span class="minicc-latest-label">最新里程碑</span></div>
                 <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-screens">—</span><span class="minicc-latest-label">动态屏幕</span></div>
-                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-pwa">—</span><span class="minicc-latest-label">PWA KB</span></div>
-                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-assets">—</span><span class="minicc-latest-label">静态资产</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-locales">—</span><span class="minicc-latest-label">语种</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="fw-assets">—</span><span class="minicc-latest-label">质量资产</span></div>
               </div>
               <div class="minicc-latest-foot"><span id="fw-generated">—</span><span>特性面：<code id="fw-features">—</code></span></div>
             </div>
@@ -319,7 +319,7 @@
 <script>
   (async function () {
     try {
-      const r = await fetch('https://raw.githubusercontent.com/xiaodernan/football-os-web/master/docs/latest.json', { cache: 'no-store' })
+      const r = await fetch('https://raw.githubusercontent.com/xiaodernan/football-os/master/docs/latest.json?ts=' + Date.now(), { cache: 'no-store' })
         .catch(() => fetch('assets/football/latest.json', { cache: 'no-store' }));
       if (!r.ok) return;
       const d = await r.json();
@@ -328,7 +328,7 @@
       set('fw-commits', String(d.total_commits ?? '—'));
       set('fw-milestone', d.milestone ?? '—');
       set('fw-screens', String(d.screens ?? '—'));
-      set('fw-pwa', d.pwa_kb != null ? `${d.pwa_kb} KB` : '—');
+      set('fw-locales', String(d.locales ?? '—'));
       set('fw-assets', String(d.assets ?? '—'));
       set('fw-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : '');
       set('fw-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '—');

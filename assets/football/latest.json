@@ -1,20 +1,23 @@
 {
-  "head": "e3f770c",
-  "total_commits": 1553,
-  "milestone": "M1150",
-  "milestone_full": "本提交落地后 M1150",
-  "pwa_kb": 723,
-  "assets": 92,
-  "screens": 70,
+  "head": "078fa97",
+  "total_commits": 1093,
+  "milestone": "§204",
+  "milestone_full": "§204 — Item 69: §46's ledger, kept a sidecar",
+  "pushed_at": "2026-11-15",
+  "screens": 75,
+  "assets": 188,
+  "world_doors": 13,
+  "locales": 6,
   "feature_surface": [
-    "The Chronicle — the epic fixture, AI-narrated",
-    "Hall of Legends — the world's greatest",
-    "World Atlas — the scale of the world",
-    "The Derby Codex — the eternal meetings",
-    "Prophet's Slate — the next eight told",
-    "The Upsets — the night the model misread",
-    "The Chapter — tonight's one chapter",
-    "The Moonshots — the uncashed ceilings"
+    "The World — a seeded season, computed end to end",
+    "The Almanac — the awards the world earns",
+    "The Story — three chapters from the archive",
+    "The XI — the eleven the world would send",
+    "The Record Book — the eight marks the world produced",
+    "The Duel — the ledger's own pair of powers",
+    "The Training Academy — drills with evidence",
+    "The Coach — real phrasing on a real gateway, prefix cached ~95%",
+    "Accessibility 1.00 — every audited public and authenticated surface"
   ],
-  "generated_at": "2026-11-15T11:02:00.609Z"
+  "generated_at": "2026-11-15T11:42:19.758Z"
 }
