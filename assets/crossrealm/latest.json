@@ -1,12 +1,17 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-15T09:14:38.540Z",
+  "generated_at": "2026-11-15T09:18:13.890Z",
   "branch": "main",
-  "head": "0de3d8d",
-  "total_commits": 1665,
-  "pushed_at": "2026-11-15T17:14:14+08:00",
+  "head": "de86ae4",
+  "total_commits": 1666,
+  "pushed_at": "2026-11-15T09:14:38Z",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
+    {
+      "short": "de86ae4",
+      "at": "2026-11-15T09:14:38Z",
+      "subject": "chore(latest): refresh the showcase fact pack from main"
+    },
     {
       "short": "0de3d8d",
       "at": "2026-11-15T17:14:14+08:00",
@@ -26,11 +31,6 @@
       "short": "5676c41",
       "at": "2026-11-15T08:52:30Z",
       "subject": "chore(latest): refresh the showcase fact pack from main"
-    },
-    {
-      "short": "a24f01d",
-      "at": "2026-11-15T16:51:57+08:00",
-      "subject": "feat(lore): W-Z121 三日陵·原典三碎片（三系影原著氛围、融入目前游戏原典）"
     }
   ],
   "tracked_files": 1244,
