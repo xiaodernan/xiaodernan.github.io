@@ -53,5 +53,7 @@ jobs:
             git config user.email "pages-sync-bot@users.noreply.github.com"
             git add assets/career-os/latest.json
             git commit -m "sync(career-os): refresh the showcase fact pack from main"
+            # the site is updated by several crons; rebase past any that landed first
+            git pull --rebase origin master
             git push
           fi
