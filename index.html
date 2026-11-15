@@ -138,6 +138,20 @@
               <div class="project-visual image-visual image-visual-tall"><img src="assets/crossrealm.webp" alt="跨界纪元游戏世界海报" /><span class="visual-tag">THREE.JS / RPG</span></div>
               <div class="project-content"><div class="project-topline"><span class="project-number">04</span><span class="project-type">INTERACTIVE WORLD</span></div><h3>跨界纪元</h3><p>浏览器端第三人称开放世界动作 RPG，把奇幻、魔法与星际碎片拼成一套可玩的系统。</p><div class="tag-row"><span>Three.js</span><span>Vite</span><span>Combat</span><span>World</span></div><div class="project-links"><a href="https://xiaodernan.github.io/crossrealm-chronicles/" target="_blank" rel="noreferrer">进入试玩 ↗</a><a href="https://github.com/xiaodernan/crossrealm-chronicles" target="_blank" rel="noreferrer">源码</a></div></div>
             </article>
+                        <!-- crossrealm:latest-start -->
+            <div class="minicc-latest" id="crossrealm-latest" aria-label="跨界纪元 · 最新成果">
+              <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code id="cr-head">…</code></div>
+              <div class="minicc-latest-grid">
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cr-commits">…</span><span class="minicc-latest-label">提交次数</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cr-testfiles">…</span><span class="minicc-latest-label">测试文件</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cr-i18n">…</span><span class="minicc-latest-label">i18n 键</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cr-lore">…</span><span class="minicc-latest-label">原典语料源</span></div>
+                <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cr-novel">…</span><span class="minicc-latest-label">双语章回</span></div>
+              </div>
+              <div class="minicc-latest-foot"><span id="cr-generated">…</span><span>最新 · <code id="cr-features">…</code></span></div>
+              <ul class="minicc-latest-commits" id="cr-commits-list" hidden aria-label="跨界纪元 最近提交"></ul>
+            </div>
+            <!-- crossrealm:latest-end -->
             <article class="project-card project-footos">
               <div class="project-visual image-visual" style="display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%, #143b23 0%, #0f2416 55%, #08110b 100%);color:#4ef0a0;font:800 clamp(28px, 6vw, 44px)/1.05 'DM Mono', monospace;letter-spacing:.01em;text-align:center"><span>FOOTBALL<br/>OS</span><span class="visual-tag" style="position:absolute;top:14px;right:14px;background:#0f2416;color:#4ef0a0;border:1px solid #1d5f3a;padding:4px 10px;font:600 11px 'DM Mono',monospace;letter-spacing:.08em">PAGES / LIVE</span></div>
               <div class="project-content"><div class="project-topline"><span class="project-number">05</span><span class="project-type">FOOTBALL OS</span></div><h3>Football OS Web</h3><p>确定性种子驱动的足球情报、训练、战术与模拟平台，100+ 路由，Spring Cloud plane，前缀缓存亲和真跑。</p><div class="tag-row"><span>React</span><span>Vite</span><span>Spring Cloud</span><span>PWA · Redis</span><span>Best in class PC</span></div><div class="project-links"><a href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">进入足球世界 ↗</a><a href="https://github.com/xiaodernan/football-os-web" target="_blank" rel="noreferrer">源码</a></div></div>
@@ -214,7 +228,7 @@
             <a class="index-row" data-category="football" href="https://github.com/xiaodernan/football-os-web" target="_blank" rel="noreferrer"><span class="index-id">09</span><span class="index-main"><strong>Football OS Web</strong><small>足球成长与分析的浏览器端体验</small></span><span class="index-stack">React · Vite · Playwright</span><span class="index-state state-green">MASTER / WEB</span><span class="index-arrow">↗</span></a>
             <a class="index-row" data-category="football" href="https://github.com/xiaodernan/football-os" target="_blank" rel="noreferrer"><span class="index-id">10</span><span class="index-main"><strong>Football OS</strong><small>足球知识、训练、战术与模拟系统</small></span><span class="index-stack">Next.js · FastAPI · PostgreSQL</span><span class="index-state state-blue">MASTER / M0—M6</span><span class="index-arrow">↗</span></a>
           </div>
-          <div class="index-note"><span class="note-mark">◎</span><p>分支取舍：`minicc-codex` 以 `main` 为唯一展示入口；`specproof` 以 `master` 为当前最新合并线；`nexus-content-platform` 的 `main` 与 `master` 当前同一提交。其余仓库使用默认分支，避免把历史实验线误当成可交付版本。</p></div>
+          <div class="index-note"><span class="note-mark">◎</span><p>分支取舍：`minicc-codex` 以 `main` 为唯一展示入口；`specproof` 以 `master` 为当前最新合并线；`nexus-content-platform` 的 `main` 与 `master` 当前同一提交；`crossrealm-chronicles` 以 `main` 为唯一展示入口，进度卡片每周一自动跟随 `main` 刷新。其余仓库使用默认分支，避免把历史实验线误当成可交付版本。</p></div>
         </section>
 
         <section id="journey" class="section-pad journey-section" aria-labelledby="journey-title">
@@ -318,6 +332,42 @@
       set('fw-assets', String(d.assets ?? '—'));
       set('fw-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : '');
       set('fw-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '—');
+    } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
+  })();
+</script>
+<script>
+  (async function () {
+    try {
+      const fetchJson = async (url) => {
+        const r = await fetch(url, { cache: 'no-store' });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      };
+      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/crossrealm-chronicles/main/docs/latest.json?ts=' + Date.now())
+        .catch(() => fetchJson('assets/crossrealm/latest.json'));
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('cr-head', `main @ ${d.head}`);
+      set('cr-commits', String(d.total_commits ?? '…'));
+      set('cr-testfiles', String(d.test_files ?? '…'));
+      set('cr-i18n', String(d.i18n_keys ?? '…'));
+      set('cr-lore', String(d.lore_sources ?? '…'));
+      set('cr-novel', `${d.novel_chapters_zh ?? '…'} 章`);
+      set('cr-generated', d.generated_at ? `实测 ${String(d.generated_at).slice(0, 10)} · ${d.milestone ?? ''}` : '');
+      set('cr-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '…');
+      const ul = document.getElementById('cr-commits-list');
+      if (ul && Array.isArray(d.recent_commits) && d.recent_commits.length) {
+        ul.replaceChildren(...d.recent_commits.map((c) => {
+          const li = document.createElement('li');
+          li.className = 'minicc-latest-commit';
+          const sha = document.createElement('code');
+          sha.textContent = c.short || '';
+          const subject = document.createElement('span');
+          subject.textContent = c.subject || '';
+          li.append(sha, subject);
+          return li;
+        }));
+        ul.hidden = false;
+      }
     } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   })();
 </script>

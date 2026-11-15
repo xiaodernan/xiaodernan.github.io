@@ -1,0 +1,63 @@
+name: Sync crossrealm-chronicles showcase card
+
+# W-Z92：个人展示页「跨界纪元」卡片的事实包。
+# 双通路：
+#   1) 本 cron 每周一 12:30 UTC（与 game 仓库 sync-latest.yml 错开 30 分钟）重算并落盘
+#      assets/crossrealm/latest.json —— 旧浏览器/raw 失败时的稳态兜底；
+#   2) 页面运行时优先直读 raw.githubusercontent.com 的 docs/latest.json（?ts=Date.now() 击穿缓存），
+#      理论上随时最新；两者互为冗余。
+# 手工跑：workflow_dispatch（game 仓库大里程碑后，页面所有者可手动触发一次立即刷新）。
+on:
+  schedule:
+    - cron: "0 13 * * 1"   # weekly Monday 13:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/sync-crossrealm.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-crossrealm
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: xiaodernan/crossrealm-chronicles
+          ref: main
+          path: .sync/crossrealm-chronicles
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Rebuild the fact pack from the live repo
+        working-directory: .sync/crossrealm-chronicles
+        run: node scripts/build-latest.mjs
+
+      - name: Copy into the pages site
+        run: |
+          mkdir -p assets/crossrealm
+          cp .sync/crossrealm-chronicles/docs/latest.json assets/crossrealm/latest.json
+          echo "synced $(wc -c assets/crossrealm/latest.json) bytes"
+
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- assets/crossrealm/latest.json 2>/dev/null; then
+            echo "no change"
+          else
+            git config user.name "pages-sync-bot"
+            git config user.email "pages-sync-bot@users.noreply.github.com"
+            git add assets/crossrealm/latest.json
+            git commit -m "sync(crossrealm): refresh the showcase fact pack from main"
+            git push
+          fi
