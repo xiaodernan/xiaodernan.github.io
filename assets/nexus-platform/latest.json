@@ -1,22 +1,22 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-15T15:02:38.125694Z",
+  "generated_at": "2026-11-15T16:19:14.243381Z",
   "branch": "master",
-  "head": "5fff431",
-  "total_commits": 1406,
-  "pushed_at": "2026-11-15T15:02:06Z",
-  "milestone": "D1203",
-  "milestone_full": "香港系列第六十四章 · 凌晨零點四十五分：文錦渡口岸「榕記米業」的跨境貨車司機浩明 · Layer H跨境貨運 · 從中英文都是新章",
+  "head": "d493c60",
+  "total_commits": 1407,
+  "pushed_at": "2026-11-15T16:18:29Z",
+  "milestone": "D1204",
+  "milestone_full": "香港系列第六十五章 · 早上七點一刻：文錦渡口岸榕記米業——浩明第三班折返 · Layer H 貨運弧隻弧 · 跨境貨運至返回南落錨",
   "headline": "NEXUS Platform — Hong Kong's table, one sentence away.",
   "features": [
-    "HK series: sixty-four Traditional chapters — 00:30→22:45 full day arc · 128-chip clock both locales",
-    "Edition LXIV — 凌晨零點四十五分：文錦渡口岸「榕記米業」的跨境貨車司機浩明 (00:45) · Layer H cross-border freight",
-    "Layer H opens: 文錦渡貨運 · 皇崗夜班閘機 · 羅湖夜市 · 深水埗北河街市 — full border-economy cluster forms",
+    "HK series: sixty-five Traditional chapters — 00:30→22:45 full day arc · 130-chip clock both locales",
+    "Edition LXV — 早上七點一刻：文錦渡口岸榕記米業——浩明第三班折返 (07:15) · Layer H fades to dawn",
+    "Layer H opens with freight LXIV (00:45) closing with LXV (07:15) — the cross-border haulage arc closes",
     "Spring Cloud sidecar: Eureka · Config · Gateway · Admin :25445 · nexus-insight fifth service — CI on every master",
-    "handbook REAL-HK: sourced MTR figures + inline source URL · memorable DM5 · D1193: pressure all-green · D1191: cloud re-port",
-    "Real pressure-track 2.63→1.71s · handbook ALL routes green · 128-chip arc · WORLD_ROADMAP aligned",
-    "/hong-kong (64 chapters) · /stamp passport · /handbook · /try walkthrough · /hk-type quiz · /command 123 · /daily",
-    "D1203: chapter LXIV · D1202: inline source URL in handbook · D1201: LXIII 北河街市 · D1200: LXII 羅湖夜市 · D1199: LXI 皇崗"
+    "WORLD_ROADMAP aligned: A-G landed (60 chapters), Layer H specified (61-73) with LXI-LXV landed",
+    "handbook REAL-HK: sourced MTR figures + inline Wikipedia source URL · zh census clean · D1193: pressure all-green · D1191: cloud re-port (24761/24889/24089/25445)",
+    "/hong-kong (65 chapters) · /stamp passport · /handbook · /try walkthrough · /hk-type quiz · /command 123 · /daily",
+    "D1204: chapter LXV · D1203: LXIV 文錦渡貨運 · D1202: handbook inline URL · D1201: LXIII 北河街市 · D1199: LXI 皇崗 · D1198: WORLD_ROADMAP aligned"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented."
 }
