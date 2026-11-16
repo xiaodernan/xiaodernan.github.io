@@ -2,10 +2,10 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "8641168c30befd629a631c9c4b902c669323b768",
+  "head": "eae58573442bebc9a9464cd3490eeb097ba8c9c8",
   "branch": "master",
-  "subject": "feat(atlas): StateGraph 活蓝图 —— Atlas 教学区每张 NPC 任务线都画出运行时真节点（DLG_MEG 样本）",
-  "date": "2026-11-17T00:12:17+08:00",
+  "subject": "chore(console): oracle footnote 刷新为 aizzz v1 真值（2026-11-17 npm run llm:warmup --rounds=8 实测）",
+  "date": "2026-11-17T00:19:18+08:00",
   "kv": {
     "KI.rows": 536,
     "KI.Implemented": 359,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/8641168c30befd629a631c9c4b902c669323b768",
+    "url": "https://github.com/xiaodernan/caesura/commit/eae58573442bebc9a9464cd3490eeb097ba8c9c8",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
