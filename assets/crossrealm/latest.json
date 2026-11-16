@@ -1,12 +1,17 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-16T22:21:24.308Z",
+  "generated_at": "2026-11-16T22:38:51.451Z",
   "branch": "main",
-  "head": "3a181b2c",
-  "total_commits": 1997,
-  "pushed_at": "2026-11-16T22:18:12Z",
+  "head": "5fc06959",
+  "total_commits": 1998,
+  "pushed_at": "2026-11-16T22:24:30Z",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
+    {
+      "short": "5fc0695",
+      "at": "2026-11-16T22:24:30Z",
+      "subject": "chore(latest): refresh the showcase fact pack from main"
+    },
     {
       "short": "3a181b2",
       "at": "2026-11-16T22:18:12Z",
@@ -26,11 +31,6 @@
       "short": "912999a",
       "at": "2026-11-17T06:02:26+08:00",
       "subject": "feat(canon): W-Z290 第一百三十三卷《第三碗 / The Third Bowl》入典——卷十五之三十四"
-    },
-    {
-      "short": "c5a2daa",
-      "at": "2026-11-17T05:56:12+08:00",
-      "subject": "docs(plan): 记录 showcase card 双路兜底（工作流撞 race + 手工同语义代推两轮均成功落地）"
     }
   ],
   "tracked_files": 1538,
