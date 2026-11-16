@@ -2,10 +2,10 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "a78275ca022245a971ebe6ee3bd7f2b4c65b7f48",
+  "head": "48c297bbb9860b40ea478ffeaac6647926ac0cbe",
   "branch": "master",
-  "subject": "content(tutorial): 新增 Step 12「三语：简体 / 繁體 / EN」+ v1.9",
-  "date": "2026-11-17T01:05:43+08:00",
+  "subject": "docs(cache): §二十三 流 vs 非流 A/B 实测（aizzz · 2026-11-17）",
+  "date": "2026-11-17T01:13:17+08:00",
   "kv": {
     "KI.rows": 537,
     "KI.Implemented": 360,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/a78275ca022245a971ebe6ee3bd7f2b4c65b7f48",
+    "url": "https://github.com/xiaodernan/caesura/commit/48c297bbb9860b40ea478ffeaac6647926ac0cbe",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
