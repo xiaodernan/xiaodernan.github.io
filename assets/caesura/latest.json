@@ -2,10 +2,10 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "e0eca080a0ec3ddda998dc9069b4b7b341975857",
+  "head": "328a63e241f56bcd5573ec9a80702ea00cbe5f84",
   "branch": "master",
-  "subject": "chore(status): re-embed site-latest.json",
-  "date": "2026-11-16T17:35:17+08:00",
+  "subject": "tutorial: 新增 Step 11《世界谱》(en: 'The Codex · what to search') · v1.7 → v1.8 · 指引玩家用 1-3 个字在《世界谱》检索状态图 / flags / bosses 等",
+  "date": "2026-11-16T18:27:06+08:00",
   "kv": {
     "KI.rows": 531,
     "KI.Implemented": 354,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/e0eca080a0ec3ddda998dc9069b4b7b341975857",
+    "url": "https://github.com/xiaodernan/caesura/commit/328a63e241f56bcd5573ec9a80702ea00cbe5f84",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
