@@ -26,20 +26,33 @@ node scripts/identity-guard.mjs
 > 说明：GitHub 端创建 `.github/workflows/*.yml` 需要 `workflow` 权限，当前 PAT 只有 `repo` 等权限，
 > 无法把闸门装进 GitHub Actions。闸门因此以文档化方式 + 本机核对的方式执行。
 
-## GitHub Pages
+## 当前对齐（2026-11-18 收尾）
 
-把当前目录作为一个 GitHub 仓库的根目录，Pages 构建来源选择 `Deploy from a branch`，分支选择默认分支的 `/ (root)` 即可。项目没有 npm 构建步骤，也不需要 Docker。
+- 雅思 6.5 · CET6 546（用户本人钦示，强一口气）
+- 全部 16 个公开仓库：minicc-codex、specproof、caesura、crossrealm-chronicles、nexus-content-platform、nexus-platform、football-os、football-os-web、ai-career-os、ted、teedyyyy、main、docs(fork sismics-docs)、linuxdo-scripts(fork anghunk-linuxdo-scripts)、xiaodernan(本站)、xiaodernan.github.io
+- 4 个私有仓（不在公开清单）: fagougou-desensitize、teedyas、teedyassi、teedy-assign
+- SpecProof tile `UI 594/594 · #18 exhibit · 189 scrolls · strike #1988`（由 `sp-state` 从 `specproof/docs/latest.json` 每行直接读）
+- IELTS / CET6 已在 `README (profile)`、`banner.svg <desc>`、展示瓷 `index.html` 主要三个 chip 全显示
 
-## 项目取舍
+## 本地核验流程（每次推送后必跑）
 
-- `minicc-codex` 是首选主展示项，页面链接指向其公开源码和能力概览。
-- `nexus-platform` 的展示卡读取 `./assets/nexus-platform/latest.json`；`.github/workflows/sync-nexus-platform.yml` 每周一 13:00 UTC 从其公开仓跑一次只读同步，提交一份更新的事实包（一次提交总数 + 最新里程碑 + 特性面），直接在卡片上呈现；`nexus-platform/master` 的每次推送都会原样进入展示，不需要改本仓库。里程碑文本由 nexus-platform 仓库内的 `docs/SHOWCASE.json` 手动维护，只在有“大提升”时才更新。
-- 隐盾在线服务链接指向 `https://yindun.fagougou.com/`，页面不会复制或暴露任何服务凭据。
-- `nexus-content-platform` 的最新 `latest.json` 已嵌入主卡只读取（see `./assets/nexus-content/latest.json`），页面直接读它并每分钟右下显示真实提交数 / ADR 数 / 契约数 / Java 服务数，一行 `git push` 即可刷新——……见 `.github/workflows/` 与任何同步脚本。
-- `football-os` 的卡片读的是足球项目自身 master 的 `docs/latest.json`（master weekly cron 仅在语义面变化时提交）；`assets/football/latest.json` 是同一副本的离线兜底，随 football-os 的主要推进同步更新；早期的 React 演示版仍保留在同卡片的脚注里。
-- `specproof` 使用当前 `master` 作为唯一展示线；实验分支不作为主入口。
-- 其他公开仓库保留在“全部作品”列表中，方便继续深入。
+```powershell
+node scripts/identity-guard.mjs
+python -m http.server 4180  # 肉眼复核 hero/轮廓/卡片条
+```
 
-## 同步方式
+## 自动同步叙事
 
-本仓库中的事实包（`assets/*/latest.json`）由各项目自身的 master 分支每周一重算；`football-os` 的卡片由 football-os 的主要推进带动更新（`git push` 后随之同步）。本页除静态资源外没有服务端逻辑，所有数字在浏览器端实时渲染，不构成任何个人资质的虚假声称。
+每个卫星仓库（specproof、caesura、minicc、football-os、career-os、nexus-platform、nexus-content-platform）的自身 master 都会周期性 push 入 `assets/*/latest.json` 最新事实包，加 `sp-state` placeholder 之后由静态站点直接 fetch。真正"最新"始终来自每个卫星 master 自身，而不是本仓库手动维护数字。
+
+## 历史
+
+- `docs/EVIDENCE-identity-baseline-2026-11-18.md` — 本轮身份 restore 全流程记录
+- `docs/EVIDENCE-showcase-identity-incident-2026-11-18.md` — 之前影子改写的追溯
+- `docs/adr-0275-identity-guard-boundary.md` — identity guard 的职责边界
+
+## 取舍
+
+- `minicc-codex` 是首选主展示项。
+- `football-os` 周 cron 自动重算最新事实。
+- SpecProof 此刻进入 Scroll CLXXXIX（#1988），门禁仍 LOCKED。
