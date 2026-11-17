@@ -176,7 +176,7 @@
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-arch">—</span><span class="minicc-latest-label">ARCH 章节</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-partial">—</span><span class="minicc-latest-label">进行中 KIs</span></div>
           </div>
-          <div class="minicc-latest-foot"><span id="cz-generated">每次推送全绿自动再嵌</span><span>CI <code id="cz-ci">check + spring-family-e2e 全绿</code></span></div>
+          <div class="minicc-latest-foot"><span id="cz-generated">每次推送全绿自动刷新</span><span>CI <code id="cz-ci">check + spring-family-e2e 全绿</code></span></div>
         </div>
         <!-- caesura:latest-end -->
 
@@ -259,7 +259,7 @@
         </article>
         <!-- caesura:latest-start -->
         <div class="minicc-latest" id="caesura-latest" aria-label="止音纪元 · 最新成果">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST · 每次推送重嵌</span><code id="cz-head">—</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST · 每次推送自动刷新</span><code id="cz-head">—</code></div>
           <div class="minicc-latest-grid">
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-impl">—</span><span class="minicc-latest-label">已实现 KIs</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-rows">—</span><span class="minicc-latest-label">KI 总行数</span></div>
@@ -267,7 +267,7 @@
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-arch">—</span><span class="minicc-latest-label">ARCH 章节</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="cz-partial">—</span><span class="minicc-latest-label">进行中 KIs</span></div>
           </div>
-          <div class="minicc-latest-foot"><span id="cz-generated">每次推送全绿自动再嵌</span><span>CI <code id="cz-ci">check + spring-family-e2e 全绿</code></span></div>
+          <div class="minicc-latest-foot"><span id="cz-generated">每次推送全绿自动刷新</span><span>CI <code id="cz-ci">check + spring-family-e2e 全绿</code></span></div>
         </div>
         <!-- caesura:latest-end -->
         <article class="lab-card lab-card-live">
@@ -450,7 +450,7 @@
       set('cz-scripts', String(kv['PKG.scripts'] ?? '—'));
       set('cz-arch', String(kv['ARCH.sections'] ?? '—'));
       set('cz-partial', String(kv['KI.Partial'] ?? '—'));
-      set('cz-generated', d.date ? `再嵌 ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}` : '每次推送全绿自动再嵌');
+      set('cz-generated', d.date ? `全绿 ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}` : '每次推送全绿自动刷新');
       set('cz-ci', (d.headMgt && d.headMgt.ci) || 'check + spring-family-e2e 全绿');
     } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   })();
