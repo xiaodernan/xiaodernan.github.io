@@ -539,3 +539,13 @@ h1,h2,h3{text-wrap:balance}
 img{font-style:italic}
 .text-link{border-bottom:1px solid transparent}
 .text-link:hover{border-bottom-color:var(--gold-soft)}
+/* skip-link — the page first teaches itself instead of burying the first tab */
+.skip-link{
+  position:fixed;top:-46px;left:clamp(16px,6vw,96px);z-index:1000;
+  padding:9px 16px;background:var(--deep);color:var(--white);
+  border:1px solid var(--gold-soft);border-radius:3px;
+  font:11px "DM Mono",ui-monospace,monospace;letter-spacing:.04em;
+  text-decoration:none;transition:top .2s ease;
+}
+.skip-link:focus-visible{top:10px;outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.skip-link{transition:none}}
