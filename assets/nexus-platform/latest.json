@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-17T13:05:00Z",
+  "generated_at": "2026-11-17T23:10:00Z",
   "branch": "master",
-  "head": "ed262d5",
-  "total_commits": 1533,
-  "pushed_at": "2026-11-17T11:21:58Z",
-  "milestone": "D1310",
-  "milestone_full": "The world guide walks the front door — a StateGraph (classify→select→phrase→verify) fuses the live gpt-6.1-terra into the reader's path on the homepage, the /guides trailhead and every chapter page; the two curated doors are ranked, never invented",
-  "headline": "NEXUS Platform — Hong Kong's table, one sentence away. Now with a live compass on the front door.",
+  "head": "422293b",
+  "total_commits": 1539,
+  "pushed_at": "2026-11-17T14:25:00Z",
+  "milestone": "D1314",
+  "milestone_full": "The merchant agent re-reads the growing conversation, turn after turn — the codex mechanism. New audited read door GET /api/v1/internal/conversations/{id}/messages; system frozen → history oldest→newest → latest question → KB; measured warm-state ≈96% cached on aizzz/gpt-6.1-terra; transport-retry for the relay flap",
+  "headline": "NEXUS Platform — Hong Kong's table, one sentence away. The conversation never forgets itself.",
   "features": [
-    "D1310: 🧭 world guide on the homepage (/), the /guides trailhead and every chapter page — a StateGraph (classify→select→phrase→verify); two curated doors, deterministic bigram ranking, the model picks 1|2; fail-closed verify (no URLs, ≤420 chars, locale glyph-sane)",
-    "D1306: /ai/v1/world/guide — live lane verified through Clash Verge (zh-HK pick=2; EN 4736/4925 cached tokens; 96–97% prefix-cache hit, latency halved warm); BFF POST /api/nexus/ai/world-guide; client beacon, inert in mock mode",
-    "D1304–D1311: the EN arm rolls on — 22/106 chapters full English prose (Ch. 1–22 + 106), beat-parity tests 26/26, Traditional HK stays honest fallback elsewhere",
-    "D1307–D1309: /command trace strip rides the same rail wheel bridge (vertical wheel → horizontal track); §五 wheel audit verdict — no page-side reversed axis exists; OS-level remedies in /handbook FAQ + /wheel-check self-test",
-    "HK REAL-HK blocks carry inline Wikipedia sources — retrieve-or-silence rule, no invented figures",
-    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules, all green jars · verify_all RESULT: NO OFFENDER"
+    "D1314: merchant agent growing-history relay — platform read door (`GET /api/v1/internal/conversations/{id}/messages`), oldest→newest lead; codex-style warm-state ≈96% cached measured on aizzz/gpt-6.1-terra (E4); wire unchanged when unconfigured",
+    "D1313: the cache question, measured honestly — identical bursts 96.5% both transports; diverse turns 0 (this relay does not prefix-cache across requests); direct JSON stays default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
+    "D1310: 🧭 world guide reaches the homepage, guides trailhead and every chapter page — StateGraph classify→select→phrase→verify; curated two doors, model picks 1|2; fail-closed",
+    "D1311–D1314 EN arm rolls on — Ch. 1–23 complete (beat-parity tests 27+1, Traditional HK honest fallback for the rest)",
+    "D1307–D1309: §五 wheel audit verdict recorded — no page-side reversed axis exists; /command trace strip rides the native rail wheel bridge; OS-level remedies at /handbook FAQ + /wheel-check",
+    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules green jars · verify_all NO OFFENDER"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
