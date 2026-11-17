@@ -448,3 +448,20 @@ body[data-theme="dark"] .project-table{border-top-color:#cbc8bb}
   .project-card,.minicc-latest,.index-row{break-inside:avoid}
   .section-pad{padding-left:16mm;padding-right:16mm}
 }
+
+
+/* ── MILESTONE RIBBON (2026-11-17) ── live milestone ribbon, mirrors index-stats pattern ── */
+.milestone-ribbon{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0;max-width:960px}
+.milestone-cell{display:grid;gap:6px;align-content:center;padding:14px 14px 16px;background:var(--surface);transition:transform .18s ease-out}
+.milestone-cell:hover{background:var(--ink);color:var(--white);transform:translateY(-2px)}
+.milestone-cell-accent{background:#141b25}
+.milestone-cell-accent .milestone-num{color:var(--gold)}
+.milestone-num{font:700 clamp(18px,2.2vw,26px)/1 "DM Mono",ui-monospace,monospace;color:var(--accent-deep);letter-spacing:.02em}
+.milestone-label{color:var(--muted);font:9.5px "DM Mono",ui-monospace,monospace;letter-spacing:.06em;line-height:1.5}
+.milestone-cell:hover .milestone-label{color:#d8d5c5}
+body[data-theme="dark"] .milestone-ribbon{border-color:#22303c;background:#22303c}
+body[data-theme="dark"] .milestone-cell{background:#151d24}
+body[data-theme="dark"] .milestone-num{color:#c9a258}
+@media (max-width:900px){.milestone-ribbon{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.milestone-ribbon{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){.milestone-cell{transition:none}}
