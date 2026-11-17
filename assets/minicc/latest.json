@@ -1,40 +1,40 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-17T15:48:45.462Z",
+  "generated_at": "2026-11-17T17:42:51.078Z",
   "branch": "main",
-  "head": "0187e45",
-  "total_commits": 1889,
+  "head": "e358d37",
+  "total_commits": 1900,
   "recent_commits": [
     {
-      "short": "0187e45",
-      "at": "2026-11-17T23:48:07+08:00",
-      "subject": "M8-T1187: /_*.py anchored in .gitignore - today's root scratch leaks (M8-T1181, M8-T1186) were both add-A sweeps of transient helper scripts; from now on the re"
+      "short": "e358d37",
+      "at": "2026-11-18T01:42:28+08:00",
+      "subject": "M8-T1191 (CI red #7, fake-provider switch one-home): ubuntu leg found provider_ping spelling MINICC_FAKE_PROVIDER inline - imported FAKE_PROVIDER_ENV/fake_provi"
     },
     {
-      "short": "5dd62fb",
-      "at": "2026-11-17T23:47:13+08:00",
-      "subject": "M8-T1186: scratch ledger draft _ledger_1185.py slipped in via add-A again (first-draft Chinese with nonsense phrasing, superseded by the b-script) - removed imm"
-    },
-    {
-      "short": "929ea08",
-      "at": "2026-11-17T15:47:09Z",
+      "short": "1dcd5c0",
+      "at": "2026-11-17T17:17:49Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "27da725",
-      "at": "2026-11-17T23:46:49+08:00",
-      "subject": "M8-T1185 (one home for the budget tile): M8-T1180's dedicated /api/admin/ratelimit was a second wire to a fact /api/admin/summary already carried since M8-T1014"
+      "short": "3757d3b",
+      "at": "2026-11-18T01:17:23+08:00",
+      "subject": "M8-T1190 (CI red #6): liveness read-back - join(timeout=) without an is_alive() read-back may time out silently; stress probe's cleanup now asserts the daemon a"
     },
     {
-      "short": "2fdb5f7",
-      "at": "2026-11-17T15:31:46Z",
+      "short": "d7f2acf",
+      "at": "2026-11-17T16:57:21Z",
       "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "9248069",
+      "at": "2026-11-18T00:56:59+08:00",
+      "subject": "M8-T1189 (CI red #5, en_cjk parity): the gateway's Chinese refusal leaked into en mode - oracle_common.error_payload now ASCII-only 'kind: ExceptionType' with f"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 457,
+  "roadmap_batches": 461,
   "changelog_entries": 1,
-  "roadmap_lines": 54908,
+  "roadmap_lines": 54994,
   "tracked_files": 1120,
   "test_files": 737,
   "almanac_chapters": 56,
