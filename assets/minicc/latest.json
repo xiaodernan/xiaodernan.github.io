@@ -1,42 +1,42 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-17T14:51:08.386Z",
+  "generated_at": "2026-11-17T15:48:45.462Z",
   "branch": "main",
-  "head": "8687742",
-  "total_commits": 1877,
+  "head": "0187e45",
+  "total_commits": 1889,
   "recent_commits": [
     {
-      "short": "8687742",
-      "at": "2026-11-17T22:50:36+08:00",
-      "subject": "M8-T1180: the gateway budget is visible on the admin panel - new /api/admin/ratelimit reads ratelimit.stats() (limit/window/local LRU windows/decisions allowed_"
+      "short": "0187e45",
+      "at": "2026-11-17T23:48:07+08:00",
+      "subject": "M8-T1187: /_*.py anchored in .gitignore - today's root scratch leaks (M8-T1181, M8-T1186) were both add-A sweeps of transient helper scripts; from now on the re"
     },
     {
-      "short": "9e908c5",
-      "at": "2026-11-17T14:40:21Z",
+      "short": "5dd62fb",
+      "at": "2026-11-17T23:47:13+08:00",
+      "subject": "M8-T1186: scratch ledger draft _ledger_1185.py slipped in via add-A again (first-draft Chinese with nonsense phrasing, superseded by the b-script) - removed imm"
+    },
+    {
+      "short": "929ea08",
+      "at": "2026-11-17T15:47:09Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "882b365",
-      "at": "2026-11-17T22:39:58+08:00",
-      "subject": "M8-T1179: the service plane's own 'one fact, one home' gate - ShippedConfigHomesAgreeTest (JUnit5 + AssertJ + SnakeYAML allowDuplicateKeys=false, no Spring cont"
+      "short": "27da725",
+      "at": "2026-11-17T23:46:49+08:00",
+      "subject": "M8-T1185 (one home for the budget tile): M8-T1180's dedicated /api/admin/ratelimit was a second wire to a fact /api/admin/summary already carried since M8-T1014"
     },
     {
-      "short": "1995bf3",
-      "at": "2026-11-17T14:30:43Z",
+      "short": "2fdb5f7",
+      "at": "2026-11-17T15:31:46Z",
       "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "2d4c546",
-      "at": "2026-11-17T22:30:21+08:00",
-      "subject": "M8-T1178: every gateway-calling oracle route is behind the shared token bucket - oracle-brief/diagnosis/retrospective/review/plan/ci-diagnosis/audit-story and p"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 452,
+  "roadmap_batches": 457,
   "changelog_entries": 1,
-  "roadmap_lines": 54815,
-  "tracked_files": 1119,
-  "test_files": 735,
+  "roadmap_lines": 54908,
+  "tracked_files": 1120,
+  "test_files": 737,
   "almanac_chapters": 56,
   "module_count": 14,
   "feature_surface": [
