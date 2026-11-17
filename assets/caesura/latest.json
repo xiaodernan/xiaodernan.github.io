@@ -2,10 +2,10 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "732bb95e32f9b11bfd09c432850ba83e23e048aa",
+  "head": "064c649f6d3057a4e20b76834880d34ae4837b11",
   "branch": "master",
-  "subject": "feat(story): KI-649《余响集》第二十四篇《半声之后 / After Half a Chime》落地（LLM 真机草稿 → 人工闸落库）",
-  "date": "2026-11-17T14:41:14+08:00",
+  "subject": "docs(guide): 补滚轮操作与「滚轮纵向反转」教学（中英双轨；KI-593/KI-647）",
+  "date": "2026-11-17T15:09:47+08:00",
   "kv": {
     "KI.rows": 567,
     "KI.Implemented": 390,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/732bb95e32f9b11bfd09c432850ba83e23e048aa",
+    "url": "https://github.com/xiaodernan/caesura/commit/064c649f6d3057a4e20b76834880d34ae4837b11",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
