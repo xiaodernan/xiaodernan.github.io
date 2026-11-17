@@ -1,16 +1,16 @@
 {
   "schema_version": "nexus-content.latest.v1",
-  "generated_at": "2026-11-17T17:33:06.991Z",
+  "generated_at": "2026-11-17T17:47:36.401Z",
   "branch": "main",
-  "head": "bfbc3b6",
-  "total_commits": 3041,
+  "head": "47ba631",
+  "total_commits": 3156,
   "first_commit_at": "2026-09-22",
-  "adrs": 331,
+  "adrs": 338,
   "contracts": 14,
-  "services": 8,
+  "services": 5,
   "packages": 10,
   "apps": 4,
-  "test_files": 565,
+  "test_files": 562,
   "feature_surface": [
     "studio",
     "design-model",
@@ -29,7 +29,11 @@
     "gateway-lb",
     "live-provider-cache",
     "cost-ledger",
-    "evidence-census"
+    "evidence-census",
+    "public-reading-i18n",
+    "api-message-i18n",
+    "play-surface-i18n",
+    "canon-echoes"
   ],
   "live_demo": null,
   "headline": "NEXUS Content Platform - AI Universe Studio: describe, design, build, enter."
