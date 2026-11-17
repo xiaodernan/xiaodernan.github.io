@@ -1,41 +1,41 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-17T13:52:21.277Z",
+  "generated_at": "2026-11-17T14:51:08.386Z",
   "branch": "main",
-  "head": "ead7a68",
-  "total_commits": 1869,
+  "head": "8687742",
+  "total_commits": 1877,
   "recent_commits": [
     {
-      "short": "ead7a68",
-      "at": "2026-11-17T21:51:56+08:00",
-      "subject": "M8-T1176: CI red on 24c0d92 - two one-home gates caught the M8-T1173 commit: the 'audit.jsonl' literal had two homes (now imports AUDIT_NAME from internal_paths"
+      "short": "8687742",
+      "at": "2026-11-17T22:50:36+08:00",
+      "subject": "M8-T1180: the gateway budget is visible on the admin panel - new /api/admin/ratelimit reads ratelimit.stats() (limit/window/local LRU windows/decisions allowed_"
     },
     {
-      "short": "818ebb0",
-      "at": "2026-11-17T13:49:41Z",
+      "short": "9e908c5",
+      "at": "2026-11-17T14:40:21Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "18c2237",
-      "at": "2026-11-17T21:48:42+08:00",
-      "subject": "M8-T1175: almanac Ch.LVI 'The Ledger That Speaks / The Ledger That Speaks' - the model finally read what this repository just did, chapter written live by gpt-6"
+      "short": "882b365",
+      "at": "2026-11-17T22:39:58+08:00",
+      "subject": "M8-T1179: the service plane's own 'one fact, one home' gate - ShippedConfigHomesAgreeTest (JUnit5 + AssertJ + SnakeYAML allowDuplicateKeys=false, no Spring cont"
     },
     {
-      "short": "cb8e8fb",
-      "at": "2026-11-17T13:18:14Z",
+      "short": "1995bf3",
+      "at": "2026-11-17T14:30:43Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "24c0d92",
-      "at": "2026-11-17T21:17:37+08:00",
-      "subject": "M8-T1173+M8-T1174: the audit-story tile - the model reads .minicc/audit.jsonl (64-line window, full digest trail, verbatim) and tells its three-beat story (what"
+      "short": "2d4c546",
+      "at": "2026-11-17T22:30:21+08:00",
+      "subject": "M8-T1178: every gateway-calling oracle route is behind the shared token bucket - oracle-brief/diagnosis/retrospective/review/plan/ci-diagnosis/audit-story and p"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 448,
+  "roadmap_batches": 452,
   "changelog_entries": 1,
-  "roadmap_lines": 54745,
-  "tracked_files": 1116,
+  "roadmap_lines": 54815,
+  "tracked_files": 1119,
   "test_files": 735,
   "almanac_chapters": 56,
   "module_count": 14,
