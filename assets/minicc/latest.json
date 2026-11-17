@@ -1,43 +1,43 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-17T05:26:04.086Z",
+  "generated_at": "2026-11-17T07:48:35.648Z",
   "branch": "main",
-  "head": "351d444",
-  "total_commits": 1841,
+  "head": "0846924",
+  "total_commits": 1850,
   "recent_commits": [
     {
-      "short": "351d444",
-      "at": "2026-11-17T13:25:39+08:00",
-      "subject": "M8-T1135: the full suite goes green again - every red a6935ee's CI found is fixed at the source (test docstrings re-aimed to the bytes they cite: _content_to_to"
+      "short": "0846924",
+      "at": "2026-11-17T15:47:41+08:00",
+      "subject": "M8-T1165: the drift sentinel must not block the cheap checks on the expensive one - first CI red (94647ce) was the admin smoke waiting 60s for a cell that sat b"
     },
     {
-      "short": "7b28a7d",
-      "at": "2026-11-17T05:17:15Z",
+      "short": "e99f932",
+      "at": "2026-11-17T07:36:22Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "27960ed",
-      "at": "2026-11-17T13:16:37+08:00",
-      "subject": "M8-T1134: the model's third self-authored chapter - almanac Ch.LIV 'The Reckoning / 并账' (the night the repo was byte-audited: PR #1 closed as superseded with fi"
+      "short": "2c64970",
+      "at": "2026-11-17T15:35:42+08:00",
+      "subject": "M8-T1164: the model's fourth self-authored chapter - almanac Ch.LV 'The Alarm / 警钟' (three CI reds in one night - 351d444 Ubuntu leg 7 failures from citation dr"
     },
     {
-      "short": "01f8a90",
-      "at": "2026-11-17T04:33:01Z",
-      "subject": "chore(latest): refresh showcase fact pack"
+      "short": "94647ce",
+      "at": "2026-11-17T14:59:00+08:00",
+      "subject": "M8-T1163: the background-suite reds at c0325fa fixed at source - admin_drift uses minicc.clock.utc_stamp() instead of hand-spelling %Y-%m-%dT%H:%M:%SZ + gmtime "
     },
     {
-      "short": "a6935ee",
-      "at": "2026-11-17T12:32:11+08:00",
-      "subject": "M8-T1133: the engine speaks two tongues - every user-visible engine string is wired to the two-table cli_io (stream progress/gateway fallback in openai_provider"
+      "short": "c8b069d",
+      "at": "2026-11-17T14:31:17+08:00",
+      "subject": "M8-T1162: drift sentinel's doc_pointers subprocess now catches TimeoutExpired (M8-T1161 red: subprocess.run(timeout=) without enclosing TimeoutExpired; returns "
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 437,
+  "roadmap_batches": 440,
   "changelog_entries": 1,
-  "roadmap_lines": 54550,
-  "tracked_files": 1113,
+  "roadmap_lines": 54602,
+  "tracked_files": 1114,
   "test_files": 733,
-  "almanac_chapters": 54,
+  "almanac_chapters": 55,
   "module_count": 14,
   "feature_surface": [
     "workbench",
