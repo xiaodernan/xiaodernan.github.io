@@ -412,3 +412,13 @@ body[data-theme="dark"] .project-table{border-top-color:#cbc8bb}
 
 @media(max-width:900px){.main-nav{gap:15px;margin-left:0;flex-wrap:wrap}.hero{grid-template-columns:1fr;min-height:auto;padding-top:140px}.hero-orbit-one{right:-140px;top:100px}.hero-orbit-two{right:-90px;top:160px}.hero-profile{justify-self:start;margin-top:8px}.signal-rail{grid-template-columns:repeat(2,1fr)}.signal-rail>div:nth-child(2){border-right:0}.signal-rail>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.featured-grid{grid-template-columns:1fr}.project-card-large{grid-row:auto}.project-minicc .project-visual{min-height:240px}.section-heading{align-items:start;flex-direction:column;gap:18px;padding-bottom:14px}.capability-map{min-height:600px}.capability-node{max-width:190px}.node-a{top:30px;left:20px}.node-b{top:30px;right:20px}.node-c{bottom:30px;left:20px}.node-d{right:30px;bottom:30px}.index-row{grid-template-columns:34px 1fr 22px;gap:10px}.index-stack,.index-state{display:none}.contact-band{grid-template-columns:1fr;gap:45px}.footer{flex-wrap:wrap}.lab-grid{grid-template-columns:repeat(2,1fr)}.capability-map:after{inset:12px}}
 @media(max-width:560px){.topbar{padding-top:12px;padding-bottom:12px}.brand-copy small{display:none}.main-nav{gap:12px;font-size:11px}.main-nav a:nth-child(4){display:none}h1{font-size:46px}.hero-lede{font-size:14px}.hero-meta{display:grid;gap:8px}.signal-rail>div{padding:16px}.project-content{padding:20px}.capability-map{min-height:680px}.capability-core{width:120px;height:120px;font-size:14px}.capability-node{left:16px!important;right:16px!important;max-width:none}.node-a{top:25px}.node-b{top:165px}.node-c{bottom:165px}.node-d{bottom:25px}.timeline-item{grid-template-columns:1fr;gap:10px}.contact-card{grid-template-columns:68px 1fr}.contact-card small{grid-column:2}.footer{font-size:9px}.lab-grid{grid-template-columns:1fr}.minicc-latest-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* v865 (2026-11-17): 窄屏顶栏加固 —— 品牌白名nowrap + 导航不再挤成两行（640 补充 / 560 上游已隐藏） */
+@media (max-width: 640px) {
+  .brand-copy { white-space: nowrap; }
+  .brand { white-space: nowrap; min-width: 0; overflow: hidden; }
+  .main-nav { white-space: nowrap; margin-left: 0; overflow-x: auto; scrollbar-width: none; }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .topbar { gap: 10px; flex-wrap: nowrap; min-width: 0; }
+  .topbar-actions { flex-shrink: 0; }
+}
