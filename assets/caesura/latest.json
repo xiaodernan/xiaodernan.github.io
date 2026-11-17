@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "373417a3ef15e82f0783e744ce8c602f840562d1",
+  "head": "81fbf6ae1c6e6057f2ddfabf39a2834b9eb9a940",
   "branch": "master",
-  "subject": "feat(story): KI-677《余响集》第四十六篇《未摆的一次 / The Unmade Swing》落地（LLM 真机草稿 → 人工闸落库）",
-  "date": "2026-11-18T07:00:13+08:00",
+  "subject": "feat(story): KI-678《余响集》第四十七篇《船底的干痕 / The Dry Mark Beneath》落地（LLM 真机草稿 → 人工闸落库）",
+  "date": "2026-11-18T07:21:12+08:00",
   "kv": {
-    "KI.rows": 595,
-    "KI.Implemented": 418,
+    "KI.rows": 596,
+    "KI.Implemented": 419,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/373417a3ef15e82f0783e744ce8c602f840562d1",
+    "url": "https://github.com/xiaodernan/caesura/commit/81fbf6ae1c6e6057f2ddfabf39a2834b9eb9a940",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
