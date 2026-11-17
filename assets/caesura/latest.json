@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "38356ca5cb5ba7f32d4b4e3f798519f8bdad7a34",
+  "head": "9a965b8626d15b0ca0bd79eca74f5af39cd4b9a3",
   "branch": "master",
-  "subject": "feat(ui): KI-638 本周纪事 W47 真机重派 · 现读世界快照落盘",
-  "date": "2026-11-17T10:25:20+08:00",
+  "subject": "feat(story): KI-639《余响集》第二十篇《听弦 / The String-Listener》落地",
+  "date": "2026-11-17T10:57:20+08:00",
   "kv": {
-    "KI.rows": 556,
-    "KI.Implemented": 379,
+    "KI.rows": 557,
+    "KI.Implemented": 380,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/38356ca5cb5ba7f32d4b4e3f798519f8bdad7a34",
+    "url": "https://github.com/xiaodernan/caesura/commit/9a965b8626d15b0ca0bd79eca74f5af39cd4b9a3",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
