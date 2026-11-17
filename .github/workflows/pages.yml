@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Identity guard — block the deploy before broken facts reach the public page
+        run: node scripts/identity-guard.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
