@@ -33,3 +33,13 @@ const sectionObserver = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-36% 0px -56% 0px', threshold: 0 });
 sections.forEach((section) => sectionObserver.observe(section));
+
+const repoFilterButtons = [...document.querySelectorAll('[data-repo-filter]')];
+const repoCards = [...document.querySelectorAll('.repo-card')];
+repoFilterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    repoFilterButtons.forEach((item) => item.classList.toggle('is-selected', item === button));
+    const filter = button.dataset.repoFilter;
+    repoCards.forEach((card) => card.toggleAttribute('data-repo-hidden', filter !== 'all' && card.dataset.repoCategory !== filter));
+  });
+});

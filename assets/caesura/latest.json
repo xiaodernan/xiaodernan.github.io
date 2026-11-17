@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "d2564c50cad692a2ecb621f2d08af140fa4b2798",
+  "head": "732bb95e32f9b11bfd09c432850ba83e23e048aa",
   "branch": "master",
-  "subject": "feat(story): KI-648《余响集》第二十三篇《回声谷 / The Echo Vale》落地",
-  "date": "2026-11-17T14:18:11+08:00",
+  "subject": "feat(story): KI-649《余响集》第二十四篇《半声之后 / After Half a Chime》落地（LLM 真机草稿 → 人工闸落库）",
+  "date": "2026-11-17T14:41:14+08:00",
   "kv": {
-    "KI.rows": 566,
-    "KI.Implemented": 389,
+    "KI.rows": 567,
+    "KI.Implemented": 390,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/d2564c50cad692a2ecb621f2d08af140fa4b2798",
+    "url": "https://github.com/xiaodernan/caesura/commit/732bb95e32f9b11bfd09c432850ba83e23e048aa",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }

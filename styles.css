@@ -106,3 +106,21 @@ body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{backgrou
   .minicc-latest-dot { animation: none; }
 }
 .sub-link{display:inline-flex;align-items:center;padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--muted);text-decoration:none;transition:.2s;background:var(--surface)}.sub-link:hover{border-color:var(--accent);color:var(--accent)}.sub-link-accent{border-color:var(--accent);color:var(--accent)}.sub-link-accent:hover{background:var(--accent);color:var(--surface)}
+/* v859-pages-polish — 2026-11-17 */
+.hero-howto{margin:14px 0 0;max-width:520px;font-family:"DM Mono",ui-monospace,monospace;font-size:11px;color:var(--muted);letter-spacing:.02em;line-height:1.8;border-left:2px solid var(--accent);padding-left:10px}
+.index-state{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.index-stars{height:14px;vertical-align:middle;border:0;opacity:.92}
+/* v860 — 全部仓库一屏（2026-11-17） */
+.repos-section{padding-bottom:112px}
+.repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
+.repo-card{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease}
+.repo-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 16px 36px rgba(24,32,38,.10)}
+.repo-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.repo-top strong{font-size:15px;letter-spacing:.01em;font-family:"DM Mono",ui-monospace,monospace}
+.repo-lang{font:10px "DM Mono",ui-monospace,monospace;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.repo-card p{margin:0;font-size:12px;color:var(--muted);line-height:1.75;min-height:40px}
+.repo-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.repo-cat{font:9px "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+.repos-note{margin-top:16px;font:11px "DM Mono",ui-monospace,monospace;color:var(--muted);letter-spacing:.02em}
+.repo-card[data-repo-category="legacy"] .repo-top strong,.repo-card[data-repo-category="fork"] .repo-top strong{color:var(--muted)}
+[data-repo-hidden="true"]{display:none}
