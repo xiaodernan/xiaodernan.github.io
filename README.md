@@ -10,6 +10,34 @@ python -m http.server 4173
 
 然后打开 `http://127.0.0.1:4173/`。
 
+## 身份闸门
+
+本页载有本人身份信息（姓名 / 院校 / 专业 / 奖项 / 公司 / 产品）。为确保任何一次更新都不会
+把这些**事实**改错，仓库自带 `scripts/identity-guard.mjs`：
+
+- 必须包含：赵欣曈 / 南方科技大学 / 香港中文大学 / 计算机科学与技术（两次）/
+  全国中学生物理竞赛 / 铜牌 / 江西省一等奖 / 江西省二等奖 / 法狗狗公司 / 隐盾 / 应用工程师
+- 必须不包含（往例错误）：隐图 / 践哲 / 暨南大学 / 国家网络安全竞赛 /
+  硕士研究生 / 十九篇 / 二十一篇 / WCAG 1.0 / 国家中学生物理竞赛
+
+push 前本机会自动执行（`.git/hooks/pre-push`）。也可以手动跑：
+
+```powershell
+node scripts/identity-guard.mjs
+```
+
+> 说明：GitHub 端创建 `.github/workflows/*.yml` 需要 `workflow` 权限，当前 PAT
+> 只有 `repo` 等权限，无法把闸门装进 GitHub Actions。闸门因此以 pre-push hook
+> 形式在任何从本机 push 前强制执行。
+
+## 本地预览
+
+```powershell
+python -m http.server 4173
+```
+
+然后打开 `http://127.0.0.1:4173/`。
+
 ## GitHub Pages
 
 把当前目录作为一个 GitHub 仓库的根目录，Pages 构建来源选择 `Deploy from a branch`，分支选择默认分支的 `/ (root)` 即可。项目没有 npm 构建步骤，也不需要 Docker。
