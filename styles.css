@@ -528,3 +528,12 @@ section{scroll-margin-top:96px}
 
 /* a11y target-size pass (2026-11-17) */
 .text-link,.project-links a,footer a,.footer a,.to-top{display:inline-flex;align-items:center;min-height:24px}
+/* ── 极致装修 · 2026-11-18 — beauty without inventing content ── */
+::selection{background:rgba(201,162,88,.38);color:var(--accent-ink)}
+body[data-theme="dark"] ::selection{background:rgba(201,162,88,.30);color:var(--white)}
+h1,h2,h3{text-wrap:balance}
+.hero-lede,.prose :where(p,li){text-wrap:pretty}
+.github-card{min-height:150px;object-fit:contain}
+img{font-style:italic}
+.text-link{border-bottom:1px solid transparent}
+.text-link:hover{border-bottom-color:var(--gold-soft)}
