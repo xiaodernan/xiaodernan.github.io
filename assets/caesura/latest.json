@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "be7bf8d0aaac35de3f13e31534c70cd24c2f47da",
+  "head": "c4bf3c55a9c51cd9847873ad767e0b53b12a99a3",
   "branch": "master",
-  "subject": "feat(story): KI-643《余响集》第二十二篇《合奏 / The Ensemble》落地",
-  "date": "2026-11-17T12:06:44+08:00",
+  "subject": "feat(ui): KI-644 本周纪事 W47 v4 · 篇二十二后世界快照重派",
+  "date": "2026-11-17T12:17:14+08:00",
   "kv": {
-    "KI.rows": 561,
-    "KI.Implemented": 384,
+    "KI.rows": 562,
+    "KI.Implemented": 385,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/be7bf8d0aaac35de3f13e31534c70cd24c2f47da",
+    "url": "https://github.com/xiaodernan/caesura/commit/c4bf3c55a9c51cd9847873ad767e0b53b12a99a3",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
