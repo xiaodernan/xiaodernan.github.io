@@ -1,41 +1,41 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-17T08:14:26.141Z",
+  "generated_at": "2026-11-17T09:28:58.781Z",
   "branch": "main",
-  "head": "8a3c387",
-  "total_commits": 1852,
+  "head": "7e16fb9",
+  "total_commits": 1856,
   "recent_commits": [
+    {
+      "short": "7e16fb9",
+      "at": "2026-11-17T17:28:37+08:00",
+      "subject": "M8-T1168: a shallow clone is honest 'unknown', not 'broken' - the CI web-smoke job uses actions/checkout@v4 default fetch-depth=1; the fact-pack head lands outs"
+    },
+    {
+      "short": "690d8d8",
+      "at": "2026-11-17T08:41:36Z",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "1cf493b",
+      "at": "2026-11-17T16:41:06+08:00",
+      "subject": "M8-T1167: the wheel direction - 'scroll up = see down' now has a named fix; settings -> workbench gains 'follows system / invert wheel' toggle (default off); co"
+    },
+    {
+      "short": "8ae322d",
+      "at": "2026-11-17T08:14:26Z",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
     {
       "short": "8a3c387",
       "at": "2026-11-17T16:13:54+08:00",
       "subject": "M8-T1166: the model attributes this repository's mainline red - /api/oracle-ci-diagnosis reads the same GitHub REST wire the admin CI tile shows (latest + last-"
-    },
-    {
-      "short": "91a06c7",
-      "at": "2026-11-17T07:48:35Z",
-      "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "0846924",
-      "at": "2026-11-17T15:47:41+08:00",
-      "subject": "M8-T1165: the drift sentinel must not block the cheap checks on the expensive one - first CI red (94647ce) was the admin smoke waiting 60s for a cell that sat b"
-    },
-    {
-      "short": "e99f932",
-      "at": "2026-11-17T07:36:22Z",
-      "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "2c64970",
-      "at": "2026-11-17T15:35:42+08:00",
-      "subject": "M8-T1164: the model's fourth self-authored chapter - almanac Ch.LV 'The Alarm / 警钟' (three CI reds in one night - 351d444 Ubuntu leg 7 failures from citation dr"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 441,
+  "roadmap_batches": 443,
   "changelog_entries": 1,
-  "roadmap_lines": 54621,
-  "tracked_files": 1118,
+  "roadmap_lines": 54664,
+  "tracked_files": 1122,
   "test_files": 734,
   "almanac_chapters": 55,
   "module_count": 14,
