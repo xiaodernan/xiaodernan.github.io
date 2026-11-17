@@ -124,3 +124,23 @@ body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{backgrou
 .repos-note{margin-top:16px;font:11px "DM Mono",ui-monospace,monospace;color:var(--muted);letter-spacing:.02em}
 .repo-card[data-repo-category="legacy"] .repo-top strong,.repo-card[data-repo-category="fork"] .repo-top strong{color:var(--muted)}
 [data-repo-hidden="true"]{display:none}
+
+/* ── PROJECT INDEX / ALL · 2026.11 ── 项目统计条与 GitHub 实时数据 */
+.index-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 22px}
+.index-stat{display:grid;gap:4px;padding:18px 20px;background:var(--surface)}
+.index-stat-num{font:700 clamp(26px,3vw,36px)/1 "DM Mono",monospace;color:var(--ink);letter-spacing:-.02em}
+.index-stat-num::after{content:"+";color:var(--accent)}
+.index-stat-label{color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.09em}
+.project-table .index-row{position:relative}
+.project-table .index-row::before{position:absolute;left:-1px;top:0;bottom:0;width:2px;background:transparent;content:"";transition:.25s}
+.project-table .index-row:hover::before{background:var(--accent)}
+.github-figures{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end;margin:34px 0 0}
+.github-card{display:block;width:100%;max-width:560px;border:1px solid #22303c;border-radius:6px;background:var(--deep)}
+.github-card:last-of-type{justify-self:end}
+.github-figures figcaption{grid-column:1/-1;color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.06em}
+.filter-button:focus-visible,.index-row:focus-visible,.repo-card:focus-visible,.button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body[data-theme="dark"] .index-stats{border-color:#22303c}
+body[data-theme="dark"] .index-stat{background:#151d24}
+body[data-theme="dark"] .github-figures figcaption{color:#8a938b}
+@media (max-width:900px){.index-stats{grid-template-columns:repeat(2,1fr)}.github-figures{grid-template-columns:1fr}.github-card:last-of-type{justify-self:start}}
+@media (prefers-reduced-motion:reduce){.project-table .index-row::before{transition:none}}
