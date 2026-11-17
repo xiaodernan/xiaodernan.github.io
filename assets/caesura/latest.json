@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "0d77ea8621e2bf4a7c08bfa38c0e49b29de978d6",
+  "head": "e730a3a19cb71423aceb498dcdb5f178a5ca5c24",
   "branch": "master",
-  "subject": "feat(story): KI-672《余响集》第四十一篇《门外的湿痕 / The Mark Outside》落地（LLM 真机草稿 → 人工闸落库）",
-  "date": "2026-11-18T04:18:56+08:00",
+  "subject": "feat(story): KI-673《余响集》第四十二篇《门槛上的盐 / Salt at the Threshold》落地（LLM 真机草稿 → 人工闸落库）",
+  "date": "2026-11-18T04:46:08+08:00",
   "kv": {
-    "KI.rows": 590,
-    "KI.Implemented": 413,
+    "KI.rows": 591,
+    "KI.Implemented": 414,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/0d77ea8621e2bf4a7c08bfa38c0e49b29de978d6",
+    "url": "https://github.com/xiaodernan/caesura/commit/e730a3a19cb71423aceb498dcdb5f178a5ca5c24",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
