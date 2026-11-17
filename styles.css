@@ -422,3 +422,29 @@ body[data-theme="dark"] .project-table{border-top-color:#cbc8bb}
   .topbar { gap: 10px; flex-wrap: nowrap; min-width: 0; }
   .topbar-actions { flex-shrink: 0; }
 }
+
+/* ── v861 (2026-11-17): 印 —— the seal, rendered as a signature ───────── */
+.seal-row{display:flex;align-items:center;gap:16px;margin-top:22px;border-top:1px solid var(--line-strong);padding-top:18px;max-width:400px}
+.seal-mark{width:84px;height:84px;flex:0 0 auto;transform:rotate(-4deg);transition:transform .45s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 10px 18px rgba(166,58,43,.28))}
+.seal-row:hover .seal-mark{transform:rotate(0deg) scale(1.03)}
+.seal-caption{font:11px "DM Mono",monospace;letter-spacing:.26em;color:var(--muted);white-space:nowrap}
+.seal-chip{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:4px;background:#A63A2B;color:#f7f5ee;font:700 10px/1 "Noto Serif SC","Noto Serif CJK SC",serif;vertical-align:-2px;margin-right:7px;position:relative;top:-1px}
+
+/* ── v861: focus visibility ─────────────────────────────────────────── */
+:where(a, button, input, [tabindex]):focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px;border-radius:2px}
+.dark-band :where(a, button, [tabindex]):focus-visible{outline-color:var(--gold)}
+
+/* ── v861: typeset numerics, tabular where columns align ────────────── */
+.minicc-latest-number,.index-stat-num,.capability-core,.lab-rail b,.index-stat-num{font-variant-numeric:tabular-nums}
+
+/* ── v861: quiet starter for the card tactile edge ────────────────────── */
+.project-card{will-change:transform}
+.project-card:hover .project-type{color:var(--accent-deep)}
+
+/* ── v861: print — the page works as a resume ────────────────────────── */
+@media print{
+  body{background:#fff}
+  .topbar,.hero-grid,.hero-orbit,.lab-rail,.signal-rail,.repos-note,.github-figures,script,.seal-row,.contact-band .contact-actions{display:none !important}
+  .project-card,.minicc-latest,.index-row{break-inside:avoid}
+  .section-pad{padding-left:16mm;padding-right:16mm}
+}
