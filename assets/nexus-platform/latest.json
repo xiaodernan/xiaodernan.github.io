@@ -1,22 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-16T23:44:50.375285Z",
+  "generated_at": "2026-11-17T13:05:00Z",
   "branch": "master",
-  "head": "c3c7595",
-  "total_commits": 1499,
-  "pushed_at": "2026-11-16T23:44:18Z",
-  "milestone": "D1280",
-  "milestone_full": "The live model reads the operator's mirror — /insights ghost replay now receives a model-phrased paragraph with fail-closed discipline, provenance badges, and server-side recompute — service-to-service, hidden from public OpenAPI",
-  "headline": "NEXUS Platform — Hong Kong's table, one sentence away. Now with a live second voice.",
+  "head": "ed262d5",
+  "total_commits": 1533,
+  "pushed_at": "2026-11-17T11:21:58Z",
+  "milestone": "D1310",
+  "milestone_full": "The world guide walks the front door — a StateGraph (classify→select→phrase→verify) fuses the live gpt-6.1-terra into the reader's path on the homepage, the /guides trailhead and every chapter page; the two curated doors are ranked, never invented",
+  "headline": "NEXUS Platform — Hong Kong's table, one sentence away. Now with a live compass on the front door.",
   "features": [
-    "D1280: /insights now mounts <InsightsNarrative> — the operator's HK-dated ghost replay gets an adjacent AI paragraph every fresh render; one-second URL leak / invented-number / uncited-confident-answer refusal contract; mock mode emits nothing; live mode writes one run to the ledger (insights_narrative)",
-    "D1279: /handbook?ask= ·POST /ai/v1/handbook/ask — the manual phrases itself live: the 6 most relevant manual sections go to the model as context, the model answers with in-corpus citations only, cache + token usage measured on every call; mock mode inert; measured on Clash Verge egress (latency 4-7s, provider openai/gpt-6.1-terra, high confidence)",
-    "D1278: Simplified Chinese corpus fold — DEMO_GUIDES (107 slugs) and DEMO_COLLECTIONS folded via opencc hk2s+t2s; read path routes LOCALE->zhCN arm; Traditional arm byte-identical",
-    "D1276: Simplified Chinese is a first-class locale — three-state locale toggle zh-HK→zh-CN→en; all SSR pages verified Simplified under Accept-Language: zh-CN; census stays green; verify_all NO OFFENDER",
-    "HK series: one hundred and five Traditional chapters — 00:00→23:45 complete · /world 105 chips · /afterward tail · /chronicle codex",
+    "D1310: 🧭 world guide on the homepage (/), the /guides trailhead and every chapter page — a StateGraph (classify→select→phrase→verify); two curated doors, deterministic bigram ranking, the model picks 1|2; fail-closed verify (no URLs, ≤420 chars, locale glyph-sane)",
+    "D1306: /ai/v1/world/guide — live lane verified through Clash Verge (zh-HK pick=2; EN 4736/4925 cached tokens; 96–97% prefix-cache hit, latency halved warm); BFF POST /api/nexus/ai/world-guide; client beacon, inert in mock mode",
+    "D1304–D1311: the EN arm rolls on — 22/106 chapters full English prose (Ch. 1–22 + 106), beat-parity tests 26/26, Traditional HK stays honest fallback elsewhere",
+    "D1307–D1309: /command trace strip rides the same rail wheel bridge (vertical wheel → horizontal track); §五 wheel audit verdict — no page-side reversed axis exists; OS-level remedies in /handbook FAQ + /wheel-check self-test",
     "HK REAL-HK blocks carry inline Wikipedia sources — retrieve-or-silence rule, no invented figures",
-    "§十一 pressure re-verified (six routes × 128×32 — zero 5xx) · §伍 geometry census clean at 1280×800",
-    "/command: LIVE-PROVIDER panel — aizzz.xyz + gpt-6.1-terra · direct-JSON envelope · identical-burst cache 81.5% vs SSE 16.3% · intent 5/5"
+    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules, all green jars · verify_all RESULT: NO OFFENDER"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
