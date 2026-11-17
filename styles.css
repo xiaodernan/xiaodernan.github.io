@@ -465,3 +465,63 @@ body[data-theme="dark"] .milestone-num{color:#c9a258}
 @media (max-width:900px){.milestone-ribbon{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.milestone-ribbon{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){.milestone-cell{transition:none}}
+
+/* ── v880 — the dark theme completion + global focus states (2026-11-17) ────────── */
+/* Every core token gains a dark value; the page ships the toggle the visitors open with. */
+:root[data-theme="dark"] body,
+body[data-theme="dark"]{background:var(--bg)}
+[data-theme="dark"]{
+  --bg:#0e141b;
+  --surface:#151d24;
+  --ink:#e8e4d8;
+  --ink-soft:#c8c4b4;
+  --muted:#8f9288;
+  --line:#22303c;
+  --line-strong:#33414e;
+  --accent:#c9a258;
+  --accent-deep:#d8b56b;
+  --accent-ink:#0e141b;
+  --gold:#c9a258;
+  --gold-soft:rgba(201,162,88,.18);
+  --teal:#29b3aa;
+  --blue:#6d8ee0;
+  --deep:#0a0f14;
+  --deep-2:#121a22;
+  --white:#0e141b;
+  --shadow:0 26px 60px rgba(0,0,0,.38);
+  --shadow-card:0 14px 34px rgba(0,0,0,.30);
+  --shadow-press:0 6px 14px rgba(0,0,0,.26);
+  --rule:1px solid var(--line);
+}
+body[data-theme="dark"]{
+  background:
+    radial-gradient(80rem 52rem at 78% -8%, rgba(201,162,88,.10), transparent 60%),
+    radial-gradient(70rem 50rem at -8% 34%, rgba(201,162,88,.06), transparent 70%),
+    var(--bg);
+  color:var(--ink);
+}
+body[data-theme="dark"] img.github-card{border-color:#22303c;filter:saturate(.9)}
+body[data-theme="dark"] .profile-stamp{background:var(--accent);color:var(--accent-ink)}
+body[data-theme="dark"] .hero-grid{opacity:.34;background-image:linear-gradient(#1d2733 1px,transparent 1px),linear-gradient(90deg,#1d2733 1px,transparent 1px)}
+body[data-theme="dark"] .signal-rail>div{border-right-color:#22303c}
+body[data-theme="dark"] .section-heading{border-bottom-color:#2a3642}
+body[data-theme="dark"] .repo-card,
+body[data-theme="dark"] .project-card,
+body[data-theme="dark"] .profile-frame,
+body[data-theme="dark"] .capability-node,
+body[data-theme="dark"] .index-stat,
+body[data-theme="dark"] .milestone-cell,
+body[data-theme="dark"] .stats-card,
+body[data-theme="dark"] .github-card{background:#151d24}
+body[data-theme="dark"] .topbar{background:linear-gradient(rgba(14,20,27,.93), rgba(14,20,27,.90) 60%, rgba(14,20,27,.78));border-bottom-color:transparent}
+body[data-theme="dark"] .topbar.is-scrolled{border-color:#22303c;box-shadow:0 6px 26px rgba(0,0,0,.35)}
+body[data-theme="dark"] .main-nav a{color:#a8a691}
+body[data-theme="dark"] .main-nav a.is-active,body[data-theme="dark"] .main-nav a:hover{color:#f0ead9}
+body[data-theme="dark"] .theme-toggle{border-color:#33414e;color:#e8e4d8}
+/* global keyboard focus — every interactive surface inherits it */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+section{scroll-margin-top:96px}
+/* the gold rule is a single asset; it wins one place, never a wallpaper pattern */
+.brush-divider{display:block;width:min(560px,72%);margin:6px auto 0;opacity:.9}
