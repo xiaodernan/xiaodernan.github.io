@@ -106,3 +106,7 @@ body[data-theme="dark"] .lab-section{background:#10171e}.lab-card-local{backgrou
   .minicc-latest-dot { animation: none; }
 }
 .sub-link{display:inline-flex;align-items:center;padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--muted);text-decoration:none;transition:.2s;background:var(--surface)}.sub-link:hover{border-color:var(--accent);color:var(--accent)}.sub-link-accent{border-color:var(--accent);color:var(--accent)}.sub-link-accent:hover{background:var(--accent);color:var(--surface)}
+/* v859-pages-polish — 2026-11-17 */
+.hero-howto{margin:14px 0 0;max-width:520px;font-family:"DM Mono",ui-monospace,monospace;font-size:11px;color:var(--muted);letter-spacing:.02em;line-height:1.8;border-left:2px solid var(--accent);padding-left:10px}
+.index-state{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.index-stars{height:14px;vertical-align:middle;border:0;opacity:.92}
