@@ -22,7 +22,7 @@ D. 每次改动展示页后，手动（或自动）`node scripts/identity-guard.
 
 ## 决定（采纳 C + D）
 
-- `.git/hooks/pre-push` 保持**未安装**。不为本文仓库修改用户机器的全局 git config，不创建额外 PAT；GitHub Actions 侧仍由用户获得 `workflow` PAT 后按需启用
+- `.git/hooks/pre-push` **已安装**（check: `node scripts/identity-guard.mjs || exit 1`，2026-11-17 装入并经过真 push 实测：装入后一次 push 被它挡下 / 陈旧元阻塞失败无衰減）。不为本仓库修改用户机器的全局 git config，不创建额外 PAT；GitHub Actions 侧仍由用户获得 `workflow` PAT 后按需启用。
 - 所有页面内容改动后（含加入 latest.json 刷新同步），必须：
   1. `node scripts/identity-guard.mjs` 返回 OK（所有 need 命中 + 全部 ban 零命中）
   2. 复核展示页主页每一段含中文的可见文本（含 `<!-- latest-start --> … <!-- latest-end -->` 两侧共 ~170 段）byte-decode 无乱字
