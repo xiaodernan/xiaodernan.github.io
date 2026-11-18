@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "4db9c85cb896246351c276ac901767ba03f8fded",
+  "head": "60db61d6db4179d460c6252e3e6271e1e5e6e0b3",
   "branch": "master",
-  "subject": "feat(story): KI-697《余响集》第六十六篇《火自己知道 / The Fire Knows》落地 + EditorialGate 传输异常纳入单节点重试（LLM 起草 → LLM 终审 → 人工闸）",
-  "date": "2026-11-18T21:02:47+08:00",
+  "subject": "feat(story): KI-698《余响集》第六十七篇《灰不归 / The Ash Unreturned》落地（LLM 起草 → LLM 终审 → 人工闸）",
+  "date": "2026-11-18T21:25:39+08:00",
   "kv": {
-    "KI.rows": 615,
-    "KI.Implemented": 438,
+    "KI.rows": 616,
+    "KI.Implemented": 439,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/4db9c85cb896246351c276ac901767ba03f8fded",
+    "url": "https://github.com/xiaodernan/caesura/commit/60db61d6db4179d460c6252e3e6271e1e5e6e0b3",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
