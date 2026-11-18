@@ -1,9 +1,9 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-18 · 6ad5a2e0**
+**2026-11-18 · 7fb846ea**
 - 分支: `master`
-- ledger: `#2000 《千卷之前（史官的围炉札记）》：第两千条账 · 世界书 201 卷 · io TODAY'S ECHO 实测落地（干净浏览器上下文 · ce4afbc7 · #1999） · Iron Lexicon Z-series zh≡en · static-warm 0.00% err · worst p99 1,547.2 ms · Court LOCKED · Night Watch CRACKED · exhibit 18 · 24 pinned reds · UI **594/594**`
-- 世界书: `docs/world/SPECROOF_WORLD.md`（467.1 KB）
+- ledger: `#2001 《江湖之远》：三笔 commit 一天生世界（2026-07-10 · 7d9aaa9），一百三十一天之后第二千零一条账 · 江湖不是逃出去是长出来的 · io 页不是门是甲板 · chronicle **1797** · worldbook **202 卷（双语对称）** · library **201 zh≡en** · UI **594/594**`
+- 世界书: `docs/world/SPECROOF_WORLD.md`（470.5 KB）
 - 页面: 60 个模块
 - changelog: 2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）
 
