@@ -7,6 +7,8 @@
 <p>
   <a href="https://xiaodernan.github.io/"><strong>打开个人作品集 →</strong></a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://xiaodernan.github.io/specproof-web/">直接进 SpecProof · 无需登录</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
   <a href="https://yindun.fagougou.com/">隐盾在线系统</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
   <a href="https://github.com/xiaodernan">@xiaodernan</a>
