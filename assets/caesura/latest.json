@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "9dd47cebcde1cd8ff06e479e3e8803f41bcfbc67",
+  "head": "d0b28af9d4259534b1ba0272a41e11fc6ed40da2",
   "branch": "master",
-  "subject": "feat(story): KI-702《余响集》第七十一篇《又多一个傍晚 / One More Dusk》落地（LLM 起草 → LLM 终审 → 人工闸）",
-  "date": "2026-11-18T23:48:27+08:00",
+  "subject": "feat(story): KI-703《余响集》第七十二篇《薄簿合着 / The Ledger, Shut》落地（LLM 起草 → LLM 终审 → 人工闸）",
+  "date": "2026-11-19T00:15:04+08:00",
   "kv": {
-    "KI.rows": 620,
-    "KI.Implemented": 443,
+    "KI.rows": 621,
+    "KI.Implemented": 444,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/9dd47cebcde1cd8ff06e479e3e8803f41bcfbc67",
+    "url": "https://github.com/xiaodernan/caesura/commit/d0b28af9d4259534b1ba0272a41e11fc6ed40da2",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
