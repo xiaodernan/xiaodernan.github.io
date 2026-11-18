@@ -3,6 +3,19 @@ name: Deploy portfolio to GitHub Pages
 on:
   push:
     branches: [master]
+    # Only genuine page changes ship immediately. Fact-pack syncs under
+    # assets/** ride the cron below instead of cancelling each other.
+    paths:
+      - 'index.html'
+      - '404.html'
+      - 'README.md'
+      - 'specproof-web/**'
+      - 'assets/*.png'
+      - 'assets/*.svg'
+      - 'scripts/identity-guard.mjs'
+      - '.github/workflows/pages.yml'
+  schedule:
+    - cron: '17 */3 * * *'   # every 3h at :17 — bundles fact-pack syncs, keeps the live IO fresh without a deploy per sync push
   workflow_dispatch:
 
 permissions:
