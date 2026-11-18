@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "ff249241ab5b6d6c257dba0764a03cffdb3849c6",
+  "head": "24e4d97027083cd849dff99daa2ec8c59f4966b1",
   "branch": "master",
-  "subject": "feat(story): KI-682《余响集》第五十一篇《船未启 / The Boat Still》落地（LLM 真机草稿 → 人工闸落库）",
-  "date": "2026-11-18T08:58:30+08:00",
+  "subject": "feat(story): KI-683《余响集》第五十二篇《壶边 / Beside the Jar》落地 + AI 导演热身亲和修正（LLM 真机草稿 → 人工闸）",
+  "date": "2026-11-18T10:52:12+08:00",
   "kv": {
-    "KI.rows": 600,
-    "KI.Implemented": 423,
+    "KI.rows": 601,
+    "KI.Implemented": 424,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/ff249241ab5b6d6c257dba0764a03cffdb3849c6",
+    "url": "https://github.com/xiaodernan/caesura/commit/24e4d97027083cd849dff99daa2ec8c59f4966b1",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
