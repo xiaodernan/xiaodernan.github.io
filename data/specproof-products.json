@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-18T05:19:22+00:00",
+  "pages": [
+    {
+      "path": "/#/Archive",
+      "component": "Archive"
+    },
+    {
+      "path": "/#/Atlas",
+      "component": "Atlas"
+    },
+    {
+      "path": "/#/Audit",
+      "component": "Audit"
+    },
+    {
+      "path": "/#/Billing",
+      "component": "Billing"
+    },
+    {
+      "path": "/#/Calendar",
+      "component": "Calendar"
+    },
+    {
+      "path": "/#/Census",
+      "component": "Census"
+    },
+    {
+      "path": "/#/ChainBanner",
+      "component": "ChainBanner"
+    },
+    {
+      "path": "/#/Chronicle",
+      "component": "Chronicle"
+    },
+    {
+      "path": "/#/Contracts",
+      "component": "Contracts"
+    },
+    {
+      "path": "/#/CrewCard",
+      "component": "CrewCard"
+    },
+    {
+      "path": "/#/Dashboard",
+      "component": "Dashboard"
+    },
+    {
+      "path": "/#/Dig",
+      "component": "Dig"
+    },
+    {
+      "path": "/#/Dossier",
+      "component": "Dossier"
+    },
+    {
+      "path": "/#/Drill",
+      "component": "Drill"
+    },
+    {
+      "path": "/#/Engine",
+      "component": "Engine"
+    },
+    {
+      "path": "/#/Epic",
+      "component": "Epic"
+    },
+    {
+      "path": "/#/Errata",
+      "component": "Errata"
+    },
+    {
+      "path": "/#/Eval",
+      "component": "Eval"
+    },
+    {
+      "path": "/#/Exhibits",
+      "component": "Exhibits"
+    },
+    {
+      "path": "/#/Explorer",
+      "component": "Explorer"
+    },
+    {
+      "path": "/#/Fabric",
+      "component": "Fabric"
+    },
+    {
+      "path": "/#/FabricStress",
+      "component": "FabricStress"
+    },
+    {
+      "path": "/#/FindingDetail",
+      "component": "FindingDetail"
+    },
+    {
+      "path": "/#/Gallery",
+      "component": "Gallery"
+    },
+    {
+      "path": "/#/Gazette",
+      "component": "Gazette"
+    },
+    {
+      "path": "/#/Gestures",
+      "component": "Gestures"
+    },
+    {
+      "path": "/#/Graph",
+      "component": "Graph"
+    },
+    {
+      "path": "/#/Guide",
+      "component": "Guide"
+    },
+    {
+      "path": "/#/Health",
+      "component": "Health"
+    },
+    {
+      "path": "/#/Ide",
+      "component": "Ide"
+    },
+    {
+      "path": "/#/Inkwell",
+      "component": "Inkwell"
+    },
+    {
+      "path": "/#/Insight",
+      "component": "Insight"
+    },
+    {
+      "path": "/#/JobDetail",
+      "component": "JobDetail"
+    },
+    {
+      "path": "/#/Jobs",
+      "component": "Jobs"
+    },
+    {
+      "path": "/#/LastCall",
+      "component": "LastCall"
+    },
+    {
+      "path": "/#/Lexicon",
+      "component": "Lexicon"
+    },
+    {
+      "path": "/#/Library",
+      "component": "Library"
+    },
+    {
+      "path": "/#/LocalEcho",
+      "component": "LocalEcho"
+    },
+    {
+      "path": "/#/Login",
+      "component": "Login"
+    },
+    {
+      "path": "/#/Manual",
+      "component": "Manual"
+    },
+    {
+      "path": "/#/Matrix",
+      "component": "Matrix"
+    },
+    {
+      "path": "/#/MidnightLamp",
+      "component": "MidnightLamp"
+    },
+    {
+      "path": "/#/Mint",
+      "component": "Mint"
+    },
+    {
+      "path": "/#/ModelSettings",
+      "component": "ModelSettings"
+    },
+    {
+      "path": "/#/Museum",
+      "component": "Museum"
+    },
+    {
+      "path": "/#/NewVerification",
+      "component": "NewVerification"
+    },
+    {
+      "path": "/#/NightWatch",
+      "component": "NightWatch"
+    },
+    {
+      "path": "/#/Observe",
+      "component": "Observe"
+    },
+    {
+      "path": "/#/Pulse",
+      "component": "Pulse"
+    },
+    {
+      "path": "/#/QualityLayout",
+      "component": "QualityLayout"
+    },
+    {
+      "path": "/#/Recall",
+      "component": "Recall"
+    },
+    {
+      "path": "/#/Runbook",
+      "component": "Runbook"
+    },
+    {
+      "path": "/#/SameRepoCraftPanel",
+      "component": "SameRepoCraftPanel"
+    },
+    {
+      "path": "/#/StageTimeline",
+      "component": "StageTimeline"
+    },
+    {
+      "path": "/#/StateGraph",
+      "component": "StateGraph"
+    },
+    {
+      "path": "/#/Tour",
+      "component": "Tour"
+    },
+    {
+      "path": "/#/Trace",
+      "component": "Trace"
+    },
+    {
+      "path": "/#/Usage",
+      "component": "Usage"
+    },
+    {
+      "path": "/#/WeeklyVoyage",
+      "component": "WeeklyVoyage"
+    },
+    {
+      "path": "/#/WorldBook",
+      "component": "WorldBook"
+    }
+  ]
+}
