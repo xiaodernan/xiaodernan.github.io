@@ -1,0 +1,1 @@
+import{i as e}from"./index-CLC-_p6v.js";import{t}from"./useRoleAccess-6ALH3UCG.js";function n(){let n=t(e);return{checked:n.checked,canManage:n.allowed}}export{n as t};

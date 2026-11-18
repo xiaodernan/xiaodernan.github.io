@@ -1,0 +1,1 @@
+function e(e){let t=e.startsWith(`/`)?e:`/`+e;window.location.hash=`#`+t}function t(){return e}export{t};
