@@ -11,7 +11,7 @@
 展示页仓库内置 `.github/workflows/`（页面部署）与 `scripts/identity-guard.mjs`；后者是 README 描述为
 “提交前核对身份信息的脚本”。
 
-关键点：`.git/hooks/pre-push` 在本仓并 غير稳定存在（不同克隆中的 hooks 目录不受本仓控制），
+关键点：`.git/hooks/pre-push` 在本仓并非稳定存在（不同克隆中的 hooks 目录不受本仓控制），
 README 也明示“GitHub 端创建 workflow 需要 `workflow` 权限 PAT，当前 PAT 仅 `repo` 权限，无法把闩锁装进 GitHub Actions”。
 
 因此 identity-guard 既不能依赖本机钩子保底，也不能装进 GitHub Actions，需要一个文档化的、可执行的核对路径。
