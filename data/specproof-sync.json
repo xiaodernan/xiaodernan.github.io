@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "last_synced": "2026-11-18T07:02:33+00:00",
+  "last_synced": "2026-11-18T07:04:27+00:00",
   "branch": "master",
-  "head": "22678f7",
+  "head": "d30719b",
   "latest_day": "2026-11-18",
-  "latest_tag": "22678f7",
+  "latest_tag": "d30719b",
   "latest_ledger_entry": "#1995 《冷的四点八》：五车道 cache 探针两敲每车道 · 冷 4.8% 地板 / 热 93.9–94.0% · 13/13 ok（前敲六拍网关瞬时『模型暂时不可用』原样记录，复敲全绿） · chronicle **1791** · worldbook **196 卷（双语对称）** · library **195 zh≡en** · UI **594/594**",
   "latest_changelog": "2026-11-15（六次登记） · 滚轮反转 + 压力测试车间 + /health 探针并行化",
   "world_size_bytes": 461961,
