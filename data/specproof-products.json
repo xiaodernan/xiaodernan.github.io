@@ -1,250 +1,202 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-18T11:42:37+00:00",
+  "generated_at": "2026-11-18T11:49:52+00:00",
   "pages": [
     {
-      "path": "/#/Archive",
-      "component": "Archive"
+      "component": "Dashboard",
+      "path": "/#/dashboard"
     },
     {
-      "path": "/#/AskTheBook",
-      "component": "AskTheBook"
+      "component": "Jobs",
+      "path": "/#/jobs"
     },
     {
-      "path": "/#/Atlas",
-      "component": "Atlas"
+      "component": "Agent",
+      "path": "/#/agent"
     },
     {
-      "path": "/#/Audit",
-      "component": "Audit"
+      "component": "Epic",
+      "path": "/#/epic"
     },
     {
-      "path": "/#/Billing",
-      "component": "Billing"
+      "component": "Tour",
+      "path": "/#/tour"
     },
     {
-      "path": "/#/Calendar",
-      "component": "Calendar"
+      "component": "Atlas",
+      "path": "/#/atlas"
     },
     {
-      "path": "/#/Census",
-      "component": "Census"
+      "component": "WorldBook",
+      "path": "/#/worldbook"
     },
     {
-      "path": "/#/ChainBanner",
-      "component": "ChainBanner"
+      "component": "NightWatch",
+      "path": "/#/nightwatch"
     },
     {
-      "path": "/#/Chronicle",
-      "component": "Chronicle"
+      "component": "Gazette",
+      "path": "/#/gazette"
     },
     {
-      "path": "/#/Contracts",
-      "component": "Contracts"
+      "component": "Calendar",
+      "path": "/#/calendar"
     },
     {
-      "path": "/#/CrewCard",
-      "component": "CrewCard"
+      "component": "Lexicon",
+      "path": "/#/lexicon"
     },
     {
-      "path": "/#/Dashboard",
-      "component": "Dashboard"
+      "component": "Museum",
+      "path": "/#/museum"
     },
     {
-      "path": "/#/Dig",
-      "component": "Dig"
+      "component": "Errata",
+      "path": "/#/errata"
     },
     {
-      "path": "/#/Dossier",
-      "component": "Dossier"
+      "component": "StateGraph",
+      "path": "/#/stategraph"
     },
     {
-      "path": "/#/Drill",
-      "component": "Drill"
+      "component": "Gestures",
+      "path": "/#/gestures"
     },
     {
-      "path": "/#/Engine",
-      "component": "Engine"
+      "component": "Matrix",
+      "path": "/#/matrix"
     },
     {
-      "path": "/#/Epic",
-      "component": "Epic"
+      "component": "Explorer",
+      "path": "/#/explorer"
     },
     {
-      "path": "/#/Errata",
-      "component": "Errata"
+      "component": "Contracts",
+      "path": "/#/contracts"
     },
     {
-      "path": "/#/Eval",
-      "component": "Eval"
+      "component": "Eval",
+      "path": "/#/eval"
     },
     {
-      "path": "/#/Exhibits",
-      "component": "Exhibits"
+      "component": "Drill",
+      "path": "/#/drill"
     },
     {
-      "path": "/#/Explorer",
-      "component": "Explorer"
+      "component": "Ide",
+      "path": "/#/ide"
     },
     {
-      "path": "/#/Fabric",
-      "component": "Fabric"
+      "component": "Graph",
+      "path": "/#/graph"
     },
     {
-      "path": "/#/FabricStress",
-      "component": "FabricStress"
+      "component": "Library",
+      "path": "/#/library"
     },
     {
-      "path": "/#/FindingDetail",
-      "component": "FindingDetail"
+      "component": "Chronicle",
+      "path": "/#/chronicle"
     },
     {
-      "path": "/#/Gallery",
-      "component": "Gallery"
+      "component": "Dossier",
+      "path": "/#/dossier"
     },
     {
-      "path": "/#/Gazette",
-      "component": "Gazette"
+      "component": "Mint",
+      "path": "/#/mint"
     },
     {
-      "path": "/#/Gestures",
-      "component": "Gestures"
+      "component": "LastCall",
+      "path": "/#/last-call"
     },
     {
-      "path": "/#/Graph",
-      "component": "Graph"
+      "component": "Inkwell",
+      "path": "/#/inkwell"
     },
     {
-      "path": "/#/Guide",
-      "component": "Guide"
+      "component": "Gallery",
+      "path": "/#/gallery"
     },
     {
-      "path": "/#/Health",
-      "component": "Health"
+      "component": "Pulse",
+      "path": "/#/pulse"
     },
     {
-      "path": "/#/Ide",
-      "component": "Ide"
+      "component": "Trace",
+      "path": "/#/trace"
     },
     {
-      "path": "/#/Inkwell",
-      "component": "Inkwell"
+      "component": "Archive",
+      "path": "/#/archive"
     },
     {
-      "path": "/#/Insight",
-      "component": "Insight"
+      "component": "Engine",
+      "path": "/#/engine"
     },
     {
-      "path": "/#/JobDetail",
-      "component": "JobDetail"
+      "component": "Fabric",
+      "path": "/#/fabric"
     },
     {
-      "path": "/#/Jobs",
-      "component": "Jobs"
+      "component": "Exhibits",
+      "path": "/#/exhibits"
     },
     {
-      "path": "/#/LastCall",
-      "component": "LastCall"
+      "component": "Census",
+      "path": "/#/census"
     },
     {
-      "path": "/#/Lexicon",
-      "component": "Lexicon"
+      "component": "Recall",
+      "path": "/#/recall"
     },
     {
-      "path": "/#/Library",
-      "component": "Library"
+      "component": "AskTheBook",
+      "path": "/#/ask-the-book"
     },
     {
-      "path": "/#/LocalEcho",
-      "component": "LocalEcho"
+      "component": "Manual",
+      "path": "/#/manual"
     },
     {
-      "path": "/#/Login",
-      "component": "Login"
+      "component": "Observe",
+      "path": "/#/observe"
     },
     {
-      "path": "/#/Manual",
-      "component": "Manual"
+      "component": "Identity",
+      "path": "/#/identity"
     },
     {
-      "path": "/#/Matrix",
-      "component": "Matrix"
+      "component": "Insight",
+      "path": "/#/insight"
     },
     {
-      "path": "/#/MidnightLamp",
-      "component": "MidnightLamp"
+      "component": "Dig",
+      "path": "/#/dig"
     },
     {
-      "path": "/#/Mint",
-      "component": "Mint"
+      "component": "Runbook",
+      "path": "/#/runbook"
     },
     {
-      "path": "/#/ModelSettings",
-      "component": "ModelSettings"
+      "component": "Billing",
+      "path": "/#/billing"
     },
     {
-      "path": "/#/Museum",
-      "component": "Museum"
+      "component": "Usage",
+      "path": "/#/usage"
     },
     {
-      "path": "/#/NewVerification",
-      "component": "NewVerification"
+      "component": "Audit",
+      "path": "/#/audit"
     },
     {
-      "path": "/#/NightWatch",
-      "component": "NightWatch"
+      "component": "Settings",
+      "path": "/#/settings"
     },
     {
-      "path": "/#/Observe",
-      "component": "Observe"
-    },
-    {
-      "path": "/#/Pulse",
-      "component": "Pulse"
-    },
-    {
-      "path": "/#/QualityLayout",
-      "component": "QualityLayout"
-    },
-    {
-      "path": "/#/Recall",
-      "component": "Recall"
-    },
-    {
-      "path": "/#/Runbook",
-      "component": "Runbook"
-    },
-    {
-      "path": "/#/SameRepoCraftPanel",
-      "component": "SameRepoCraftPanel"
-    },
-    {
-      "path": "/#/StageTimeline",
-      "component": "StageTimeline"
-    },
-    {
-      "path": "/#/StateGraph",
-      "component": "StateGraph"
-    },
-    {
-      "path": "/#/Tour",
-      "component": "Tour"
-    },
-    {
-      "path": "/#/Trace",
-      "component": "Trace"
-    },
-    {
-      "path": "/#/Usage",
-      "component": "Usage"
-    },
-    {
-      "path": "/#/WeeklyVoyage",
-      "component": "WeeklyVoyage"
-    },
-    {
-      "path": "/#/WorldBook",
-      "component": "WorldBook"
+      "component": "Health",
+      "path": "/#/health"
     }
   ]
 }

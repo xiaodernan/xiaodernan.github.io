@@ -4,79 +4,214 @@
   "chronicle_entries": 1798,
   "exhibit_entries": 18,
   "latest_strike": "#2002",
-  "total_commits": 2742,
+  "total_commits": 2745,
   "tracked_files": 2961,
-  "last_synced": "2026-11-18T11:42:37+00:00",
+  "last_synced": "2026-11-18T11:49:52+00:00",
   "branch": "master",
-  "head": "b0f8c8b2",
+  "head": "8b4b1bb0",
   "latest_day": "2026-11-18",
-  "latest_tag": "v0.90.0-276-gb0f8c8b",
+  "latest_tag": "v0.90.0-279-g8b4b1bb",
   "latest_ledger_entry": "#2002 《问之有答》：问问书 · Ask the Book —— 公开 · 匿名 · 限流 · 指纹缓存 · 模型不得审判 · zh+en · 61 routes · chronicle **1798** · worldbook **203 卷（双语对称）** · UI **598/598**",
   "latest_changelog": "2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）",
   "world_size_bytes": 485341,
-  "page_count": 61,
+  "page_count": 49,
   "pages": [
-    "Archive",
-    "AskTheBook",
-    "Atlas",
-    "Audit",
-    "Billing",
-    "Calendar",
-    "Census",
-    "ChainBanner",
-    "Chronicle",
-    "Contracts",
-    "CrewCard",
-    "Dashboard",
-    "Dig",
-    "Dossier",
-    "Drill",
-    "Engine",
-    "Epic",
-    "Errata",
-    "Eval",
-    "Exhibits",
-    "Explorer",
-    "Fabric",
-    "FabricStress",
-    "FindingDetail",
-    "Gallery",
-    "Gazette",
-    "Gestures",
-    "Graph",
-    "Guide",
-    "Health",
-    "Ide",
-    "Inkwell",
-    "Insight",
-    "JobDetail",
-    "Jobs",
-    "LastCall",
-    "Lexicon",
-    "Library",
-    "LocalEcho",
-    "Login",
-    "Manual",
-    "Matrix",
-    "MidnightLamp",
-    "Mint",
-    "ModelSettings",
-    "Museum",
-    "NewVerification",
-    "NightWatch",
-    "Observe",
-    "Pulse",
-    "QualityLayout",
-    "Recall",
-    "Runbook",
-    "SameRepoCraftPanel",
-    "StageTimeline",
-    "StateGraph",
-    "Tour",
-    "Trace",
-    "Usage",
-    "WeeklyVoyage",
-    "WorldBook"
+    {
+      "component": "Dashboard",
+      "path": "/#/dashboard"
+    },
+    {
+      "component": "Jobs",
+      "path": "/#/jobs"
+    },
+    {
+      "component": "Agent",
+      "path": "/#/agent"
+    },
+    {
+      "component": "Epic",
+      "path": "/#/epic"
+    },
+    {
+      "component": "Tour",
+      "path": "/#/tour"
+    },
+    {
+      "component": "Atlas",
+      "path": "/#/atlas"
+    },
+    {
+      "component": "WorldBook",
+      "path": "/#/worldbook"
+    },
+    {
+      "component": "NightWatch",
+      "path": "/#/nightwatch"
+    },
+    {
+      "component": "Gazette",
+      "path": "/#/gazette"
+    },
+    {
+      "component": "Calendar",
+      "path": "/#/calendar"
+    },
+    {
+      "component": "Lexicon",
+      "path": "/#/lexicon"
+    },
+    {
+      "component": "Museum",
+      "path": "/#/museum"
+    },
+    {
+      "component": "Errata",
+      "path": "/#/errata"
+    },
+    {
+      "component": "StateGraph",
+      "path": "/#/stategraph"
+    },
+    {
+      "component": "Gestures",
+      "path": "/#/gestures"
+    },
+    {
+      "component": "Matrix",
+      "path": "/#/matrix"
+    },
+    {
+      "component": "Explorer",
+      "path": "/#/explorer"
+    },
+    {
+      "component": "Contracts",
+      "path": "/#/contracts"
+    },
+    {
+      "component": "Eval",
+      "path": "/#/eval"
+    },
+    {
+      "component": "Drill",
+      "path": "/#/drill"
+    },
+    {
+      "component": "Ide",
+      "path": "/#/ide"
+    },
+    {
+      "component": "Graph",
+      "path": "/#/graph"
+    },
+    {
+      "component": "Library",
+      "path": "/#/library"
+    },
+    {
+      "component": "Chronicle",
+      "path": "/#/chronicle"
+    },
+    {
+      "component": "Dossier",
+      "path": "/#/dossier"
+    },
+    {
+      "component": "Mint",
+      "path": "/#/mint"
+    },
+    {
+      "component": "LastCall",
+      "path": "/#/last-call"
+    },
+    {
+      "component": "Inkwell",
+      "path": "/#/inkwell"
+    },
+    {
+      "component": "Gallery",
+      "path": "/#/gallery"
+    },
+    {
+      "component": "Pulse",
+      "path": "/#/pulse"
+    },
+    {
+      "component": "Trace",
+      "path": "/#/trace"
+    },
+    {
+      "component": "Archive",
+      "path": "/#/archive"
+    },
+    {
+      "component": "Engine",
+      "path": "/#/engine"
+    },
+    {
+      "component": "Fabric",
+      "path": "/#/fabric"
+    },
+    {
+      "component": "Exhibits",
+      "path": "/#/exhibits"
+    },
+    {
+      "component": "Census",
+      "path": "/#/census"
+    },
+    {
+      "component": "Recall",
+      "path": "/#/recall"
+    },
+    {
+      "component": "AskTheBook",
+      "path": "/#/ask-the-book"
+    },
+    {
+      "component": "Manual",
+      "path": "/#/manual"
+    },
+    {
+      "component": "Observe",
+      "path": "/#/observe"
+    },
+    {
+      "component": "Identity",
+      "path": "/#/identity"
+    },
+    {
+      "component": "Insight",
+      "path": "/#/insight"
+    },
+    {
+      "component": "Dig",
+      "path": "/#/dig"
+    },
+    {
+      "component": "Runbook",
+      "path": "/#/runbook"
+    },
+    {
+      "component": "Billing",
+      "path": "/#/billing"
+    },
+    {
+      "component": "Usage",
+      "path": "/#/usage"
+    },
+    {
+      "component": "Audit",
+      "path": "/#/audit"
+    },
+    {
+      "component": "Settings",
+      "path": "/#/settings"
+    },
+    {
+      "component": "Health",
+      "path": "/#/health"
+    }
   ],
   "e2e_last_touch": "2026-11-14"
 }
