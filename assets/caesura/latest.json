@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "4168407bbc369d00775cb8cfd5943b4bb0947e15",
+  "head": "514ace1567f25fc07b1deb2bbafc5473b1ce3f1d",
   "branch": "master",
-  "subject": "feat(ai+story): KI-685《余响集》第五十四篇《壶底旧痕 / The Mark Beneath the Jar》+ LLM 缓存命中账本（admin 可观测）落地",
-  "date": "2026-11-18T11:59:19+08:00",
+  "subject": "feat(story): KI-686《余响集》第五十五篇《未动的摆 / The Unmoved Pendulum》落地（LLM 起草 → LLM 终审 → 人工闸）",
+  "date": "2026-11-18T12:19:17+08:00",
   "kv": {
-    "KI.rows": 603,
-    "KI.Implemented": 426,
+    "KI.rows": 604,
+    "KI.Implemented": 427,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/4168407bbc369d00775cb8cfd5943b4bb0947e15",
+    "url": "https://github.com/xiaodernan/caesura/commit/514ace1567f25fc07b1deb2bbafc5473b1ce3f1d",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
