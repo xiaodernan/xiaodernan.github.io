@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-17T23:10:00Z",
+  "generated_at": "2026-11-19T02:30:00Z",
   "branch": "master",
-  "head": "422293b",
-  "total_commits": 1539,
-  "pushed_at": "2026-11-17T14:25:00Z",
-  "milestone": "D1314",
-  "milestone_full": "The merchant agent re-reads the growing conversation, turn after turn — the codex mechanism. New audited read door GET /api/v1/internal/conversations/{id}/messages; system frozen → history oldest→newest → latest question → KB; measured warm-state ≈96% cached on aizzz/gpt-6.1-terra; transport-retry for the relay flap",
-  "headline": "NEXUS Platform — Hong Kong's table, one sentence away. The conversation never forgets itself.",
+  "head": "7e13e44",
+  "total_commits": 1625,
+  "pushed_at": "2026-11-18T18:30:46Z",
+  "milestone": "D1397",
+  "milestone_full": "The English arm is complete — all 106 Traditional Hong Kong chapters now ship in all three arms (Traditional HK / Simplified CN fold / English), with full beat-parity tests (109/109 asserted), the opencc Standard-Simplified fold locked in steps with the fixture (check_simplified_seed PASS), identity hard-gates live on both clones (雅思 6.5 · CET-6 546 never absent), and the whole corpus pressure-verified green end-to-end.",
+  "headline": "NEXUS Platform — the infinite world, read in three languages, all 106 chapters armed in English. Every reader passes clean.",
   "features": [
-    "D1314: merchant agent growing-history relay — platform read door (`GET /api/v1/internal/conversations/{id}/messages`), oldest→newest lead; codex-style warm-state ≈96% cached measured on aizzz/gpt-6.1-terra (E4); wire unchanged when unconfigured",
-    "D1313: the cache question, measured honestly — identical bursts 96.5% both transports; diverse turns 0 (this relay does not prefix-cache across requests); direct JSON stays default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
-    "D1310: 🧭 world guide reaches the homepage, guides trailhead and every chapter page — StateGraph classify→select→phrase→verify; curated two doors, model picks 1|2; fail-closed",
-    "D1311–D1314 EN arm rolls on — Ch. 1–23 complete (beat-parity tests 27+1, Traditional HK honest fallback for the rest)",
-    "D1307–D1309: §五 wheel audit verdict recorded — no page-side reversed axis exists; /command trace strip rides the native rail wheel bridge; OS-level remedies at /handbook FAQ + /wheel-check",
-    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules green jars · verify_all NO OFFENDER"
+    "D1397: EN arm complete — all 106 Traditional HK chapters ship in three arms (Traditional HK / Simplified Standard-Chinese fold / full English prose); beat-parity tests 109/109; seed-cn locked via opencc fold; verify_all NO OFFENDER (72 PASS; every reader that judged its plane passed)",
+    "D1314: merchant agent growing-history relay — platform read door (`GET /api/v1/internal/conversations/{id}/messages`), oldest→newest lead; codex-style warm-state ≈96% cached measured on aizzz/gpt-6.1-terra; direct JSON remains the default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
+    "D1310–D1312: 🧭 world guide StateGraph classify→select→phrase→verify ships on the homepage, guides index and every chapter page; curated two doors, model picks 1|2; fail-closed; live aizzz verification",
+    "D1305–D1394: the English arm rolled chapter-by-chapter across the entire corpus from Chapter 1 through Chapter 106 — full English prose on every page (in every chapter), every arm generated, never hand-mirrored; fallback asserted honestly",,
+    "D1307–D1309: §五 wheel audit verdict — no page-side reversed axis exists; /command trace strip rides the native rail wheel bridge; OS-level remedies at /handbook FAQ + /wheel-check",
+    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules green jars · §九 identity hard-gates live (雅思 6.5 · CET-6 546) · profile README rewritten with both facts locked"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
