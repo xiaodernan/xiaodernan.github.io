@@ -615,8 +615,14 @@
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
       };
-      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/specproof/master/docs/latest.json?ts=' + Date.now())
-        .catch(() => fetchJson('assets/specproof/latest.json'));
+      // Prefer the same ./data/specproof-sync.json that portfolio-sync re-strikes on
+      // every master push (fresh, same-origin, auto-synced); fall back to the raw
+      // fact pack on master (through the CDN, may lag), then the baked constant.
+      const sync = await fetchJson('./data/specproof-sync.json?ts=' + Date.now()).catch(() => null);
+      let d = sync && Number.isFinite(sync.chronicle_entries) ? sync : null;
+      if (!d) d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/specproof/master/docs/latest.json?ts=' + Date.now()).catch(() => null);
+      if (!d) d = await fetchJson('assets/specproof/latest.json').catch(() => null);
+      if (!d) return; // every source unreachable — the honest baked tile stays up
       const el = document.getElementById('sp-state');
       if (el) {
         const parts = ['MASTER'];
