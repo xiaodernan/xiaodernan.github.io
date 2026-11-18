@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-18 · 8b4b1bb0**
+**2026-11-18 · 7fb7e9ae**
 - 分支: `master`
 - ledger: `#2002 《问之有答》：问问书 · Ask the Book —— 公开 · 匿名 · 限流 · 指纹缓存 · 模型不得审判 · zh+en · 61 routes · chronicle **1798** · worldbook **203 卷（双语对称）** · UI **598/598**`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（474.0 KB）
