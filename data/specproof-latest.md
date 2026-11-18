@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-18 · 67e109d0**
+**2026-11-18 · b7dc29e8**
 - 分支: `master`
 - ledger: `#1998 《墨替人对账》：gazette_feature 今日第二敲（#1996 锚定）让模型在 epigraph 里自己点出『页首 1792/197 vs 现场瓦片 1791/196』的双值缝——机器读账本，没人点、没人授意 · chronicle **1794** · worldbook **199 卷（双语对称）** · library **198 zh≡en** · UI **594/594**`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（460.6 KB）

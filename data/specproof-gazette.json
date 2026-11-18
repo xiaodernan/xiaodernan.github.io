@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-18T09:38:24+00:00",
+  "anchor": "#1996 《旧牌子》：io 瓷砖读走 raw CDN 陈旧 latest.json（#1977 系）——同屏对账 `#specproof-live` 新、瓷砖旧；修复：sync payload 携带 fact-pack、瓷砖改读同源 specproof-sync.json、兜底 latest.json 刷新 · dig/runbook timeout 90→150s · chronicle **1792** · worldbook **197 卷（双语对称）** · UI **594/594**",
+  "zh": "io 页的 SpecProof 瓷砖曾从 raw CDN 读到旧牌：同屏直播已到 #1995，砖面仍指向 #1977；修复落在同步器与瓷砖读取链，改由同源 specproof-sync.json 供数，并保留回退。dig、runbook 与 investigator 的 LLM 超时从 90 秒调至 150 秒，17 项测试通过，court lane 未动。账面并非一张牌：页首记 chronicle 1792、worldbook 197 卷，现场瓦片验收记 1791、196 卷；旧副本仍可能与新事实同屏。",
+  "en": "The ledger marks three repairs: scripts/sync_portfolio.py now carries a fact-pack in the sync payload; the io tile prefers ./data/specproof-sync.json, then falls back to raw data, assets/specproof/latest.json, and baked constants; and the LLM timeout is 150 seconds in craft/investigators.py, api/investigation_dig.py, and api/runbook_triage.py, with the cited tests passing 17/17. Around them, the world is shaped by parallel copies that can drift, and by sync routes carrying evidence from repository to page. Its horizon stays open: what matters is not that every view agrees by itself, but that each can show where its account came from.",
+  "note": "model-written from the ledger; mechanical gates (zh<=280 CJK / en<=220 words / no markdown / non-empty); not a verdict"
+}
