@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "last_synced": "2026-11-18T06:08:44+00:00",
+  "last_synced": "2026-11-18T06:18:14+00:00",
   "branch": "master",
-  "head": "74a281d",
+  "head": "aa08a26",
   "latest_day": "2026-11-18",
-  "latest_tag": "74a281d",
-  "latest_ledger_entry": "#1993 《压力试窗 · 增订》：`build_latest.py` patch——`latest_strike` 由现 HEAD subject 回退至 ledger 最新 `## #NNNN` · bot re-strike `4ecd3f5` `b2e1e2b` 已将 raw master → `#1992` · io 页 fully verified live (latest_strike=#1992 · 60 routes chip · `./data/specproof-sync.json` 联合确认) · chronicle **1789** · worldbook **194 卷（双语对称）** · UI **594/594**",
+  "latest_tag": "aa08a26",
+  "latest_ledger_entry": "#1994 《一份 PAT 与一只闸门》：D2 正式解锁 · io 页 LIVE SHIP 烧入 · 顺带加实 #1943 ④⑤ · 顺带修 `build_latest.py latest_strike` 回退至 ledger · chronicle **1790** · worldbook **195 卷（双语对称）** · UI **594/594**",
   "latest_changelog": "2026-11-15（六次登记） · 滚轮反转 + 压力测试车间 + /health 探针并行化",
-  "world_size_bytes": 454274,
+  "world_size_bytes": 457543,
   "page_count": 60,
   "pages": [
     "Archive",
