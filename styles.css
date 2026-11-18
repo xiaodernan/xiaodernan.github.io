@@ -594,3 +594,17 @@ img{font-style:italic}
 @media (max-width:560px){.splive-facts{grid-template-columns:1fr}.splive-tag{font-size:10.5px;padding:5px 9px}}
 @media print{.splive-section{display:none}}
 
+
+/* SpecProof · 头版一闪 — the model's own epigraph, verbatim; never a verdict */
+.splive-gazette{margin:22px 0 0;padding:22px 24px;border:1px solid #22303c;border-radius:var(--radius);background:linear-gradient(160deg,rgba(238,128,82,.10),rgba(243,206,143,.05) 55%,transparent);position:relative;overflow:hidden}
+.splive-gazette::before{content:"“";position:absolute;top:-28px;left:18px;font-size:96px;line-height:1;color:rgba(238,128,82,.18);font-family:"Fraunces",serif;pointer-events:none}
+.splive-gazette figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.splive-gazette figcaption code{font-size:11px;color:rgba(247,245,238,.62);max-width:62ch;overflow-wrap:anywhere}
+.splive-gazette-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ee8052;margin-right:8px;vertical-align:2px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.splive-gazette blockquote#splive-gazette-zh{margin:0 0 12px;color:var(--white);font-size:15.5px;line-height:1.78;font-family:"Noto Serif SC","Fraunces","Songti SC",serif}
+.splive-gazette-en{margin:0 0 12px;padding-top:12px;border-top:1px solid rgba(34,48,60,.8)}
+.splive-gazette-en q{color:rgba(247,245,238,.78);font-size:13px;line-height:1.65;font-style:italic;font-family:"Manrope",sans-serif;quotes:none}
+.splive-gazette-meta{margin:0;color:rgba(247,245,238,.45);font-size:11px;line-height:1.6}
+.splive-gazette-meta code{color:rgba(247,245,238,.55)}
+@media (prefers-reduced-motion: reduce){.splive-gazette-dot{animation:none}}

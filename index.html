@@ -469,6 +469,12 @@
           <ul id="splive-route-list" class="splive-tags"></ul>
         </aside>
       </div>
+      <figure class="splive-gazette" aria-label="头版一闪 · 模型原句 · 非裁决">
+        <figcaption><span class="eyebrow eyebrow-small"><span class="splive-gazette-dot" aria-hidden="true"></span>TODAY'S ECHO · 头版一闪 · 模型原句 · 非裁决</span><code id="splive-gazette-anchor">读取中…</code></figcaption>
+        <blockquote id="splive-gazette-zh" lang="zh-CN">读取中…</blockquote>
+        <p class="splive-gazette-en"><q id="splive-gazette-en" lang="en"></q></p>
+        <p class="splive-gazette-meta">随 specproof master 每次推送自动重敲：<code>scripts/gazette_feature.py</code> 以最新账本节为锚直敲 aizzz <code>gpt-6.1-terra</code>，过机械门（zh ≤ 280 字 · en ≤ 220 词 · 无 markdown · 非空）才原样落盘。模型可以复述账本，不得审判世界。</p>
+      </figure>
     </section>
 
     <figure class="github-figures" aria-label="GitHub 实时统计数据">
@@ -666,9 +672,10 @@
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     };
-    const [sync, products] = await Promise.all([
+    const [sync, products, gazette] = await Promise.all([
       fetchJson('./data/specproof-sync.json?ts=' + Date.now()),
       fetchJson('./data/specproof-products.json?ts=' + Date.now()),
+      fetchJson('./data/specproof-gazette.json?ts=' + Date.now()).catch(() => null),
     ]);
 
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
@@ -692,6 +699,12 @@
         return li;
       }));
       set('splive-route-count', String(products.pages.length));
+    }
+
+    if (gazette) {
+      set('splive-gazette-anchor', `ship ${(gazette.generated_at || '').slice(0, 10) || '——'} · 锚 ${(gazette.anchor || '').slice(0, 96)}…`);
+      set('splive-gazette-zh', gazette.zh || '');
+      set('splive-gazette-en', gazette.en || '');
     }
   } catch (_) {
     /* the section stays styled but empty if the fact pack is unreachable — the rest of the page renders normally */
