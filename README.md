@@ -60,7 +60,19 @@ node scripts/identity-guard.mjs
 
 ## 自动同步叙事
 
-每个卫星仓库（specproof、caesura、minicc、football-os、career-os、nexus-platform、nexus-content-platform）的自身 master 都会周期性 push 入 `assets/*/latest.json` 最新事实包，加 `sp-state` placeholder 之后由静态站点直接 fetch。真正"最新"始终来自每个卫星 master 自身，而不是本仓库手动维护数字。
+每个卫星仓库（specproof、caesura、minicc、football-os、career-os、nexus-platform、nexus-content-platform）的本地 `latest.json` 事实包周期 push 到本仓库对应 assets/<x>/latest.json；展示页直接 fetch。加上 SpecProof 的 `data/specproof-sync.json` + `data/specproof-products.json`（由 weekly `portfolio-sync.yml` 或本人 `gh api` 推送产生）——这三份 remote 文件 `./data/specproof-sync.json` `./data/specproof-products.json` `./data/specproof-latest.md` 已经 fetch 给 `LATEST SHIP SECTION`（见 index.html `<section id="specproof-live">`）。
+
+展示页 SpecProof 板块里那条"ship"行是这么来的：
+1. specproof master 上 `docs/latest.json` 被 bot 重锤（CÆSURA/weekly latest-json workflow）
+2. `specproof-reference/scripts/sync_portfolio.py` 从 master 现场读 ledger / worldbook / chronicle，写 `artifacts/portfolio-data/{.github-sync.json,latest.md,products.json,.github-sync.json}`
+3. 没 token 或 fake token → 只写 artifacts，不推；有效 token → 自动推到 `xiaodernan.github.io@master/data/specproof-sync.json|products.json|latest.md`
+
+本机核验：
+```powershell
+curl -s https://xiaodernan.github.io/data/specproof-sync.json
+curl -s https://xiaodernan.github.io/data/specproof-products.json
+curl -s https://xiaodernan.github.io/data/specproof-latest.md
+```
 
 ## 当前对齐（2026-11-18 收尾）
 
