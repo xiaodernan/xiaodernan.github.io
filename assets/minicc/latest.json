@@ -1,34 +1,34 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-18T14:42:21.804Z",
+  "generated_at": "2026-11-18T18:00:45.701Z",
   "branch": "main",
-  "head": "cadc8f5",
-  "total_commits": 1972,
+  "head": "8f49dbb",
+  "total_commits": 1981,
   "recent_commits": [
     {
-      "short": "cadc8f5",
-      "at": "2026-11-18T22:40:23+08:00",
-      "subject": "M8-T1230: Ubuntu leg red on (1) inline _SKIP_DIRS in prompt.py - moved the enumeration to tools/fs.py and imported from there (no dual homes); (2) docstring pin"
+      "short": "8f49dbb4",
+      "at": "2026-11-19T02:00:22+08:00",
+      "subject": "almanac: Ch.LX The Broken Quotation - the io-page inline script's stray '' pair (SyntaxError at line 599, career-os never hydrated) fixed in 652bf3c, Pages Depl"
     },
     {
-      "short": "7a7e345",
-      "at": "2026-11-18T14:09:24Z",
+      "short": "2480f592",
+      "at": "2026-11-18T15:54:24Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "808d63d",
-      "at": "2026-11-18T22:08:59+08:00",
-      "subject": "M8-T1229: keeper default 220s -> 60s - measured live on the NEW lane: identical prefix + family cache key goes cold after 150s of silence (3 calls logged: cold "
-    },
-    {
-      "short": "1aa4230",
-      "at": "2026-11-18T14:04:16Z",
+      "short": "e1997981",
+      "at": "2026-11-18T15:53:57Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "f806c0f",
-      "at": "2026-11-18T22:02:50+08:00",
-      "subject": "M8-T1228 (ledger): note the io-card cache baseline swap (73.7/95.9 -> 72.3/97.6, session-family measured 2026-11-18)"
+      "short": "7d7e47f0",
+      "at": "2026-11-18T23:52:13+08:00",
+      "subject": "evidence: phrase the two e2e test method names without test-function tokens so the doc-pointers gate passes (pointers=0 after; c65332aa reworded, never content-"
+    },
+    {
+      "short": "c65332aa",
+      "at": "2026-11-18T23:51:16+08:00",
+      "subject": "ledger: real end-to-end agent runs on the live lane - task1 fresh workspace 11 tool calls tests green cache 71.6%, task2 resume read-only cache 48%; recorded wi"
     }
   ],
   "first_commit_at": "2026-08-24",
@@ -37,7 +37,7 @@
   "roadmap_lines": 55786,
   "tracked_files": 1154,
   "test_files": 745,
-  "almanac_chapters": 59,
+  "almanac_chapters": 60,
   "module_count": 14,
   "feature_surface": [
     "workbench",
