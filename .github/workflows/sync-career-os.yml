@@ -28,20 +28,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fetch the fact pack from the source repo
-        # The unauthenticated API path rate-limited the weekly sync into silence; the
-        # result was assets/career-os/latest.json freezing at 2026-11-16 with
-        # total_commits: 1 — every AI Career OS milestone number on the page grew
-        # stale weekly while nothing asked why. The workflow's own token rides
-        # the same call now, and the artifact is built from the same pack the
-        # main repo publishes, byte for byte.
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           mkdir -p assets/career-os
           REPO=xiaodernan/ai-career-os
-          HEAD=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${REPO}/commits?sha=main&per_page=1" | jq -r '.[0].sha' | cut -c1-7)
-          STATUS_JSON=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" "https://raw.githubusercontent.com/${REPO}/main/docs/LATEST.json")
+          HEAD=$(curl -fsSL -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${REPO}/commits?sha=main&per_page=1" | jq -r '.[0].sha' | cut -c1-7)
+          STATUS_JSON=$(curl -fsSL "https://raw.githubusercontent.com/${REPO}/main/docs/LATEST.json")
           HEAD="$HEAD" STATUS_JSON="$STATUS_JSON" python3 - <<'PY'
           import json, os, datetime
           pack = json.loads(os.environ['STATUS_JSON'])
