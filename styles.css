@@ -549,3 +549,30 @@ img{font-style:italic}
 }
 .skip-link:focus-visible{top:10px;outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.skip-link{transition:none}}
+/* ── SpecProof · 最新 ship（live）─────────────────────────── */
+.splive-section{padding-top:96px;padding-bottom:96px;background:var(--deep,#0f1117);color:rgba(247,245,238,.78);border-top:1px solid #1d2733;border-bottom:1px solid #1d2733}
+.splive-heading{padding-bottom:32px;border-bottom:2px solid var(--accent);margin-bottom:34px}
+.splive-heading .eyebrow{color:var(--gold,#c9a258)}
+.splive-heading h2{color:var(--white);font-family:"Fraunces","Noto Serif CJK SC",Georgia,serif;letter-spacing:-.03em}
+.splive-heading>p{color:rgba(247,245,238,.55);font-size:13px;max-width:340px;text-align:right}
+.splive-dot{display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:#2ca872;box-shadow:0 0 0 0 rgba(44,168,114,.45);animation:minicc-dot-breathe 2.2s ease-in-out infinite}
+.splive-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px}
+.splive-block{border:1px solid #22303c;border-radius:var(--radius);padding:24px;background:linear-gradient(180deg,rgba(243,206,143,.06),transparent)}
+.splive-ship{display:flex;flex-direction:column;gap:18px}
+.splive-ledger{margin:0;color:var(--white);font-size:16px;line-height:1.72;font-family:"Fraunces","Noto Serif CJK SC",Georgia,serif}
+.splive-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0;padding:0}
+.splive-facts>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.splive-facts dt{color:rgba(247,245,238,.42);font:10.5px "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.splive-facts dd{margin:0;color:var(--white);font-size:13.5px;font-weight:700;letter-spacing:-.005em;overflow-wrap:anywhere}
+.splive-cta{margin:0;padding-top:14px;border-top:1px solid #22303c}
+.splive-cta a{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.04em}
+.splive-cta a:hover{color:var(--gold)}
+.splive-routes{display:flex;flex-direction:column;gap:14px}
+.splive-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.splive-tag{padding:6px 12px;font-size:12px;color:rgba(247,245,238,.85);border:1px solid #2b3f52;border-radius:999px;font-family:"DM Mono",monospace}
+.splive-tag:hover{border-color:var(--accent);color:var(--gold)}
+.splive-section code{font-family:"DM Mono",monospace;color:var(--accent);font-size:13px}
+@media (max-width:900px){.splive-grid{grid-template-columns:1fr}.splive-facts{grid-template-columns:repeat(2,1fr)}.splive-heading>p{text-align:left;max-width:100%}}
+@media (max-width:560px){.splive-facts{grid-template-columns:1fr}.splive-tag{font-size:10.5px;padding:5px 9px}}
+@media print{.splive-section{display:none}}
+

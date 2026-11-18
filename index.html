@@ -102,7 +102,7 @@
             <span class="milestone-label">部典籍卷 · 原典 389 源</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/minicc-codex" target="_blank" rel="noreferrer">
-            <span class="milestone-num">1929</span>
+            <span class="milestone-num">1936</span>
             <span class="milestone-label">minicc 提交总 · CI 全绿</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">
@@ -173,21 +173,21 @@
         </article>
         <!-- minicc:latest-start -->
         <div class="minicc-latest" id="minicc-latest" aria-label="minicc-codex 最新指标">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST · 每次推送自动同步</span><code id="minicc-latest-head">2a23ec3</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST · 每次推送自动同步</span><code id="minicc-latest-head">ba50004</code></div>
           <div class="minicc-latest-grid">
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-commits">1,929</span><span class="minicc-latest-label">提交总数</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-batches">474 章</span><span class="minicc-latest-label">批次稿件</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-files">1,146</span><span class="minicc-latest-label">跟踪文件</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-tests">741</span><span class="minicc-latest-label">测试文件</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-commits">1,936</span><span class="minicc-latest-label">提交总数</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-batches">477 章</span><span class="minicc-latest-label">批次稿件</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-files">1,149</span><span class="minicc-latest-label">跟踪文件</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-tests">742</span><span class="minicc-latest-label">测试文件</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ml-chapters">57 卷</span><span class="minicc-latest-label">文章章节</span></div>
           </div>
-          <div class="minicc-latest-foot"><span id="ml-generated">事实包 2026-11-18 · 55,318 行 roadmap</span><span>特性面 <code id="ml-features">14 维 · 两语对账</code></span></div>
+          <div class="minicc-latest-foot"><span id="ml-generated">事实包 2026-11-18 · 55,374 行 roadmap</span><span>特性面 <code id="ml-features">14 维 · 两语对账</code></span></div>
           <ul class="minicc-latest-commits" id="ml-commits-list" aria-label="minicc-codex 最近提交">
-            <li class="minicc-latest-commit"><code>2a23ec3</code><span>M8-T1204: the evidence gate has a body — minicc-cloud-evidence (8088): read-only /api/evidence, JSONL self-cache, verdict is a boolean plus a timestamp, never a narrative</span></li>
-            <li class="minicc-latest-commit"><code>8d29f5b</code><span>M8-T1205: CI red #10 — two self-inflicted gate hits (content-addressed quotes in this changelog and a banned os.scandir), both fixed to compliance on both legs</span></li>
-            <li class="minicc-latest-commit"><code>5d7d9d8</code><span>M8-T1203: model-channel ledger tile — real per-model token rows straight from /api/metrics; unlock latency root-cause (15.5s stat storm -> 4.2s fan-out, byte-identical)</span></li>
-            <li class="minicc-latest-commit"><code>5b2d6d3</code><span>M8-T1202: the live bench has been fired — real 3-task probe: 2 pass / 1 fail, pass@1=0.667, 185k tokens/success</span></li>
-            <li class="minicc-latest-commit"><code>48449a1</code><span>fact pack — 1,929 commits, 474 batches, Atlas 94 / 57 volumes, 55,318 roadmap lines</span></li>
+            <li class="minicc-latest-commit"><code>ba50004</code><span>M8-T1210 (CI red #12 fix): Ubuntu leg caught two invented details - (1) test_evidence_backfill must register the module in sys.modules before exec_mod</span></li>
+            <li class="minicc-latest-commit"><code>c43c8af</code><span>chore(latest): refresh showcase fact pack</span></li>
+            <li class="minicc-latest-commit"><code>a2e8550</code><span>docs(ledger): M8-T1209 / batch 1149 - record CI red #11 truthfully (evidence backfill script had no audience; fixed with a 4-leg test that actually ru</span></li>
+            <li class="minicc-latest-commit"><code>71ef48d</code><span>M8-T1209 (CI red #11 fix): claim checkers were right - scripts/evidence_backfill.py had no audience; give it one that actually runs it: tests/test_evi</span></li>
+            <li class="minicc-latest-commit"><code>8d0030a</code><span>chore(latest): refresh showcase fact pack</span></li>
           </ul>
         </div>
         <!-- minicc:latest-end -->
@@ -415,6 +415,30 @@
       <p class="repos-note">主力 = 我当前专注、持续推送的项目；归档/fork 只为完整列出账号所有项目（个人选择：不移除任何探索痕迹）。</p>
     </section>
 
+    <section id="specproof-live" class="splive-section section-pad" aria-labelledby="splive-title">
+      <div class="section-heading splive-heading">
+        <div><p class="eyebrow"><span class="splive-dot" aria-hidden="true"></span>LATEST SHIP / 自动同步</p><h2 id="splive-title">SpecProof · 最新进度</h2></div>
+        <p>从 GitHub 仓库 master 直接读，每次进入都是最新值；这里不逐条手动维护。</p>
+      </div>
+      <div class="splive-grid">
+        <article class="splive-block splive-ship" aria-label="最新进度内容">
+          <p class="eyebrow eyebrow-small"><span id="splive-date">—</span> · <code id="splive-head">—</code></p>
+          <p class="splive-ledger" id="splive-ledger">读取中…</p>
+          <dl class="splive-facts">
+            <div><dt>worldbook 字节</dt><dd id="splive-bytes">—</dd></div>
+            <div><dt>页面模块</dt><dd id="splive-pages">—</dd></div>
+            <div><dt>e2e 最近覆盖</dt><dd id="splive-e2e">—</dd></div>
+            <div><dt>最新 tag</dt><dd id="splive-tag">—</dd></div>
+          </dl>
+          <p class="splive-cta"><a href="https://github.com/xiaodernan/specproof" target="_blank" rel="noreferrer">打开 specproof 源码仓库 →</a></p>
+        </article>
+        <aside class="splive-block splive-routes" aria-label="60 个页面模块清单">
+          <p class="eyebrow eyebrow-small"><span id="splive-route-count">60</span> ROUTES / 全部模块</p>
+          <ul id="splive-route-list" class="splive-tags"></ul>
+        </aside>
+      </div>
+    </section>
+
     <figure class="github-figures" aria-label="GitHub 实时统计数据">
       <img class="github-card" src="https://github-readme-stats.vercel.app/api?username=xiaodernan&show_icons=true&hide_border=true&bg_color=0b1016&title_color=ee8052&text_color=c9d1d9&icon_color=5476c7&count_private=true" alt="GitHub 真实数据 · xiaodernan 贡献统计" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
       <img class="github-card" src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiaodernan&hide_border=true&layout=compact&bg_color=0b1016&title_color=ee8052&text_color=c9d1d9&hide_rank=true&size_weight=420" alt="GitHub 真实数据 · xiaodernan 最近使用语言" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
@@ -594,6 +618,46 @@
       }
     } catch (_) { /* the baked tile stays up when the fact pack is unreachable */ }
   })();
+</script>
+<script>
+/* SpecProof · 最新 ship section — rendered from ./data/specproof-sync.json at runtime, no build step */
+(async function () {
+  try {
+    const fetchJson = async (url) => {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    };
+    const [sync, products] = await Promise.all([
+      fetchJson('./data/specproof-sync.json?ts=' + Date.now()),
+      fetchJson('./data/specproof-products.json?ts=' + Date.now()),
+    ]);
+
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+
+    set('splive-date', sync.latest_day || sync.last_synced?.slice(0, 10) || '—');
+    set('splive-head', sync.head || '—');
+    set('splive-ledger', sync.latest_ledger_entry || '');
+    set('splive-bytes', Number.isFinite(sync.world_size_bytes) ? `${(sync.world_size_bytes / 1024).toFixed(1)} KB` : '—');
+    set('splive-pages', Number.isFinite(sync.page_count) ? `${sync.page_count} 个模块` : '—');
+    set('splive-e2e', sync.e2e_last_touch || '—');
+    set('splive-tag', sync.latest_tag || '—');
+
+    const list = document.getElementById('splive-route-list');
+    if (list && Array.isArray(products.pages)) {
+      list.replaceChildren(...products.pages.map((p) => {
+        const li = document.createElement('li');
+        li.className = 'splive-tag';
+        li.textContent = p.component || '';
+        if (p.path) li.setAttribute('title', p.path);
+        return li;
+      }));
+      set('splive-route-count', String(products.pages.length));
+    }
+  } catch (_) {
+    /* the section stays styled but empty if the fact pack is unreachable — the rest of the page renders normally */
+  }
+})();
 </script>
 </body>
 </html>
