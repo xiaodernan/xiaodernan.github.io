@@ -82,7 +82,7 @@ curl -s https://xiaodernan.github.io/data/specproof-latest.md
 - 全部 16 个公开仓库：minicc-codex、specproof、caesura、crossrealm-chronicles、nexus-content-platform、nexus-platform、football-os、football-os-web、ai-career-os、ted、teedyyyy、main、docs(fork sismics-docs)、linuxdo-scripts(fork anghunk-linuxdo-scripts)、xiaodernan(本站)、xiaodernan.github.io
 - 4 个私有仓（不在公开清单，源码不公开：法狗狗公司内部脱敏系统 ×1 + 个人实验仓 ×3）
 - minicc-codex 现状：提交 1,972 · 批次 493 · Atlas 97 / 59 卷 · 745 测试 · 55,786 行 roadmap（CI 全绿 badge）
-- CÆSURA《余响集》72 篇实写（EPIC-VII 实写落地，最新增篇《薄簿合着》2026-11-18；游戏内双语说明书：手册 + 游记全部 72 篇全文）
+- CÆSURA《余响集》73 篇实写（EPIC-VII 实写落地，最新增篇《未答之问》2026-11-19；游戏内双语说明书：手册 + 游记全部 73 篇全文）
 - SpecProof：strike #2003 · 204 scrolls · 19 exhibit · Court LOCKED
 - IELTS / CET6 已在 `README (profile)`、`banner.svg <desc>`、展示瓷 `index.html` 主要三个 chip 全显示
 
