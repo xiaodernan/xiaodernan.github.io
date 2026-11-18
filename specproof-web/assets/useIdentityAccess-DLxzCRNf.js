@@ -1,0 +1,1 @@
+import{i as e}from"./index-CMjfor2d.js";import{t}from"./useRoleAccess-B-w8n-PA.js";function n(){let n=t(e);return{checked:n.checked,canManage:n.allowed}}export{n as t};
