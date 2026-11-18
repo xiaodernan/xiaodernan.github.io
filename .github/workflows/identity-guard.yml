@@ -1,0 +1,32 @@
+name: identity-guard
+
+# Hard gate: every IO deploy onto the public site must continue to carry
+# the full, accurate bio (赵欣曈 · SUSTech + CUHK · 计算机科学与技术 · 全国中学生物理竞赛 · 铜牌 ·
+# 江西省一等奖 · 江西省二等奖 · 法狗狗公司 · 隐盾 · 应用工程师 · 雅思 6.5 · IELTS 6.5 · CET6 546).
+# It FAILS if anyone — including this repository's automated sync pipelines —
+# silently drops or substitutes a word.
+
+"on":
+  push:
+    branches: [master]
+    paths:
+      - 'index.html'
+      - '404.html'
+      - 'README.md'
+      - 'specproof-web/index.html'
+      - 'scripts/identity-guard.mjs'
+      - '.github/workflows/identity-guard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run identity guard
+        run: |
+          node scripts/identity-guard.mjs
