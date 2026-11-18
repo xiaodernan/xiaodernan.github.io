@@ -81,7 +81,7 @@ curl -s https://xiaodernan.github.io/data/specproof-latest.md
 - 4 个私有仓（不在公开清单): fagougou-desensitize、teedyas、teedyassi、teedy-assign
 - minicc-codex 现状：提交 1,936 · 批次 477 · Atlas 94 / 57 卷 · 742 测试 · 55,374 行 roadmap（CI 全绿 badge）
 - CÆSURA《余响集》62 篇实写（EPIC-VII 实写落地，最新增篇《摆旁的灰》2026-11-18；游戏内双语说明书：手册 + 游记全部 62 篇全文）
-- SpecProof：strike #1997 · 198 scrolls · 18 exhibit · Court LOCKED
+- SpecProof：strike #1998 · 199 scrolls · 18 exhibit · Court LOCKED
 - IELTS / CET6 已在 `README (profile)`、`banner.svg <desc>`、展示瓷 `index.html` 主要三个 chip 全显示
 
 ## 本地核验流程（每次推送后必跑）
