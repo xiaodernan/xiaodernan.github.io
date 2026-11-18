@@ -1,40 +1,40 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-18T13:54:01.607Z",
+  "generated_at": "2026-11-18T14:09:23.869Z",
   "branch": "main",
-  "head": "1f38aa5",
-  "total_commits": 1966,
+  "head": "808d63d",
+  "total_commits": 1970,
   "recent_commits": [
+    {
+      "short": "808d63d",
+      "at": "2026-11-18T22:08:59+08:00",
+      "subject": "M8-T1229: keeper default 220s -> 60s - measured live on the NEW lane: identical prefix + family cache key goes cold after 150s of silence (3 calls logged: cold "
+    },
+    {
+      "short": "1aa4230",
+      "at": "2026-11-18T14:04:16Z",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "f806c0f",
+      "at": "2026-11-18T22:02:50+08:00",
+      "subject": "M8-T1228 (ledger): note the io-card cache baseline swap (73.7/95.9 -> 72.3/97.6, session-family measured 2026-11-18)"
+    },
+    {
+      "short": "a971561",
+      "at": "2026-11-18T13:54:01Z",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
     {
       "short": "1f38aa5",
       "at": "2026-11-18T21:53:22+08:00",
       "subject": "docs(index): add Ch.LIX archive entry to CHAPTER_DRAFT index - live terra single call, no explicit prompt_cache_key, 4,173 lane-headline cached tokens, json_obj"
-    },
-    {
-      "short": "13fe7d3",
-      "at": "2026-11-18T21:53:22+08:00",
-      "subject": "M8-T1227: CH.LIX 现在通了 - written live by gpt-6.1-terra itself (prompt 5,072 / completion 1,939 / cached 4,173 lane-headline / 0 explicit key, temperature 0.2, js"
-    },
-    {
-      "short": "4d3c375",
-      "at": "2026-11-18T13:33:54Z",
-      "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "43e7dce",
-      "at": "2026-11-18T21:28:35+08:00",
-      "subject": "M8-T1226 (tour gets StateGraph; almanac count 57->58): onboarding step 2 now names the ⌘K StateGraph route - users finally find the live graph; step 9 volume co"
-    },
-    {
-      "short": "55e7404",
-      "at": "2026-11-18T13:19:43Z",
-      "subject": "chore(latest): refresh showcase fact pack"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 490,
+  "roadmap_batches": 492,
   "changelog_entries": 1,
-  "roadmap_lines": 55731,
+  "roadmap_lines": 55771,
   "tracked_files": 1154,
   "test_files": 745,
   "almanac_chapters": 59,
