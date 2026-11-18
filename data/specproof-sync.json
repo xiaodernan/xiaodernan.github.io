@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "last_synced": "2026-11-18T06:18:14+00:00",
+  "last_synced": "2026-11-18T06:27:36+00:00",
   "branch": "master",
-  "head": "aa08a26",
+  "head": "99e002b",
   "latest_day": "2026-11-18",
-  "latest_tag": "aa08a26",
+  "latest_tag": "99e002b",
   "latest_ledger_entry": "#1994 《一份 PAT 与一只闸门》：D2 正式解锁 · io 页 LIVE SHIP 烧入 · 顺带加实 #1943 ④⑤ · 顺带修 `build_latest.py latest_strike` 回退至 ledger · chronicle **1790** · worldbook **195 卷（双语对称）** · UI **594/594**",
   "latest_changelog": "2026-11-15（六次登记） · 滚轮反转 + 压力测试车间 + /health 探针并行化",
   "world_size_bytes": 457543,
