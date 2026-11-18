@@ -227,6 +227,24 @@ h2{font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.032em;margin
 .hero-note small{color:var(--muted);font-size:11px;margin-top:2px;display:block}
 
 /* ── Signal rail ─────────────────────────────── */
+.oracle-strip{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,3fr);gap:0;border-bottom:1px solid var(--line-strong);background:#0f131b;color:#e8e5dc}
+.oracle-quote{padding:46px clamp(26px,5vw,64px);display:flex;flex-direction:column;gap:18px;border-right:1px solid #20262f}
+.oracle-eyebrow{font-family:var(--nexus-font-mono, ui-monospace),monospace;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:#7a92b4}
+.oracle-quote blockquote{margin:0}
+.oracle-quote p{font-family:'Noto Serif SC','Noto Serif CJK SC',serif;font-size:clamp(28px,3.6vw,44px);line-height:1.35;letter-spacing:.01em;color:#eef1f6;margin:0;max-width:22em}
+.oracle-quote cite{display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:#9aa6bd;font-style:normal}
+.oracle-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+.oracle-meta-cert{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:#0eb578;border:1px solid #0eb57844;border-radius:3px;padding:6px 10px}
+.oracle-meta-chip{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.08em;color:#d6b87a;border:1px solid #d6b87a33;border-radius:3px;padding:6px 10px}
+.oracle-link{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#eef1f6;text-decoration:none;border-bottom:1px solid #eef1f655;padding-bottom:3px}
+.oracle-link:hover{color:#f5a623;border-color:#f5a623}
+.oracle-fact{display:flex;flex-direction:column;justify-content:center;padding:32px 48px;gap:8px;background:radial-gradient(circle at 60% 40%,#1a2230 0%,#0f131b 75%)}
+.oracle-fact-num{font-family:'Noto Serif SC',serif;font-size:clamp(72px,10vw,132px);line-height:.95;color:#f5a623;letter-spacing:-.06em;font-weight:700}
+.oracle-fact-cap{font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:#d6b87a}
+.oracle-fact-sub{font-family:'Noto Serif SC',serif;font-size:12px;line-height:1.55;color:#8a97ad;max-width:16em}
+body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
+@media(max-width:900px){.oracle-strip{grid-template-columns:1fr}.oracle-quote{border-right:0;border-bottom:1px solid #20262f;padding:34px 22px}.oracle-fact{padding:28px 22px;align-items:flex-start}.oracle-quote p{font-size:26px}}
+
 .signal-rail{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);background:var(--surface)}
 .signal-rail>div{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:22px clamp(18px,3vw,52px);border-right:1px solid var(--line)}
 .signal-rail>div:last-child{border-right:0}
