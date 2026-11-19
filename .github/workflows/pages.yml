@@ -56,24 +56,30 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # WSL is broken on this Windows runner (docker-desktop busybox distro
-      # has /bin/sh but no /bin/bash) — actions/upload-pages-artifact@v3
-      # hard-requires bash on Windows. Archive locally with GNU tar (bundled
-      # with Git for Windows) in pwsh, then upload with upload-artifact@v4.
-      # Artifact contract is unchanged: a single artifact named 'github-pages'
-      # holding 'artifact.tar' (<10 GB, no symlinks) — exactly what
-      # deploy-pages@v4 consumes.
-      - name: Archive artifact (pwsh, no WSL bash)
+      # 2026-11-19: actions/upload-pages-artifact@v3 hard-requires bash on
+      # Windows, and lenovo-pages has no WSL distro with /bin/bash, so deploys
+      # on the self-hosted Windows runner fail deterministically at the Upload
+      # artifact step. The Linux branch of the same action works, so master
+      # moved to ubuntu-latest. This step archives cross-platform anyway:
+      # GNU tar on Linux (always present), Git-for-Windows GNU tar or
+      # Windows' built-in bsdtar on Windows. Artifact contract unchanged:
+      # a single artifact named 'github-pages' holding 'artifact.tar'
+      # (<10 GB, no symlinks) — exactly what deploy-pages@v4 consumes.
+      - name: Archive artifact (pwsh)
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
           $tar = Join-Path $env:RUNNER_TEMP 'artifact.tar'
           if (Test-Path $tar) { Remove-Item $tar -Force }
-          $gnu = 'C:\Program Files\Git\usr\bin\tar.exe'
-          if (Test-Path $gnu) {
-            & $gnu --dereference --hard-dereference --directory "$env:GITHUB_WORKSPACE" -cf $tar --exclude='.git' --exclude='.github' --force-local '.'
+          if ($env:OS -eq 'Windows_NT') {
+            $gnu = 'C:\Program Files\Git\usr\bin\tar.exe'
+            if (Test-Path $gnu) {
+              & $gnu --dereference --hard-dereference --directory "$env:GITHUB_WORKSPACE" -cf $tar --exclude='.git' --exclude='.github' --force-local '.'
+            } else {
+              & "$env:WINDIR\System32\tar.exe" --dereference --directory "$env:GITHUB_WORKSPACE" -cf $tar --exclude='.git' --exclude='.github' --force-local '.'
+            }
           } else {
-            & "$env:WINDIR\System32\tar.exe" --dereference --directory "$env:GITHUB_WORKSPACE" -cf $tar --exclude='.git' --exclude='.github' --force-local '.'
+            & tar --dereference --hard-dereference --directory "$env:GITHUB_WORKSPACE" -cf $tar --exclude='.git' --exclude='.github' -- '.'
           }
           Write-Host "artifact.tar bytes: $((Get-Item $tar).Length)"
 
