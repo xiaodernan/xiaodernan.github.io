@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/20%2B-public%20repos-c9a258?style=flat-square&logo=github&logoColor=0e141b" alt="16 个公开仓库">
+  <img src="https://img.shields.io/badge/16-public%20repos-c9a258?style=flat-square&logo=github&logoColor=0e141b" alt="16 个公开仓库">
   <img src="https://img.shields.io/badge/assets-zero%20build-b88632?style=flat-square&logo=rollup&logoColor=0e141b" alt="无构建静态站">
   <img src="https://img.shields.io/badge/identity-guard%20fail--closed-1e9d96?style=flat-square&logo=shield-check&logoColor=0e141b" alt="身份闸门 fail-closed">
   <img src="https://img.shields.io/badge/facts-synced%20from%20master-3c8bbd?style=flat-square&logo=git&logoColor=0e141b" alt="事实随主干自动同步">
