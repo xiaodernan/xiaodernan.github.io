@@ -65,8 +65,13 @@ jobs:
       # moved to ubuntu-latest. This step archives cross-platform anyway:
       # GNU tar on Linux (always present), Git-for-Windows GNU tar or
       # Windows' built-in bsdtar on Windows. Artifact contract unchanged:
-      # a single artifact named 'github-pages' holding 'artifact.tar'
-      # (<10 GB, no symlinks) — exactly what deploy-pages@v4 consumes.
+      # exactly ONE artifact per attempt holding 'artifact.tar'
+      # (<10 GB, no symlinks) — what deploy-pages@v4 consumes.
+      # 2026-11-19 evidence: workflow_dispatch run 44616325801 was retried with
+      # --failed; the retry uploaded a SECOND artifact named 'github-pages' in
+      # the same run, and deploy-pages@v4 died with "Multiple artifacts named
+      # github-pages were unexpectedly found ... Artifact count is 2". The name
+      # is now unique per run+attempt, so a retry cannot collide with itself.
       - name: Archive artifact (pwsh)
         shell: pwsh
         run: |
@@ -89,7 +94,7 @@ jobs:
         id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
           if-no-files-found: error
@@ -97,3 +102,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
