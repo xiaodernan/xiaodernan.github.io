@@ -134,7 +134,8 @@ body::before{
 /* v859-pages-polish — 2026-11-17 */
 .hero-howto{margin:14px 0 0;max-width:520px;font-family:"DM Mono",ui-monospace,monospace;font-size:11px;color:var(--muted);letter-spacing:.02em;line-height:1.8;border-left:2px solid var(--accent);padding-left:10px}
 .index-state{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
-.index-stars{height:14px;vertical-align:middle;border:0;opacity:.92}
+.index-stars{display:none;height:14px;vertical-align:middle;border:0;opacity:.92}
+.index-stars-pill{display:inline-flex;align-items:center;padding:0 8px;border-radius:999px;border:1px solid rgba(201,162,88,.32);background:rgba(201,162,88,.08);color:#c9a258;font:600 11px/1.6 "DM Mono",ui-monospace,monospace;letter-spacing:.02em;vertical-align:middle;white-space:nowrap}
 /* v860 — 全部仓库一屏（2026-11-17） */
 .repos-section{padding-bottom:112px}
 .repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
