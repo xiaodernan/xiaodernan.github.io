@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-19T12:21:35Z",
+  "generated_at": "2026-11-19T13:31:46Z",
   "branch": "master",
-  "head": "f07e191b",
-  "total_commits": 1679,
-  "pushed_at": "2026-11-19T12:21:35Z",
-  "milestone": "D1441",
-  "milestone_full": "Layer N — the counting hours — CLOSED. All 138 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), and a complete English prose arm. Layer N opened at 08:20 (Tong Mei Road scales, ch.131 — Ah Yan's brass weights) and closed at 14:30 (Yuen Garden Street, ch.138 — Ah Jeh's last count of the two-day pre-sale; closing is not ending, it is remembering; the morning arc of the count returns to rest). Beat-parity asserted by chapter-en-arm.test.ts (141/141); EN arm complete; verify_all NO OFFENDER (72 PASS); identity hard-gates remain live on both clones (雅思 6.5 · CET-6 546). Live model provider, aizzz/gpt-6.2-sol, now rides one frozen world atlas across the shared head — 87.8% prompt-token cached on the warm byte-identical replay measured 2026-11-19.",
-  "headline": "Layer N CLOSED · the infinite world reads in three languages across 138 chapters · every arm complete, every gate green.",
+  "head": "8b0678dc",
+  "total_commits": 1689,
+  "pushed_at": "2026-11-19T13:31:46Z",
+  "milestone": "D1447",
+  "milestone_full": "Layer O — the odds floor — CLOSED. All 144 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), full English prose. Layer O opened at 06:50 (Happy Valley, ch.139 — Ah Yau's odds board), progressed through 14:00 / 16:15 / 19:00 / 21:30; closed at 07:00 ( ch.144 — Ah Yau sweeps the east gate before dawn). Beat parity asserted by chapter-en-arm.test.ts (147/147); EN arm complete; verify_all NO OFFENDER (72 PASS); identity hard-gates remain live on both clones (雅思 6.5 · CET-6 546). Live model provider, aizzz/gpt-6.2-sol, rides one frozen world atlas across the shared head — 87.8% prompt-token cached on the warm byte-identical replay measured 2026-11-19.",
+  "headline": "Layer O CLOSED · the infinite world reads in three languages across 144 chapters · every arm complete, every gate green.",
   "features": [
-    "D1441: Layer N CLOSED — the Prince Edward counting-hours arc (ch.131–138) complete in three arms (Traditional HK / opencc Simplified fold / full English prose); beat-parity tests 141/141; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; the arc's final chapter returns the day to its 00:00 anchor",
-    "D1436: the world guide StateGraph reads the real corpus — a frozen HK-arc atlas digest (all 133 pre-closure chapters, the world constitution, an explicit BACKGROUND-only fence) rides the shared 7,394-char prefix; live aizzz/gpt-6.2-sol measured 200 OK, then 87.8% prompt_tokens_details.cached_tokens (13,536 / 15,417) on the byte-identical replay; fences/budget/StateGraph unchanged; fail-open if the artifact is missing",
+    "D1447: Layer O CLOSED — the Happy Valley odds-floor arc complete in three arms (Traditional HK / opencc Simplified fold / full English prose); beat-parity tests 147/147; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; the arc's final chapter returns the racecourse to the 00:00 anchor",
+    "D1436: the world guide StateGraph reads the real corpus — a frozen HK-arc atlas digest (all 133 pre-closure chapters, the world constitution, an explicit BACKGROUND-only fence) rides the shared 7,394-char prefix; live aizzz/gpt-6.2-sol measured 200 OK, then 87.8% prompt_tokens_details.cached_tokens (13,536 / 15,417) on the byte-identical replay; fences/budget/StateGraph unchanged; fail-open",
     "D1430: the web header ships the in-app wheel-direction override (follow-OS / reversed) with full zh-HK / zh-CN / en teaching copy — wheel now behaves natively unless the operator flips it; D1184 rail bridge keeps horizontal scroll intact; /handbook carries the OS-level remedy FAQ",
-    "D1437–D1440: Prince Edward counting-hours thread lands (131 scales → 132 cash register → 133 lamp tester → 134 pre-sale ledger → 135 opening queue → 136 pre-noon ledger → 137 midday door → 138 afternoon last count); beat-parity held throughout; 137 chapters · 138 chapters three arms at closure",
+    "D1437–D1446: Layer N + Layer O arcs land together (the counting hours: 131 scales → 132 cash register → 133 lamp tester → 134 pre-sale ledger → 135 opening queue → 136 pre-noon ledger → 137 midday door → 138 afternoon last count → 139 odds board → 140 afternoon lift → 141 the bay wins → 142 closing the lights → 143 night walk home → 144 after the meet); beat-parity held throughout; arc tracks to 144 in two arms of the arc-clock",
     "io surface: both language towers now repaint from the same fact panels on i18n toggle (50+4 duplicate ids converted to classes; hydration loops all matching arms); baked placeholder refreshed to D1432-c carry; GitHub REST API byte-measure surfaced (138.21 MB; TS 31.95%) on both arms of the public page; identity hard-gates green",
-    "§十一 pressure re-verified (local probe 140/140 green this build) · spring-family e2e green locally · self-hosted Windows runner online on this machine (agent 21 · dispatch-only runner-smoke.yml green); hosted CI runners remain backlogged — local gates remain the source of truth"
+    "§十一 pressure re-verified (local probe 140/140 green this build) · spring-family e2e green locally · self-hosted Windows runner online on this machine (agent 21 · dispatch-only runner-smoke.yml green); ci-local.yml brings week-of-record parity on every push; hosted CI runners remain backlogged — local gates remain the source of truth"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
