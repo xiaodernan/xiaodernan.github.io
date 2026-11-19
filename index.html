@@ -600,7 +600,7 @@
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
       };
-      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/ai-career-os/main/docs/latest.json?ts=' + Date.now())
+      const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/ai-career-os/main/docs/LATEST.json?ts=' + Date.now())
         .catch(() => fetchJson('assets/career-os/latest.json'));
       const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
       set('ac-head', `main @ ${d.head}`);
