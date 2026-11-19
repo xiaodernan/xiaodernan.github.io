@@ -213,7 +213,7 @@ button{font:inherit;color:inherit}
 .theme-toggle:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
 
 /* ── Hero ─────────────────────────────── */
-.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:6vw;min-height:760px;padding-top:170px;padding-bottom:96px;background:transparent}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.95fr);gap:5vw;min-height:720px;padding-top:170px;padding-bottom:96px;background:transparent}
 .hero-grid{position:absolute;inset:0 0 0 45%;opacity:.5;background-image:
   linear-gradient(var(--line) 1px,transparent 1px),
   linear-gradient(90deg,var(--line) 1px,transparent 1px);
