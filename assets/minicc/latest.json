@@ -1,10 +1,25 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-19T07:35:00.000Z",
+  "generated_at": "2026-11-19T08:15:00.000Z",
   "branch": "main",
-  "head": "0b02c3a9",
-  "total_commits": 2015,
+  "head": "d213f587",
+  "total_commits": 2018,
   "recent_commits": [
+    {
+      "short": "d213f587",
+      "at": "2026-11-19T16:32:00+08:00",
+      "subject": "admin: apply-all button on plan and recommendations tiles - one click fans the whole list through /api/tasks/batch"
+    },
+    {
+      "short": "4c4e6002",
+      "at": "2026-11-19T16:13:00+08:00",
+      "subject": "prompt: world map is now genuinely dense - almanac TOC 67 + manual TOC 20 listed inline (9,720 bytes)"
+    },
+    {
+      "short": "2d9d0766",
+      "at": "2026-11-19T15:55:00+08:00",
+      "subject": "ledger(cache): report 87.1% warm on gpt-6.2-sol this window; family-key and keeper win"
+    },
     {
       "short": "0b02c3a9",
       "at": "2026-11-19T15:30:00+08:00",
@@ -14,26 +29,11 @@
       "short": "188333fc",
       "at": "2026-11-19T07:25:00Z",
       "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "c2f06367",
-      "at": "2026-11-19T15:17:00+08:00",
-      "subject": "admin: model-written next moves become workbench tasks - one click dispatches through /api/tasks"
-    },
-    {
-      "short": "8c8c88df",
-      "at": "2026-11-19T06:55:15Z",
-      "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "9898a301",
-      "at": "2026-11-19T06:48:05Z",
-      "subject": "chore(latest): refresh showcase fact pack"
     }
   ],
   "first_commit_at": "2026-08-24",
   "roadmap_batches": 493,
-  "changelog_entries": 8,
+  "changelog_entries": 9,
   "roadmap_lines": 55786,
   "tracked_files": 1158,
   "test_files": 747,
