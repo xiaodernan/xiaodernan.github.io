@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-19 · c17f1f58**
+**2026-11-19 · e6ec73fb**
 - 分支: `master`
 - ledger: `#2027 自托管 runner 双落地 · Pages 部署成功 · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
