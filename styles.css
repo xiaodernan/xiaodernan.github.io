@@ -626,7 +626,7 @@ img{font-style:italic}
 .splive-gazette figcaption code{font-size:11px;color:rgba(247,245,238,.62);max-width:62ch;overflow-wrap:anywhere}
 .splive-gazette-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ee8052;margin-right:8px;vertical-align:2px;animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.splive-gazette blockquote#splive-gazette-zh{margin:0 0 12px;color:var(--white);font-size:15.5px;line-height:1.78;font-family:"Noto Serif SC","Fraunces","Songti SC",serif}
+.splive-gazette blockquote.splive-gazette-zh{margin:0 0 12px;color:var(--white);font-size:15.5px;line-height:1.78;font-family:"Noto Serif SC","Fraunces","Songti SC",serif}
 .splive-gazette-en{margin:0 0 12px;padding-top:12px;border-top:1px solid rgba(34,48,60,.8)}
 .splive-gazette-en q{color:rgba(247,245,238,.78);font-size:13px;line-height:1.65;font-style:italic;font-family:"Manrope",sans-serif;quotes:none}
 .splive-gazette-meta{margin:0;color:rgba(247,245,238,.45);font-size:11px;line-height:1.6}
