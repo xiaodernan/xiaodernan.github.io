@@ -1,43 +1,43 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-19T07:19:13.742Z",
-  "branch": "HEAD",
-  "head": "c2f0636",
-  "total_commits": 2013,
+  "generated_at": "2026-11-19T07:35:00.000Z",
+  "branch": "main",
+  "head": "0b02c3a9",
+  "total_commits": 2015,
   "recent_commits": [
     {
+      "short": "0b02c3a9",
+      "at": "2026-11-19T15:30:00+08:00",
+      "subject": "prompt(worldmap): ship the byte-stable compass v3 - 7,165 bytes of measured facts"
+    },
+    {
+      "short": "188333fc",
+      "at": "2026-11-19T07:25:00Z",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
       "short": "c2f06367",
-      "at": "2026-11-19T15:47:00+08:00",
-      "subject": "admin: model-written next moves become workbench tasks - one click on a plan or recommendation item dispatches it through /api/tasks with the chat's permission posture"
+      "at": "2026-11-19T15:17:00+08:00",
+      "subject": "admin: model-written next moves become workbench tasks - one click dispatches through /api/tasks"
     },
     {
       "short": "8c8c88df",
-      "at": "2026-11-19T07:00:15Z",
+      "at": "2026-11-19T06:55:15Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "c2abc222",
-      "at": "2026-11-19T14:47:17+08:00",
-      "subject": "almanac: Ch.LXVI The Click That Answers - 6.2-sol attempts=1, en zero CJK, zh 1,354 chars; 66/66 bil"
-    },
-    {
-      "short": "d65824e5",
-      "at": "2026-11-19T06:37:45Z",
+      "short": "9898a301",
+      "at": "2026-11-19T06:48:05Z",
       "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "a8afc404",
-      "at": "2026-11-19T14:33:28+08:00",
-      "subject": "docs: stop citing content-addressed bundles in CHANGELOG (gate test_no_document_quotes_a_content_addressed_bundle)"
     }
   ],
   "first_commit_at": "2026-08-24",
   "roadmap_batches": 493,
-  "changelog_entries": 7,
+  "changelog_entries": 8,
   "roadmap_lines": 55786,
   "tracked_files": 1158,
   "test_files": 747,
-  "almanac_chapters": 66,
+  "almanac_chapters": 67,
   "module_count": 14,
   "feature_surface": [
     "workbench",
