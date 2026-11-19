@@ -6,6 +6,16 @@ const projectRows = [...document.querySelectorAll('[data-project-table] .index-r
 const savedTheme = localStorage.getItem('portfolio-theme');
 if (savedTheme) document.body.dataset.theme = savedTheme;
 
+// ── 外链星标徽章（img.shields.io）加载失败时直接隐藏该 img——绝不留破图 ——
+// （2026-11-19 实测：某网络下 shield 请求一次都没发出，22 枚徽章全悬空；隐藏干净图IO。）
+document.addEventListener('error', (event) => {
+  const img = event.target;
+  if (img instanceof HTMLImageElement) {
+    const src = img.currentSrc || img.src || '';
+    if (src.includes('img.shields.io')) img.style.display = 'none';
+  }
+}, true);
+
 window.addEventListener('scroll', () => {
   topbar?.classList.toggle('is-scrolled', window.scrollY > 12);
 }, { passive: true });
