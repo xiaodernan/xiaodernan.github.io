@@ -1,10 +1,15 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-19T17:29:47.000Z",
+  "generated_at": "2026-11-19T17:59:36.000Z",
   "branch": "main",
-  "head": "d649549",
-  "total_commits": 2050,
+  "head": "ff3dc3c",
+  "total_commits": 2051,
   "recent_commits": [
+    {
+      "short": "ff3dc3c",
+      "at": "2026-11-20T01:57:44+08:00",
+      "subject": "almanac: Ch.LXXVIII The Queue That Never Stops - Atlas 115 -> 116 - attempts=1, en zero CJK (M8-T1265)"
+    },
     {
       "short": "d649549",
       "at": "2026-11-20T01:28:17+08:00",
@@ -24,11 +29,6 @@
       "short": "e5205f1",
       "at": "2026-11-19T15:46:03Z",
       "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "e2cbb7a",
-      "at": "2026-11-19T23:44:50+08:00",
-      "subject": "almanac: Ch.LXXV The Ladder Snaps, the World Does Not - Atlas 112 -> 113 - attempts=1, en zero CJK (M8-T1262)"
     }
   ],
   "first_commit_at": "2026-08-24",
@@ -37,7 +37,7 @@
   "roadmap_lines": 55786,
   "tracked_files": 1158,
   "test_files": 747,
-  "almanac_chapters": 77,
+  "almanac_chapters": 78,
   "module_count": 14,
   "feature_surface": [
     "workbench",
