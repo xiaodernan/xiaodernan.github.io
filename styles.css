@@ -641,3 +641,104 @@ img{font-style:italic}
 .lang-toggle{border:1px solid var(--line-strong);width:34px;height:34px;background:transparent;cursor:pointer;font:600 11px "DM Mono",ui-monospace,monospace;color:var(--ink);transition:.2s;letter-spacing:.05em}
 .lang-toggle:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
 body[data-theme="dark"] .lang-toggle{border-color:#33414e;color:#e8e4d8}
+
+/* Anchor dock — fixed-footer chapter jump rail. Pairs with the top
+   header nav: the topbar takes you across sections, this anchor dock
+   holds you inside one. Hidden under 920px (mobile already has the
+   hamburger); shows only when the viewport is wide enough for the
+   horizontal pill row to breathe. */
+.anchor-dock {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 61;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, #0e141b 84%, transparent);
+  border: 1px solid rgba(201, 162, 88, .35);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .35);
+  font-family: "DM Mono", ui-monospace, monospace;
+  letter-spacing: .04em;
+}
+.anchor-dock a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  font-size: 10.5px;
+  color: rgba(247, 245, 238, .82);
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color .16s ease, background .16s ease, border-color .16s ease;
+}
+.anchor-dock a:hover {
+  background: rgba(201, 162, 88, .18);
+  color: #f7f5ee;
+  border-color: rgba(201, 162, 88, .45);
+}
+.anchor-dock a:focus-visible {
+  outline: 2px solid #c9a258;
+  outline-offset: 2px;
+  color: #f7f5ee;
+}
+.anchor-dock a[data-dot-go] > .anchor-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a258;
+  box-shadow: 0 0 4px rgba(201, 162, 88, .6);
+}
+@media (min-width: 920px) { .anchor-dock { display: inline-flex; } }
+@media (max-width: 919px) { .anchor-dock { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .anchor-dock a { transition: none; }
+}
+@supports not (backdrop-filter: blur(10px)) {
+  .anchor-dock {
+    background: rgba(14, 20, 27, .95);
+  }
+}
+
+/* Subtle vignette on the dock's master page when it appears, so the dock
+   pops forward — universal decoration, never blocks reading. */
+@media (min-width: 920px) {
+  main::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(14, 20, 27, .35), transparent 80%);
+    z-index: 55;
+  }
+}
+
+.anchor-dock .anchor-label-en { display: none; }
+@media (min-width: 1100px) {
+  .anchor-dock .anchor-label-en { display: inline; font-size: 8.5px; opacity: .65; margin-left: 2px; }
+}
+
+/* Special node for the live specproof demo anchor — glows briefly. */
+.anchor-dock a[data-dot-go="specproof-live"] .anchor-dot {
+  background: #ee8052;
+  box-shadow: 0 0 6px rgba(238, 128, 82, .6), 0 0 12px rgba(238, 128, 82, .35);
+}
+
+.anchor-dock a[data-dot-go="specproof-live"] {
+  color: #f7d79a;
+}
+
+.anchor-dock a[data-dot-go="specproof-live"]:hover {
+  border-color: rgba(247, 215, 154, .55);
+  color: #fbe3b8;
+}
