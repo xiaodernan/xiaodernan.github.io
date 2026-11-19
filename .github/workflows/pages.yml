@@ -29,7 +29,10 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Hosted runner queue on this account is saturated (deploys sat for >1h and were cancelled);
+    # this repo already has two online self-hosted Windows runners (lenovo-pages, lenovo-pages-2)
+    # dedicated to it. Join those instead of the shared queue. Identity guard still gates.
+    runs-on: [self-hosted, Windows, X64]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
