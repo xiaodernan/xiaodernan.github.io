@@ -1,8 +1,8 @@
 {
   "schema_version": "career-os.latest.v1",
-  "generated_at": "2026-11-19T09:07:51.745062Z",
+  "generated_at": "2026-11-19T09:48:38.587264Z",
   "branch": "main",
-  "head": "b3067ad",
+  "head": "57ea0b3",
   "total_commits": 1672,
   "milestone": "Epic 338",
   "milestone_full": "the ledger of done epics (through 490 items), closed at Epic 338 — The warm lane",
