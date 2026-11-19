@@ -1,1 +1,0 @@
-import{i as e}from"./index-BK-rthFT.js";import{t}from"./useRoleAccess-BebMoS8R.js";function n(){let n=t(e);return{checked:n.checked,canManage:n.allowed}}export{n as t};
