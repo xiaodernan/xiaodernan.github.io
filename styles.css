@@ -211,7 +211,7 @@ button{font:inherit;color:inherit}
 .status-dot{display:inline-block;width:7px;height:7px;margin-right:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(30,157,150,.18);animation:dot-pulse 2s ease-in-out infinite}
 @keyframes dot-pulse{0%,100%{box-shadow:0 0 0 4px rgba(30,157,150,.18)}50%{box-shadow:0 0 0 7px rgba(30,157,150,.08)}}
 h1,h2,h3,p{margin-top:0}
-h1{max-width:820px;margin-bottom:30px;font-size:clamp(52px,6.4vw,98px);line-height:1.02;letter-spacing:-.038em;font-weight:700;font-family:"Fraunces","Noto Serif SC","Noto Serif CJK SC",Georgia,serif;font-stretch:condensed}
+h1{max-width:820px;margin-bottom:30px;font-size:clamp(52px,6.4vw,98px);line-height:1.02;letter-spacing:-.038em;font-weight:700;font-family:"Fraunces","Noto Serif SC","Noto Serif CJK SC",Georgia,serif}
 h1 em,h2 em{color:var(--accent-deep);font-style:normal}
 h2{font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.032em;margin-bottom:0}
 .hero-lede{max-width:600px;color:var(--ink-soft);font-size:16px;line-height:1.85}
@@ -237,7 +237,7 @@ h2{font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.032em;margin
 /* ── Signal rail ─────────────────────────────── */
 .oracle-strip{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,3fr);gap:0;border-bottom:1px solid var(--line-strong);background:#0f131b;color:#e8e5dc}
 .oracle-quote{padding:46px clamp(26px,5vw,64px);display:flex;flex-direction:column;gap:18px;border-right:1px solid #20262f}
-.oracle-eyebrow{font-family:var(--nexus-font-mono, ui-monospace),monospace;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:#7a92b4}
+.oracle-eyebrow{font-family:var(--nexus-font-mono, ui-monospace),monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7a92b4}
 .oracle-quote blockquote{margin:0}
 .oracle-quote p{font-family:'Noto Serif SC','Noto Serif CJK SC',serif;font-size:clamp(28px,3.6vw,44px);line-height:1.35;letter-spacing:.01em;color:#eef1f6;margin:0;max-width:22em}
 .oracle-quote cite{display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:#9aa6bd;font-style:normal}
@@ -248,7 +248,7 @@ h2{font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.032em;margin
 .oracle-link:hover{color:#f5a623;border-color:#f5a623}
 .oracle-fact{display:flex;flex-direction:column;justify-content:center;padding:32px 48px;gap:8px;background:radial-gradient(circle at 60% 40%,#1a2230 0%,#0f131b 75%)}
 .oracle-fact-num{font-family:'Noto Serif SC',serif;font-size:clamp(72px,10vw,132px);line-height:.95;color:#f5a623;letter-spacing:-.06em;font-weight:700}
-.oracle-fact-cap{font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:#d6b87a}
+.oracle-fact-cap{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#d6b87a}
 .oracle-fact-sub{font-family:'Noto Serif SC',serif;font-size:12px;line-height:1.55;color:#8a97ad;max-width:16em}
 body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 @media(max-width:900px){.oracle-strip{grid-template-columns:1fr}.oracle-quote{border-right:0;border-bottom:1px solid #20262f;padding:34px 22px}.oracle-fact{padding:28px 22px;align-items:flex-start}.oracle-quote p{font-size:26px}}
@@ -325,7 +325,7 @@ body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 .node-b{top:42px;right:38px;border-color:var(--blue)}
 .node-c{bottom:42px;left:38px;border-color:var(--gold)}
 .node-d{right:38px;bottom:42px;border-color:#b798e9}
-.capability-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:22px;color:#92a0ab;font:11px "DM Mono",monospace;letter-spacing:.08em}
+.capability-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:22px;color:#92a0ab;font:11px "DM Mono",monospace;letter-spacing:.04em}
 .capability-foot span:before{content:"+";margin-right:6px;color:var(--gold)}
 
 /* ── Project index ─────────────────────────────── */
@@ -379,7 +379,7 @@ body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 .contact-card:hover strong{color:var(--gold)}
 
 /* ── Footer ─────────────────────────────── */
-.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px;background:var(--accent-ink);color:rgba(247,245,238,.6);font:10px "DM Mono",monospace;letter-spacing:.1em}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px;background:var(--accent-ink);color:rgba(247,245,238,.6);font:10px "DM Mono",monospace;letter-spacing:.04em}
 .footer a:hover{color:var(--gold)}
 
 /* ── Theme (dark) ─────────────────────────────── */
@@ -455,7 +455,7 @@ body[data-theme="dark"] .project-table{border-top-color:#cbc8bb}
 .seal-row{display:flex;align-items:center;gap:16px;margin-top:22px;border-top:1px solid var(--line-strong);padding-top:18px;max-width:400px}
 .seal-mark{width:84px;height:84px;flex:0 0 auto;transform:rotate(-4deg);transition:transform .45s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 10px 18px rgba(166,58,43,.28))}
 .seal-row:hover .seal-mark{transform:rotate(0deg) scale(1.03)}
-.seal-caption{font:11px "DM Mono",monospace;letter-spacing:.26em;color:var(--muted);white-space:nowrap}
+.seal-caption{font:11px "DM Mono",monospace;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
 .seal-chip{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:4px;background:#A63A2B;color:#f7f5ee;font:700 10px/1 "Noto Serif SC","Noto Serif CJK SC",serif;vertical-align:-2px;margin-right:7px;position:relative;top:-1px}
 
 /* ── v861: focus visibility ─────────────────────────────────────────── */
