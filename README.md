@@ -78,7 +78,7 @@ curl -s https://xiaodernan.github.io/data/specproof-latest.md
 
 ## 当前对齐（2026-11-18 收尾）
 
-- 雅思 6.5 · CET6 546（用户本人钦示，强一口气）
+- 雅思 6.5 · CET6 546（用户本人指定 · 不得改动）
 - 全部 16 个公开仓库：minicc-codex、specproof、caesura、crossrealm-chronicles、nexus-content-platform、nexus-platform、football-os、football-os-web、ai-career-os、ted、teedyyyy、main、docs(fork sismics-docs)、linuxdo-scripts(fork anghunk-linuxdo-scripts)、xiaodernan(本站)、xiaodernan.github.io
 - 4 个私有仓（不在公开清单，源码不公开：法狗狗公司内部脱敏系统 ×1 + 个人实验仓 ×3）
 - minicc-codex 现状：提交 2,002 · 批次 493 · Atlas 103 / 65 卷 · 747 测试 · 55,786 行 roadmap（CI 全绿 badge）
@@ -103,4 +103,4 @@ python -m http.server 4180  # 肉眼复核 hero/轮廓/卡片条
 
 - `minicc-codex` 是首选主展示项。
 - `football-os` 周 cron 自动重算最新事实。
-- SpecProof 此刻进入 Strike #1991，展馆门禁仍 LOCKED。
+- SpecProof 此刻为 Strike #2003，展馆门禁仍 LOCKED。
