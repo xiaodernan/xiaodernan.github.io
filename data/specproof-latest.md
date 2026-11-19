@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-19 · 9fc49b47**
+**2026-11-19 · 3d917cda**
 - 分支: `master`
 - ledger: `#2028 自托管 CI 走出黑暗：yaml 修复 · `Verify system Python` 退役 · `astral-sh/setup-uv@v7` + `uv venv .venv --python 3.12` · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
