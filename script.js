@@ -137,6 +137,11 @@ window.__teachInteractive = function teachInteractive() {
       }
     }
     navLinks.forEach((a, i) => { const t = NAV_TEXT[lang] && NAV_TEXT[lang][i]; if (t) a.textContent = t; });
+    // Keep title hints truly bilingual: data-tip-zh / data-tip-en ride along with the text swap.
+    document.querySelectorAll('[data-tip-zh]').forEach((el) => {
+      const tip = lang === 'en' ? el.dataset.tipEn : el.dataset.tipZh;
+      if (tip) el.setAttribute('title', tip);
+    });
     document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
     document.documentElement.dataset.lang = lang;
     if (btn) {
