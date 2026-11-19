@@ -99,6 +99,15 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
+      # 2026-11-19 evidence: run 44617342184 uploaded artifact
+      # github-pages-44617342184-1 successfully at 21:18:09Z, and deploy-pages@v4
+      # queried at 21:18:10Z and saw 0 artifacts — the artifacts API had not caught
+      # up yet. The very same artifact is listed by the API seconds later. Give
+      # metadata a bounded beat before the lookup; this is a wait, not a gate.
+      - name: Let artifact metadata settle
+        shell: pwsh
+        run: Start-Sleep -Seconds 20
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
