@@ -110,7 +110,15 @@ body::before{
   padding: 1px 5px;
   width: max-content;
 }
-.minicc-latest-commit span { line-height: 1.5; }
+.minicc-latest-commit span {
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
 @media (max-width: 560px) {
   .minicc-latest-commit { grid-template-columns: 1fr; gap: 2px; }
   .minicc-latest-commit code { font-size: 10px; }

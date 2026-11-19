@@ -530,6 +530,7 @@
           sha.textContent = c.short || '';
           const subject = document.createElement('span');
           subject.textContent = c.subject || '';
+          subject.title = c.subject || '';
           li.append(sha, subject);
           return li;
         }));
