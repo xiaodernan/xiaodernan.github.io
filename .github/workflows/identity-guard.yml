@@ -1,9 +1,9 @@
-name: identity-guard
+﻿name: identity-guard
 
 # Hard gate: every IO deploy onto the public site must continue to carry
-# the full, accurate bio (赵欣曈 · SUSTech + CUHK · 计算机科学与技术 · 全国中学生物理竞赛 · 铜牌 ·
-# 江西省一等奖 · 江西省二等奖 · 法狗狗公司 · 隐盾 · 应用工程师 · 雅思 6.5 · IELTS 6.5 · CET6 546).
-# It FAILS if anyone — including this repository's automated sync pipelines —
+# the full, accurate bio (璧垫鏇?路 SUSTech + CUHK 路 璁＄畻鏈虹瀛︿笌鎶€鏈?路 鍏ㄥ浗涓鐢熺墿鐞嗙珵璧?路 閾滅墝 路
+# 姹熻タ鐪佷竴绛夊 路 姹熻タ鐪佷簩绛夊 路 娉曠嫍鐙楀叕鍙?路 闅愮浘 路 搴旂敤宸ョ▼甯?路 闆呮€?6.5 路 IELTS 6.5 路 CET6 546).
+# It FAILS if anyone 鈥?including this repository's automated sync pipelines 鈥?
 # silently drops or substitutes a word.
 
 "on":
