@@ -1,33 +1,33 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-19T10:26:00.000Z",
+  "generated_at": "2026-11-19T11:22:22.000Z",
   "branch": "main",
-  "head": "5b2b177",
-  "total_commits": 2030,
+  "head": "7df8e3e",
+  "total_commits": 2032,
   "recent_commits": [
     {
+      "short": "7df8e3ec",
+      "at": "2026-11-19T11:45:00+08:00",
+      "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "08f31090",
+      "at": "2026-11-19T11:45:00+08:00",
+      "subject": "almanac: Ch.LXX The Runner Without Bash - Atlas 107 -> 108 - attempts=2, en zero CJK (M8-T1255)"
+    },
+    {
       "short": "5b2b1776",
-      "at": "2026-11-19T17:20:00+08:00",
+      "at": "2026-11-19T11:45:00+08:00",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
       "short": "e468373e",
-      "at": "2026-11-19T17:20:00+08:00",
+      "at": "2026-11-19T11:45:00+08:00",
       "subject": "almanac: Ch.LXIX The Live Page - Atlas 106 -> 107 - plus two parity/dazzle smoke catches (M8-T1252..1254)"
     },
     {
       "short": "838816b1",
-      "at": "2026-11-19T17:20:00+08:00",
-      "subject": "chore(latest): refresh showcase fact pack"
-    },
-    {
-      "short": "8a7519b2",
-      "at": "2026-11-19T17:20:00+08:00",
-      "subject": "copy: sweep stale Atlas-era narration - Manual panel and onboarding step 9 now say sixty-eight volumes (newest: Ch.LXVIII One Click, Many Hands); en zero-CJK parity preserved; en fifty-five/eight -> sixtyeight"
-    },
-    {
-      "short": "2516ea13",
-      "at": "2026-11-19T17:20:00+08:00",
+      "at": "2026-11-19T11:45:00+08:00",
       "subject": "chore(latest): refresh showcase fact pack"
     }
   ],
@@ -37,7 +37,7 @@
   "roadmap_lines": 55786,
   "tracked_files": 1158,
   "test_files": 747,
-  "almanac_chapters": 69,
+  "almanac_chapters": 70,
   "module_count": 14,
   "feature_surface": [
     "workbench",
