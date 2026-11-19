@@ -609,3 +609,8 @@ img{font-style:italic}
 .splive-gazette-meta{margin:0;color:rgba(247,245,238,.45);font-size:11px;line-height:1.6}
 .splive-gazette-meta code{color:rgba(247,245,238,.55)}
 @media (prefers-reduced-motion: reduce){.splive-gazette-dot{animation:none}}
+
+
+/* D1431 — the EN recruiter card in the contact band: same geometry, accent edge. */
+.contact-card-en { border-color: color-mix(in srgb, var(--accent, #f0a860) 55%, transparent); }
+.contact-card-en small { max-width: 44ch; }
