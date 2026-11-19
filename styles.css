@@ -742,3 +742,9 @@ body[data-theme="dark"] .lang-toggle{border-color:#33414e;color:#e8e4d8}
   border-color: rgba(247, 215, 154, .55);
   color: #fbe3b8;
 }
+
+.anchor-dock a.is-current {
+  background: rgba(201, 162, 88, .22);
+  color: #fbe3b8;
+  border-color: rgba(201, 162, 88, .55);
+}

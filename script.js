@@ -158,3 +158,24 @@ window.__teachInteractive = function teachInteractive() {
   btn?.addEventListener('click', () => applyLang(store.get() === 'en' ? 'zh' : 'en'));
   applyLang(store.get());
 })();
+
+/* Anchor-dock scroll-spy — mirrors the top-nav spy for the bottom chapter
+   rail. Marks aria-current and paints the active pill. */
+const dockLinks = [...document.querySelectorAll('.anchor-dock a[data-dot-go]')];
+if (dockLinks.length) {
+  const dockTargets = dockLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  const dockObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      dockLinks.forEach((link) => {
+        const hit = link.getAttribute('href') === '#' + entry.target.id;
+        link.classList.toggle('is-current', hit);
+        if (hit) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+  dockTargets.forEach((target) => dockObserver.observe(target));
+}
