@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-19 · 95aded00**
+**2026-11-19 · 2813c151**
 - 分支: `master`
 - ledger: `#2033 缓存拓扑实录 · ~169k 前缀 × lane 级 prompt_cache_key · gpt-6.2-sol · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
