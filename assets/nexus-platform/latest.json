@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-19T08:00:00Z",
+  "generated_at": "2026-11-19T09:30:00Z",
   "branch": "master",
-  "head": "7da803c",
-  "total_commits": 1646,
-  "pushed_at": "2026-11-19T07:12:55Z",
-  "milestone": "D1418",
-  "milestone_full": "Layer L — the return arc — CLOSED. All 120 Traditional Hong Kong chapters (D1344–D1418 EN-arm campaign) ship in three arms: Traditional HK, Standard-Simplified opencc fold, full English prose. Layer L’s last chapter (hk-causeway-bay-tram-loop-midnight-last-run-chronicle — 銅鑼灣電車路阿峯的最後一程， midnight) returns the arc to its 00:00 anchor. Full parity asserted by chapter-en-arm.test.ts (123/123); the opencc fold for Simplified locked in; identity hard-gates (雅思 6.5 · CET-6 546 · 隐盾 · 赵欣曈) live on both clones; live LLM provider is now gpt-6.2-sol via aizzz.xyz/v1 (Clash egress probe: tiny-call 95.1% cached identical-burst; SSE vs non-stream report identical cache figures — prefix stability owns the cache); the site header ships the in-app wheel-direction override (D1430); verify_all RESULT: NO OFFENDER.",
-  "headline": "NEXUS Platform — the infinite world reads in three languages and anchors at 00:00; Layer L (the return arc) is closed — 120 chapters, every arm complete.",
+  "head": "69d7aee",
+  "total_commits": 1660,
+  "pushed_at": "2026-11-19T09:27:55Z",
+  "milestone": "D1432",
+  "milestone_full": "Layer M — the small hours — CLOSED. All 130 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), full English prose. Layer M opened at 01:30 (Queen’s Road, ch.121) and closed at 23:30 (Central Pier, ch.130 — Ah Chi’s final watch; the arc returns to its 00:00 anchor). Beat parity asserted by chapter-en-arm.test.ts (133/133); EN arm complete end-to-end; identity hard-gates live (雅思 6.5 · CET-6 546 · 隐盾 · 赵欣曈) on both clones; live LLM provider now gpt-6.2-sol via aizzz.xyz/v1 (shared frozen head measured warm ≥95% cached cross-lane on Clash egress); wheel-override shipped in the header; io + profile both bilingual one-click; verify_all RESULT: NO OFFENDER.",
+  "headline": "NEXUS Platform — Layer M closed; the infinite world reads in three languages across 130 chapters; every arm complete, every gate green.",
   "features": [
-    "D1418: Layer L CLOSED — corpus stands at 120 chapters, all three arms (Traditional HK / Simplified opencc fold / full English prose); beat-parity tests 123/123; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; the arc returns to its 00:00 anchor",
-    "D1414: live provider re-issued — api.aizzz.xyz/v1, gpt-6.2-sol; Clash egress probe: tiny-call 95.1% cached identical-burst (4180/4397); SSE vs non-stream identical cache figures — prefix stability owns the cache; growing-history turns 2–4 ≈ 86–87% cold-arm (warm-state ≈96% merchant lane)",
+    "D1432: Layer M CLOSED — corpus stands at 130 chapters, all three arms (Traditional HK / Simplified opencc fold / full English prose); beat-parity tests 133/133; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; Layer M’s closing chapter returns the arc to 00:00",
+    "D1420–D1432: every lane rides one frozen head (7,394 chars · v1 · sha bb8ae53bed5a0c33); live aizzz/gpt-6.2-sol measured ≥95% cached cross-lane (growing-history turns 3–4 at 95.7%/95.1%); SSE vs non-stream identical figures — prefix stability owns the cache",
     "D1430: the site header ships the in-app wheel-direction override (follow-OS / reversed) with full zh-HK / zh-CN / en teaching copy — the demanded wheel fix; the D1184 rail bridge keeps vertical wheel → horizontal rail mapping untouched; /handbook carries the OS-level remedy FAQ",
-    "D1314: merchant agent growing-history relay — platform read door (`GET /api/v1/internal/conversations/{id}/messages`); oldest→newest lead; codex-style warm-state ≈96% cached on the re-issued provider; direct JSON remains the default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
-    "D1310–D1312: 🧭 world guide StateGraph classify→select→phrase→verify ships on the homepage, guides index and every chapter page; curated two doors, model picks 1|2; fail-closed; live aizzz verification",
-    "§十一 pressure re-verified (zero 5xx) · §三 Spring Cloud services/cloud 7 modules green jars · §九 identity hard-gates live (雅思 6.5 · CET-6 546) · profile README carries both facts locked · verify_all RESULT: NO OFFENDER"
+    "D1314: merchant agent growing-history relay — platform read door (GET /api/v1/internal/conversations/{id}/messages); oldest→newest lead; ≈96% warm-state cached on the re-issued provider; direct JSON default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
+    "D1310–D1312: world guide StateGraph classify→select→phrase→verify ships on the homepage, guides index and every chapter page; curated two doors, model picks 1|2; fail-closed; live aizzz verification",
+    "§十一 pressure re-verified (zero 5xx this week · local probe 140/140 green) · §三 Spring Cloud services/cloud 7 modules green jars · §九 identity hard-gates live (雅思 6.5 · CET-6 546) · profile README locked with both facts · verify_all RESULT: NO OFFENDER"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
