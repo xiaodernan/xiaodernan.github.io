@@ -32,7 +32,20 @@ jobs:
     # Hosted runner queue on this account is saturated (deploys sat for >1h and were cancelled);
     # this repo already has two online self-hosted Windows runners (lenovo-pages, lenovo-pages-2)
     # dedicated to it. Join those instead of the shared queue. Identity guard still gates.
-    runs-on: [self-hosted, Windows, X64]
+    #
+    # 2026-11-19 (3rd runner revert — read before flipping back):
+    #   actions/upload-pages-artifact@v3 REQUIRES /bin/bash (its tar step runs through WSL).
+    #   The lenovo-pages runner has NO WSL distro — the relay dies at
+    #   "execvpe(/bin/bash) failed: No such file or directory", so EVERY deploy on the
+    #   self-hosted Windows runner fails deterministically at the Upload artifact step
+    #   (10:24Z 44505338842 · 10:33Z 44506780662 · 07:44Z 44481887159).
+    #   Measured evidence across 2026-11-19: ubuntu-latest = green deploys
+    #   (08:51·08:59·09:15·09:21·09:27·09:30·09:51Z); lenovo-pages = 0/4 green.
+    #   To re-enable the Windows runners: install a WSL distro with /bin/bash on lenovo-pages,
+    #   OR build the tar with Windows' built-in tar.exe + actions/upload-artifact@v4
+    #   (artifact named github-pages) — unverified here, so do not flip blindly.
+    #   identity-guard.yml is intentionally left on the self-hosted runner (node-only, works there).
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
