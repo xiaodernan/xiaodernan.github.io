@@ -1,0 +1,1 @@
+import{i as e}from"./index-CKKfzn5-.js";import{t}from"./useRoleAccess-Kf-OtpVX.js";function n(){let n=t(e);return{checked:n.checked,canManage:n.allowed}}export{n as t};
