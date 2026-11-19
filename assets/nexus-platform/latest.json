@@ -1,20 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-19T09:30:00Z",
+  "generated_at": "2026-11-19T12:21:35Z",
   "branch": "master",
-  "head": "69d7aee",
-  "total_commits": 1660,
-  "pushed_at": "2026-11-19T09:27:55Z",
-  "milestone": "D1432",
-  "milestone_full": "Layer M — the small hours — CLOSED. All 130 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), full English prose. Layer M opened at 01:30 (Queen’s Road, ch.121) and closed at 23:30 (Central Pier, ch.130 — Ah Chi’s final watch; the arc returns to its 00:00 anchor). Beat parity asserted by chapter-en-arm.test.ts (133/133); EN arm complete end-to-end; identity hard-gates live (雅思 6.5 · CET-6 546 · 隐盾 · 赵欣曈) on both clones; live LLM provider now gpt-6.2-sol via aizzz.xyz/v1 (shared frozen head measured warm ≥95% cached cross-lane on Clash egress); wheel-override shipped in the header; io + profile both bilingual one-click; verify_all RESULT: NO OFFENDER.",
-  "headline": "NEXUS Platform — Layer M closed; the infinite world reads in three languages across 130 chapters; every arm complete, every gate green.",
+  "head": "f07e191b",
+  "total_commits": 1679,
+  "pushed_at": "2026-11-19T12:21:35Z",
+  "milestone": "D1441",
+  "milestone_full": "Layer N — the counting hours — CLOSED. All 138 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), and a complete English prose arm. Layer N opened at 08:20 (Tong Mei Road scales, ch.131 — Ah Yan's brass weights) and closed at 14:30 (Yuen Garden Street, ch.138 — Ah Jeh's last count of the two-day pre-sale; closing is not ending, it is remembering; the morning arc of the count returns to rest). Beat-parity asserted by chapter-en-arm.test.ts (141/141); EN arm complete; verify_all NO OFFENDER (72 PASS); identity hard-gates remain live on both clones (雅思 6.5 · CET-6 546). Live model provider, aizzz/gpt-6.2-sol, now rides one frozen world atlas across the shared head — 87.8% prompt-token cached on the warm byte-identical replay measured 2026-11-19.",
+  "headline": "Layer N CLOSED · the infinite world reads in three languages across 138 chapters · every arm complete, every gate green.",
   "features": [
-    "D1432: Layer M CLOSED — corpus stands at 130 chapters, all three arms (Traditional HK / Simplified opencc fold / full English prose); beat-parity tests 133/133; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; Layer M’s closing chapter returns the arc to 00:00",
-    "D1420–D1432: every lane rides one frozen head (7,394 chars · v1 · sha bb8ae53bed5a0c33); live aizzz/gpt-6.2-sol measured ≥95% cached cross-lane (growing-history turns 3–4 at 95.7%/95.1%); SSE vs non-stream identical figures — prefix stability owns the cache",
-    "D1430: the site header ships the in-app wheel-direction override (follow-OS / reversed) with full zh-HK / zh-CN / en teaching copy — the demanded wheel fix; the D1184 rail bridge keeps vertical wheel → horizontal rail mapping untouched; /handbook carries the OS-level remedy FAQ",
-    "D1314: merchant agent growing-history relay — platform read door (GET /api/v1/internal/conversations/{id}/messages); oldest→newest lead; ≈96% warm-state cached on the re-issued provider; direct JSON default; adapter transport retry for relay flaps (3×, 0/1.5/4s backoff)",
-    "D1310–D1312: world guide StateGraph classify→select→phrase→verify ships on the homepage, guides index and every chapter page; curated two doors, model picks 1|2; fail-closed; live aizzz verification",
-    "§十一 pressure re-verified (zero 5xx this week · local probe 140/140 green) · §三 Spring Cloud services/cloud 7 modules green jars · §九 identity hard-gates live (雅思 6.5 · CET-6 546) · profile README locked with both facts · verify_all RESULT: NO OFFENDER"
+    "D1441: Layer N CLOSED — the Prince Edward counting-hours arc (ch.131–138) complete in three arms (Traditional HK / opencc Simplified fold / full English prose); beat-parity tests 141/141; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; the arc's final chapter returns the day to its 00:00 anchor",
+    "D1436: the world guide StateGraph reads the real corpus — a frozen HK-arc atlas digest (all 133 pre-closure chapters, the world constitution, an explicit BACKGROUND-only fence) rides the shared 7,394-char prefix; live aizzz/gpt-6.2-sol measured 200 OK, then 87.8% prompt_tokens_details.cached_tokens (13,536 / 15,417) on the byte-identical replay; fences/budget/StateGraph unchanged; fail-open if the artifact is missing",
+    "D1430: the web header ships the in-app wheel-direction override (follow-OS / reversed) with full zh-HK / zh-CN / en teaching copy — wheel now behaves natively unless the operator flips it; D1184 rail bridge keeps horizontal scroll intact; /handbook carries the OS-level remedy FAQ",
+    "D1437–D1440: Prince Edward counting-hours thread lands (131 scales → 132 cash register → 133 lamp tester → 134 pre-sale ledger → 135 opening queue → 136 pre-noon ledger → 137 midday door → 138 afternoon last count); beat-parity held throughout; 137 chapters · 138 chapters three arms at closure",
+    "io surface: both language towers now repaint from the same fact panels on i18n toggle (50+4 duplicate ids converted to classes; hydration loops all matching arms); baked placeholder refreshed to D1432-c carry; GitHub REST API byte-measure surfaced (138.21 MB; TS 31.95%) on both arms of the public page; identity hard-gates green",
+    "§十一 pressure re-verified (local probe 140/140 green this build) · spring-family e2e green locally · self-hosted Windows runner online on this machine (agent 21 · dispatch-only runner-smoke.yml green); hosted CI runners remain backlogged — local gates remain the source of truth"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
