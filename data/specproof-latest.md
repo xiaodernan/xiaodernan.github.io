@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-19 · 0251a0a8**
+**2026-11-19 · b9392737**
 - 分支: `master`
 - ledger: `#2031 《猜裁判 · Guess The Verdict》上线 · 5 真题 dual-locale · 4 block / 1 accept · World Bible anchors biography of court · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
