@@ -80,7 +80,7 @@ curl -s https://xiaodernan.github.io/data/specproof-latest.md
 - 雅思 6.5 · CET6 546（用户本人指定 · 不得改动）
 - 全部 20+ 个公开仓库（与 index.html「全部仓库」分类过滤同步展示）：隐盾 · OneSeek 万息（法狗狗内部脱敏系统 · 公网演示）、minicc-codex、crossrealm-chronicles、nexus-content-platform、nexus-platform、caesura、specproof、ai-career-os、football-os、football-os-web、隐盾 · fagougou-desensitize（私有源 · 公网演示）、xiaodernan.github.io、xiaodernan、ted、teedyas、teedyassi、teedy-assign、teedyyyy、main、linuxdo-scripts（fork）、docs（fork sismics-docs）
 - 4 个私有仓（不在公开清单，源码不公开：法狗狗公司内部脱敏系统 ×1 + 个人实验仓 ×3）
-- minicc-codex 提交 2,032 · 批次 493 · Atlas 108 / 70 卷 · 747 测试 · 55,786 行 roadmap：以最新 live latest.json 实时为准（index.html 首屏卡片直接 fetch；事实随主干自动同步，不手抄）
+- minicc-codex 提交 2,033 · 批次 493 · Atlas 109 / 71 卷 · 747 测试 · 55,786 行 roadmap：以最新 live latest.json 实时为准（index.html 首屏卡片直接 fetch；事实随主干自动同步，不手抄）
 - CÆSURA《余响集》80 篇实写（EPIC-VII 实写落地，最新增篇《两条线》2026-11-19；游戏内双语说明书：手册 + 游记全部 80 篇全文）
  68062e9 (pages: AI Career OS live pack boots itself in both languages; EN tower updates too)
 - SpecProof：strike #2003 · 204 scrolls · 19 exhibit · Court LOCKED
