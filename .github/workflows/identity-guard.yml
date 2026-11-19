@@ -27,6 +27,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Node 20 (self-hosted Windows runner PATH lacks node right now)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Run identity guard
+        shell: pwsh
         run: |
           node scripts/identity-guard.mjs
