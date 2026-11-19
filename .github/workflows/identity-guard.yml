@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   guard:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, windows]
     steps:
       - uses: actions/checkout@v4
 
