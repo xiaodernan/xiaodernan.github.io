@@ -2,13 +2,13 @@
   "schema": 1,
   "repo": "xiaodernan/caesura",
   "defaultBranch": "master",
-  "head": "74c42b9930cc2990dfa34756bac428f382da5613",
+  "head": "e845ee6b5b86041cc767ab281ee98d2de6a6d6ec",
   "branch": "master",
-  "subject": "feat(story): KI-710《余响集》第七十九篇《空船的刻度 / The Boat's Measure》落地（真 live · gpt-6.1-terra 渠道枯竭 → 兜底 gpt-6.1-sol）+ aizzz 失效自愈与兜底链",
-  "date": "2026-11-19T13:49:43+08:00",
+  "subject": "feat(story): KI-711《余响集》第八十篇《两条线 / Two Lines》落地（真 live · 用户指定模型 gpt-6.2-sol 首跑）+ aizzz 默认模型更换与热身多轮",
+  "date": "2026-11-19T15:34:55+08:00",
   "kv": {
-    "KI.rows": 628,
-    "KI.Implemented": 451,
+    "KI.rows": 629,
+    "KI.Implemented": 452,
     "KI.Partial": 167,
     "KI.Blocked": 10,
     "SYS.rows": 98,
@@ -26,7 +26,7 @@
     "gameCloud": 94
   },
   "headMgt": {
-    "url": "https://github.com/xiaodernan/caesura/commit/74c42b9930cc2990dfa34756bac428f382da5613",
+    "url": "https://github.com/xiaodernan/caesura/commit/e845ee6b5b86041cc767ab281ee98d2de6a6d6ec",
     "ci": "check + spring-family-e2e green on every master push"
   }
 }
