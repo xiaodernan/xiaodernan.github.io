@@ -637,3 +637,7 @@ img{font-style:italic}
 /* D1431 — the EN recruiter card in the contact band: same geometry, accent edge. */
 .contact-card-en { border-color: color-mix(in srgb, var(--accent, #f0a860) 55%, transparent); }
 .contact-card-en small { max-width: 44ch; }
+
+.lang-toggle{border:1px solid var(--line-strong);width:34px;height:34px;background:transparent;cursor:pointer;font:600 11px "DM Mono",ui-monospace,monospace;color:var(--ink);transition:.2s;letter-spacing:.05em}
+.lang-toggle:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+body[data-theme="dark"] .lang-toggle{border-color:#33414e;color:#e8e4d8}

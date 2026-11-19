@@ -45,7 +45,7 @@ repoFilterButtons.forEach((button) => {
 });
 
 // ── 教学提示：给每个可操作元素补一句「它会做什么」（hover / focus 可见）──
-(function teachInteractive() {
+window.__teachInteractive = function teachInteractive() {
   const setAll = (sel, tip) => document.querySelectorAll(sel).forEach((el) => {
     if (!el.getAttribute('title')) el.setAttribute('title', tip);
   });
@@ -98,4 +98,55 @@ repoFilterButtons.forEach((button) => {
   fromText('.footer a', '打开 · Open');
   fromText('.milestone-cell', '查看 · View');
   fromText('.github-figures a', '查看 · View');
+};
+
+
+/* ── D1433 · 中英一键切换 · one-click EN/zh, block-swap, IDs preserved ── */
+(function i18nOneClick() {
+  const KEY = 'portfolio-lang';
+  const store = {
+    get: () => { try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; } },
+    set: (v) => { try { localStorage.setItem(KEY, v); } catch (_) { /* private mode */ } },
+  };
+  const btn = document.querySelector('[data-lang-toggle]');
+  const blocks = [...document.querySelectorAll('[data-i18n-block]')];
+  const keys = blocks.map((el) => el.getAttribute('data-i18n-block'));
+  const zhNodes = {};
+  const enNodes = {};
+  blocks.forEach((el, i) => { zhNodes[keys[i]] = el; });
+  document.querySelectorAll('template[data-i18n-en]').forEach((t) => {
+    const key = t.getAttribute('data-i18n-en');
+    const wrap = document.createElement('div');
+    wrap.innerHTML = t.innerHTML;
+    const node = wrap.firstElementChild;
+    if (node) enNodes[key] = node;
+  });
+  const current = {};
+  keys.forEach((k) => { current[k] = zhNodes[k]; });
+  const NAV_TEXT = {
+    en: { 0: 'Home', 1: 'Work', 2: 'Lab', 3: 'Systems', 4: 'Journey', 5: 'Contact' },
+    zh: { 0: '首页', 1: '作品', 2: '实验', 3: '能力', 4: '经历', 5: '联系' },
+  };
+  const navLinks = [...document.querySelectorAll('.main-nav a')];
+  function applyLang(lang) {
+    for (const key of keys) {
+      const target = lang === 'en' ? enNodes[key] : zhNodes[key];
+      if (target && current[key] !== target) {
+        current[key].replaceWith(target);
+        current[key] = target;
+      }
+    }
+    navLinks.forEach((a, i) => { const t = NAV_TEXT[lang] && NAV_TEXT[lang][i]; if (t) a.textContent = t; });
+    document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+    document.documentElement.dataset.lang = lang;
+    if (btn) {
+      btn.textContent = lang === 'en' ? '中' : 'EN';
+      btn.setAttribute('aria-pressed', String(lang === 'en'));
+      btn.setAttribute('title', lang === 'en' ? '切换到中文版 · Switch to Chinese' : '切换到英文版 · Switch to English');
+    }
+    store.set(lang);
+    if (typeof window.__teachInteractive === 'function') window.__teachInteractive();
+  }
+  btn?.addEventListener('click', () => applyLang(store.get() === 'en' ? 'zh' : 'en'));
+  applyLang(store.get());
 })();
