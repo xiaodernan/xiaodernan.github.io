@@ -774,3 +774,11 @@ body[data-theme="dark"] .lang-toggle{border-color:#33414e;color:#e8e4d8}
   .hero-profile { justify-self: center; width: min(100%, 560px); }
   .profile-stamp { right: 2px; bottom: -12px; }
 }
+
+/* Hero single-column below 1180px - guarantees a full-width portrait instead of a
+   residual squeezed right column on medium-width monitors (owner report). */
+@media (max-width: 1180px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding-top: 150px; padding-bottom: 80px; }
+  .hero-profile { justify-self: center; width: min(100%, 580px); margin-top: 8px; }
+  .profile-stamp { bottom: -12px; }
+}
