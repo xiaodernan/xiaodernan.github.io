@@ -358,7 +358,7 @@ body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 .index-stack,.index-state{font-family:"DM Mono",monospace}
 .index-state{white-space:nowrap;letter-spacing:.08em}
 /* 长度可变的实时事实格（SpecProof latest.json 现算）允许换行，不再撑出行尾 */
-#sp-state{white-space:normal;letter-spacing:.02em;word-break:keep-all;line-height:1.45}
+.sp-state{white-space:normal;letter-spacing:.02em;word-break:keep-all;line-height:1.45}
 .state-green{color:var(--teal)}
 .state-blue{color:var(--blue)}
 .state-orange{color:var(--accent-deep)}
