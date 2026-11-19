@@ -117,8 +117,8 @@
             <span class="milestone-label">minicc 提交总数 · CI 全绿</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">
-            <span class="milestone-num">331</span>
-            <span class="milestone-label">Epic · 483 工单 · 1535+ 用例 · CI 全绿</span>
+            <span class="milestone-num" id="ac-hero-epics">201</span>
+            <span class="milestone-label" id="ac-hero-label">Epic · 487 工单 · 1535+ 用例 · CI 全绿</span>
           </a>
           <a class="milestone-cell" href="https://yindun.fagougou.com/" target="_blank" rel="noreferrer">
             <span class="milestone-num">隐盾</span>
@@ -332,21 +332,22 @@
             <div class="project-topline"><span class="project-number">06</span><span class="project-type">AI CAREER OS</span></div>
             <h3>AI Career OS</h3>
             <p>求职力诊断、简历 × JD 匹配、STAR 故事库、投递管理、面试时间线、Offer 决策、复盘闭环；Spring Cloud 服务，Redis 限流，双语 i18n 逐字对照。</p>
-            <div class="tag-row"><span>Next.js</span><span>Spring Cloud</span><span>FastAPI</span><span>Redis</span><span>1,620 commits · CI 全绿</span><span>双语 i18n</span></div>
-            <div class="project-links"><a href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">源码 main →</a><a href="https://xiaodernan.github.io/ai-career-os/showcase.html" target="_blank" rel="noreferrer">Epic 331 实测看板 →</a><a href="https://github.com/xiaodernan/ai-career-os/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">ROADMAP →</a></div>
+            <div class="tag-row"><span>Next.js</span><span>Spring Cloud</span><span>FastAPI</span><span>Redis</span><span id="ac-commits-tag">1,661 commits · CI 全绿</span><span>双语 i18n</span></div>
+            <div class="project-links"><a href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">源码 main →</a><a id="ac-showcase-link" href="https://xiaodernan.github.io/ai-career-os/showcase.html" target="_blank" rel="noreferrer">Epic 335 实测看板 →</a><a href="https://github.com/xiaodernan/ai-career-os/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">ROADMAP →</a></div>
+ 03dd081 (pages: AI Career OS live pack boots itself in both languages; EN tower updates too)
           </div>
         </article>
         <!-- careeros:latest-start -->
         <div class="minicc-latest" id="careeros-latest" aria-label="AI Career OS 最新指标">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code id="ac-head">main @ f1d5c8f</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code class="ac-head">main @ 169ea25</code></div>
           <div class="minicc-latest-grid">
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-commits">1,620</span><span class="minicc-latest-label">提交总数</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-epics">197</span><span class="minicc-latest-label">Epics</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-work">483</span><span class="minicc-latest-label">工作条目</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-testfiles">192</span><span class="minicc-latest-label">测试文件</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-locales">2</span><span class="minicc-latest-label">语种</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-commits">1,661</span><span class="minicc-latest-label">提交总数</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-epics">201</span><span class="minicc-latest-label">Epics</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-work">487</span><span class="minicc-latest-label">工作条目</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-testfiles">193</span><span class="minicc-latest-label">测试文件</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-locales">2</span><span class="minicc-latest-label">语种</span></div>
           </div>
-          <div class="minicc-latest-foot"><span id="ac-generated">实测 2026-11-18 · Epic 331</span><span>里程碑：<code id="ac-milestone">Epic 331</code></span></div>
+          <div class="minicc-latest-foot"><span class="ac-generated">实测 2026-11-19 · Epic 335</span><span>里程碑：<code class="ac-milestone">Epic 335</code></span></div>
         </div>
         <!-- careeros:latest-end -->
       </div>
@@ -618,8 +619,9 @@
   })();
 </script>
 <script>
-  (async function () {
-    try {
+  (function () {
+    const refreshCareerPack = async () => {
+      try {
       const fetchJson = async (url) => {
         const r = await fetch(url, { cache: 'no-store' });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -627,16 +629,33 @@
       };
       const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/ai-career-os/main/docs/LATEST.json?ts=' + Date.now())
         .catch(() => fetchJson('assets/career-os/latest.json'));
-      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-      set('ac-head', `main @ ${d.head}`);
-      set('ac-commits', String(d.total_commits ?? '—'));
-      set('ac-epics', String(d.epics ?? '—'));
-      set('ac-work', String(Array.isArray(d.work) ? d.work.length : d.work_items ?? '—'));
-      set('ac-testfiles', String(d.test_files ?? '—'));
-      set('ac-locales', String(d.locales ?? '—'));
-      set('ac-generated', d.generated_at ? `实测 ${String(d.generated_at).slice(0, 10)} · ${d.milestone ?? ''}` : '');
-      set('ac-milestone', d.milestone ?? '—');
-    } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
+      const setAll = (sel, v) => document.querySelectorAll(sel).forEach(el => { if (el) el.textContent = v; });
+      const setId = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      // Both language towers now ride classes — the earlier duplicate ids meant the
+      // EN tower never updated at all while the ZH one read live.
+      setAll('.ac-head', `main @ ${d.head}`);
+      setAll('.ac-commits', String(d.total_commits ?? '—'));
+      setAll('.ac-epics', String(d.epics ?? '—'));
+      setAll('.ac-work', String(d.work_items ?? '—'));
+      setAll('.ac-testfiles', String(d.test_files ?? '—'));
+      setAll('.ac-locales', String(d.locales ?? '—'));
+      // Neutral date · milestone text for both languages — no hand-maintained language word.
+      setAll('.ac-generated', d.generated_at ? `${String(d.generated_at).slice(0, 10)} · ${d.milestone ?? ''}` : '');
+      setAll('.ac-milestone', d.milestone ?? '—');
+      // Hero tiles — ZH and EN blocks each carry their own ids.
+      setId('ac-hero-epics', String(d.epics ?? '—'));
+      setId('ac-hero-label', `Epic · ${d.work_items ?? '—'} 工单 · ${d.tests ?? '1500+'} 用例 · CI 全绿`);
+      setId('ac-hero-epics-en', String(d.epics ?? '—'));
+      setId('ac-hero-label-en', `Epic · ${d.work_items ?? '—'} work items · ${d.tests ?? '1500+'} tests · CI green`);
+      // Tag-row chips and the showcase links.
+      setId('ac-commits-tag', `${(d.total_commits ?? 0).toLocaleString()} commits · CI 全绿`);
+      setId('ac-commits-tag-en', `${(d.total_commits ?? 0).toLocaleString()} commits · CI green`);
+      setId('ac-showcase-link', `${d.milestone ?? ''} 实测看板 →`);
+      setId('ac-showcase-link-en', `${d.milestone ?? ''} live dashboard →`);
+          } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
+    };
+    refreshCareerPack();
+    window.addEventListener('portfolio:lang', refreshCareerPack);
   })();
 </script>
 <script>
@@ -780,8 +799,8 @@
             <span class="milestone-label">minicc commits · CI green</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">
-            <span class="milestone-num">331</span>
-            <span class="milestone-label">Epic · 487 work items · 1535+ tests · CI green</span>
+            <span class="milestone-num" id="ac-hero-epics-en">201</span>
+            <span class="milestone-label" id="ac-hero-label-en">Epic · 487 work items · 1535+ tests · CI green</span>
           </a>
           <a class="milestone-cell" href="https://yindun.fagougou.com/" target="_blank" rel="noreferrer">
             <span class="milestone-num">隐盾</span>
@@ -998,21 +1017,21 @@
             <div class="project-topline"><span class="project-number">06</span><span class="project-type">AI CAREER OS</span></div>
             <h3>AI Career OS</h3>
             <p>Job-search diagnostics, resume × JD match, STAR story library, application tracking, interview timeline, offer decisions, retrospective loop — Spring Cloud services, Redis rate limiting, bilingual zh/en verbatim.</p>
-            <div class="tag-row"><span>Next.js</span><span>Spring Cloud</span><span>FastAPI</span><span>Redis</span><span>1,620 commits · CI green</span><span>bilingual i18n</span></div>
-            <div class="project-links"><a href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">source (main) →</a><a href="https://xiaodernan.github.io/ai-career-os/showcase.html" target="_blank" rel="noreferrer">Epic 331 live dashboard →</a><a href="https://github.com/xiaodernan/ai-career-os/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">ROADMAP →</a></div>
+            <div class="tag-row"><span>Next.js</span><span>Spring Cloud</span><span>FastAPI</span><span>Redis</span><span id="ac-commits-tag-en">1,661 commits · CI green</span><span>bilingual i18n</span></div>
+            <div class="project-links"><a href="https://github.com/xiaodernan/ai-career-os" target="_blank" rel="noreferrer">source (main) →</a><a id="ac-showcase-link-en" href="https://xiaodernan.github.io/ai-career-os/showcase.html" target="_blank" rel="noreferrer">Epic 335 live dashboard →</a><a href="https://github.com/xiaodernan/ai-career-os/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">ROADMAP →</a></div>
           </div>
         </article>
         <!-- careeros:latest-start -->
         <div class="minicc-latest" id="careeros-latest" aria-label="AI Career OS latest metrics">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code id="ac-head">main @ f1d5c8f</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MAIN · LATEST</span><code class="ac-head">main @ 169ea25</code></div>
           <div class="minicc-latest-grid">
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-commits">1,620</span><span class="minicc-latest-label">commits</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-epics">197</span><span class="minicc-latest-label">Epics</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-work">483</span><span class="minicc-latest-label">work items</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-testfiles">192</span><span class="minicc-latest-label">test files</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number" id="ac-locales">2</span><span class="minicc-latest-label">locales</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-commits">1,661</span><span class="minicc-latest-label">commits</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-epics">201</span><span class="minicc-latest-label">Epics</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-work">487</span><span class="minicc-latest-label">work items</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-testfiles">193</span><span class="minicc-latest-label">test files</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number ac-locales">2</span><span class="minicc-latest-label">locales</span></div>
           </div>
-          <div class="minicc-latest-foot"><span id="ac-generated">Measured 2026-11-18 · Epic 331</span><span>milestone: <code id="ac-milestone">Epic 331</code></span></div>
+          <div class="minicc-latest-foot"><span class="ac-generated">2026-11-19 · Epic 335</span><span>milestone: <code class="ac-milestone">Epic 335</code></span></div>
         </div>
         <!-- careeros:latest-end -->
       </div>

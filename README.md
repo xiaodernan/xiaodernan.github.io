@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/16-public%20repos-c9a258?style=flat-square&logo=github&logoColor=0e141b" alt="16 个公开仓库">
+  <img src="https://img.shields.io/badge/20%2B-public%20repos-c9a258?style=flat-square&logo=github&logoColor=0e141b" alt="16 个公开仓库">
   <img src="https://img.shields.io/badge/assets-zero%20build-b88632?style=flat-square&logo=rollup&logoColor=0e141b" alt="无构建静态站">
   <img src="https://img.shields.io/badge/identity-guard%20fail--closed-1e9d96?style=flat-square&logo=shield-check&logoColor=0e141b" alt="身份闸门 fail-closed">
   <img src="https://img.shields.io/badge/facts-synced%20from%20master-3c8bbd?style=flat-square&logo=git&logoColor=0e141b" alt="事实随主干自动同步">
@@ -79,10 +79,11 @@ curl -s https://xiaodernan.github.io/data/specproof-latest.md
 ## 当前对齐（2026-11-18 收尾）
 
 - 雅思 6.5 · CET6 546（用户本人指定 · 不得改动）
-- 全部 16 个公开仓库：minicc-codex、specproof、caesura、crossrealm-chronicles、nexus-content-platform、nexus-platform、football-os、football-os-web、ai-career-os、ted、teedyyyy、main、docs(fork sismics-docs)、linuxdo-scripts(fork anghunk-linuxdo-scripts)、xiaodernan(本站)、xiaodernan.github.io
+- 全部 20+ 个公开仓库（与 index.html「全部仓库」分类过滤同步展示）：隐盾 · OneSeek 万息（法狗狗内部脱敏系统 · 公网演示）、minicc-codex、crossrealm-chronicles、nexus-content-platform、nexus-platform、caesura、specproof、ai-career-os、football-os、football-os-web、隐盾 · fagougou-desensitize（私有源 · 公网演示）、xiaodernan.github.io、xiaodernan、ted、teedyas、teedyassi、teedy-assign、teedyyyy、main、linuxdo-scripts（fork）、docs（fork sismics-docs）
 - 4 个私有仓（不在公开清单，源码不公开：法狗狗公司内部脱敏系统 ×1 + 个人实验仓 ×3）
-- minicc-codex 现状：提交 2,018 · 批次 493 · Atlas 105 / 67 卷 · 747 测试 · 55,786 行 roadmap（CI 全绿 badge）
+- minicc-codex 提交 2,018 · 批次 493 · Atlas 105 / 67 卷 · 747 测试 · 55,786 行 roadmap：以最新 live latest.json 实时为准（index.html 首屏卡片直接 fetch；事实随主干自动同步，不手抄）
 - CÆSURA《余响集》80 篇实写（EPIC-VII 实写落地，最新增篇《两条线》2026-11-19；游戏内双语说明书：手册 + 游记全部 80 篇全文）
+ 68062e9 (pages: AI Career OS live pack boots itself in both languages; EN tower updates too)
 - SpecProof：strike #2003 · 204 scrolls · 19 exhibit · Court LOCKED
 - IELTS / CET6 已在 `README (profile)`、`banner.svg <desc>`、展示瓷 `index.html` 主要三个 chip 全显示
 

@@ -145,6 +145,9 @@ window.__teachInteractive = function teachInteractive() {
       btn.setAttribute('title', lang === 'en' ? '切换到中文版 · Switch to Chinese' : '切换到英文版 · Switch to English');
     }
     store.set(lang);
+    // Let the live fact-pack updaters re-paint the swapped-in tower immediately —
+    // the EN tower is a template until this runs, and a static bake is not evidence.
+    try { window.dispatchEvent(new CustomEvent('portfolio:lang', { detail: lang })); } catch (_) {}
     if (typeof window.__teachInteractive === 'function') window.__teachInteractive();
   }
   btn?.addEventListener('click', () => applyLang(store.get() === 'en' ? 'zh' : 'en'));
