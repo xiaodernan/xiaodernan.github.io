@@ -1,0 +1,1 @@
+import{i as e}from"./index-D0rHiP9N.js";import{t}from"./useRoleAccess-HiPj7e2x.js";function n(){let n=t(e);return{checked:n.checked,canManage:n.allowed}}export{n as t};
