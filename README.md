@@ -29,11 +29,11 @@
 
 ## 这个页面是什么
 
-`xiaodernan.github.io` 是我的个人展示页与项目总入口：一段 30 秒的自我介绍，六个精选项目卡片（minicc-codex、CÆSURA、NEXUS Content Platform、隐盾、Football OS、AI Career OS），一个实验区（公网可实测的部署），他们的真实 CI 徽章与最新事实，以及按分类过滤的 **20 个仓库全量索引**（16 公开 = 14 原创 + 2 fork · 4 私有）。
+`xiaodernan.github.io` 是我的个人展示页与项目总入口：一段 30 秒的自我介绍，六个精选项目卡片（minicc-codex、CÆSURA、NEXUS Content Platform、隐盾、Football OS、AI Career OS），一个实验区（公网可实测的部署），它们的真实 CI 徽章与最新事实，以及按分类过滤的 **16 个仓库全量索引**（16 公开 = 14 原创 + 2 fork）。
 
 - **精选作品（01–06）**：每个卡片是一扇可进入的门——部署地址、仓库主页、子栏直达全在卡上
 - **实验区（01–04）**：隐盾在线系统、CAESURA、CrossRealm、Football OS —— 都是真跑在公网上的东西
-- **全部仓库 · 20 · 分类过滤）**：亲力亲为的每一份代码都能点过去，分类可筛（原创 / 站点 / 旧版尝试 / Fork 实验）
+- **全部仓库 · 16 · 分类过滤**：亲力亲为的每一份代码都能点过去，分类可筛（原创 / 站点 / 旧版尝试 / Fork 实验）
 - **成长路径**：把经历证据按能力线索摆开——Agent Runtime、文档智能、开放世界、确定性模拟、变更验收
 
 ## 本地预览
@@ -57,8 +57,7 @@ node scripts/identity-guard.mjs
 且不得出现任何往期出错的版本字样。脚本本身是失败即阻断（fail-closed）的闸门；在本仓库
 `master` 的每次改动提交前都应先跑一遍，防止身份信息被无意改坏。
 
-> 说明：GitHub 端创建 `.github/workflows/*.yml` 需要 `workflow` 权限，当前 PAT 只有 `repo` 等权限，
-> 无法把闸门装进 GitHub Actions。闸门因此以文档化方式 + 本机核对的方式执行。
+> 说明：**identity-guard 已装进自托管 Pages 流水线**（`.github/workflows/pages.yml`：`runs-on: [self-hosted, windows]`，deploy 步骤之前先跑 `node scripts/identity-guard.mjs`，失败即阻断）；本机预览路径上的闸门仍按文档化方式手动跑。2026-11-19 起 identity-guard 在每次 push 上均为绿（如 5d81b104 · 8016e978 两次 success）。
 
 ## 自动同步叙事
 
@@ -76,13 +75,13 @@ curl -s https://xiaodernan.github.io/data/specproof-products.json
 curl -s https://xiaodernan.github.io/data/specproof-latest.md
 ```
 
-## 当前对齐（2026-11-18 收尾）
+## 当前对齐（2026-11-19 收尾）
 
 - 雅思 6.5 · CET6 546（用户本人指定 · 不得改动）
 - 全部 16 个公开仓库：minicc-codex、specproof、caesura、crossrealm-chronicles、nexus-content-platform、nexus-platform、football-os、football-os-web、ai-career-os、ted、teedyyyy、main、docs(fork sismics-docs)、linuxdo-scripts(fork anghunk-linuxdo-scripts)、xiaodernan(本站)、xiaodernan.github.io
 - 4 个私有仓（不在公开清单，源码不公开：法狗狗公司内部脱敏系统 ×1 + 个人实验仓 ×3）
 - minicc-codex 现状：提交 2,015 · 批次 493 · Atlas 105 / 67 卷 · 747 测试 · 55,786 行 roadmap（CI 全绿 badge）
-- CÆSURA《余响集》80 篇实写（EPIC-VII 实写落地，最新增篇《两条线》2026-11-19；游戏内双语说明书：手册 + 游记全部 80 篇全文）)
+- CÆSURA《余响集》79 篇实写（EPIC-VII 实写落地，最新增篇《空船的刻度》2026-11-19；游戏内双语说明书：手册 + 游记全部 79 篇全文）
 - SpecProof：strike #2003 · 204 scrolls · 19 exhibit · Court LOCKED
 - IELTS / CET6 已在 `README (profile)`、`banner.svg <desc>`、展示瓷 `index.html` 主要三个 chip 全显示
 
