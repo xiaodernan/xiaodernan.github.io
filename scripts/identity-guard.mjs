@@ -13,10 +13,13 @@
 //      草管人命（草菅人命）· 不尽人意（不尽如人意）· 额首（额手称庆）· 年青（年轻）· 幅射（辐射）·
 //      直接了当（直截了当）· 受益非浅（受益匪浅）· 面面具到（面面俱到）· 耳儒目染（耳濡目染）
 // （2026-11-18 历史补录）：IELTS 6.5 / CET6 546 在用户 2026-11-18 明言: "别忘了在我个人主页加上 雅思6.5 六级 546 即 IELTS6.5 CET6 546 可以的"，此后入册永久磐石。
+// （2026-11-20 增补）：禁语同样扫 README.md；index-stats 的中英数字必须逐位一致，
+// 且等于 GitHub API 实测的 16 仓库 / 9 旗舰 / 4 公网产品 / 2 fork。任何一侧漂移即红灯。
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
 const html = readFileSync(fileURLToPath(new URL('../index.html', import.meta.url)), 'utf8')
+const readme = readFileSync(fileURLToPath(new URL('../README.md', import.meta.url)), 'utf8')
 
 const need = ['赵欣曈', '南方科技大学', '香港中文大学', '计算机科学与技术', '全国中学生物理竞赛', '铜牌', '江西省一等奖', '江西省二等奖', '法狗狗公司', '隐盾', '应用工程师', '雅思 6.5', 'IELTS 6.5', 'CET6 546']
 const ban = ['隐图',
@@ -35,10 +38,21 @@ for (const s of need) {
   }
 }
 for (const s of ban) {
-  if (html.includes(s)) {
-    console.error(`::error::identity-guard: FOUND forbidden phrase: ${s}`)
-    fail = 1
+  for (const [surface, text] of [['index.html', html], ['README.md', readme]]) {
+    if (text.includes(s)) {
+      console.error(`::error::identity-guard: FOUND forbidden phrase in ${surface}: ${s}`)
+      fail = 1
+    }
   }
 }
-if (fail === 0) console.log('identity-guard: OK — 身份信息与禁语全部对账通过')
+
+// 统计条中英对账：中文正文与英文模板各一块，数字序列必须逐位相等且等于实测事实。
+const statBlocks = [...html.matchAll(/<div class="index-stats"[\s\S]*?(?=<div class="project-table")/g)]
+  .map(([block]) => [...block.matchAll(/<span class="index-stat-num">(\d+)<\/span>/g)].map(([, n]) => n))
+const expectedStats = ['16', '9', '4', '2']
+if (statBlocks.length !== 2 || statBlocks.some((nums) => nums.join(',') !== expectedStats.join(','))) {
+  console.error(`::error::identity-guard: index-stats zh/en drift — got ${JSON.stringify(statBlocks)}, expected two blocks of ${expectedStats.join(',')}`)
+  fail = 1
+}
+if (fail === 0) console.log('identity-guard: OK — 身份信息、禁语与中英统计对账全部通过')
 process.exit(fail)
