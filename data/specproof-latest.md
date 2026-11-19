@@ -1,8 +1,8 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-19 · fff6f232**
+**2026-11-19 · 95aded00**
 - 分支: `master`
-- ledger: `#2032 《合成人群 · Synthetic Crowd》上线观测台 123 门内 · b939273 · Court LOCKED · exhibit **19** · pinned reds 原样`
+- ledger: `#2033 缓存拓扑实录 · ~169k 前缀 × lane 级 prompt_cache_key · gpt-6.2-sol · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
 - 页面: 50 个模块
 - changelog: 2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）
