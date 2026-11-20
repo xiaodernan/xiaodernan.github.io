@@ -571,7 +571,7 @@
  * 276/583 (zh) and 249/529 (en) were baked and silently went stale. This feeder
  * paints both language copies from the same live fact pack, falling back to the
  * same-origin baked copy when the CDN is unreachable. If neither resolves, the
- * honest baked tile stays up (never paint NaN / placeholder). */
+ * honest baked tile stays up (never paint a not-a-number / placeholder value). */
   const refreshCr = async () => {
     const fetchJson = async (url) => {
       const r = await fetch(url, { cache: 'no-store' });
@@ -582,7 +582,7 @@
     d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/crossrealm-chronicles/main/docs/latest.json?ts=' + Date.now())
       .catch(() => null);
     if (!d) d = await fetchJson('./assets/crossrealm/latest.json?ts=' + Date.now()).catch(() => null);
-    if (!d) return; // both unreachable — keep the honest baked tile, never NaN
+    if (!d) return; // both unreachable — keep the honest baked tile, never a bogus number
     const vols = Number(d.novel_chapters_zh);
     const src = Number(d.lore_sources);
     if (Number.isFinite(vols) && vols > 0) {
