@@ -109,8 +109,8 @@
         <p class="hero-howto">怎么读这一页 · 先看精选作品（01–06）→ 再看实验区公网产品（01–04）→ 项目索引（精选 07 · 含隐盾在线）→ 全部仓库（16 个：14 原创 + 2 fork）→ 成长路径 = 我的经历证据</p>
         <div class="milestone-ribbon" role="region" aria-label="上线里程碑快照 · 随 live latest.json 刷新">
           <a class="milestone-cell milestone-cell-accent" href="https://github.com/xiaodernan/crossrealm-chronicles" target="_blank" rel="noreferrer">
-            <span class="milestone-num">276</span>
-            <span class="milestone-label">卷典籍 · 原典 583 源</span>
+            <span class="milestone-num cr-volumes">289</span>
+            <span class="milestone-label cr-sources-label">卷典籍 · 原典 587 源</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/minicc-codex" target="_blank" rel="noreferrer">
             <span class="milestone-num">2,051</span>
@@ -565,6 +565,40 @@
   refreshMinicc();
 </script>
 <script>
+/* CrossRealm · hero ribbon — auto-synced from the game's docs/latest.json (no build step).
+ * The game repo is the single source of truth for novel_chapters_zh / lore_sources;
+ * every other ribbon tile has a refresh*() feeder but crossrealm did not — its
+ * 276/583 (zh) and 249/529 (en) were baked and silently went stale. This feeder
+ * paints both language copies from the same live fact pack, falling back to the
+ * same-origin baked copy when the CDN is unreachable. If neither resolves, the
+ * honest baked tile stays up (never paint NaN / placeholder). */
+  const refreshCr = async () => {
+    const fetchJson = async (url) => {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    };
+    let d = null;
+    d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/crossrealm-chronicles/main/docs/latest.json?ts=' + Date.now())
+      .catch(() => null);
+    if (!d) d = await fetchJson('./assets/crossrealm/latest.json?ts=' + Date.now()).catch(() => null);
+    if (!d) return; // both unreachable — keep the honest baked tile, never NaN
+    const vols = Number(d.novel_chapters_zh);
+    const src = Number(d.lore_sources);
+    if (Number.isFinite(vols) && vols > 0) {
+      document.querySelectorAll('.cr-volumes').forEach((el) => { el.textContent = String(vols); });
+    }
+    if (Number.isFinite(src) && src > 0) {
+      document.querySelectorAll('.cr-sources-label').forEach((el) => {
+        // Preserve each language's wording; replace only the trailing count.
+        el.textContent = el.textContent.replace(/\d[\d,]*/, String(src));
+      });
+    }
+  };
+  window.addEventListener('portfolio:lang', refreshCr);
+  refreshCr();
+</script>
+<script>
   const refreshNc = async () => {
     try {
       const r = await fetch('assets/nexus-content/latest.json', { cache: 'no-store' });
@@ -805,8 +839,8 @@
         <p class="hero-howto">How to read this page · Featured work first (01–06) → live public products (01–04) → project index (07 · incl. 隐盾 online) → all repos (16 public repos: 14 original + 2 forks · filterable) → growth path = my résumé evidence</p>
         <div class="milestone-ribbon" role="region" aria-label="Live milestone snapshot · refreshed from the live latest.json feed">
           <a class="milestone-cell milestone-cell-accent" href="https://github.com/xiaodernan/crossrealm-chronicles" target="_blank" rel="noreferrer">
-            <span class="milestone-num">249</span>
-            <span class="milestone-label">volumes · 529 source files</span>
+            <span class="milestone-num cr-volumes">289</span>
+            <span class="milestone-label cr-sources-label">volumes · 587 source files</span>
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/minicc-codex" target="_blank" rel="noreferrer">
             <span class="milestone-num">2,051</span>
