@@ -49,6 +49,10 @@ jobs:
               'milestone_full': curated.get('milestone_full', '—'),
               'headline': curated.get('headline', 'NEXUS Platform'),
               'features': curated.get('features', []),
+              # §8: the Chinese mirror so the zh page never shows English milestone text.
+              'milestone_full_zh': curated.get('milestone_full_zh', ''),
+              'headline_zh': curated.get('headline_zh', ''),
+              'features_zh': curated.get('features_zh', []),
               'privacy_note': curated.get('privacy_note', ''),
           }
           with open('assets/nexus-platform/latest.json', 'w', encoding='utf-8') as fh:

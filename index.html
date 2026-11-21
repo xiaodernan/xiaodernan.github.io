@@ -625,13 +625,18 @@
       if (!r.ok) return;
       const d = await r.json();
       const set = (id, v) => { document.querySelectorAll('.' + id).forEach((el) => { el.textContent = v; }); };
+      // §8: pick the authored arm — never leak English milestone copy into zh mode (or vice versa).
+      const en = document.documentElement.dataset.lang === 'en';
+      const full = en ? (d.milestone_full ?? '') : (d.milestone_full_zh || d.milestone_full || '');
+      const feats = en ? d.features : (Array.isArray(d.features_zh) && d.features_zh.length ? d.features_zh : d.features);
+      const prefix = en ? 'Fact pack' : '事实包';
       set('np-head', `master @ ${d.head}`);
       set('np-commits', String(d.total_commits ?? '—'));
       set('np-milestone', d.milestone ?? '—');
-      set('np-featurecount', Array.isArray(d.features) ? String(d.features.length) : '—');
+      set('np-featurecount', Array.isArray(feats) ? String(feats.length) : '—');
       set('np-asof', String(d.pushed_at ?? '').slice(0, 10));
-      set('np-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : (d.milestone_full ?? ''));
-      set('np-features-list', Array.isArray(d.features) ? d.features.slice(0, 4).join(' · ') : '—');
+      set('np-generated', d.generated_at ? `${prefix} ${String(d.generated_at).slice(0, 10)} · ${full}` : full);
+      set('np-features-list', Array.isArray(feats) ? feats.slice(0, 4).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
   };
   window.addEventListener('portfolio:lang', refreshNp);
