@@ -23,7 +23,8 @@ permissions:
 
 jobs:
   guard:
-    runs-on: [self-hosted, Windows, X64]
+    # GitHub-hosted so the IO deploy gate never stalls on an offline self-hosted runner.
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
