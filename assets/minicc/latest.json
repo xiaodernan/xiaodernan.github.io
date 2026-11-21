@@ -1,43 +1,43 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-19T17:59:36.000Z",
+  "generated_at": "2026-11-21T12:25:59.358Z",
   "branch": "main",
-  "head": "ff3dc3c",
-  "total_commits": 2051,
+  "head": "dc8f3cc",
+  "total_commits": 2083,
   "recent_commits": [
     {
-      "short": "ff3dc3c",
-      "at": "2026-11-20T01:57:44+08:00",
-      "subject": "almanac: Ch.LXXVIII The Queue That Never Stops - Atlas 115 -> 116 - attempts=1, en zero CJK (M8-T1265)"
+      "short": "dc8f3cc3",
+      "at": "2026-11-21T20:25:28+08:00",
+      "subject": "M8-T1282: land almanac volume LXXX/Atlas 118 - real gpt-6.2-sol StateGraph forge (attempts=1, en zero CJK, 21120/16346 cached=77.4%) wired into all 5 almanac.js"
     },
     {
-      "short": "d649549",
-      "at": "2026-11-20T01:28:17+08:00",
-      "subject": "almanac: Ch.LXXVII The Night the CI Answered - Atlas 114 -> 115 - attempts=1, en zero CJK (M8-T1264)"
-    },
-    {
-      "short": "cd64dcf",
-      "at": "2026-11-19T16:35:26Z",
+      "short": "92f30d6e",
+      "at": "2026-11-21T11:34:38Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "a35b184",
-      "at": "2026-11-20T00:33:45+08:00",
-      "subject": "almanac: Ch.LXXVI The Night the Ledger Turned Green - Atlas 113 -> 114 - attempts=1, en zero CJK (M8-T1263)"
+      "short": "77a86802",
+      "at": "2026-11-21T19:33:45+08:00",
+      "subject": "M8-T1281: add the number-single-home discipline to AGENTS.md - feeds this session's drift lessons into the stable system-prompt prefix for every future session "
     },
     {
-      "short": "e5205f1",
-      "at": "2026-11-19T15:46:03Z",
+      "short": "4d2e2a23",
+      "at": "2026-11-21T11:18:39Z",
       "subject": "chore(latest): refresh showcase fact pack"
+    },
+    {
+      "short": "c57eb07b",
+      "at": "2026-11-21T19:17:53+08:00",
+      "subject": "M8-T1280: derive the almanac-catalog gate's expectations from the Rail instead of hardcoding 79 - _zh_num/_en_num helpers, regex header, all counts from n; stro"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 493,
-  "changelog_entries": 13,
-  "roadmap_lines": 55786,
-  "tracked_files": 1158,
-  "test_files": 747,
-  "almanac_chapters": 78,
+  "roadmap_batches": 509,
+  "changelog_entries": 26,
+  "roadmap_lines": 56085,
+  "tracked_files": 1165,
+  "test_files": 752,
+  "almanac_chapters": 80,
   "module_count": 14,
   "feature_surface": [
     "workbench",
