@@ -535,14 +535,25 @@
       const d = await fetchJson('https://raw.githubusercontent.com/xiaodernan/minicc-codex/main/docs/latest.json?ts=' + Date.now())
         .catch(() => fetchJson('assets/minicc/latest.json'));
       const set = (id, v) => { document.querySelectorAll('.' + id).forEach((el) => { el.textContent = v; }); };
+      // The fact pack is locale-neutral data; the unit labels are not. Pick the
+      // locale at read time so the live refresh never overwrites the EN block's
+      // baked English units with Chinese (the baked HTML is already bilingual,
+      // but this updater used to write 章/卷/事实包 into both). Re-runs on the
+      // portfolio:lang event keep the swapped-in block correct.
+      const en = document.documentElement.dataset.lang === 'en';
+      const lines = d.roadmap_lines?.toLocaleString?.() ?? '';
       set('minicc-latest-head', `main @ ${d.head}`);
       set('ml-commits', String(d.total_commits ?? '—'));
-      set('ml-batches', `${d.roadmap_batches ?? '—'} 章`);
+      set('ml-batches', `${d.roadmap_batches ?? '—'} ${en ? 'chapters' : '章'}`);
       set('ml-files', String(d.tracked_files ?? '—'));
       set('ml-tests', String(d.test_files ?? '—'));
-      set('ml-chapters', `${d.almanac_chapters ?? '—'} 卷`);
-      set('ml-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.roadmap_lines?.toLocaleString?.() ?? ''} 行 roadmap` : '');
-      if (Array.isArray(d.feature_surface)) set('ml-features', `${d.module_count ?? d.feature_surface.length} 维 · 两语对账`);
+      set('ml-chapters', `${d.almanac_chapters ?? '—'} ${en ? 'volumes' : '卷'}`);
+      set('ml-generated', d.generated_at
+        ? (en ? `Fact pack ${String(d.generated_at).slice(0, 10)} · ${lines}-line roadmap`
+              : `事实包 ${String(d.generated_at).slice(0, 10)} · ${lines} 行 roadmap`)
+        : '');
+      if (Array.isArray(d.feature_surface)) set('ml-features',
+        `${d.module_count ?? d.feature_surface.length} ${en ? 'dims · bilingual reconciliation' : '维 · 两语对账'}`);
       document.querySelectorAll('.ml-commits-list').forEach((ul) => {
         if (Array.isArray(d.recent_commits) && d.recent_commits.length) {
         ul.replaceChildren(...d.recent_commits.map((c) => {
@@ -611,7 +622,11 @@
       set('nc-contracts', String(d.contracts ?? '—'));
       set('nc-services', String(d.services ?? '—'));
       set('nc-testfiles', String(d.test_files ?? '—'));
-      set('nc-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.first_commit_at ?? ''} 开局` : '');
+      const ncEn = document.documentElement.dataset.lang === 'en';
+      set('nc-generated', d.generated_at
+        ? (ncEn ? `Fact pack ${String(d.generated_at).slice(0, 10)} · since ${d.first_commit_at ?? ''}`
+                : `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.first_commit_at ?? ''} 开局`)
+        : '');
       set('nc-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 5).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when the static file is unreachable */ }
   };
@@ -656,7 +671,11 @@
       set('fw-screens', String(d.screens ?? '—'));
       set('fw-locales', String(d.locales ?? '—'));
       set('fw-assets', String(d.assets ?? '—'));
-      set('fw-generated', d.generated_at ? `事实包 ${String(d.generated_at).slice(0, 10)} · ${d.milestone_full ?? ''}` : '');
+      const fwEn = document.documentElement.dataset.lang === 'en';
+      const fwMilestone = (fwEn ? (d.milestone_full_en || d.milestone_full) : (d.milestone_full_zh || d.milestone_full)) ?? '';
+      set('fw-generated', d.generated_at
+        ? `${fwEn ? 'Fact pack' : '事实包'} ${String(d.generated_at).slice(0, 10)} · ${fwMilestone}`
+        : '');
       set('fw-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '—');
     } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   };
@@ -721,8 +740,12 @@
       set('cz-scripts', String(kv['PKG.scripts'] ?? '—'));
       set('cz-arch', String(kv['ARCH.sections'] ?? '—'));
       set('cz-partial', String(kv['KI.Partial'] ?? '—'));
-      set('cz-generated', d.date ? `全绿 ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}` : '每次推送全绿自动刷新');
-      set('cz-ci', (d.headMgt && d.headMgt.ci) || 'check + spring-family-e2e 全绿');
+      const czEn = document.documentElement.dataset.lang === 'en';
+      set('cz-generated', d.date
+        ? (czEn ? `Green ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}`
+                : `全绿 ${String(d.date).slice(0, 10)} · ${String(d.subject || '').slice(0, 36)}`)
+        : (czEn ? 'refreshed green on every push' : '每次推送全绿自动刷新'));
+      set('cz-ci', (d.headMgt && d.headMgt.ci) || (czEn ? 'check + spring-family-e2e green' : 'check + spring-family-e2e 全绿'));
     } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
   };
   window.addEventListener('portfolio:lang', refreshCaesura);
