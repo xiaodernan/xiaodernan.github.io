@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-21 · 933794fa**
+**2026-11-21 · 227557f9**
 - 分支: `master`
 - ledger: `#2045 Pages deploy SUCCESS + v1095 portrait convergence · avatar & languages 全绿 live · Court LOCKED · exhibit **19** · pinned reds 原样`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
