@@ -1,24 +1,20 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-21T05:35:39Z",
+  "generated_at": "2026-11-21T05:41:30.724244Z",
   "branch": "master",
-  "head": "d98677b",
-  "total_commits": 1735,
-  "pushed_at": "2026-11-21T05:35:39Z",
+  "head": "2570fb7",
+  "total_commits": 1736,
+  "pushed_at": "2026-11-21T05:40:17Z",
   "milestone": "D1483",
-  "milestone_full": "Layer Q - the next keeper - is CLOSED. All 166 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose). Ah Ching takes the three keys from Ah Muk, hangs them on her own nail, lights the corridor for a cleaner and finds a pencilled name that is not hers under the wet-floor sign. Eight StateGraphs run in the service (world guide, Ah Wan NPC, analyst readout, EN-arm drafting bench, fenced arc auditor, on-demand story recap, Wayfinder, arc audit). Live model: aizzz/gpt-6.2-sol through the operator Clash Verge; frozen prefix across every model-facing lane; deterministic fences on every model-authored artefact; frozen atlas regenerated in lockstep with the corpus (166 chapters). The password-123 behaviour-analytics page reads real §58 events rows with a least-squares seven-day projection. verify_all NO OFFENDER; full AI suite 37,946 green; web suite 680 green. The io surface carries real GitHub REST byte measurements and real repository counts only.",
+  "milestone_full": "Layer Q - the next keeper - is CLOSED. All 166 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose). Ah Ching takes the three keys, hangs them on her own nail, lights the corridor for a cleaner and finds a pencilled name that is not hers. Eight StateGraphs run in the service (world guide, Ah Wan NPC, analyst readout, EN-arm drafting bench, fenced arc auditor, story recap, Wayfinder, arc audit). Live model aizzz/gpt-6.2-sol through the operator Clash Verge; frozen prefix across every model-facing lane; deterministic fences on every model-authored artefact; frozen atlas regenerated in lockstep (166 chapters). verify_all NO OFFENDER; full AI suite green; web suite green.",
   "headline": "Layer Q CLOSED · 166 chapters in three arms · eight StateGraphs · behaviour analytics + wayfinder · every model byte fenced · every gate green.",
   "features": [
-    "D1483: chapter 166 CLOSES Layer Q - three keys on Ah Ching's own nail, the corridor light for a cleaner, and a pencilled name that is not hers. Arc 166 chapters, three arms; arm test 170/170; frozen atlas digest/index regenerated to 166; verify_all NO OFFENDER. One live gpt-6.2-sol call (4,692 tokens) chose the three physical closure beats.",
-    "D1479–D1482: Wayfinder StateGraph (reader position + fixed mood -> one real chapter) and the password-123 behaviour-analytics page (real §58 events, per-day/session/hourly stats, seven-day least-squares projection, derived next steps). The parallel wave's five residual AI-suite failures were closed at the root: canonical error envelopes and the admin read hidden from the client-visible OpenAPI surface.",
-    "D1470: chapter 158 CLOSES Layer P — three keys, Chan Bok’s race card and the saddle leather in one drawer, Ah Muk keeps the east-gate watch alone until dawn. Arc 158 chapters, three arms; arm test 162/162; opencc fold locked; atlas digest/index regenerated to 158; verify_all NO OFFENDER.",
-    "D1451–D1468: six real StateGraphs now live — world guide (frozen atlas), Ah Wan NPC, analyst readout (measure → predict → prescribe, provenance fences), EN-arm drafting bench (canonical name fence added after a live drift), fenced 87K-token arc auditor, on-demand story recap on /world. Model phrases; the code owns facts, identity and structure.",
-    "D1452–D1454: chapter-ask reads the WHOLE chapter plus a frozen 158-chapter atlas, and carries codex-style growing conversation history — turn k prefix-matches turn k−1 byte-for-byte; the user-visible thread lives in-session only.",
-    "D1457/D1468: all eleven model-facing lanes now ride the shared frozen prefix — the handbook lane was the last raw system; admin digest corpus moved to sorted compact JSON (~25% fewer payload tokens). Live replay measured cached 4,686 / 9,930 (~47%); the frozen atlas was found 9 chapters stale in D1468 and has been regenerated in lockstep ever since.",
-    "D1458: whole-arc continuity auditor as an operator-run probe — the L→P window is 42+ chapters / 174K+ chars (~87K tokens); deliberate, never automated, no token waste.",
-    "io surface truth repair: three phantom repositories (teedyas / teedyassi / teedy-assign) removed after an authenticated GitHub REST audit; counters corrected to the real 16 public (14 original + 2 forks); identity guard bans the phantom names. A Pages deploy metadata race was diagnosed and a retry made the live page carry the D1466 pack; NaN=0, all identity markers intact.",
-    "§十一 pressure re-verified on the production build: 640 requests @ 32-way across five routes, zero failures/timeouts/5xx; Next dev compile latency ruled out as a capacity issue; local :3002 NEXUS plane, :3000 belongs to an unrelated stack.",
-    "Self-hosted Windows runner online; ci-local gates verify_all + fold + typecheck + vitest; hosted CI stays backlogged — local gates remain authoritative. No secret ever committed; the live key/base/proxy live in gitignored env files only."
+    "D1483: chapter 166 CLOSES Layer Q - three keys on Ah Ching's own nail, the corridor light for a cleaner, a pencilled name that is not hers. Arc 166 chapters, three arms; arm test 170/170; atlas lockstep 166/166/166; verify_all NO OFFENDER.",
+    "D1480–D1482: chapters 164–166 land (empty square / corridor light / closure) with a live gpt-6.2-sol call choosing the physical beats; the parallel wave's five residual AI-suite failures closed at the root (canonical error envelopes + admin route off OpenAPI).",
+    "D1479: Wayfinder StateGraph (reader position + fixed mood -> one real chapter) and the password-123 behaviour-analytics page (real §58 events, per-day/session/hourly stats, seven-day least-squares projection, derived next steps).",
+    "D1451–D1468: eight real StateGraphs live - world guide, Ah Wan NPC, analyst readout, EN-arm drafting bench, fenced arc auditor, on-demand story recap, Wayfinder, arc audit. Model phrases; code owns facts, identity and structure.",
+    "D1457/D1468: all model-facing lanes ride a shared frozen prefix; live replay measured ~88% cached; frozen atlas regenerated in lockstep with the corpus on every chapter.",
+    "§十一 pressure re-verified on the production build (zero 5xx) · §三 Spring Cloud cloud modules green · identity hard-gates live (雅思6.5 / CET6 546 / 隐盾 / 赵欣曈) · profile README locked."
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
