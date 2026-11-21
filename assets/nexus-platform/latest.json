@@ -1,20 +1,22 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-19T13:31:46Z",
+  "generated_at": "2026-11-20T05:01:16Z",
   "branch": "master",
-  "head": "8b0678dc",
-  "total_commits": 1689,
-  "pushed_at": "2026-11-19T13:31:46Z",
-  "milestone": "D1447",
-  "milestone_full": "Layer O — the odds floor — CLOSED. All 144 Traditional Hong Kong chapters ship in three arms: Traditional HK, Standard-Simplified opencc fold (never hand-edited), full English prose. Layer O opened at 06:50 (Happy Valley, ch.139 — Ah Yau's odds board), progressed through 14:00 / 16:15 / 19:00 / 21:30; closed at 07:00 ( ch.144 — Ah Yau sweeps the east gate before dawn). Beat parity asserted by chapter-en-arm.test.ts (147/147); EN arm complete; verify_all NO OFFENDER (72 PASS); identity hard-gates remain live on both clones (雅思 6.5 · CET-6 546). Live model provider, aizzz/gpt-6.2-sol, rides one frozen world atlas across the shared head — 87.8% prompt-token cached on the warm byte-identical replay measured 2026-11-19.",
-  "headline": "Layer O CLOSED · the infinite world reads in three languages across 144 chapters · every arm complete, every gate green.",
+  "head": "2f38ea1",
+  "total_commits": 1716,
+  "pushed_at": "2026-11-20T04:59:30Z",
+  "milestone": "D1470",
+  "milestone_full": "Layer P — the reunion — is CLOSED. All 158 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose). The east gate passes to Ah Muk after Chan Bok’s race card, the saddle leather and three keys; the mystery ends as an instruction, not an exposition dump. Six real StateGraphs run in the service (world guide, Ah Wan NPC, analyst readout, EN-arm drafting bench, fenced arc auditor, on-demand story recap). Live model: aizzz/gpt-6.2-sol through the operator’s Clash Verge; one frozen prefix across all eleven model-facing lanes; multi-turn growing-history chapter companion; deterministic fences on every model-authored artefact; frozen atlas regenerated in lockstep with the corpus (158 chapters). Production build stress: 640 requests @ 32-way, zero failures; full AI suite 37,904 green, web suite 671 green, verify_all NO OFFENDER. The io surface carries real GitHub REST byte measurements and real repository counts only.",
+  "headline": "Layer P CLOSED · 158 chapters in three arms · six StateGraphs · every model byte fenced · every gate green.",
   "features": [
-    "D1447: Layer O CLOSED — the Happy Valley odds-floor arc complete in three arms (Traditional HK / opencc Simplified fold / full English prose); beat-parity tests 147/147; verify_all NO OFFENDER (72 PASS); Simplified fold locked via opencc; the arc's final chapter returns the racecourse to the 00:00 anchor",
-    "D1436: the world guide StateGraph reads the real corpus — a frozen HK-arc atlas digest (all 133 pre-closure chapters, the world constitution, an explicit BACKGROUND-only fence) rides the shared 7,394-char prefix; live aizzz/gpt-6.2-sol measured 200 OK, then 87.8% prompt_tokens_details.cached_tokens (13,536 / 15,417) on the byte-identical replay; fences/budget/StateGraph unchanged; fail-open",
-    "D1430: the web header ships the in-app wheel-direction override (follow-OS / reversed) with full zh-HK / zh-CN / en teaching copy — wheel now behaves natively unless the operator flips it; D1184 rail bridge keeps horizontal scroll intact; /handbook carries the OS-level remedy FAQ",
-    "D1437–D1446: Layer N + Layer O arcs land together (the counting hours: 131 scales → 132 cash register → 133 lamp tester → 134 pre-sale ledger → 135 opening queue → 136 pre-noon ledger → 137 midday door → 138 afternoon last count → 139 odds board → 140 afternoon lift → 141 the bay wins → 142 closing the lights → 143 night walk home → 144 after the meet); beat-parity held throughout; arc tracks to 144 in two arms of the arc-clock",
-    "io surface: both language towers now repaint from the same fact panels on i18n toggle (50+4 duplicate ids converted to classes; hydration loops all matching arms); baked placeholder refreshed to D1432-c carry; GitHub REST API byte-measure surfaced (138.21 MB; TS 31.95%) on both arms of the public page; identity hard-gates green",
-    "§十一 pressure re-verified (local probe 140/140 green this build) · spring-family e2e green locally · self-hosted Windows runner online on this machine (agent 21 · dispatch-only runner-smoke.yml green); ci-local.yml brings week-of-record parity on every push; hosted CI runners remain backlogged — local gates remain the source of truth"
+    "D1470: chapter 158 CLOSES Layer P — three keys, Chan Bok’s race card and the saddle leather in one drawer, Ah Muk keeps the east-gate watch alone until dawn. Arc 158 chapters, three arms; arm test 162/162; opencc fold locked; atlas digest/index regenerated to 158; verify_all NO OFFENDER.",
+    "D1451–D1468: six real StateGraphs now live — world guide (frozen atlas), Ah Wan NPC, analyst readout (measure → predict → prescribe, provenance fences), EN-arm drafting bench (canonical name fence added after a live drift), fenced 87K-token arc auditor, on-demand story recap on /world. Model phrases; the code owns facts, identity and structure.",
+    "D1452–D1454: chapter-ask reads the WHOLE chapter plus a frozen 158-chapter atlas, and carries codex-style growing conversation history — turn k prefix-matches turn k−1 byte-for-byte; the user-visible thread lives in-session only.",
+    "D1457/D1468: all eleven model-facing lanes now ride the shared frozen prefix — the handbook lane was the last raw system; admin digest corpus moved to sorted compact JSON (~25% fewer payload tokens). Live replay measured cached 4,686 / 9,930 (~47%); the frozen atlas was found 9 chapters stale in D1468 and has been regenerated in lockstep ever since.",
+    "D1458: whole-arc continuity auditor as an operator-run probe — the L→P window is 42+ chapters / 174K+ chars (~87K tokens); deliberate, never automated, no token waste.",
+    "io surface truth repair: three phantom repositories (teedyas / teedyassi / teedy-assign) removed after an authenticated GitHub REST audit; counters corrected to the real 16 public (14 original + 2 forks); identity guard bans the phantom names. A Pages deploy metadata race was diagnosed and a retry made the live page carry the D1466 pack; NaN=0, all identity markers intact.",
+    "§十一 pressure re-verified on the production build: 640 requests @ 32-way across five routes, zero failures/timeouts/5xx; Next dev compile latency ruled out as a capacity issue; local :3002 NEXUS plane, :3000 belongs to an unrelated stack.",
+    "Self-hosted Windows runner online; ci-local gates verify_all + fold + typecheck + vitest; hosted CI stays backlogged — local gates remain authoritative. No secret ever committed; the live key/base/proxy live in gitignored env files only."
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
