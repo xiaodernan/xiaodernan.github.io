@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-21 · ea18e6d0**
+**2026-11-21 · d99b26c9**
 - 分支: `master`
 - ledger: `#2055 项目清单完整性核对：README 全部 repo 均已列入 github.io 主页（核对通过）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
