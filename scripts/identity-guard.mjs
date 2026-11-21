@@ -60,7 +60,7 @@ if (statBlocks.length !== 2 || statBlocks.some((nums) => nums.join(',') !== expe
 // 2026-11-20 · the two regressions the reader actually saw: NaN in the language card,
 // and a portrait whose edges looked shaved. Both are now pinned to evidence.
 const css = readFileSync(fileURLToPath(new URL('../styles.css', import.meta.url)), 'utf8')
-const langShares = ['32.28%', '24.64%', '19.48%', '12.36%', '8.83%', '1.51%', '0.40%', '0.28%', '0.22%']
+const langShares = ['31.54%', '24.06%', '20.26%', '12.09%', '9.44%', '1.50%', '0.38%', '0.27%', '0.45%']
 const langPanels = [...html.matchAll(/<div class="gh-panel gh-panel-langs"[\s\S]*?<\/ul>/g)].map(([b]) => b)
 if (langPanels.length !== 2 || langPanels.some((b) => !langShares.every((s) => b.includes(s)))) {
   console.error(`::error::identity-guard: language panels drift (${langPanels.length} panels, expected 2 with ${langShares.join(' ')})`)
