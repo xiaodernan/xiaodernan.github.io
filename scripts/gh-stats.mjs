@@ -76,11 +76,17 @@ const rows = top.map(([name, n], i) => {
   const w = (pct / share(top[0][1])) * 100;
   return `<li class="lang-row"><span class="lang-name">${name}</span><span class="lang-track"><span class="lang-fill" style="width:${w.toFixed(2)}%"></span></span><span class="lang-pct">${pct.toFixed(2)}%</span></li>`;
 }).join("\n      ");
-const restRow = rest.length
-  ? `\n      <li class="lang-row lang-row-rest"><span class="lang-name">其他 ${rest.length} 种</span><span class="lang-track"><span class="lang-fill lang-fill-rest" style="width:${(restShare / share(top[0][1]) * 100).toFixed(2)}%"></span></span><span class="lang-pct">${restShare.toFixed(2)}%</span></li>`
-  : "";
-// BOTH panels (the zh block and the en block) restate the same fetched figures.
-html = html.replace(/(<ul class="lang-bars">)[\s\S]*?(<\/ul>)/g, `$1\n      ${rows}${restRow}\n    $2`);
+// Each panel gets its OWN rest label: the zh block says 其他 N 种, the en block says other N.
+// A single shared restRow used to hardcode the Chinese label into BOTH, so every refresh
+// re-introduced 中英夹杂 into the English panel.
+const restRowFor = (zh) => (rest.length
+  ? `\n      <li class="lang-row lang-row-rest"><span class="lang-name">${zh ? `其他 ${rest.length} 种` : `other ${rest.length}`}</span><span class="lang-track"><span class="lang-fill lang-fill-rest" style="width:${(restShare / share(top[0][1]) * 100).toFixed(2)}%"></span></span><span class="lang-pct">${restShare.toFixed(2)}%</span></li>`
+  : "");
+let panelIdx = 0;
+html = html.replace(/(<ul class="lang-bars">)[\s\S]*?(<\/ul>)/g, (_m, open, close) => {
+  const zh = panelIdx++ === 0;
+  return `${open}\n      ${rows}${restRowFor(zh)}\n    ${close}`;
+});
 
 // The figure blocks (zh and en) restate the same fetched numbers. Function replacements only:
 // a string replacement with interpolated values makes "$11" out of "$1" + "14" and silently
@@ -106,11 +112,19 @@ html = html.replace(/(<span class="gh-stat-num">)[\d.]+(<small>&nbsp;MiB<\/small
   (_m, p1, p2, p3) => `${p1}${mibStr}${p2}${ranked.length}${p3}`);
 html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">original projects<small>\+ )\d+( fork experimental repos)/,
   (_m, p1, p2, p3) => `${p1}${own.length}${p2}${forks.length}${p3}`);
-// the two foot lines
-html = html.replace(/(<p class="gh-panel-foot">口径 )\d{4}-\d{2}-\d{2}( · )\d+( 个非 fork 公开仓)/,
-  (_m, p1, p2, p3) => `${p1}${today}${p2}${own.length}${p3}`);
-html = html.replace(/(<p class="gh-panel-foot">Measured )\d{4}-\d{2}-\d{2}( · )\d+( public repos \(no forks\))/,
-  (_m, p1, p2, p3) => `${p1}${today}${p2}${own.length}${p3}`);
+// the four foot lines: date, repo count (own + forks, matching the stat block), and the MiB
+// figure — the old regex only touched date+count and left a stale MiB in the footer.
+const reposTotal = own.length + forks.length;
+html = html.replace(/(<p class="gh-panel-foot">口径 )\d{4}-\d{2}-\d{2}( · )\d+( 个公开仓（原创 )\d+( · fork )\d+(）)/,
+  (_m, p1, p2, p3, p4, p5, p6) => `${p1}${today}${p2}${reposTotal}${p3}${own.length}${p4}${forks.length}${p5}`);
+html = html.replace(/(实拉（)\d+( 仓 )[\d.]+( MiB）)/,
+  (_m, p1, p2, p3) => `${p1}${reposTotal}${p2}${mibStr}${p3}`);
+// English orders the noun AFTER the number ("14 original · 2 forks"); Chinese puts it before
+// ("原创 14 · fork 2"). The two regexes must therefore differ — this one is the English order.
+html = html.replace(/(<p class="gh-panel-foot">Measured )\d{4}-\d{2}-\d{2}( · )\d+( public repos \()\d+( original · )\d+( forks?\))/,
+  (_m, p1, p2, p3, p4, p5, p6) => `${p1}${today}${p2}${reposTotal}${p3}${own.length}${p4}${forks.length}${p5}`);
+html = html.replace(/(\(\d+ repos, )[\d.]+( MiB\))/,
+  (_m, p1, p2) => `${p1}${reposTotal}${p2}${mibStr}`);
 
 // 4 · the snapshot: the same figures as a small JSON the identity-guard reads, so the guard
 // verifies the panel against what was last FETCHED rather than a hand-kept list — refreshing

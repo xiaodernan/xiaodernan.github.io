@@ -1,0 +1,61 @@
+name: Sync GitHub language figures
+
+# The portfolio's language panel used to freeze: data/gh-languages.json had NO workflow that
+# refreshed it, so the bars drifted from GitHub reality and only a manual `node
+# scripts/gh-stats.mjs --write` moved them. This job keeps the panel honest on a low cadence
+# (weekly, matching the user's "only update on real change" rule).
+#
+# Needs a repo secret named GH_PAT: a personal access token with public-repo read. The built-in
+# GITHUB_TOKEN is a bot identity and cannot call /user/repos as the owner, so it is not a
+# substitute. When the secret is absent the job warns and exits 0 instead of failing the repo.
+
+on:
+  schedule:
+    - cron: "30 13 * * 1"   # Monday 13:30 UTC — offset from the other weekly syncs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-gh-languages
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Fetch live figures and restate the panel
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_PAT:-}" ]; then
+            echo "::warning::GH_PAT secret is not configured — skipping the live language refresh (panel keeps its last fetched numbers)."
+            exit 0
+          fi
+          node scripts/gh-stats.mjs --write
+
+      - name: Guard the identity contract
+        run: node scripts/identity-guard.mjs
+
+      - name: Commit and push when the numbers moved
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- index.html data/gh-languages.json 2>/dev/null; then
+            echo "figures unchanged — nothing to commit"
+            exit 0
+          fi
+          git config user.name "showcase-sync-bot"
+          git config user.email "showcase-sync-bot@users.noreply.github.com"
+          git add index.html data/gh-languages.json
+          git commit -m "sync(gh-languages): restate the language panel from the live GitHub API"
+          # several crons share this branch; rebase past whatever landed first
+          git pull --rebase --autostash origin master || true
+          git push origin master
