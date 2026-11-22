@@ -1,0 +1,44 @@
+name: site-gates
+
+# 三道闸门：身份信息不可回归（identity-guard）、每个可操作元素都有教学说明
+# （tooltip-audit）、中英两语不互相夹杂（lang-audit）。任何一个红灯都不允许合并。
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'index.html'
+      - 'manual.html'
+      - 'admin.html'
+      - 'script.js'
+      - 'styles.css'
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/site-gates.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'manual.html'
+      - 'admin.html'
+      - 'script.js'
+      - 'styles.css'
+      - 'scripts/**'
+      - 'data/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Identity / forbidden-word / portrait / NaN gate
+        run: node scripts/identity-guard.mjs
+      - name: Teaching tooltip coverage gate
+        run: node scripts/tooltip-audit.mjs
+      - name: Bilingual no-mixing gate
+        run: node scripts/lang-audit.mjs

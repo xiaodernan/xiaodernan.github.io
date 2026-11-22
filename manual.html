@@ -1,0 +1,426 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="《简明说明书》——赵欣曈个人站点的内嵌小册子：30 秒上手、区块地图、精选作品、实验区、玩法教程、管理员页与数据口径，一次读懂全部功能。">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<title>简明说明书 · 赵欣曈的个人站点</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261122a">
+<style>
+/* ── 说明书专用版式：与主站同一套变量，不引入第二套设计语言 ── */
+.man-shell{max-width:1120px;margin:0 auto;padding:0 22px 96px}
+.man-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 22px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.man-top a.back{font:600 12px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);text-decoration:none}
+.man-top a.back:hover{text-decoration:underline}
+.man-top .man-crumb{font:500 11px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.man-top .man-actions{display:flex;align-items:center;gap:8px}
+.man-top button{font:600 12px/1 "DM Mono",ui-monospace,monospace;padding:8px 12px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);border-radius:3px;cursor:pointer;min-height:34px}
+.man-top button:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+.man-hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+.man-hero .kicker{font:600 11px/1.4 "DM Mono",ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+.man-hero h1{font-family:"Noto Serif SC",Georgia,serif;font-size:clamp(34px,5vw,58px);line-height:1.08;margin:0 0 14px;letter-spacing:-.02em}
+.man-hero h1 em{font-style:normal;color:var(--accent-deep)}
+.man-hero .lede{max-width:64ch;font-size:16px;color:var(--ink-soft);line-height:1.8;margin:0}
+.man-hero .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.man-hero .meta-row span{font:500 11px/1 "DM Mono",ui-monospace,monospace;padding:6px 10px;border:1px solid var(--line-strong);border-radius:999px;color:var(--muted)}
+.man-quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0}
+.man-quick .q{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:16px 18px}
+.man-quick .q b{display:block;font:600 13px/1.5 "DM Mono",ui-monospace,monospace;color:var(--accent-deep);margin-bottom:6px}
+.man-quick .q p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.75}
+.man-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;margin-top:44px;align-items:start}
+.man-toc{position:sticky;top:74px;border-left:2px solid var(--line);padding-left:16px}
+.man-toc p{font:600 10.5px/1.4 "DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.man-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.man-toc a{display:block;padding:5px 0;font-size:12.5px;color:var(--ink-soft);text-decoration:none;line-height:1.5}
+.man-toc a:hover{color:var(--accent-deep)}
+.man-toc a span{font-family:"DM Mono",ui-monospace,monospace;font-size:10px;color:var(--muted);margin-right:7px}
+.man-body h2{font-family:"Noto Serif SC",Georgia,serif;font-size:clamp(22px,2.6vw,30px);line-height:1.25;margin:46px 0 10px;scroll-margin-top:84px}
+.man-body h2:first-of-type{margin-top:0}
+.man-body h2 .num{font:600 11px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.16em;color:var(--accent-deep);display:block;margin-bottom:8px}
+.man-body h3{font-size:15.5px;margin:22px 0 6px}
+.man-body p{font-size:14.5px;line-height:1.85;color:var(--ink-soft);margin:0 0 12px;max-width:72ch}
+.man-body ul,.man-body ol{padding-left:20px;margin:0 0 14px;max-width:72ch}
+.man-body li{font-size:14.5px;line-height:1.85;color:var(--ink-soft);margin-bottom:4px}
+.man-body a{color:var(--accent-deep);text-decoration:underline;text-underline-offset:3px}
+.man-body strong{color:var(--ink)}
+.man-body code,.man-kbd{font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;background:rgba(184,134,50,.10);
+  border:1px solid rgba(184,134,50,.22);border-radius:4px;padding:1px 5px;color:var(--accent-deep);word-break:break-word}
+.man-table{width:100%;border-collapse:collapse;margin:6px 0 18px;font-size:13.5px}
+.man-table th,.man-table td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;line-height:1.65}
+.man-table th{background:var(--surface);font:600 11.5px/1.4 "DM Mono",ui-monospace,monospace;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+.man-callout{border:1px solid rgba(184,134,50,.34);border-left:3px solid var(--accent);background:rgba(184,134,50,.06);
+  border-radius:6px;padding:14px 16px;margin:14px 0 20px;font-size:13.5px;line-height:1.8;color:var(--ink-soft)}
+.man-callout b{color:var(--accent-deep)}
+.man-steps{display:grid;gap:10px;margin:8px 0 18px;counter-reset:step}
+.man-step{display:grid;grid-template-columns:30px 1fr;gap:12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:14px 16px}
+.man-step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font:600 12px/1.5 "DM Mono",ui-monospace,monospace;color:var(--accent-deep)}
+.man-step b{display:block;font-size:14px;margin-bottom:2px}
+.man-step p{margin:0;font-size:13.5px;line-height:1.7}
+.man-cta{display:inline-flex;align-items:center;gap:8px;margin:4px 8px 4px 0;padding:10px 14px;min-height:40px;
+  border:1px solid var(--accent-deep);border-radius:4px;background:var(--accent);color:var(--white);text-decoration:none;
+  font:600 12.5px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.03em}
+.man-cta:hover{background:var(--accent-deep);color:var(--white);text-decoration:none}
+.man-cta.quiet{background:transparent;color:var(--accent-deep)}
+.man-cta.quiet:hover{background:rgba(184,134,50,.10);color:var(--accent-deep)}
+.man-foot{border-top:1px solid var(--line);margin-top:52px;padding-top:18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  font:500 11.5px/1.7 "DM Mono",ui-monospace,monospace;color:var(--muted)}
+/* 语言切换：同一份 DOM，CSS 决定哪一半可见 */
+html[data-lang="zh"] [data-only="en"],html[data-lang="en"] [data-only="zh"]{display:none !important}
+@media (max-width:900px){
+  .man-grid{grid-template-columns:1fr;gap:8px}
+  .man-toc{position:static;border-left:0;border-top:1px solid var(--line);padding:14px 0 0;margin-bottom:8px}
+  .man-toc ol{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px}
+  .man-quick{grid-template-columns:1fr}
+}
+@media print{
+  .man-top,.man-toc,.man-cta{display:none !important}
+  .man-grid{grid-template-columns:1fr}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<header class="man-top">
+  <a class="back" href="./">← <span data-only="zh">返回主页</span><span data-only="en">Back to home</span></a>
+  <span class="man-crumb" data-only="zh">简明说明书 · 内嵌小册子</span>
+  <span class="man-crumb" data-only="en">Quick Manual · the built-in booklet</span>
+  <div class="man-actions">
+    <a class="back" href="admin.html" title="管理员面板（口令 123）· Admin console (passcode 123)"><span data-only="zh">管理员</span><span data-only="en">Admin</span></a>
+    <button type="button" data-lang-toggle aria-label="切换到英文 / Switch to Chinese">EN</button>
+  </div>
+</header>
+
+<main class="man-shell">
+  <section class="man-hero">
+    <p class="kicker" data-only="zh">HOW TO READ THIS SITE · 一册读完</p>
+    <p class="kicker" data-only="en">HOW TO READ THIS SITE · one booklet, everything</p>
+    <h1 data-only="zh">简明<em>说明书</em></h1>
+    <h1 data-only="en">The <em>Quick Manual</em></h1>
+    <p class="lede" data-only="zh">这一页不是项目文档，而是随站点一起发布的小册子。它只回答三件事：这里有什么、每个入口点进去会看到什么、怎样在五分钟内把全部功能亲手试一遍。</p>
+    <p class="lede" data-only="en">This is not project documentation — it ships with the site as a booklet. It answers three questions only: what is here, what each entrance opens, and how to try every feature by hand within five minutes.</p>
+    <div class="meta-row">
+      <span data-only="zh">16 个公开仓库</span><span data-only="en">16 public repos</span>
+      <span data-only="zh">4 个公网入口</span><span data-only="en">4 live entries</span>
+      <span data-only="zh">中英一键切换</span><span data-only="en">one-click ZH/EN</span>
+      <span data-only="zh">数据全部来自实测</span><span data-only="en">every number measured</span>
+    </div>
+  </section>
+
+  <section class="man-quick" aria-label="三十秒上手 / thirty-second start">
+    <div class="q">
+      <b data-only="zh">01 · 先看作品</b><b data-only="en">01 · Start with the work</b>
+      <p data-only="zh">回到首页，往下滚到「精选作品」：六件产出，每件都写了做了什么、难在哪、结果如何。数字可以点进仓库逐条核对。</p>
+      <p data-only="en">Go back home and scroll to “Featured work”: six shipped projects, each stating what was built, what was hard, and how it ended. Every number can be checked in the repo.</p>
+    </div>
+    <div class="q">
+      <b data-only="zh">02 · 再亲手玩</b><b data-only="en">02 · Then play it</b>
+      <p data-only="zh">实验区四个公网入口：隐盾（在线脱敏）、止音纪元（可玩的 3D 世界）、Football OS 看板、minicc 智能体工作台。点开就能用，不需要注册。</p>
+      <p data-only="en">Four live doors in the Lab: Yindun (online redaction), CÆSURA (a playable 3D world), the Football OS board, and the minicc agent workbench. Open and use — no sign-up.</p>
+    </div>
+    <div class="q">
+      <b data-only="zh">03 · 最后看证据</b><b data-only="en">03 · Finish with evidence</b>
+      <p data-only="zh">项目索引、全部仓库、GitHub 真实数据面板、SpecProof 最新进度：这一页的每个数字都有出处与抓取日期。</p>
+      <p data-only="en">The project index, all repos, the live GitHub data panels, and SpecProof's latest progress: every figure carries its source and fetch date.</p>
+    </div>
+  </section>
+
+  <div class="man-grid">
+    <nav class="man-toc" aria-label="章节目录 / chapters">
+      <p data-only="zh">章节</p><p data-only="en">Chapters</p>
+      <ol>
+        <li><a href="#map"><span>01</span><span data-only="zh">首页区块地图</span><span data-only="en">Map of the home page</span></a></li>
+        <li><a href="#work"><span>02</span><span data-only="zh">精选作品怎么读</span><span data-only="en">Reading the featured work</span></a></li>
+        <li><a href="#lab"><span>03</span><span data-only="zh">实验区四个入口</span><span data-only="en">Four live doors</span></a></li>
+        <li><a href="#play"><span>04</span><span data-only="zh">止音纪元怎么玩</span><span data-only="en">How to play CÆSURA</span></a></li>
+        <li><a href="#controls"><span>05</span><span data-only="zh">通用操作与快捷键</span><span data-only="en">Controls & shortcuts</span></a></li>
+        <li><a href="#admin"><span>06</span><span data-only="zh">管理员页与数据边界</span><span data-only="en">Admin page & data scope</span></a></li>
+        <li><a href="#provenance"><span>07</span><span data-only="zh">数据口径</span><span data-only="en">Where numbers come from</span></a></li>
+        <li><a href="#faq"><span>08</span><span data-only="zh">常见问题</span><span data-only="en">FAQ</span></a></li>
+        <li><a href="#glossary"><span>09</span><span data-only="zh">术语小词典</span><span data-only="en">Mini glossary</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="man-body">
+      <!-- ══════════ 01 ══════════ -->
+      <h2 id="map"><span class="num">01 / MAP</span><span data-only="zh">首页区块地图</span><span data-only="en">Map of the home page</span></h2>
+      <p data-only="zh">首页是一条从上到下的叙事线，不是拼贴。每一块都有固定职责，按顺序读就不会迷路：</p>
+      <p data-only="en">The home page is one narrative line from top to bottom, not a collage. Each block has a fixed job; read in order and you cannot get lost:</p>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th data-only="zh">区块</th><th data-only="en">Block</th>
+            <th data-only="zh">它回答的问题</th><th data-only="en">The question it answers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-only="zh"><b>首屏 Hero</b></td><td data-only="en"><b>Hero</b></td>
+            <td data-only="zh">你是谁、做哪一类工程、现在是否可合作。右侧三条快捷入口直接通向作品、隐盾和语言切换。</td>
+            <td data-only="en">Who you are, what kind of engineering you do, whether you are available. Three shortcuts lead to the work, Yindun, and the language switch.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>里程碑带</b></td><td data-only="en"><b>Milestone ribbon</b></td>
+            <td data-only="zh">一眼看到各项目的当前体量（卷数、提交数、Epic 数等），每格都可点进对应仓库。</td>
+            <td data-only="en">The current size of each project at a glance (volumes, commits, epics); every cell opens its repo.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>精选作品 01–06</b></td><td data-only="en"><b>Featured work 01–06</b></td>
+            <td data-only="zh">最能代表工程能力的六件产出，含真实数字与源码链接。</td>
+            <td data-only="en">The six strongest pieces of engineering, with real numbers and source links.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>实验区</b></td><td data-only="en"><b>The Lab</b></td>
+            <td data-only="zh">四个可以立刻打开的公网产品，按「在线 / 页面 / 本地已验证」标注真实状态。</td>
+            <td data-only="en">Four public products you can open right now, labelled live / pages / locally verified.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>能力图谱</b></td><td data-only="en"><b>Capability map</b></td>
+            <td data-only="zh">六组能力节点：从模型协议、Agent 运行时到可观测与回滚。</td>
+            <td data-only="en">Six capability clusters: from model protocols and agent runtime to observability and rollback.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>项目索引 + 全部仓库</b></td><td data-only="en"><b>Index + all repos</b></td>
+            <td data-only="zh">16 个公开仓库的完整清单，可按类别筛选，也可按项目名过滤。</td>
+            <td data-only="en">The full list of 16 public repos, filterable by category and searchable by name.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>SpecProof 直达 + GitHub 数据</b></td><td data-only="en"><b>SpecProof live + GitHub data</b></td>
+            <td data-only="zh">最近一次交付的验收读数，以及按字节统计的语言构成。</td>
+            <td data-only="en">The latest acceptance readings and the byte-share language breakdown.</td>
+          </tr>
+          <tr>
+            <td data-only="zh"><b>成长路径 + 联系</b></td><td data-only="en"><b>Journey + contact</b></td>
+            <td data-only="zh">学历、竞赛、实习与语言成绩；最后一屏给出邮件与 GitHub 两个直接联系方式。</td>
+            <td data-only="en">Education, competitions, internship, language scores; the final screen gives email and GitHub.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="man-callout">
+        <b data-only="zh">右侧底部还有一条圆点导航。</b><b data-only="en">A dot rail sits at the bottom right.</b>
+        <span data-only="zh">它随滚动高亮当前章节，点任意圆点即可跳转；顶部导航同样会随滚动自动标记当前区块。</span>
+        <span data-only="en">It highlights the chapter you are in and jumps on click; the top nav marks the current block the same way.</span>
+      </div>
+
+      <!-- ══════════ 02 ══════════ -->
+      <h2 id="work"><span class="num">02 / WORK</span><span data-only="zh">精选作品怎么读</span><span data-only="en">Reading the featured work</span></h2>
+      <p data-only="zh">每张作品卡的结构一致，按这个顺序读，三十秒就能判断它值不值得点开：</p>
+      <p data-only="en">Every card has the same structure. Read in this order and thirty seconds tell you whether it deserves a click:</p>
+      <ol>
+        <li data-only="zh"><b>标题与一句话定位</b>：它是什么、解决谁的什么问题。</li>
+        <li data-only="en"><b>Title and one-line positioning</b>: what it is and whose problem it solves.</li>
+        <li data-only="zh"><b>实测读数格</b>：提交数、用例数、卷数、延迟等；带 <code>latest.json</code> 的卡片会自动刷新。</li>
+        <li data-only="en"><b>Measured figures</b>: commits, tests, volumes, latency; cards backed by <code>latest.json</code> refresh themselves.</li>
+        <li data-only="zh"><b>技术标签</b>：用到的语言、框架与基础设施。</li>
+        <li data-only="en"><b>Tech tags</b>: languages, frameworks, and infrastructure actually used.</li>
+        <li data-only="zh"><b>链接行</b>：源码、在线看板、路线图。看到「源码」就说明可以逐条核验。</li>
+        <li data-only="en"><b>Link row</b>: source, live dashboard, roadmap. A “source” link means you can verify every claim.</li>
+      </ol>
+      <p data-only="zh">筛选按钮在作品区上方：按「Agent / 文档智能 / 游戏世界 / 数据平台」等类别过滤。再次点「全部」恢复。</p>
+      <p data-only="en">Filter buttons sit above the work grid: filter by Agent, document intelligence, game world, data platform, and so on. Click “All” to restore.</p>
+
+      <!-- ══════════ 03 ══════════ -->
+      <h2 id="lab"><span class="num">03 / LAB</span><span data-only="zh">实验区四个入口</span><span data-only="en">Four live doors</span></h2>
+      <table class="man-table">
+        <thead><tr><th data-only="zh">入口</th><th data-only="en">Door</th><th data-only="zh">打开后做什么</th><th data-only="en">What to do once open</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>隐盾</b></td>
+            <td data-only="zh">上传一份文书或粘贴文本，观察敏感信息如何被识别与遮蔽；页面上会给出识别类别与处理结果。</td>
+            <td data-only="en">Upload a document or paste text and watch sensitive spans get detected and masked; the page reports categories and results.</td>
+          </tr>
+          <tr>
+            <td><b>止音纪元</b></td>
+            <td data-only="zh">进入 3D 世界，按教程走完第一段；也可先看角色图鉴与世界谱再进。</td>
+            <td data-only="en">Enter the 3D world and finish the first segment; the cast roster and world codex are good pre-reading.</td>
+          </tr>
+          <tr>
+            <td><b>Football OS</b></td>
+            <td data-only="zh">浏览赛季、决赛与档案架；每一卷都能点开看真实比赛数据。</td>
+            <td data-only="en">Browse seasons, finals, and the archive shelf; every bound volume opens onto real match data.</td>
+          </tr>
+          <tr>
+            <td><b>minicc 工作台</b></td>
+            <td data-only="zh">查看智能体运行时的界面与模块说明；本地已验证，不是在线服务。</td>
+            <td data-only="en">Inspect the agent runtime UI and module notes; locally verified, not a hosted service.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ══════════ 04 ══════════ -->
+      <h2 id="play"><span class="num">04 / PLAY</span><span data-only="zh">止音纪元怎么玩</span><span data-only="en">How to play CÆSURA</span></h2>
+      <p data-only="zh">世界设定一句话：一整个区域的声音在时间里停住了，而你是唯一能让停顿重新「回响」的人。第一次进入建议按下面的顺序，不要一上来就乱跑：</p>
+      <p data-only="en">The premise in one line: an entire region's sound has stopped inside time, and you are the only one who can make the pause echo again. On your first visit, follow this order instead of wandering blindly:</p>
+      <div class="man-steps">
+        <div class="man-step"><div><b data-only="zh">先读九步教程</b><b data-only="en">Read the nine-step tutorial first</b><p data-only="zh">教程用鼠标 Y 轴分段讲解，每一步只教一个动作，读完再进世界。</p><p data-only="en">The tutorial is segmented along the mouse's Y axis; one action per step. Finish it before entering the world.</p></div></div>
+        <div class="man-step"><div><b data-only="zh">用 ?fresh=1 直接进世界</b><b data-only="en">Use ?fresh=1 to skip the title screen</b><p data-only="zh">只在没有存档时才会出现标题屏；带这个参数可以立刻落地。</p><p data-only="en">The title screen only appears without a save; this parameter drops you straight in.</p></div></div>
+        <div class="man-step"><div><b data-only="zh">先沿主路走，别急着探索</b><b data-only="en">Follow the main path before exploring</b><p data-only="zh">第一段路会把移动、交互、回响三个核心动作各教一次；走完再回头探索支路。</p><p data-only="en">The first stretch teaches movement, interaction, and echo once each; explore side paths afterwards.</p></div></div>
+        <div class="man-step"><div><b data-only="zh">卡住就查世界谱</b><b data-only="en">Stuck? Search the world codex</b><p data-only="zh">世界谱收录了全部项目文本，可在浏览器内直接检索地名、人物、事件，不联网。</p><p data-only="en">The codex indexes all project text and searches places, characters, and events entirely in your browser, offline.</p></div></div>
+        <div class="man-step"><div><b data-only="zh">想读故事就去《余响集》</b><b data-only="en">For prose, open the Anthology</b><p data-only="zh">整册短篇可按顺序读，也可一键打印成纸质卷；每篇都可双语对照。</p><p data-only="en">The collected shorts read in order and print as a paper volume; every piece is bilingual.</p></div></div>
+      </div>
+      <a class="man-cta" href="https://xiaodernan.github.io/caesura/tutorial/" target="_blank" rel="noreferrer" data-only="zh">打开九步教程 →</a>
+      <a class="man-cta" href="https://xiaodernan.github.io/caesura/tutorial/" target="_blank" rel="noreferrer" data-only="en">Open the nine-step tutorial →</a>
+      <a class="man-cta quiet" href="https://xiaodernan.github.io/caesura/codex/" target="_blank" rel="noreferrer" data-only="zh">世界谱检索 →</a>
+      <a class="man-cta quiet" href="https://xiaodernan.github.io/caesura/codex/" target="_blank" rel="noreferrer" data-only="en">World codex →</a>
+
+      <!-- ══════════ 05 ══════════ -->
+      <h2 id="controls"><span class="num">05 / CONTROLS</span><span data-only="zh">通用操作与快捷键</span><span data-only="en">Controls & shortcuts</span></h2>
+      <table class="man-table">
+        <thead><tr><th data-only="zh">操作</th><th data-only="en">Action</th><th data-only="zh">效果</th><th data-only="en">Effect</th></tr></thead>
+        <tbody>
+          <tr><td><span class="man-kbd">EN</span> / <span class="man-kbd">中</span></td><td data-only="zh">整页切换中英文，偏好写入本机；所有区块、提示、按钮同步切换，不留半句原文。</td><td data-only="en">Switch the whole page between Chinese and English; the choice is stored locally and every block, hint, and button follows — no half-translated leftovers.</td></tr>
+          <tr><td><span class="man-kbd">◐</span></td><td data-only="zh">切换浅色 / 深色主题，偏好保存在本机浏览器。</td><td data-only="en">Toggle light / dark theme; the preference is stored in your browser.</td></tr>
+          <tr><td><span class="man-kbd">Tab</span></td><td data-only="zh">在链接与按钮间移动焦点；每个可交互元素都有可见焦点环与一句说明。</td><td data-only="en">Move focus between links and buttons; every interactive element has a visible focus ring and a one-line hint.</td></tr>
+          <tr><td><span class="man-kbd">Hover</span></td><td data-only="zh">悬停任意按钮、卡片、链接，会浮出一句「它会做什么」的说明。</td><td data-only="en">Hover any button, card, or link to see a one-line “what it does” hint.</td></tr>
+          <tr><td data-only="zh"><span class="man-kbd">点击卡片</span></td><td data-only="en"><span class="man-kbd">Click a card</span></td><td data-only="zh">整张卡片或整行都可点，不必精确点中文字。</td><td data-only="en">The whole card or row is clickable; no need to hit the text precisely.</td></tr>
+          <tr><td data-only="zh"><span class="man-kbd">Ctrl / ⌘ + F</span></td><td data-only="en"><span class="man-kbd">Ctrl / ⌘ + F</span></td><td data-only="zh">在本页内搜索项目名；仓库区也支持按名称实时过滤。</td><td data-only="en">Search within the page; the repo grid also filters live by name.</td></tr>
+        </tbody>
+      </table>
+      <div class="man-callout">
+        <b data-only="zh">看不到说明文字？</b><b data-only="en">No hint showing?</b>
+        <span data-only="zh">提示文字依赖浏览器原生 title 浮层，移动端长按也可触发；若你的浏览器禁用了浮层，可改用键盘 Tab 聚焦，说明会同步出现在可访问名称中。</span>
+        <span data-only="en">Hints use the native title tooltip, also triggered by long-press on mobile. If your browser disables tooltips, focus with Tab — the hint is mirrored into the accessible name.</span>
+      </div>
+
+      <!-- ══════════ 06 ══════════ -->
+      <h2 id="admin"><span class="num">06 / ADMIN</span><span data-only="zh">管理员页与数据边界</span><span data-only="en">Admin page & data scope</span></h2>
+      <p data-only="zh">页脚与说明书右上角都有「管理员」入口，口令固定为 <code>123</code>。它打开的是一个行为观察面板，用来查看访客在这台浏览器里留下了什么：</p>
+      <p data-only="en">The footer and the top right of this booklet both link to “Admin”, passcode <code>123</code>. It opens a behaviour panel showing what visitors left in this browser:</p>
+      <ul>
+        <li data-only="zh"><b>会话与停留</b>：访问次数、平均停留、快速退出比例（不足八秒即离开）。</li>
+        <li data-only="en"><b>Sessions and dwell</b>: visits, average dwell, quick-exit share (leaving under eight seconds).</li>
+        <li data-only="zh"><b>点击热区与迷失点击</b>：哪些区块被点得最多，哪些点击落在了不可交互的区域。</li>
+        <li data-only="en"><b>Click zones and lost clicks</b>: which blocks draw clicks, and which clicks land on non-interactive areas.</li>
+        <li data-only="zh"><b>连续点击</b>：一秒内同一位置连点三次以上会被记为焦躁点击。</li>
+        <li data-only="en"><b>Rage clicks</b>: three or more clicks in the same spot within one second.</li>
+        <li data-only="zh"><b>滚动深度、语言与主题偏好</b>：读完了还是只看了首屏。</li>
+        <li data-only="en"><b>Scroll depth, language, theme</b>: did they finish the page or only see the hero.</li>
+        <li data-only="zh"><b>趋势与建议</b>：按日聚合的走势，以及面板根据现有读数给出的下一步优化动作。</li>
+        <li data-only="en"><b>Trend and advice</b>: daily aggregation plus next-step actions derived from the readings.</li>
+      </ul>
+      <div class="man-callout">
+        <b data-only="zh">口径边界必须说清楚：</b><b data-only="en">Scope limits, stated plainly:</b>
+        <span data-only="zh">这是一个纯静态站点，没有服务端数据库。面板里的数据只来自<strong>当前这台浏览器</strong>的 localStorage，因此它是一份真实的本机观察记录，而不是全站全量统计。换一台设备、换一个浏览器，看到的是那一台自己的数据。面板上的每个数字都标注了采集口径，不做任何「假装有服务器」的推断。</span>
+        <span data-only="en">This is a purely static site with no server database. Panel data comes only from <strong>this browser's</strong> localStorage — a genuine local observation record, not a site-wide census. Another device or browser shows its own data. Every figure states its collection rule; nothing pretends a server exists.</span>
+      </div>
+      <p data-only="zh">面板还提供「导出 JSON」与「清空本机记录」两个操作：前者用于把这份观察带走分析，后者用于重置为干净的初始状态。两者都只影响本机。</p>
+      <p data-only="en">The panel also offers “Export JSON” and “Clear local records”: the first carries the observation away for analysis, the second resets to a clean state. Both affect this browser only.</p>
+      <a class="man-cta" href="admin.html" data-only="zh">打开管理员面板 →</a>
+      <a class="man-cta" href="admin.html" data-only="en">Open the admin panel →</a>
+
+      <!-- ══════════ 07 ══════════ -->
+      <h2 id="provenance"><span class="num">07 / PROVENANCE</span><span data-only="zh">数据口径</span><span data-only="en">Where numbers come from</span></h2>
+      <ul>
+        <li data-only="zh"><b>仓库数、星数、语言占比</b>：GitHub REST API 实拉，按源码字节统计，不含 fork 与私有仓；面板底部写明抓取日期。</li>
+        <li data-only="en"><b>Repos, stars, language shares</b>: pulled from the GitHub REST API, counted in source bytes, forks and private repos excluded; the fetch date is printed at the panel's foot.</li>
+        <li data-only="zh"><b>项目读数</b>：来自各仓库公开的 <code>latest.json</code> 事实包，抓不到时回退到站点内置的同一份快照。</li>
+        <li data-only="en"><b>Project readings</b>: from each repo's public <code>latest.json</code> fact pack, falling back to the same snapshot bundled with the site.</li>
+        <li data-only="zh"><b>SpecProof 进度</b>：同步自验收后端的真实运行记录，不是手填。</li>
+        <li data-only="en"><b>SpecProof progress</b>: synced from the acceptance backend's real run records, not hand-filled.</li>
+        <li data-only="zh"><b>身份信息</b>：姓名、学历、竞赛、实习、语言成绩均以本人提供为准，并由构建闸门逐字校验。</li>
+        <li data-only="en"><b>Identity</b>: name, education, competitions, internship, and language scores follow the owner's own statement and are checked verbatim by a build gate.</li>
+      </ul>
+
+      <!-- ══════════ 08 ══════════ -->
+      <h2 id="faq"><span class="num">08 / FAQ</span><span data-only="zh">常见问题</span><span data-only="en">FAQ</span></h2>
+      <h3 data-only="zh">页面上的数字会自己变吗？</h3>
+      <h3 data-only="en">Do the numbers update themselves?</h3>
+      <p data-only="zh">会。带事实包的卡片在打开时拉取最新快照；拉取失败就保留内置快照，并在角落标注抓取日期，不会显示空白或占位符。</p>
+      <p data-only="en">Yes. Cards with fact packs pull the latest snapshot on load; if that fails they keep the bundled snapshot and its fetch date. No blanks, no placeholders.</p>
+      <h3 data-only="zh">为什么有些入口标注「本地已验证」？</h3>
+      <h3 data-only="en">Why are some doors marked “locally verified”?</h3>
+      <p data-only="zh">因为智能体运行时需要本机的模型与工具链才能跑，公网只提供界面与文档。标注状态是为了不把「能看」说成「能在线跑」。</p>
+      <p data-only="en">Because the agent runtime needs a local model and toolchain; the public site only offers the UI and docs. The label keeps “viewable” from being sold as “runnable online”.</p>
+      <h3 data-only="zh">切换语言后为什么滚动位置还在？</h3>
+      <h3 data-only="en">Why does my scroll position survive a language switch?</h3>
+      <p data-only="zh">切换是整块替换同一位置的节点，不重新加载页面，因此阅读位置、筛选状态与主题都保留。</p>
+      <p data-only="en">The switch replaces nodes in place without a reload, so position, filters, and theme persist.</p>
+      <h3 data-only="zh">可以引用这里的数字吗？</h3>
+      <h3 data-only="en">May I cite these numbers?</h3>
+      <p data-only="zh">可以，但请连同抓取日期一起引用；每个面板底部都有日期与统计口径，脱离口径的数字没有意义。</p>
+      <p data-only="en">Yes, but cite the fetch date too; every panel prints its date and counting rule, and a number without its rule means nothing.</p>
+
+      <!-- ══════════ 09 ══════════ -->
+      <h2 id="glossary"><span class="num">09 / GLOSSARY</span><span data-only="zh">术语小词典</span><span data-only="en">Mini glossary</span></h2>
+      <table class="man-table">
+        <thead><tr><th data-only="zh">词</th><th data-only="en">Term</th><th data-only="zh">在这页里的意思</th><th data-only="en">What it means here</th></tr></thead>
+        <tbody>
+          <tr><td>Agent Runtime</td><td data-only="zh">智能体运行时：负责把模型、工具、权限与状态串成可回滚执行链的那一层。</td><td data-only="en">The layer that chains models, tools, permissions, and state into a rollback-safe execution path.</td></tr>
+          <tr><td>RAG</td><td data-only="zh">检索增强：先取证据再回答，答案要能落到具体文档片段。</td><td data-only="en">Retrieval-augmented generation: fetch evidence first; answers must land on specific passages.</td></tr>
+          <tr><td>StateGraph</td><td data-only="zh">用显式状态与迁移描述流程，而不是把逻辑埋进回调里。</td><td data-only="en">Describing flows with explicit states and transitions instead of logic buried in callbacks.</td></tr>
+          <tr><td data-only="zh">事实包</td><td data-only="en">Fact pack</td><td data-only="zh">仓库里公开的机器可读指标快照，用来让页面数字可核验。</td><td data-only="en">A public machine-readable metrics snapshot that keeps page numbers verifiable.</td></tr>
+          <tr><td data-only="zh">闸门</td><td data-only="en">Gate</td><td data-only="zh">提交前自动运行的校验；不过就不许合并。</td><td data-only="en">An automated check run before commit; fail means no merge.</td></tr>
+          <tr><td data-only="zh">迷失点击</td><td data-only="en">Lost click</td><td data-only="zh">点在了不可交互的地方——通常说明用户以为那里能点。</td><td data-only="en">A click on a non-interactive spot — usually meaning the visitor expected it to work.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="man-foot">
+        <span data-only="zh">《简明说明书》· 随站点发布 · 2026-11-22</span>
+        <span data-only="en">The Quick Manual · shipped with the site · 2026-11-22</span>
+        <a href="./" data-only="zh">返回主站 →</a>
+        <a href="./" data-only="en">Back to the site →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<script>
+(function manualLang(){
+  var KEY = 'portfolio-lang';
+  var root = document.documentElement;
+  var button = document.querySelector('[data-lang-toggle]');
+  function read(){
+    try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; }
+  }
+  function apply(lang){
+    root.dataset.lang = lang;
+    root.lang = lang === 'en' ? 'en' : 'zh-CN';
+    if (button){
+      button.textContent = lang === 'en' ? '中' : 'EN';
+      button.setAttribute('aria-label', lang === 'en' ? '切换到中文 / Switch to Chinese' : '切换到英文 / Switch to English');
+      button.setAttribute('title', lang === 'en' ? '切换到中文版 · Switch to Chinese' : '切换到英文版 · Switch to English');
+    }
+    teach(lang);
+    try { localStorage.setItem(KEY, lang); } catch (_) {}
+  }
+  // 每个链接 / 按钮都带一句「点下去会发生什么」，并随语言重新生成。
+  function teach(lang){
+    var en = lang === 'en';
+    document.querySelectorAll('[data-auto-title]').forEach(function(el){
+      el.removeAttribute('title');
+      el.removeAttribute('data-auto-title');
+    });
+    document.querySelectorAll('a, button').forEach(function(el){
+      if (el.getAttribute('title') || el.matches('[data-lang-toggle]')) return;
+      var label = (el.textContent || '').replace(/\s+/g, ' ').trim();
+      var href = el.getAttribute('href') || '';
+      var tip;
+      if (href.indexOf('#') === 0) tip = en ? 'Jump to “' + (label || href.slice(1)) + '”' : '跳到「' + (label || href.slice(1)) + '」';
+      else if (href.indexOf('mailto:') === 0) tip = en ? 'Email Xintong Zhao' : '写邮件给赵欣曈';
+      else if (href) tip = en ? 'Open “' + (label || href) + '”' : '打开「' + (label || href) + '」';
+      else tip = en ? '“' + (label || 'button') + '”' : '「' + (label || '按钮') + '」';
+      el.setAttribute('title', tip);
+      el.setAttribute('data-auto-title', '1');
+    });
+  }
+  apply(read());
+  if (button){
+    button.addEventListener('click', function(){ apply(root.dataset.lang === 'en' ? 'zh' : 'en'); });
+  }
+  // 主题跟随主站偏好，保证两页观感一致
+  try {
+    var theme = localStorage.getItem('portfolio-theme');
+    if (theme) document.body.dataset.theme = theme;
+  } catch (_) {}
+})();
+</script>
+</body>
+</html>

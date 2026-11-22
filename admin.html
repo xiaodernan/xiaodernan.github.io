@@ -1,0 +1,667 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<title>管理员面板 · 赵欣曈的个人站点</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20261122a">
+<style>
+html[data-lang="zh"] [data-only="en"],html[data-lang="en"] [data-only="zh"]{display:none !important}
+.adm-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 22px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.adm-top a{font:600 12px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.06em;color:var(--accent-deep);text-decoration:none}
+.adm-top a:hover{text-decoration:underline}
+.adm-top .crumb{font:500 11px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.adm-top button{font:600 12px/1 "DM Mono",ui-monospace,monospace;padding:8px 12px;min-height:34px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:3px;cursor:pointer}
+.adm-top button:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+.adm-shell{max-width:1180px;margin:0 auto;padding:40px 22px 90px}
+.adm-head h1{font-family:"Noto Serif SC",Georgia,serif;font-size:clamp(30px,4vw,46px);line-height:1.1;margin:0 0 10px}
+.adm-head p{margin:0;max-width:70ch;font-size:14px;line-height:1.8;color:var(--ink-soft)}
+.gate{max-width:460px;margin:52px auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);
+  padding:26px 26px 22px;box-shadow:var(--shadow-card)}
+.gate h2{margin:0 0 6px;font-size:20px}
+.gate p{margin:0 0 16px;font-size:13px;line-height:1.75;color:var(--muted)}
+.gate label{display:block;font:600 11px/1.4 "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.gate input{width:100%;padding:11px 12px;border:1px solid var(--line-strong);border-radius:4px;background:var(--bg);
+  font:500 16px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.18em;color:var(--ink)}
+.gate input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.gate button{margin-top:12px;width:100%;padding:11px 14px;min-height:42px;border:0;border-radius:4px;cursor:pointer;
+  background:var(--accent);color:var(--white);font:600 12.5px/1 "DM Mono",ui-monospace,monospace;letter-spacing:.06em}
+.gate button:hover{background:var(--accent-deep)}
+.gate .err{min-height:18px;margin:8px 0 0;font-size:12.5px;color:#b3261e}
+.gate .hint{margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
+.gate.shake{animation:shake .28s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+[hidden]{display:none !important}
+.scope{border:1px solid rgba(184,134,50,.4);border-left:3px solid var(--accent);background:rgba(184,134,50,.07);
+  border-radius:6px;padding:13px 16px;font-size:13px;line-height:1.8;color:var(--ink-soft);margin:18px 0 24px}
+.scope b{color:var(--accent-deep)}
+.sim-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 18px;font-size:12.5px;color:var(--muted)}
+.sim-bar label{display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+.sim-bar .badge{font:600 10.5px/1 "DM Mono",ui-monospace,monospace;padding:5px 8px;border-radius:999px;background:rgba(184,134,50,.14);color:var(--accent-deep)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.kpi{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:14px 16px}
+.kpi .n{font:650 26px/1.1 "DM Mono",ui-monospace,monospace;letter-spacing:-.02em;color:var(--ink)}
+.kpi .n small{font-size:12px;color:var(--muted);margin-left:2px}
+.kpi .l{font:600 10.5px/1.4 "DM Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.kpi.warn .n{color:#b3261e}
+.panels{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:22px}
+.panel{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px}
+.panel h2{font-size:14px;margin:0 0 4px}
+.panel .sub{font-size:11.5px;color:var(--muted);margin:0 0 14px;line-height:1.6}
+.chart{display:flex;align-items:flex-end;gap:5px;height:120px;padding-top:6px;border-bottom:1px solid var(--line)}
+.chart .bar{flex:1;min-width:8px;background:linear-gradient(to top,var(--accent),#d9b06a);border-radius:2px 2px 0 0;position:relative}
+.chart .bar span{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);font:500 9px/1 "DM Mono",ui-monospace,monospace;color:var(--muted);white-space:nowrap}
+.chart .bar i{position:absolute;left:50%;top:-16px;transform:translateX(-50%);font:600 9.5px/1 "DM Mono",ui-monospace,monospace;color:var(--ink);font-style:normal}
+.split{display:grid;gap:10px}
+.split-row{display:grid;grid-template-columns:74px 1fr 54px;align-items:center;gap:10px;font-size:12px;color:var(--ink-soft)}
+.split-row .track{height:8px;background:rgba(24,32,38,.08);border-radius:99px;overflow:hidden}
+.split-row .fill{display:block;height:100%;background:var(--accent);border-radius:99px}
+.split-row b{font:600 11.5px/1 "DM Mono",ui-monospace,monospace;text-align:right;color:var(--ink)}
+table.dt{width:100%;border-collapse:collapse;font-size:12.5px}
+table.dt th,table.dt td{border-bottom:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top;line-height:1.55}
+table.dt th{font:600 10.5px/1.3 "DM Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+table.dt td.num{font-family:"DM Mono",ui-monospace,monospace;white-space:nowrap}
+table.dt tr:last-child td{border-bottom:0}
+.advice{display:grid;gap:10px;counter-reset:adv}
+.adv{display:grid;grid-template-columns:8px 1fr;gap:12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);padding:12px 14px}
+.adv .dot{border-radius:99px;background:var(--accent);margin-top:4px;height:8px;width:8px}
+.adv.high .dot{background:#b3261e}
+.adv.low .dot{background:#1e9d96}
+.adv b{display:block;font-size:13px;margin-bottom:2px}
+.adv p{margin:0;font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.actions button{font:600 12px/1 "DM Mono",ui-monospace,monospace;padding:10px 14px;min-height:40px;border:1px solid var(--line-strong);
+  border-radius:4px;background:var(--surface);color:var(--ink);cursor:pointer;letter-spacing:.02em}
+.actions button:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+.actions button.primary{background:var(--accent);border-color:var(--accent);color:var(--white)}
+.actions button.primary:hover{background:var(--accent-deep);color:var(--white)}
+.actions button.danger{color:#b3261e;border-color:rgba(179,38,30,.4)}
+.empty{padding:26px 16px;text-align:center;color:var(--muted);font-size:13px;line-height:1.8}
+.adm-foot{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  font:500 11.5px/1.7 "DM Mono",ui-monospace,monospace;color:var(--muted)}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.panels{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="adm-top">
+  <a href="./">← <span data-only="zh">返回主页</span><span data-only="en">Back to home</span></a>
+  <span class="crumb" data-only="zh">管理员面板 · 本机行为观察站</span>
+  <span class="crumb" data-only="en">Admin · local behaviour observatory</span>
+  <div style="display:flex;gap:8px;align-items:center">
+    <a href="manual.html"><span data-only="zh">说明书</span><span data-only="en">Manual</span></a>
+    <button type="button" data-lang-toggle>EN</button>
+  </div>
+</header>
+
+<main class="adm-shell">
+  <div class="adm-head">
+    <h1 data-only="zh">本机行为观察站</h1>
+    <h1 data-only="en">Local behaviour observatory</h1>
+    <p data-only="zh">用公开口令 <b>123</b> 进入。面板只读取当前这台浏览器的 localStorage：访问、停留、滚动、点击热区、迷失点击、焦躁连点，并据此给出下一步优化动作。</p>
+    <p data-only="en">Enter with the public passcode <b>123</b>. The panel reads only this browser's localStorage — visits, dwell, scroll, click zones, lost clicks, rage clicks — and derives next-step actions from them.</p>
+  </div>
+
+  <!-- 口令闸门 -->
+  <section class="gate" id="gate" aria-labelledby="gate-title">
+    <h2 id="gate-title" data-only="zh">输入口令</h2>
+    <h2 data-only="en">Enter passcode</h2>
+    <p data-only="zh">这是公开口令，<b>123</b>，任何访客都可以进入查看本机记录。它不保护隐私数据，只用于把入口与普通浏览分开。</p>
+    <p data-only="en">The passcode is public: <b>123</b>. Any visitor may enter and view this browser's records. It guards nothing private — it only separates the panel from ordinary browsing.</p>
+    <label for="pass" data-only="zh">口令 · PASSCODE</label>
+    <label for="pass" data-only="en">Passcode</label>
+    <input id="pass" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="•••" aria-describedby="gate-err" title="公开口令 123 · 进入后只看本机记录，不会上传任何数据">
+    <button type="button" id="gate-go" data-only="zh">进入面板</button>
+    <button type="button" id="gate-go-en" data-only="en" hidden>Enter</button>
+    <p class="err" id="gate-err" role="alert"></p>
+    <p class="hint" data-only="zh">口令错误会清空输入框；连续错误不会锁死，也不会记录口令内容。</p>
+    <p class="hint" data-only="en">A wrong passcode clears the field. No lockout, and the passcode itself is never recorded.</p>
+  </section>
+
+  <!-- 面板 -->
+  <section id="panel" hidden>
+    <div class="scope">
+      <b data-only="zh">口径边界：</b><b data-only="en">Scope:</b>
+      <span data-only="zh">这是纯静态站点，没有服务端数据库。以下全部读数来自<strong>当前这台浏览器</strong>的 localStorage（键名 <code>zx-telemetry:v1</code>），是真实的本机观察记录，不是全站全量统计；换设备、换浏览器看到的是那一台自己的数据。标记为「模拟」的样本由页面生成、仅用于演示分析逻辑，可随时排除。</span>
+      <span data-only="en">This is a static site with no server database. Every reading below comes from <strong>this browser's</strong> localStorage (key <code>zx-telemetry:v1</code>) — a real local observation record, not a site-wide census. Another device or browser shows its own data. Samples marked “simulated” are generated by the page only to demonstrate the analysis, and can be excluded at any time.</span>
+    </div>
+
+    <div class="sim-bar">
+      <span class="badge" id="sim-badge">—</span>
+      <label><input type="checkbox" id="include-sim" title="勾选后把标记为模拟的样本一起计入图表；默认只用真实浏览数据"> <span data-only="zh">把模拟样本计入读数</span><span data-only="en">Include simulated samples</span></label>
+      <span data-only="zh">真实样本与模拟样本分开计数，面板始终标明当前口径。</span>
+      <span data-only="en">Real and simulated samples are counted separately; the panel always states the current scope.</span>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="panels">
+      <div class="panel">
+        <h2 data-only="zh">近 14 天访问趋势</h2><h2 data-only="en">Visits, last 14 days</h2>
+        <p class="sub" data-only="zh">按本机日期聚合 page view；柱顶数字为当日次数。预测值由最近样本线性外推，仅作方向参考。</p>
+        <p class="sub" data-only="en">Page views grouped by local date; the number atop each bar is that day's count. The forecast is a linear extrapolation — direction only.</p>
+        <div class="chart" id="chart"></div>
+        <p class="sub" id="forecast" style="margin:12px 0 0"></p>
+      </div>
+      <div class="panel">
+        <h2 data-only="zh">语言 / 主题 / 设备</h2><h2 data-only="en">Language / theme / device</h2>
+        <p class="sub" data-only="zh">按访问次数占比。语言取页面当时的实际语言，不取浏览器偏好。</p>
+        <p class="sub" data-only="en">Share of visits. Language is the page's actual state at visit time, not the browser preference.</p>
+        <div class="split" id="split"></div>
+        <p class="sub" id="scroll-hist" style="margin:14px 0 0"></p>
+      </div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h2 data-only="zh">点击热区</h2><h2 data-only="en">Click zones</h2>
+        <p class="sub" data-only="zh">只统计落在可交互元素上的点击；比例按总点击计。</p>
+        <p class="sub" data-only="en">Only clicks landing on interactive elements; shares of all clicks.</p>
+        <div id="zones"></div>
+      </div>
+      <div class="panel">
+        <h2 data-only="zh">迷失点击热点</h2><h2 data-only="en">Lost-click hotspots</h2>
+        <p class="sub" data-only="zh">点在了不可交互的位置。它们通常意味着「这里看起来应该能点」。</p>
+        <p class="sub" data-only="en">Clicks on non-interactive spots — usually meaning “this looked clickable”.</p>
+        <div id="lost"></div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:22px">
+      <h2 data-only="zh">会话明细（最近 12 条）</h2><h2 data-only="en">Session detail (latest 12)</h2>
+      <p class="sub" data-only="zh">一条会话 = 一次标签页生命周期；停留为各页停留之和。</p>
+      <p class="sub" data-only="en">One session = one tab lifetime; dwell is summed across pages.</p>
+      <div id="sessions"></div>
+    </div>
+
+    <div class="panel">
+      <h2 data-only="zh">下一步优化动作</h2><h2 data-only="en">Next optimisation actions</h2>
+      <p class="sub" data-only="zh">按当前读数触发的规则，从高到低排序；没有触发条件时也会明说。</p>
+      <p class="sub" data-only="en">Rules triggered by the current readings, highest priority first; if none fire, the panel says so.</p>
+      <div class="advice" id="advice"></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="export" class="primary" data-only="zh">导出 JSON</button>
+      <button type="button" id="export-en" class="primary" data-only="en" hidden>Export JSON</button>
+      <button type="button" id="simulate" data-only="zh">注入一组模拟样本</button>
+      <button type="button" id="simulate-en" data-only="en" hidden>Inject simulated samples</button>
+      <button type="button" id="refresh" data-only="zh">重新读取</button>
+      <button type="button" id="refresh-en" data-only="en" hidden>Re-read</button>
+      <button type="button" id="clear" class="danger" data-only="zh">清空本机记录</button>
+      <button type="button" id="clear-en" class="danger" data-only="en" hidden>Clear local records</button>
+    </div>
+  </section>
+
+  <div class="adm-foot">
+    <span data-only="zh">管理员面板 · 口令 123 · 数据仅存本机</span>
+    <span data-only="en">Admin panel · passcode 123 · data stays in this browser</span>
+    <a href="manual.html" data-only="zh">回说明书 →</a>
+    <a href="manual.html" data-only="en">Back to the manual →</a>
+  </div>
+</main>
+
+<script>
+(function admin(){
+  var KEY = 'zx-telemetry:v1';
+  var root = document.documentElement;
+  var gate = document.getElementById('gate');
+  var panel = document.getElementById('panel');
+  var input = document.getElementById('pass');
+  var err = document.getElementById('gate-err');
+  var LANG_KEY = 'portfolio-lang';
+
+  /* ── 语言 ── */
+  function readLang(){ try { return localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; } }
+  function applyLang(lang){
+    root.dataset.lang = lang;
+    root.lang = lang === 'en' ? 'en' : 'zh-CN';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
+    var b = document.querySelector('[data-lang-toggle]');
+    if (b) b.textContent = lang === 'en' ? '中' : 'EN';
+    syncActionButtons(lang);
+    teach(lang);
+    if (typeof window.__admTeachRefresh === 'function') window.__admTeachRefresh(lang);
+  }
+  // 每个可操作元素都附带一句教学说明；切换语言时整批重生成。
+  function teach(lang){
+    var en = lang === 'en';
+    document.querySelectorAll('[data-auto-title]').forEach(function(el){
+      el.removeAttribute('title');
+      el.removeAttribute('data-auto-title');
+    });
+    document.querySelectorAll('a, button').forEach(function(el){
+      if (el.getAttribute('title') || el.matches('[data-lang-toggle]')) return;
+      var label = (el.textContent || '').replace(/\s+/g, ' ').trim();
+      var href = el.getAttribute('href') || '';
+      var tip;
+      if (href.indexOf('#') === 0) tip = en ? 'Jump to “' + (label || href.slice(1)) + '”' : '跳到「' + (label || href.slice(1)) + '」';
+      else if (href) tip = en ? 'Open “' + (label || href) + '”' : '打开「' + (label || href) + '」';
+      else tip = en ? '“' + (label || 'button') + '”' : '「' + (label || '按钮') + '」';
+      el.setAttribute('title', tip);
+      el.setAttribute('data-auto-title', '1');
+    });
+  }
+  function syncActionButtons(lang){
+    [['gate-go','gate-go-en'],['export','export-en'],['simulate','simulate-en'],['refresh','refresh-en'],['clear','clear-en']].forEach(function(pair){
+      var zh = document.getElementById(pair[0]);
+      var en = document.getElementById(pair[1]);
+      if (!zh || !en) return;
+      var useEn = lang === 'en';
+      // 主按钮保留 id 绑定，英文按钮共用同一个点击处理器
+      zh.hidden = useEn;
+      en.hidden = !useEn;
+    });
+  }
+  var langBtn = document.querySelector('[data-lang-toggle]');
+  applyLang(readLang());
+  if (langBtn) langBtn.addEventListener('click', function(){ applyLang(root.dataset.lang === 'en' ? 'zh' : 'en'); });
+
+  /* ── 口令 ── */
+  function unlock(){
+    gate.hidden = true;
+    panel.hidden = false;
+    try { sessionStorage.setItem('zx-admin-ok', '1'); } catch (_) {}
+    render();
+  }
+  function tryPass(){
+    if (input.value.trim() === '123') {
+      err.textContent = '';
+      unlock();
+    } else {
+      err.textContent = root.dataset.lang === 'en' ? 'Wrong passcode. The public passcode is 123.' : '口令不对。公开口令是 123。';
+      input.value = '';
+      gate.classList.remove('shake');
+      void gate.offsetWidth;
+      gate.classList.add('shake');
+      input.focus();
+    }
+  }
+  document.getElementById('gate-go').addEventListener('click', tryPass);
+  document.getElementById('gate-go-en').addEventListener('click', tryPass);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryPass(); });
+
+  var preUnlocked = false;
+  try { preUnlocked = sessionStorage.getItem('zx-admin-ok') === '1'; } catch (_) {}
+  if (preUnlocked) unlock(); else input.focus();
+
+  /* ── 数据 ── */
+  function readStore(){
+    try {
+      var raw = localStorage.getItem(KEY);
+      var d = raw ? JSON.parse(raw) : null;
+      if (d && d.v === 1 && Array.isArray(d.events)) return d;
+    } catch (_) {}
+    return { v: 1, events: [] };
+  }
+  function writeStore(d){
+    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (_) {}
+  }
+  var includeSim = false;
+  var simToggle = document.getElementById('include-sim');
+  simToggle.addEventListener('change', function(){ includeSim = simToggle.checked; render(); });
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function pct(part, whole){
+    if (!whole) return '—';
+    return (part / whole * 100).toFixed(1) + '%';
+  }
+  function dur(ms){
+    if (!isFinite(ms) || ms <= 0) return '—';
+    if (ms < 1000) return Math.round(ms) + 'ms';
+    if (ms < 60000) return (ms / 1000).toFixed(1) + 's';
+    return Math.floor(ms / 60000) + 'm' + Math.round((ms % 60000) / 1000) + 's';
+  }
+  function dayKey(ts){
+    var d = new Date(ts);
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  function compute(){
+    var all = readStore().events;
+    var real = all.filter(function(e){ return !e.sim; });
+    var sim = all.filter(function(e){ return e.sim; });
+    var use = includeSim ? all : real;
+    var views = use.filter(function(e){ return e.k === 'view'; });
+    var dwells = use.filter(function(e){ return e.k === 'dwell'; });
+    var clicks = use.filter(function(e){ return e.k === 'click'; });
+    var lost = use.filter(function(e){ return e.k === 'lost'; });
+    var rages = use.filter(function(e){ return e.k === 'rage'; });
+    var sessions = {};
+    use.forEach(function(e){
+      var s = sessions[e.s] || (sessions[e.s] = { id: e.s, first: e.t, last: e.t, dwell: 0, pages: {}, clicks: 0, lost: 0, pct: 0, lang: e.l, sim: !!e.sim });
+      s.first = Math.min(s.first, e.t);
+      s.last = Math.max(s.last, e.t);
+      if (e.k === 'dwell') { s.dwell += Number(e.ms) || 0; s.pct = Math.max(s.pct, Number(e.pct) || 0); }
+      if (e.k === 'view') s.pages[e.p] = (s.pages[e.p] || 0) + 1;
+      if (e.k === 'click') s.clicks++;
+      if (e.k === 'lost') s.lost++;
+      if (!s.lang) s.lang = e.l;
+    });
+    var sessionList = Object.keys(sessions).map(function(k){ return sessions[k]; });
+    var totalDwell = dwells.reduce(function(a, e){ return a + (Number(e.ms) || 0); }, 0);
+    var quick = dwells.filter(function(e){ return e.quick; }).length;
+    var avgScroll = dwells.length ? dwells.reduce(function(a, e){ return a + (Number(e.pct) || 0); }, 0) / dwells.length : 0;
+    var langCount = { zh: 0, en: 0 };
+    views.forEach(function(e){ langCount[e.l === 'en' ? 'en' : 'zh']++; });
+    var themeCount = { light: 0, dark: 0 };
+    views.forEach(function(e){ themeCount[e.th === 'dark' ? 'dark' : 'light']++; });
+    var mobile = views.filter(function(e){ return e.mobile; }).length;
+
+    function topBy(list, keyFn, limit){
+      var m = {};
+      list.forEach(function(e){ var k = keyFn(e); if (!k) return; m[k] = (m[k] || 0) + 1; });
+      return Object.keys(m).map(function(k){ return { k: k, n: m[k] }; })
+        .sort(function(a, b){ return b.n - a.n; }).slice(0, limit || 6);
+    }
+    var zones = topBy(clicks, function(e){ return e.z; }, 8);
+    var lostZones = topBy(lost, function(e){ return e.z + ' · ' + (e.tg || '?'); }, 8);
+    var lostLabels = topBy(lost, function(e){ return e.z; }, 4);
+
+    var days = [];
+    var today = new Date();
+    for (var i = 13; i >= 0; i--) {
+      var d = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i);
+      var key = dayKey(d.getTime());
+      days.push({ key: key, n: views.filter(function(e){ return dayKey(e.t) === key; }).length });
+    }
+    // 线性回归 → 明日预测（只对有点击样本的日子）
+    var pts = days.map(function(d, i){ return { x: i, y: d.n }; });
+    var n = pts.length;
+    var sx = 0, sy = 0, sxx = 0, sxy = 0;
+    pts.forEach(function(p){ sx += p.x; sy += p.y; sxx += p.x * p.x; sxy += p.x * p.y; });
+    var denom = n * sxx - sx * sx;
+    var slope = denom === 0 ? 0 : (n * sxy - sx * sy) / denom;
+    var intercept = (sy - slope * sx) / n;
+    var forecastRaw = intercept + slope * n;
+    var nonzeroDays = days.filter(function(d){ return d.n > 0; }).length;
+
+    return {
+      all: all, real: real, sim: sim, use: use,
+      views: views, dwells: dwells, clicks: clicks, lost: lost, rages: rages,
+      sessions: sessionList,
+      totalDwell: totalDwell, quick: quick, avgScroll: avgScroll,
+      langCount: langCount, themeCount: themeCount, mobile: mobile,
+      zones: zones, lostZones: lostZones, lostLabels: lostLabels,
+      days: days, forecast: Math.max(0, Math.round(forecastRaw)), slope: slope, nonzeroDays: nonzeroDays,
+    };
+  }
+
+  function splitRow(labelZh, labelEn, count, total, color){
+    var share = total ? Math.round(count / total * 100) : 0;
+    return '<div class="split-row"><span>' + '<span data-only="zh">' + esc(labelZh) + '</span>' +
+      '<span data-only="en">' + esc(labelEn) + '</span></span>' +
+      '<span class="track"><span class="fill" style="width:' + share + '%;' + (color ? 'background:' + color : '') + '"></span></span>' +
+      '<b>' + (total ? share + '%' : '—') + '</b></div>';
+  }
+
+  function render(){
+    var m = compute();
+    var views = m.views.length;
+    var sessions = m.sessions.length;
+    var avgDwell = m.dwells.length ? m.totalDwell / m.dwells.length : 0;
+    var quickRate = m.dwells.length ? m.quick / m.dwells.length : 0;
+    var lostRate = (m.clicks.length + m.lost.length) ? m.lost.length / (m.clicks.length + m.lost.length) : 0;
+    var enShare = views ? m.langCount.en / views : 0;
+    var mobileShare = views ? m.mobile / views : 0;
+
+    document.getElementById('sim-badge').textContent =
+      (root.dataset.lang === 'en' ? 'real ' : '真实 ') + m.real.length + ' · ' +
+      (root.dataset.lang === 'en' ? 'sim ' : '模拟 ') + m.sim.length +
+      (includeSim ? (root.dataset.lang === 'en' ? ' · counting both' : ' · 当前计入两者') : (root.dataset.lang === 'en' ? ' · counting real only' : ' · 当前只计真实'));
+
+    document.getElementById('kpis').innerHTML = [
+      kpi(sessions, root.dataset.lang === 'en' ? 'sessions' : '会话', ''),
+      kpi(views, root.dataset.lang === 'en' ? 'page views' : '页面访问', ''),
+      kpi(dur(avgDwell), root.dataset.lang === 'en' ? 'avg dwell' : '平均停留', avgDwell && avgDwell < 12000 ? 'warn' : ''),
+      kpi(m.dwells.length ? Math.round(quickRate * 100) + '%' : '—', root.dataset.lang === 'en' ? 'quick exits (<8s)' : '快速退出（<8 秒）', quickRate > 0.35 ? 'warn' : ''),
+      kpi(m.dwells.length ? Math.round(m.avgScroll) + '%' : '—', root.dataset.lang === 'en' ? 'avg scroll depth' : '平均滚动深度', m.avgScroll && m.avgScroll < 45 ? 'warn' : ''),
+      kpi(m.clicks.length ? Math.round(lostRate * 100) + '%' : '—', root.dataset.lang === 'en' ? 'lost-click share' : '迷失点击占比', lostRate > 0.2 ? 'warn' : ''),
+      kpi(m.rages.length, root.dataset.lang === 'en' ? 'rage clicks' : '焦躁连点', m.rages.length ? 'warn' : ''),
+      kpi(m.real.length + m.sim.length, root.dataset.lang === 'en' ? 'events stored' : '已存事件', ''),
+    ].join('');
+
+    // 趋势图
+    var maxDay = Math.max.apply(null, m.days.map(function(d){ return d.n; }).concat([1]));
+    document.getElementById('chart').innerHTML = m.days.map(function(d){
+      var h = Math.max(2, Math.round(d.n / maxDay * 100));
+      var label = d.key.slice(5).replace('-', '/');
+      return '<div class="bar" style="height:' + h + '%" title="' + d.key + ' · ' + d.n + '">' +
+        (d.n ? '<i>' + d.n + '</i>' : '') + '<span>' + label + '</span></div>';
+    }).join('');
+    var fc = document.getElementById('forecast');
+    if (m.nonzeroDays >= 3) {
+      fc.innerHTML = root.dataset.lang === 'en'
+        ? 'Linear forecast for tomorrow: <b>' + m.forecast + '</b> views · slope ' + (m.slope >= 0 ? '+' : '') + m.slope.toFixed(2) + '/day · based on ' + m.nonzeroDays + ' active days'
+        : '线性外推明日：<b>' + m.forecast + '</b> 次访问 · 斜率 ' + (m.slope >= 0 ? '+' : '') + m.slope.toFixed(2) + '/天 · 基于 ' + m.nonzeroDays + ' 个非零日';
+    } else {
+      fc.innerHTML = root.dataset.lang === 'en'
+        ? 'Not enough active days to forecast (need 3+). No invented number.'
+        : '非零日不足 3 天，暂不预测；不编造数字。';
+    }
+
+    // 语言 / 主题 / 设备
+    document.getElementById('split').innerHTML =
+      splitRow('中文', 'Chinese', m.langCount.zh, views, '') +
+      splitRow('英文', 'English', m.langCount.en, views, '#5476c7') +
+      splitRow('浅色', 'Light', m.themeCount.light, views, '#c9a258') +
+      splitRow('深色', 'Dark', m.themeCount.dark, views, '#2b3a4a') +
+      splitRow('移动端', 'Mobile', m.mobile, views, '#1e9d96');
+    document.getElementById('scroll-hist').innerHTML = (function(){
+      if (!m.dwells.length) return root.dataset.lang === 'en' ? 'No dwell samples yet.' : '还没有停留样本。';
+      var buckets = [0, 0, 0, 0];
+      m.dwells.forEach(function(e){ var p = Number(e.pct) || 0; buckets[Math.min(3, Math.floor(p / 25))]++; });
+      var total = m.dwells.length;
+      return (root.dataset.lang === 'en' ? 'Scroll depth: ' : '滚动深度：') + buckets.map(function(n, i){
+        var range = (i * 25) + '–' + ((i + 1) * 25) + '%';
+        return range + ' ' + Math.round(n / total * 100) + '%';
+      }).join(' · ');
+    })();
+
+    // 点击热区
+    document.getElementById('zones').innerHTML = m.zones.length ? '<table class="dt"><thead><tr>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'zone' : '区块') + '</th><th>' + (root.dataset.lang === 'en' ? 'clicks' : '点击') + '</th><th>' + (root.dataset.lang === 'en' ? 'share' : '占比') + '</th>' +
+      '</tr></thead><tbody>' + m.zones.map(function(z){
+        return '<tr><td>' + esc(z.k) + '</td><td class="num">' + z.n + '</td><td class="num">' + pct(z.n, m.clicks.length) + '</td></tr>';
+      }).join('') + '</tbody></table>' : emptyBox(root.dataset.lang === 'en' ? 'No interactive clicks recorded yet.' : '还没有记录到可交互点击。');
+
+    // 迷失点击
+    document.getElementById('lost').innerHTML = m.lost.length ? '<table class="dt"><thead><tr>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'zone · element' : '区块 · 元素') + '</th><th>' + (root.dataset.lang === 'en' ? 'count' : '次数') + '</th>' +
+      '</tr></thead><tbody>' + m.lostZones.map(function(z){
+        return '<tr><td>' + esc(z.k) + '</td><td class="num">' + z.n + '</td></tr>';
+      }).join('') + '</tbody></table>' : emptyBox(root.dataset.lang === 'en' ? 'Zero lost clicks — every click landed on something interactive.' : '零迷失点击——每次点击都落在可交互元素上。');
+
+    // 会话表
+    var recent = m.sessions.slice().sort(function(a, b){ return b.last - a.last; }).slice(0, 12);
+    document.getElementById('sessions').innerHTML = recent.length ? '<table class="dt"><thead><tr>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'session' : '会话') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'started' : '开始') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'dwell' : '停留') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'pages' : '页面') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'clicks' : '点击') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'lost' : '迷失') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'scroll' : '滚动') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'lang' : '语言') + '</th>' +
+      '<th>' + (root.dataset.lang === 'en' ? 'source' : '来源') + '</th>' +
+      '</tr></thead><tbody>' + recent.map(function(s){
+        var pages = Object.keys(s.pages).length;
+        return '<tr><td class="num">' + esc(s.id.slice(0, 6)) + '</td>' +
+          '<td class="num">' + new Date(s.first).toLocaleString(root.dataset.lang === 'en' ? 'en-GB' : 'zh-CN', { hour12: false }) + '</td>' +
+          '<td class="num">' + dur(s.dwell) + '</td>' +
+          '<td class="num">' + pages + '</td>' +
+          '<td class="num">' + s.clicks + '</td>' +
+          '<td class="num">' + s.lost + '</td>' +
+          '<td class="num">' + (s.pct ? s.pct + '%' : '—') + '</td>' +
+          '<td class="num">' + (s.lang === 'en' ? 'EN' : '中') + '</td>' +
+          '<td>' + (s.sim ? (root.dataset.lang === 'en' ? 'simulated' : '模拟') : (root.dataset.lang === 'en' ? 'real' : '真实')) + '</td></tr>';
+      }).join('') + '</tbody></table>' : emptyBox(root.dataset.lang === 'en' ? 'No sessions yet. Browse the site, then return.' : '还没有会话。先去站点浏览几页，再回来。');
+
+    // 建议
+    var advice = buildAdvice(m, { days: m.days, avgDwell: avgDwell, quickRate: quickRate, lostRate: lostRate, enShare: enShare, mobileShare: mobileShare });
+    document.getElementById('advice').innerHTML = advice.map(function(a){
+      return '<div class="adv ' + a.level + '"><span class="dot"></span><div><b>' +
+        '<span data-only="zh">' + esc(a.zh) + '</span><span data-only="en">' + esc(a.en) + '</span></b><p>' +
+        '<span data-only="zh">' + esc(a.zhWhy) + '</span><span data-only="en">' + esc(a.enWhy) + '</span></p></div></div>';
+    }).join('');
+  }
+
+  function kpi(n, label, cls){
+    return '<div class="kpi ' + (cls || '') + '"><span class="n">' + n + '</span><span class="l">' + esc(label) + '</span></div>';
+  }
+  function emptyBox(text){ return '<div class="empty">' + esc(text) + '</div>'; }
+
+  function buildAdvice(m, s){
+    var out = [];
+    function add(level, zh, en, zhWhy, enWhy){ out.push({ level: level, zh: zh, en: en, zhWhy: zhWhy, enWhy: enWhy }); }
+    var hasData = m.use.length > 0;
+
+    if (!hasData) {
+      add('low', '先攒样本，再谈优化', 'Collect samples before optimising',
+        '现在没有任何本机事件。自己浏览首页、说明书与一个公网产品，再回来看面板，读数才有意义。',
+        'There are no local events yet. Browse the home page, the manual, and one live product, then return — the readings only mean something then.');
+      return out;
+    }
+    if (!includeSim && m.sim.length && !m.real.length) {
+      add('low', '当前只统计真实样本，而本机只有模拟样本', 'Only real samples are counted, and this browser has only simulated ones',
+        '勾选上方「把模拟样本计入读数」可以查看演示分析；真实浏览产生的数据会优先用于结论。',
+        'Tick “Include simulated samples” above to see the demonstration; real browsing data always takes priority for conclusions.');
+    }
+    if (m.dwells.length && s.avgDwell < 12000) {
+      add('high', '首屏必须更快给出「值不值得留下」', 'The first screen must prove its worth faster',
+        '平均停留仅 ' + dur(s.avgDwell) + '。把最强的证据（真实数字、在线入口、源码链接）再往前提一屏，减少开场铺垫。',
+        'Average dwell is only ' + dur(s.avgDwell) + '. Move the strongest evidence — real numbers, live entries, source links — one screen earlier and cut the preamble.');
+    }
+    if (s.quickRate > 0.35) {
+      add('high', '快速退出比例偏高', 'Quick exits are too common',
+      '有 ' + Math.round(s.quickRate * 100) + '% 的会话在 8 秒内离开。检查首屏加载与第一句话是否回答了访客最想问的事。',
+      Math.round(s.quickRate * 100) + '% of sessions leave within 8 seconds. Check first-paint cost and whether the first sentence answers the visitor’s first question.');
+    }
+    if (s.lostRate > 0.2) {
+      add('high', '有一批点击落在「看起来能点」的地方', 'A cluster of clicks lands on “looked clickable” spots',
+        '迷失点击占比 ' + Math.round(s.lostRate * 100) + '%。优先检查：' + (m.lostLabels.length ? m.lostLabels.map(function(z){ return z.k; }).join('、') : '首屏与作品区') + '。把整块区域做成可点，或去掉误导性的悬停样式。',
+        'Lost clicks are ' + Math.round(s.lostRate * 100) + '% of all clicks. Check first: ' + (m.lostLabels.length ? m.lostLabels.map(function(z){ return z.k; }).join(', ') : 'the hero and work grid') + '. Make the whole block clickable, or remove hover styling that implies it.');
+    }
+    if (m.rages.length) {
+      add('high', '存在焦躁连点', 'Rage clicks detected',
+        '记录了 ' + m.rages.length + ' 次同点三连。逐条看会话表，确认那次点击是否真的没有响应。',
+        m.rages.length + ' triple-clicks in the same spot. Walk the session table and confirm whether that click truly did nothing.');
+    }
+    if (m.dwells.length && m.avgScroll < 45) {
+      add('medium', '大多数访客没有读到页面一半', 'Most visitors never pass the halfway mark',
+        '平均滚动深度 ' + Math.round(m.avgScroll) + '%。把「项目索引 → 数据口径」之间的长段落压短，或把关键结论提到前面。',
+        'Average scroll depth is ' + Math.round(m.avgScroll) + '%. Shorten the long stretch between the project index and the data provenance, or lift the key conclusions upward.');
+    }
+    if (m.views.length >= 10 && s.enShare < 0.2) {
+      add('medium', '英文路径的转化还没被验证', 'The English path is under-tested',
+        '英文访问只占 ' + Math.round(s.enShare * 100) + '%。如果目标包含海外招聘，把 EN 按钮做得更显眼，并检查英文区块是否有残留中文。',
+        'English visits are only ' + Math.round(s.enShare * 100) + '%. If overseas hiring matters, make the EN control more prominent and audit the English blocks for leftover Chinese.');
+    }
+    if (s.mobileShare > 0.5) {
+      add('medium', '移动端是主战场', 'Mobile is the main surface',
+        '移动端访问占 ' + Math.round(s.mobileShare * 100) + '%。优先检查卡片堆叠、筛选按钮的触控尺寸与横向溢出。',
+        'Mobile accounts for ' + Math.round(s.mobileShare * 100) + '% of visits. Prioritise card stacking, filter hit areas, and horizontal overflow.');
+    }
+    if (m.zones.length && m.clicks.length >= 6) {
+      var top = m.zones[0];
+      var share = top.n / m.clicks.length;
+      if (share > 0.5) {
+        add('low', '点击高度集中在「' + top.k + '」', 'Clicks concentrate heavily in “' + top.k + '”',
+          '单一区块吃掉了 ' + Math.round(share * 100) + '% 的点击。要么它确实是主入口，要么其他入口不够显眼——用会话表判断。',
+          'One zone absorbs ' + Math.round(share * 100) + '% of clicks. Either it truly is the main door, or the others are too quiet — check the session table.');
+      }
+    }
+    if (m.dwells.length && m.dwells.length < 5) {
+      add('low', '样本仍偏少', 'Sample is still thin',
+        '目前只有 ' + m.dwells.length + ' 条停留记录。结论先当假设，等样本过 20 条再据此改版。',
+        'Only ' + m.dwells.length + ' dwell records. Treat conclusions as hypotheses until the sample passes twenty.');
+    }
+    if (!out.length) {
+      add('low', '当前读数没有触发任何红线', 'No red line triggered by current readings',
+        '停留、退出、滚动、点击分布都在合理区间。继续扩内容与入口，不必为指标做过度改动。',
+        'Dwell, exits, scroll, and click distribution all sit in a reasonable band. Keep expanding content and doors; no metric-driven surgery needed.');
+    }
+    return out.slice(0, 7);
+  }
+
+  /* ── 操作 ── */
+  function exportJson(){
+    var data = readStore();
+    var payload = {
+      exported_at: new Date().toISOString(),
+      scope: 'localStorage only — this browser, not a site-wide census',
+      key: KEY,
+      events: data.events,
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'zx-telemetry-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  }
+  function clearAll(){
+    if (!window.confirm(root.dataset.lang === 'en' ? 'Clear all local telemetry in this browser?' : '确定清空这台浏览器里的全部行为记录？')) return;
+    try { localStorage.removeItem(KEY); } catch (_) {}
+    render();
+  }
+  function injectSim(){
+    var data = readStore();
+    var now = Date.now();
+    var langs = ['zh', 'zh', 'zh', 'en'];
+    var zones = ['hero', 'work', 'lab', 'capabilities', 'index', 'repos', 'journey', 'contact'];
+    for (var i = 0; i < 24; i++) {
+      var sid = 'sim' + Math.random().toString(36).slice(2, 8);
+      var start = now - Math.floor(Math.random() * 13 * 864e5) - Math.floor(Math.random() * 6 * 3600e3);
+      var lang = langs[i % langs.length];
+      var mobile = Math.random() < 0.42;
+      var patient = Math.random() < 0.55;
+      var dwell = patient ? 18000 + Math.floor(Math.random() * 140000) : 1800 + Math.floor(Math.random() * 6000);
+      var pct = patient ? 45 + Math.floor(Math.random() * 56) : Math.floor(Math.random() * 40);
+      data.events.push({ t: start, k: 'view', p: '/', s: sid, v: 'sim', l: lang, th: Math.random() < 0.3 ? 'dark' : 'light', mobile: mobile, sim: true });
+      for (var c = 0; c < (patient ? 3 : 1); c++) {
+        data.events.push({ t: start + 4000 + c * 6000, k: 'click', p: '/', s: sid, v: 'sim', l: lang, th: 'light', z: zones[Math.floor(Math.random() * zones.length)], lb: 'sim', sim: true });
+      }
+      if (Math.random() < 0.35) {
+        data.events.push({ t: start + 9000, k: 'lost', p: '/', s: sid, v: 'sim', l: lang, th: 'light', z: zones[Math.floor(Math.random() * zones.length)], tg: 'div', sim: true });
+      }
+      if (Math.random() < 0.12) {
+        data.events.push({ t: start + 12000, k: 'rage', p: '/', s: sid, v: 'sim', l: lang, th: 'light', z: 'work', tg: 'span', sim: true });
+      }
+      data.events.push({ t: start + dwell, k: 'dwell', p: '/', s: sid, v: 'sim', l: lang, th: 'light', ms: dwell, pct: pct, quick: dwell < 8000, sim: true });
+    }
+    writeStore(data);
+    includeSim = true;
+    simToggle.checked = true;
+    render();
+  }
+  document.getElementById('export').addEventListener('click', exportJson);
+  document.getElementById('export-en').addEventListener('click', exportJson);
+  document.getElementById('clear').addEventListener('click', clearAll);
+  document.getElementById('clear-en').addEventListener('click', clearAll);
+  document.getElementById('simulate').addEventListener('click', injectSim);
+  document.getElementById('simulate-en').addEventListener('click', injectSim);
+  document.getElementById('refresh').addEventListener('click', render);
+  document.getElementById('refresh-en').addEventListener('click', render);
+
+  // 语言切换后同步按钮可见性并重绘（数字里的语言标签要跟着换）
+  var baseApply = applyLang;
+  applyLang = function(lang){
+    baseApply(lang);
+    if (!panel.hidden) render();
+  };
+  window.addEventListener('storage', function(e){ if (e.key === KEY && !panel.hidden) render(); });
+  if (!panel.hidden) render();
+})();
+</script>
+</body>
+</html>

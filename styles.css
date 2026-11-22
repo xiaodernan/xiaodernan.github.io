@@ -1,3 +1,7 @@
+/* 语言模式：SpecProof 首页引文只显示与当前语言一致的一条，避免中英混排 */
+html[data-lang="zh"] .splive-gazette-en,
+html[data-lang="en"] .splive-gazette-zh{display:none}
+
 /* ☄  Xiaodernan · Personal Portfolio · Design System ★★★ */
 /* Mono: element_blocks_OVERRIDES compose over this stylesheet. */
 

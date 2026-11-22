@@ -20,6 +20,9 @@ import { fileURLToPath } from 'node:url'
 
 const html = readFileSync(fileURLToPath(new URL('../index.html', import.meta.url)), 'utf8')
 const readme = readFileSync(fileURLToPath(new URL('../README.md', import.meta.url)), 'utf8')
+// 2026-11-22 · 内嵌说明书与管理员页也在闸门内：禁语、身份幻觉与 NaN 同样不得出现。
+const manual = readFileSync(fileURLToPath(new URL('../manual.html', import.meta.url)), 'utf8')
+const adminPage = readFileSync(fileURLToPath(new URL('../admin.html', import.meta.url)), 'utf8')
 
 const need = ['赵欣曈', '南方科技大学', '香港中文大学', '计算机科学与技术', '全国中学生物理竞赛', '铜牌', '江西省一等奖', '江西省二等奖', '法狗狗公司', '隐盾', '应用工程师', '雅思 6.5', 'IELTS 6.5', 'CET6 546',
   // 2026-11-20 · both mirrored tiles must name the live milestone and door count.
@@ -41,7 +44,7 @@ for (const s of need) {
   }
 }
 for (const s of ban) {
-  for (const [surface, text] of [['index.html', html], ['README.md', readme]]) {
+  for (const [surface, text] of [['index.html', html], ['README.md', readme], ['manual.html', manual], ['admin.html', adminPage]]) {
     if (text.includes(s)) {
       console.error(`::error::identity-guard: FOUND forbidden phrase in ${surface}: ${s}`)
       fail = 1
@@ -82,11 +85,23 @@ if (!/aspect-ratio:\s*508\s*\/\s*586/.test(portraitCss) || !/object-fit:\s*conta
   console.error(`::error::identity-guard: portrait edge contract broken (${portraitCss.slice(0, 160)})`)
   fail = 1
 }
-for (const [surface, text] of [['index.html', html], ['README.md', readme], ['styles.css', css]]) {
+for (const [surface, text] of [['index.html', html], ['README.md', readme], ['styles.css', css], ['manual.html', manual], ['admin.html', adminPage]]) {
   if (/\bNaN\b/.test(text)) {
     console.error(`::error::identity-guard: NaN leaked into ${surface}`)
     fail = 1
   }
+}
+
+// 2026-11-22 · 内嵌说明书与管理员页必须能从首页直达（用户要求「打开项目就能看到」）。
+for (const href of ['manual.html', 'admin.html']) {
+  if (!html.includes(`href="${href}"`)) {
+    console.error(`::error::identity-guard: index.html has no entry link to ${href}`)
+    fail = 1
+  }
+}
+if (!manual.includes('口令固定为 <code>123</code>') || !adminPage.includes("zx-telemetry:v1")) {
+  console.error('::error::identity-guard: manual/admin contract drifted (passcode 123 or telemetry key missing)')
+  fail = 1
 }
 
 if (fail === 0) console.log('identity-guard: OK — 身份信息、禁语、语言字节与头像边缘契约全部通过')

@@ -55,59 +55,94 @@ repoFilterButtons.forEach((button) => {
 });
 
 // ── 教学提示：给每个可操作元素补一句「它会做什么」（hover / focus 可见）──
+// 每次切换语言都重新生成，保证提示与页面同语；data-auto-title 标记自动项，
+// 既不会覆盖手写提示，也不会在切换后残留旧语言的说明。
 window.__teachInteractive = function teachInteractive() {
-  const setAll = (sel, tip) => document.querySelectorAll(sel).forEach((el) => {
-    if (!el.getAttribute('title')) el.setAttribute('title', tip);
+  const en = document.documentElement.dataset.lang === 'en';
+  const T = (zh, eng) => (en ? eng : zh);
+  document.querySelectorAll('[data-auto-title]').forEach((el) => {
+    el.removeAttribute('title');
+    el.removeAttribute('data-auto-title');
   });
-  const fromText = (sel, prefix) => document.querySelectorAll(sel).forEach((el) => {
-    if (el.getAttribute('title')) return;
-    const label = el.textContent.replace(/\s+/g, ' ').trim();
-    if (label) el.setAttribute('title', `${prefix}「${label}」`);
+  const set = (el, tip) => {
+    if (!el || el.getAttribute('title')) return;
+    el.setAttribute('title', tip);
+    el.setAttribute('data-auto-title', '1');
+  };
+  const labelOf = (el) => (el.textContent || '').replace(/\s+/g, ' ').trim();
+  const setAll = (sel, zh, eng) => document.querySelectorAll(sel).forEach((el) => set(el, T(zh, eng)));
+  const fromText = (sel, zhPrefix, engPrefix) => document.querySelectorAll(sel).forEach((el) => {
+    const label = labelOf(el);
+    if (label) set(el, T(`${zhPrefix}「${label}」`, `${engPrefix} “${label}”`));
   });
+
   // 顶部导航：跳到页面各区块
   document.querySelectorAll('.main-nav a').forEach((a) => {
-    if (a.getAttribute('title')) return;
-    const label = a.textContent.replace(/\s+/g, ' ').trim();
-    a.setAttribute('title', `跳转到区块「${label}」 · Jump to section`);
+    const label = labelOf(a);
+    set(a, T(`跳转到区块「${label}」`, `Jump to the “${label}” section`));
   });
-  setAll('.topbar .text-link', '打开 GitHub 个人主页 · My GitHub profile');
-  setAll('[data-theme-toggle]', '切换浅色 / 深色主题 · 偏好保存在本机浏览器 (localStorage)');
-  // 英雄区按钮
-  setAll('.hero .button-primary', '滚动到「精选作品」 · Jump to featured work');
-  setAll('.hero .button-quiet', '滚动到联系方式 · Go to contact');
-  // 项目链接与子导航（hover 说明去向）
-  fromText('.project-links a', '打开链接 · Open');
-  fromText('.sub-link', '跳转 · Go');
-  fromText('.lab-link', '打开 · Open');
-  // 筛选按钮
-  setAll('[data-filter]', '按类别筛选精选作品 · Filter featured work by category');
-  setAll('[data-repo-filter]', '按类别筛选下方公开仓库 · Filter public repos by category');
+  setAll('.topbar .text-link', '打开 GitHub 个人主页 · 公开作品时间线', 'Open my GitHub profile · public timeline of shipped work');
+  setAll('[data-theme-toggle]', '切换浅色 / 深色主题 · 偏好保存在本机浏览器', 'Toggle light / dark theme · saved in this browser');
+  // 英雄区按钮：按去向分别说明
+  document.querySelectorAll('.hero-actions .button').forEach((el) => {
+    const href = el.getAttribute('href') || '';
+    if (href === '#work') set(el, T('滚动到「精选作品」· 六件产出与真实数字', 'Scroll to featured work · six shipped projects with real numbers'));
+    else if (href.indexOf('yindun') !== -1) set(el, T('打开「隐盾」公网演示 · 无需登录，新窗口', 'Open the live Yindun demo · no login, new tab'));
+    else if (href.indexOf('manual.html') !== -1) set(el, T('打开《简明说明书》· 五分钟读懂全部功能', 'Open the Quick Manual · every feature in five minutes'));
+  });
+  fromText('.project-links a', '打开链接', 'Open link');
+  fromText('.sub-link', '跳转', 'Go to');
+  fromText('.lab-link', '打开', 'Open');
+  // 筛选按钮：说明会过滤什么
+  document.querySelectorAll('[data-filter]').forEach((b) => {
+    const label = labelOf(b);
+    set(b, T(`按「${label}」筛选精选作品 · 只显示这一类`, `Filter featured work by “${label}” · show only this category`));
+  });
+  document.querySelectorAll('[data-repo-filter]').forEach((b) => {
+    const label = labelOf(b);
+    set(b, T(`按「${label}」筛选公开仓库 · 只显示这一类`, `Filter public repos by “${label}” · show only this group`));
+  });
   // 项目索引行：整行可点
   document.querySelectorAll('.index-row').forEach((row) => {
-    if (row.getAttribute('title')) return;
     const strong = row.querySelector('.index-main strong');
-    const name = strong ? strong.textContent.trim() : '这个项目';
-    row.setAttribute('title', `打开「${name}」 · 查看公开仓库与实时事实包 · Open repo & live stats`);
+    const name = strong ? strong.textContent.trim() : T('这个项目', 'this project');
+    set(row, T(`打开「${name}」· 查看公开仓库与实时事实包`, `Open “${name}” · repo and live fact pack`));
   });
   // 仓库卡片
   document.querySelectorAll('.repo-card').forEach((card) => {
-    if (card.getAttribute('title')) return;
     const strong = card.querySelector('.repo-top strong');
     const name = strong ? strong.textContent.trim() : '';
-    card.setAttribute('title', `打开公开仓库「${name}」 · Open public repo on GitHub`);
+    set(card, T(`打开公开仓库「${name}」· 在 GitHub 查看源码与提交`, `Open the public repo “${name}” · source and commits on GitHub`));
   });
   // 联系卡
   document.querySelectorAll('.contact-card').forEach((card) => {
-    if (card.getAttribute('title')) return;
     if ((card.getAttribute('href') || '').indexOf('mailto:') === 0) {
-      card.setAttribute('title', '用你的邮件客户端写邮件 · Email me (opens mail client)');
+      set(card, T('用你的邮件客户端写邮件 · 当天回复', 'Write an email in your mail client · same-day reply'));
     } else {
-      card.setAttribute('title', '打开 GitHub 个人主页 · Open my GitHub profile');
+      set(card, T('打开 GitHub 个人主页 · 公开仓库与提交', 'Open my GitHub profile · public repos and commits'));
     }
   });
-  fromText('.footer a', '打开 · Open');
-  fromText('.milestone-cell', '查看 · View');
-  fromText('.github-figures a', '查看 · View');
+  document.querySelectorAll('.anchor-dock a').forEach((a) => {
+    const label = (a.getAttribute('aria-label') || '').split(' · ')[0].trim() || 'section';
+    set(a, T(`跳到「${label}」章节`, `Jump to the “${label}” chapter`));
+  });
+  fromText('.footer a', '打开', 'Open');
+  fromText('.milestone-cell', '查看', 'View');
+  fromText('.github-figures a', '查看', 'View');
+
+  // 通用兜底：任何仍无说明的链接或按钮，按标签与去向生成一句，保证零遗漏。
+  document.querySelectorAll('a, button').forEach((el) => {
+    if (el.getAttribute('title')) return;
+    if (el.classList.contains('skip-link')) return set(el, T('跳到主内容', 'Skip to main content'));
+    if (el.classList.contains('brand')) return set(el, T('返回顶部 · 赵欣曈个人主页', 'Back to top · Xintong Zhao’s portfolio'));
+    if (el.matches('[data-lang-toggle]')) return set(el, T('切换到英文版', 'Switch to Chinese'));
+    const label = labelOf(el);
+    const href = el.getAttribute('href') || '';
+    if (href.indexOf('#') === 0) set(el, T(`跳到「${label || href.slice(1)}」`, `Jump to “${label || href.slice(1)}”`));
+    else if (href.indexOf('mailto:') === 0) set(el, T('写邮件给赵欣曈', 'Email Xintong Zhao'));
+    else if (href) set(el, T(`打开「${label || href}」`, `Open “${label || href}”`));
+    else set(el, T(`「${label || '按钮'}」`, `“${label || 'button'}”`));
+  });
 };
 
 
@@ -147,6 +182,11 @@ window.__teachInteractive = function teachInteractive() {
       }
     }
     navLinks.forEach((a, i) => { const t = NAV_TEXT[lang] && NAV_TEXT[lang][i]; if (t) a.textContent = t; });
+    // 顶栏里不随区块替换的短标签（说明书 / Manual）也必须跟着语言走。
+    document.querySelectorAll('[data-label-zh]').forEach((el) => {
+      const label = lang === 'en' ? el.dataset.labelEn : el.dataset.labelZh;
+      if (label) el.textContent = label;
+    });
     // Keep title hints truly bilingual: data-tip-zh / data-tip-en ride along with the text swap.
     document.querySelectorAll('[data-tip-zh]').forEach((el) => {
       const tip = lang === 'en' ? el.dataset.tipEn : el.dataset.tipZh;
@@ -189,3 +229,115 @@ if (dockLinks.length) {
   }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
   dockTargets.forEach((target) => dockObserver.observe(target));
 }
+
+/* ── D1500 · 本机行为遥测 ──────────────────────────────────────────────
+   纯静态站点没有服务端数据库，所以这里只写 localStorage：
+   记录访问、停留、滚动深度、点击热区、迷失点击、焦躁连点与快速退出。
+   管理员页（admin.html）读取同一份记录。数据不离开这台浏览器。      */
+(function zxTelemetry() {
+  const KEY = 'zx-telemetry:v1';
+  const CAP = 800;
+  const path = location.pathname;
+  if (/admin\.html$/.test(path)) return; // 面板自身不计入，避免自观测污染
+  const now = () => Date.now();
+  const rid = () => Math.random().toString(36).slice(2, 10);
+
+  function readStore() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      const data = raw ? JSON.parse(raw) : null;
+      if (data && data.v === 1 && Array.isArray(data.events)) return data;
+    } catch (_) { /* 存储被禁用时静默降级 */ }
+    return { v: 1, events: [] };
+  }
+  function writeStore(data) {
+    try {
+      if (data.events.length > CAP) data.events = data.events.slice(-CAP);
+      localStorage.setItem(KEY, JSON.stringify(data));
+    } catch (_) { /* 隐私模式：不写，不报错 */ }
+  }
+  const store = readStore();
+  let visitor = '';
+  let session = '';
+  try {
+    visitor = localStorage.getItem('zx-visitor') || rid();
+    localStorage.setItem('zx-visitor', visitor);
+    session = sessionStorage.getItem('zx-session') || rid();
+    sessionStorage.setItem('zx-session', session);
+  } catch (_) { visitor = 'anon'; session = rid(); }
+
+  const lang = () => document.documentElement.dataset.lang === 'en' ? 'en' : 'zh';
+  const theme = () => (document.body.dataset.theme === 'dark' ? 'dark' : 'light');
+  function push(kind, extra) {
+    store.events.push(Object.assign({
+      t: now(), k: kind, p: path, s: session, v: visitor, l: lang(), th: theme(),
+    }, extra || {}));
+    writeStore(store);
+  }
+  function zoneOf(el) {
+    const host = el && el.closest && el.closest('section, header, footer, nav, article');
+    if (!host) return 'body';
+    return host.id || host.getAttribute('data-i18n-block') || host.tagName.toLowerCase();
+  }
+  const labelOf = (el) => (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 42);
+
+  // 1) 访问
+  push('view', {
+    ref: document.referrer ? new URL(document.referrer).host : '',
+    w: window.innerWidth,
+    h: window.innerHeight,
+    mobile: window.innerWidth < 760,
+  });
+
+  // 2) 滚动深度（只记最大值，退出时落盘一次）
+  let maxScroll = 0;
+  const readScroll = () => {
+    const doc = document.documentElement;
+    const span = Math.max(1, doc.scrollHeight - window.innerHeight);
+    maxScroll = Math.max(maxScroll, Math.min(1, window.scrollY / span));
+  };
+  window.addEventListener('scroll', readScroll, { passive: true });
+  readScroll();
+
+  // 3) 点击：可交互 → 热区；不可交互 → 迷失点击；短时间同点三连 → 焦躁连点
+  const recent = [];
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    const hit = target.closest('a, button, [role="button"], input, select, textarea, label, [data-filter], [data-repo-filter]');
+    if (hit) {
+      push('click', {
+        z: zoneOf(hit),
+        lb: labelOf(hit),
+        href: (hit.getAttribute('href') || '').slice(0, 80),
+      });
+    } else {
+      push('lost', {
+        z: zoneOf(target),
+        tg: target.tagName.toLowerCase(),
+        cl: String(target.className || '').slice(0, 60),
+        x: Math.round((event.clientX / Math.max(1, window.innerWidth)) * 100),
+        y: Math.round(((event.clientY + window.scrollY) / Math.max(1, document.documentElement.scrollHeight)) * 100),
+      });
+    }
+    recent.push({ t: now(), x: event.clientX, y: event.clientY });
+    while (recent.length && now() - recent[0].t > 1000) recent.shift();
+    const near = recent.filter((c) => Math.abs(c.x - event.clientX) < 40 && Math.abs(c.y - event.clientY) < 40);
+    if (near.length === 3) push('rage', { z: zoneOf(target), tg: target.tagName.toLowerCase() });
+  }, { capture: true, passive: true });
+
+  // 4) 离开：停留时长 + 滚动深度 + 是否快速退出
+  let sent = false;
+  function flush() {
+    if (sent) return;
+    sent = true;
+    readScroll();
+    push('dwell', { ms: now() - started, pct: Math.round(maxScroll * 100), quick: (now() - started) < 8000 });
+  }
+  const started = now();
+  window.addEventListener('pagehide', flush);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+
+  // 供管理员页或调试使用
+  window.__zxTelemetry = { key: KEY, read: readStore, push };
+})();

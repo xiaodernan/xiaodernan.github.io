@@ -11,8 +11,11 @@
     branches: [master]
     paths:
       - 'index.html'
+      - 'manual.html'
+      - 'admin.html'
       - '404.html'
       - 'README.md'
+      - 'styles.css'
       - 'specproof-web/index.html'
       - 'scripts/identity-guard.mjs'
       - '.github/workflows/identity-guard.yml'
