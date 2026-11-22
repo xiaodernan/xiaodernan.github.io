@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-22 · 3f332e9f**
+**2026-11-22 · 7e9f98e4**
 - 分支: `master`
 - ledger: `#2070 全量门复绿：MySQL 不可达守卫 + 结构克隆棘轮 + 过期数据钉`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
