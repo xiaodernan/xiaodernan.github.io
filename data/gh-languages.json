@@ -1,18 +1,18 @@
 {
   "date": "2026-11-22",
-  "repos": 30,
+  "repos": 16,
   "own": 14,
   "forks": 2,
-  "stars": 14,
-  "bytes": 149992334,
+  "stars": 9,
+  "bytes": 150701788,
   "languages": [
     {
       "name": "TypeScript",
-      "share": 32.49
+      "share": 32.59
     },
     {
       "name": "Python",
-      "share": 24.76
+      "share": 24.73
     },
     {
       "name": "JavaScript",
@@ -20,11 +20,11 @@
     },
     {
       "name": "HTML",
-      "share": 12.18
+      "share": 12.13
     },
     {
       "name": "Java",
-      "share": 8.69
+      "share": 8.67
     },
     {
       "name": "CSS",
@@ -36,11 +36,11 @@
     },
     {
       "name": "PLpgSQL",
-      "share": 0.28
+      "share": 0.27
     },
     {
       "name": "PowerShell",
-      "share": 0.17
+      "share": 0.16
     },
     {
       "name": "Dockerfile",

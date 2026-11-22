@@ -39,7 +39,7 @@ for (let page = 1; page <= 10; page++) {
 const mine = (r) => r.owner?.login === OWNER && !r.private;
 const own = repos.filter((r) => mine(r) && !r.fork);
 const forks = repos.filter((r) => mine(r) && r.fork);
-const stars = repos.reduce((s, r) => s + (r.stargazers_count ?? 0), 0);
+const stars = [...own, ...forks].reduce((s, r) => s + (r.stargazers_count ?? 0), 0);
 
 // 2 · the language bytes, summed across the non-fork public repos (the panel's own 口径).
 const bytes = new Map();
@@ -134,7 +134,7 @@ html = html.replace(/(\(\d+ repos, )[\d.]+( MiB\))/,
 // the data moves the panel and the snapshot together, and a silent edit to the panel alone reddens.
 const snapshot = {
   date: today,
-  repos: repos.length,
+  repos: own.length + forks.length,
   own: own.length,
   forks: forks.length,
   stars,
