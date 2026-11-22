@@ -60,7 +60,16 @@ if (statBlocks.length !== 2 || statBlocks.some((nums) => nums.join(',') !== expe
 // 2026-11-20 · the two regressions the reader actually saw: NaN in the language card,
 // and a portrait whose edges looked shaved. Both are now pinned to evidence.
 const css = readFileSync(fileURLToPath(new URL('../styles.css', import.meta.url)), 'utf8')
-const langShares = ['31.54%', '24.06%', '20.26%', '12.09%', '9.44%', '1.50%', '0.38%', '0.27%', '0.45%']
+// The panel's shares are checked against the last FETCH (data/gh-languages.json, written by
+// scripts/gh-stats.mjs), not a hand-kept list — so refreshing the real data moves the panel and
+// its evidence together, and an edit to either alone reddens here.
+const ghSnapshot = JSON.parse(readFileSync(fileURLToPath(new URL('../data/gh-languages.json', import.meta.url)), 'utf8'))
+// The panel prints the top eight by share and aggregates the rest into one row, so the expected
+// list is the snapshot's top eight plus that aggregated remainder — exactly what the fetcher writes.
+const TOP_N = 8
+const topShares = ghSnapshot.languages.slice(0, TOP_N).map((l) => `${l.share.toFixed(2)}%`)
+const restShare = ghSnapshot.languages.slice(TOP_N).reduce((sum, l) => sum + l.share, 0)
+const langShares = [...topShares, `${restShare.toFixed(2)}%`]
 const langPanels = [...html.matchAll(/<div class="gh-panel gh-panel-langs"[\s\S]*?<\/ul>/g)].map(([b]) => b)
 if (langPanels.length !== 2 || langPanels.some((b) => !langShares.every((s) => b.includes(s)))) {
   console.error(`::error::identity-guard: language panels drift (${langPanels.length} panels, expected 2 with ${langShares.join(' ')})`)

@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-22",
+  "repos": 30,
+  "own": 14,
+  "forks": 2,
+  "stars": 14,
+  "bytes": 149832507,
+  "languages": [
+    {
+      "name": "TypeScript",
+      "share": 32.48
+    },
+    {
+      "name": "Python",
+      "share": 24.74
+    },
+    {
+      "name": "JavaScript",
+      "share": 19.5
+    },
+    {
+      "name": "HTML",
+      "share": 12.19
+    },
+    {
+      "name": "Java",
+      "share": 8.7
+    },
+    {
+      "name": "CSS",
+      "share": 1.5
+    },
+    {
+      "name": "Shell",
+      "share": 0.39
+    },
+    {
+      "name": "PLpgSQL",
+      "share": 0.28
+    },
+    {
+      "name": "PowerShell",
+      "share": 0.17
+    },
+    {
+      "name": "Dockerfile",
+      "share": 0.02
+    },
+    {
+      "name": "Less",
+      "share": 0.02
+    },
+    {
+      "name": "Makefile",
+      "share": 0.01
+    },
+    {
+      "name": "FreeMarker",
+      "share": 0
+    },
+    {
+      "name": "Lua",
+      "share": 0
+    },
+    {
+      "name": "Go",
+      "share": 0
+    },
+    {
+      "name": "Batchfile",
+      "share": 0
+    },
+    {
+      "name": "Roff",
+      "share": 0
+    },
+    {
+      "name": "Mako",
+      "share": 0
+    }
+  ]
+}
