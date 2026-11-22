@@ -1,20 +1,20 @@
 {
   "schema": 1,
   "worldbook_scrolls": 204,
-  "chronicle_entries": 1861,
+  "chronicle_entries": 1867,
   "exhibit_entries": 19,
-  "latest_strike": "#2055",
-  "total_commits": 2918,
-  "tracked_files": 3019,
-  "last_synced": "2026-11-21T14:11:30+00:00",
+  "latest_strike": "#2070",
+  "total_commits": 2926,
+  "tracked_files": 3029,
+  "last_synced": "2026-11-22T09:08:39+00:00",
   "branch": "master",
-  "head": "d99b26c9",
-  "latest_day": "2026-11-21",
-  "latest_tag": "v0.90.0-452-gd99b26c",
-  "latest_ledger_entry": "#2055 项目清单完整性核对：README 全部 repo 均已列入 github.io 主页（核对通过）",
+  "head": "3f332e9f",
+  "latest_day": "2026-11-22",
+  "latest_tag": "v0.90.0-460-g3f332e9",
+  "latest_ledger_entry": "#2070 全量门复绿：MySQL 不可达守卫 + 结构克隆棘轮 + 过期数据钉",
   "latest_changelog": "2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）",
   "world_size_bytes": 490585,
-  "page_count": 51,
+  "page_count": 52,
   "pages": [
     {
       "component": "Dashboard",
@@ -175,6 +175,10 @@
     {
       "component": "AskTheBook",
       "path": "/#/ask-the-book"
+    },
+    {
+      "component": "ModelRouter",
+      "path": "/#/model-router"
     },
     {
       "component": "Manual",

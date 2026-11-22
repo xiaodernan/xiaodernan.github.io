@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-21T14:11:30+00:00",
+  "generated_at": "2026-11-22T09:08:39+00:00",
   "pages": [
     {
       "component": "Dashboard",
@@ -161,6 +161,10 @@
     {
       "component": "AskTheBook",
       "path": "/#/ask-the-book"
+    },
+    {
+      "component": "ModelRouter",
+      "path": "/#/model-router"
     },
     {
       "component": "Manual",
