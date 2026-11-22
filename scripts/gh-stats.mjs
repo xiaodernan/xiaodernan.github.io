@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { applyRestatements } from "./gh-stats-core.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OWNER = "xiaodernan";
@@ -52,6 +53,17 @@ const ranked = [...bytes.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCom
 const share = (n) => (n / totalBytes) * 100;
 const mib = totalBytes / 1024 / 1024;
 
+// A zero-byte roster is not "a small number" — it is "GitHub answered with nothing we own".
+// Every percentage below is `n / totalBytes` and the bar widths divide by the top language's
+// share, so without this guard a thin API response bakes literal `NaN%` into both language
+// panels while the footnote keeps a stale figure until someone notices in a browser.
+// Better a red run: this script's whole contract is that nobody has to eyeball the numbers.
+if (!own.length || totalBytes === 0 || !ranked.length) {
+  console.error(`REFUSING to restate: ${own.length} own repos / ${totalBytes} bytes / ${ranked.length} languages.`
+    + " A zero anywhere here would write NaN% into the panel.");
+  process.exit(1);
+}
+
 const today = new Date().toISOString().slice(0, 10);
 const TOP = 8;
 const top = ranked.slice(0, TOP);
@@ -64,70 +76,23 @@ if (rest.length) console.log(`  other ${rest.length} languages ${restShare.toFix
 if (!WRITE) { console.log("dry run — pass --write to restate the panel"); process.exit(0); }
 
 // 3 · restate the panel: the figure block and the language rows, from the fetched numbers.
+// The needles live in gh-stats-core.mjs as ONE named array, and every one of them must fire or the
+// run fails. See the header there for the two foot-line needles that quietly stopped matching and
+// left a MiB figure frozen while the weekly sync kept reporting success.
 const p = resolve(root, "index.html");
-let html = readFileSync(p, "utf8");
-const before = html;
+const before = readFileSync(p, "utf8");
 
-const aria = `Languages by source bytes: ${top.map(([n, b]) => `${n} ${share(b).toFixed(2)}%`).join(", ")}`;
-html = html.replace(/(<div class="gh-panel gh-panel-langs" role="group" aria-label=")[^"]*(")/g, `$1${aria}$2`);
-
-const rows = top.map(([name, n], i) => {
-  const pct = share(n);
-  const w = (pct / share(top[0][1])) * 100;
-  return `<li class="lang-row"><span class="lang-name">${name}</span><span class="lang-track"><span class="lang-fill" style="width:${w.toFixed(2)}%"></span></span><span class="lang-pct">${pct.toFixed(2)}%</span></li>`;
-}).join("\n      ");
-// Each panel gets its OWN rest label: the zh block says 其他 N 种, the en block says other N.
-// A single shared restRow used to hardcode the Chinese label into BOTH, so every refresh
-// re-introduced 中英夹杂 into the English panel.
-const restRowFor = (zh) => (rest.length
-  ? `\n      <li class="lang-row lang-row-rest"><span class="lang-name">${zh ? `其他 ${rest.length} 种` : `other ${rest.length}`}</span><span class="lang-track"><span class="lang-fill lang-fill-rest" style="width:${(restShare / share(top[0][1]) * 100).toFixed(2)}%"></span></span><span class="lang-pct">${restShare.toFixed(2)}%</span></li>`
-  : "");
-let panelIdx = 0;
-html = html.replace(/(<ul class="lang-bars">)[\s\S]*?(<\/ul>)/g, (_m, open, close) => {
-  const zh = panelIdx++ === 0;
-  return `${open}\n      ${rows}${restRowFor(zh)}\n    ${close}`;
+const html = applyRestatements(before, {
+  today,
+  reposTotal: own.length + forks.length,
+  ownCount: own.length,
+  forkCount: forks.length,
+  stars,
+  mibStr: mib.toFixed(2),
+  languageCount: ranked.length,
+  bars: top.map(([name, n]) => ({ name, pct: share(n) })),
+  rest: rest.length ? { count: rest.length, pct: restShare } : null,
 });
-
-// The figure blocks (zh and en) restate the same fetched numbers. Function replacements only:
-// a string replacement with interpolated values makes "$11" out of "$1" + "14" and silently
-// writes group eleven — the corruption this rewrite exists to prevent.
-const mibStr = mib.toFixed(2);
-html = html.replace(/(<figure class="gh-figures" data-i18n-block="figures" aria-label="GitHub 真实数据 · )\d{4}-\d{2}-\d{2}/,
-  (_m, p1) => `${p1}${today}`);
-// zh grid
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">公开仓库<small>原创 )\d+( · fork )\d+/,
-  (_m, p1, p2, p3) => `${p1}${own.length + forks.length}${p2}${own.length}${p3}${forks.length}`);
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">Stars 合计)/,
-  (_m, p1, p2) => `${p1}${stars}${p2}`);
-html = html.replace(/(<span class="gh-stat-num">)[\d.]+(<small>&nbsp;MiB<\/small><\/span><span class="gh-stat-label">代码字节合计<small>)\d+( 种语言)/,
-  (_m, p1, p2, p3) => `${p1}${mibStr}${p2}${ranked.length}${p3}`);
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">原创项目<small>\+ )\d+( 个 fork 实验仓)/,
-  (_m, p1, p2, p3) => `${p1}${own.length}${p2}${forks.length}${p3}`);
-// en grid
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">public repos<small>)\d+( originals · )\d+( forks)/,
-  (_m, p1, p2, p3, p4) => `${p1}${own.length + forks.length}${p2}${own.length}${p3}${forks.length}${p4}`);
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">stars, total)/,
-  (_m, p1, p2) => `${p1}${stars}${p2}`);
-html = html.replace(/(<span class="gh-stat-num">)[\d.]+(<small>&nbsp;MiB<\/small><\/span><span class="gh-stat-label">bytes of code<small>)\d+( languages)/,
-  (_m, p1, p2, p3) => `${p1}${mibStr}${p2}${ranked.length}${p3}`);
-html = html.replace(/(<span class="gh-stat-num">)\d+(<\/span><span class="gh-stat-label">original projects<small>\+ )\d+( fork experimental repos)/,
-  (_m, p1, p2, p3) => `${p1}${own.length}${p2}${forks.length}${p3}`);
-// the four foot lines: date, repo count (own + forks, matching the stat block), and the MiB
-// figure — the old regex only touched date+count and left a stale MiB in the footer.
-const reposTotal = own.length + forks.length;
-html = html.replace(/(<p class="gh-panel-foot">口径 )\d{4}-\d{2}-\d{2}( · )\d+( 个公开仓（原创 )\d+( · fork )\d+(）)/,
-  (_m, p1, p2, p3, p4, p5, p6) => `${p1}${today}${p2}${reposTotal}${p3}${own.length}${p4}${forks.length}${p5}`);
-html = html.replace(/(实拉（)\d+( 仓 )[\d.]+( MiB）)/,
-  (_m, p1, p2, p3) => `${p1}${reposTotal}${p2}${mibStr}${p3}`);
-// English orders the noun AFTER the number ("14 original · 2 forks"); Chinese puts it before
-// ("原创 14 · fork 2"). The two regexes must therefore differ — this one is the English order.
-html = html.replace(/(<p class="gh-panel-foot">Measured )\d{4}-\d{2}-\d{2}( · )\d+( public repos \()\d+( original · )\d+( forks?\))/,
-  (_m, p1, p2, p3, p4, p5, p6) => `${p1}${today}${p2}${reposTotal}${p3}${own.length}${p4}${forks.length}${p5}`);
-// The repo count sits INSIDE the captured prefix "(N repos, " and the MiB inside the suffix
-// " MiB)". Inserting mibStr after p2 produced "(16 repos, 16 MiB)143.04" — swap the count in
-// the prefix and put mibStr between prefix and suffix instead.
-html = html.replace(/(\(\d+ repos, )[\d.]+( MiB\))/,
-  (_m, p1, p2) => `${p1.replace(/\d+/, String(reposTotal))}${mibStr}${p2}`);
 
 // 4 · the snapshot: the same figures as a small JSON the identity-guard reads, so the guard
 // verifies the panel against what was last FETCHED rather than a hand-kept list — refreshing

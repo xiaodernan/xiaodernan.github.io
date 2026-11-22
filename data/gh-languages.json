@@ -4,35 +4,35 @@
   "own": 14,
   "forks": 2,
   "stars": 9,
-  "bytes": 150716234,
+  "bytes": 152141629,
   "languages": [
     {
       "name": "TypeScript",
-      "share": 32.59
+      "share": 32.51
     },
     {
       "name": "Python",
-      "share": 24.73
+      "share": 24.58
     },
     {
       "name": "JavaScript",
-      "share": 19.5
+      "share": 19.44
     },
     {
       "name": "HTML",
-      "share": 12.13
+      "share": 12.5
     },
     {
       "name": "Java",
-      "share": 8.67
+      "share": 8.6
     },
     {
       "name": "CSS",
-      "share": 1.5
+      "share": 1.49
     },
     {
       "name": "Shell",
-      "share": 0.39
+      "share": 0.38
     },
     {
       "name": "PLpgSQL",

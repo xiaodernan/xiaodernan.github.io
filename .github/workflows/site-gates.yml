@@ -38,6 +38,12 @@ jobs:
           node-version: '22'
       - name: Identity / forbidden-word / portrait / NaN gate
         run: node scripts/identity-guard.mjs
+      # The GitHub figures panel is restated by scripts/gh-stats.mjs on a weekly schedule. This step
+      # exercises the SAME restatement code offline with synthetic figures, so a needle that stops
+      # matching the page's wording reddens the run here instead of freezing one visible number
+      # (that is exactly how the MiB footnote drifted away from the stat block last time).
+      - name: GitHub figures restatement gate (needles + placement, no network)
+        run: node scripts/gh-stats-check.mjs
       - name: Teaching tooltip coverage gate
         run: node scripts/tooltip-audit.mjs
       - name: Bilingual no-mixing gate
