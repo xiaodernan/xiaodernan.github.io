@@ -123,8 +123,11 @@ html = html.replace(/(实拉（)\d+( 仓 )[\d.]+( MiB）)/,
 // ("原创 14 · fork 2"). The two regexes must therefore differ — this one is the English order.
 html = html.replace(/(<p class="gh-panel-foot">Measured )\d{4}-\d{2}-\d{2}( · )\d+( public repos \()\d+( original · )\d+( forks?\))/,
   (_m, p1, p2, p3, p4, p5, p6) => `${p1}${today}${p2}${reposTotal}${p3}${own.length}${p4}${forks.length}${p5}`);
+// The repo count sits INSIDE the captured prefix "(N repos, " and the MiB inside the suffix
+// " MiB)". Inserting mibStr after p2 produced "(16 repos, 16 MiB)143.04" — swap the count in
+// the prefix and put mibStr between prefix and suffix instead.
 html = html.replace(/(\(\d+ repos, )[\d.]+( MiB\))/,
-  (_m, p1, p2) => `${p1}${reposTotal}${p2}${mibStr}`);
+  (_m, p1, p2) => `${p1.replace(/\d+/, String(reposTotal))}${mibStr}${p2}`);
 
 // 4 · the snapshot: the same figures as a small JSON the identity-guard reads, so the guard
 // verifies the panel against what was last FETCHED rather than a hand-kept list — refreshing
