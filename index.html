@@ -486,7 +486,6 @@
       <div class="gh-stat"><span class="gh-stat-num">16</span><span class="gh-stat-label">公开仓库<small>原创 14 · fork 2</small></span></div>
       <div class="gh-stat"><span class="gh-stat-num">14</span><span class="gh-stat-label">Stars 合计<small>全公开仓求和</small></span></div>
       <div class="gh-stat"><span class="gh-stat-num">142.89<small>&nbsp;MiB</small></span><span class="gh-stat-label">代码字节合计<small>18 种语言</small></span></div>
->>>>>>> f3586d6 (io: the GitHub figures are fetched, not remembered)
       <div class="gh-stat"><span class="gh-stat-num">14</span><span class="gh-stat-label">原创项目<small>+ 2 个 fork 实验仓</small></span></div>
     </div>
     <p class="gh-panel-foot">口径 2026-11-22 · 14 个非 fork 公开仓 · GitHub REST API（逐仓 languages_url 求和）· 真实字节，直接呈现</p>
@@ -503,7 +502,6 @@
       <li class="lang-row"><span class="lang-name">Shell</span><span class="lang-track"><span class="lang-fill" style="width:1.19%"></span></span><span class="lang-pct">0.39%</span></li>
       <li class="lang-row"><span class="lang-name">PLpgSQL</span><span class="lang-track"><span class="lang-fill" style="width:0.85%"></span></span><span class="lang-pct">0.28%</span></li>
       <li class="lang-row lang-row-rest"><span class="lang-name">其他 10 种</span><span class="lang-track"><span class="lang-fill lang-fill-rest" style="width:0.66%"></span></span><span class="lang-pct">0.22%</span></li>
->>>>>>> f3586d6 (io: the GitHub figures are fetched, not remembered)
     </ul>
     <p class="gh-panel-foot">按源码字节计（非行数）· 全公开仓求和 · 不含私有仓 · 2026-11-22 由 GitHub API 实拉（16 仓 145.45 MiB）</p>
   </div>
@@ -618,7 +616,7 @@
       if (!r.ok) return;
       const d = await r.json();
       const set = (id, v) => { document.querySelectorAll('.' + id).forEach((el) => { el.textContent = v; }); };
-      set('nc-head', `main @ ${d.head}`);
+      set('nc-head', `${d.branch || 'main'} @ ${d.head}`);
       set('nc-commits', String(d.total_commits ?? '—'));
       set('nc-adrs', String(d.adrs ?? '—'));
       set('nc-contracts', String(d.contracts ?? '—'));
@@ -1268,7 +1266,6 @@
       <div class="gh-stat"><span class="gh-stat-num">16</span><span class="gh-stat-label">public repos<small>14 originals · 2 forks</small></span></div>
       <div class="gh-stat"><span class="gh-stat-num">14</span><span class="gh-stat-label">stars, total<small>summed across all public repos</small></span></div>
       <div class="gh-stat"><span class="gh-stat-num">142.89<small>&nbsp;MiB</small></span><span class="gh-stat-label">bytes of code<small>18 languages</small></span></div>
->>>>>>> f3586d6 (io: the GitHub figures are fetched, not remembered)
       <div class="gh-stat"><span class="gh-stat-num">14</span><span class="gh-stat-label">original projects<small>+ 2 fork experimental repos</small></span></div>
     </div>
     <p class="gh-panel-foot">Measured 2026-11-22 · 14 public repos (no forks) · GitHub REST API, bytes summed per repo via languages_url · real bytes, shown as-is</p>
@@ -1285,7 +1282,6 @@
       <li class="lang-row"><span class="lang-name">Shell</span><span class="lang-track"><span class="lang-fill" style="width:1.19%"></span></span><span class="lang-pct">0.39%</span></li>
       <li class="lang-row"><span class="lang-name">PLpgSQL</span><span class="lang-track"><span class="lang-fill" style="width:0.85%"></span></span><span class="lang-pct">0.28%</span></li>
       <li class="lang-row lang-row-rest"><span class="lang-name">其他 10 种</span><span class="lang-track"><span class="lang-fill lang-fill-rest" style="width:0.66%"></span></span><span class="lang-pct">0.22%</span></li>
->>>>>>> f3586d6 (io: the GitHub figures are fetched, not remembered)
     </ul>
     <p class="gh-panel-foot">byte share (not lines) · summed across all public repos · private repo excluded · pulled live from the GitHub API on 2026-11-22 (16 repos, 145.45 MiB)</p>
   </div>
