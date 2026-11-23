@@ -2,29 +2,29 @@
   "schema_version": "nexus-platform.latest.v1",
   "generated_at": "2026-11-21T12:37:14.695889Z",
   "branch": "master",
-  "head": "0edbf0b",
-  "total_commits": 1765,
+  "head": "3771e93",
+  "total_commits": 1823,
   "pushed_at": "2026-11-21T12:31:57Z",
-  "milestone": "D1502",
-  "milestone_full": "Layer R - the names we keep - is OPEN. All 171 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose). Ah Ching keeps the east-gate keys; a folded race card with a pencilled name waits under the wet-floor sign, Mrs Lau returns a borrowed umbrella, and a numbered brass tag ties the three together in the lost-property book. Ten StateGraphs/lanes run in the service (world guide, Ah Wan NPC, analyst readout, EN drafting bench, fenced arc auditor, story recap, Wayfinder, arc audit, cross-chapter World Answer, real web facts). The provider cache flicker (95.3% / 0%) was measured and removed with a bounded in-process replay arm: 1 provider call + 5 zero-token replays. A 7,937-token full-corpus RAG lane and a zero-token Wikipedia facts door are live. Full AI suite 37,984 green; web 707 green; verify_all NO OFFENDER.",
-  "headline": "Layer R open · 171 chapters in three arms · ten LLM lanes · cache flicker fixed · 7,937-token corpus RAG · real Wikipedia facts · every gate green.",
+  "milestone": "D1557",
+  "milestone_full": "Layer S - Shui Chuen O - is OPEN. All 180 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose). Layer R closed with the brass tags claimed; Layer S follows Ah Man at the first bus in Sha Tin, the nameless ticket that carried only a time, and the kept ticket he waits with the next morning. Deep LLM lanes (world guide, story recap, Wayfinder, cross-chapter corpus RAG, real Wikipedia facts) run with a bounded process-local replay cache. Admin analytics derives next-step measures from real numbers and renders the hourly histogram; deterministic labelled ghost events feed the offline view. IMPORTANT: the gpt-6.2-sol API has been closed by directive for cost control; all later chapters are written in controlled vocabulary by the code lane, and no further live model calls are assumed. Full AI suite 38,065 green; web 975 green; verify_all NO OFFENDER.",
+  "headline": "Layer S open · 180 chapters in three arms · no further live model calls · bounded replay cache · real web facts · admin measures from numbers · every gate green.",
   "features": [
-    "D1501–D1502: chapters 167–171 land (Mrs Lau / the address / the brass latch / the first tram bell / the numbered brass tag). Arc 171 chapters, three arms; every chapter locked step with the frozen atlas (171/171/171).",
-    "D1502: real public facts door — POST /ai/v1/world/web-facts dispatches the SSRF-guarded Wikipedia tool. LIVE: 4 real rows in 1.16s, ZERO LLM tokens.",
-    "D1499: provider cache flicker measured (95.3% on 5 calls, 0% on one) then removed with a bounded process-local replay arm. LIVE via product router: 1 provider call, 5 zero-token replays.",
-    "D1497: full-corpus cross-chapter RAG (retrieve -> answer -> verify StateGraph over real chapter bodies). LIVE: 7,937 prompt tokens, grounded answer citing chapters 158+165.",
-    "D1496: parallel-session cache isolation (inflight key dimensions fixed) + Wayfinder StateGraph finally given a user door on /world.",
-    "D1491–D1492: guided play coach on /try; 368-request pressure run across 4 routes, zero failures."
+    "D1557: chapter 180 - waiting once more with the kept ticket. Arc 180 chapters, three arms; WORLD_ROADMAP drift repaired (it still said 175 / Layer R); Layer R closed 167-177, Layer S opens at 178.",
+    "API closure: the gpt-6.2-sol key is closed by directive for cost control. No further live beats; chapters are written by the code lane in controlled vocabulary. Historical live measurements remain facts, not a promise.",
+    "D1513: deterministic labelled ghost events derived from the /insights reader simulator now feed the offline admin analytics read (password 123); no more fake zeros on an unreachable read.",
+    "D1512: admin \"next measures\" are derived from real numbers (OLS slope, peak hour, funnel counts, session density) and the server's hourly histogram is finally rendered.",
+    "D1499: provider cache flicker measured (95.3% / 0% on identical calls) and removed with a bounded in-process replay arm: 1 provider call + 5 zero-token replays.",
+    "D1497: cross-chapter RAG over real chapter bodies (7,937-token prompt measured) with fenced citations; zero-token Wikipedia facts door also live."
   ],
-  "milestone_full_zh": "Layer R（記得名字的人）已開啟。全部 171 章香港系列以三語臂呈現（繁體香港／opencc 簡體／完整英文）。阿晴守著東門三條鎖匙；濕地滑牌下的跑馬紙寫著別人的名字，劉太太歸還一把借去的傘，編號銅牌把三者記進遺失物冊。服務中運行十個 StateGraph／通道：世界向導、阿灣 NPC、分析師讀數、英文臂起草、圍欄章節稽核、故事回顧、Wayfinder、章節稽核、全語料問答、真實聯網資料。實測並修掉快取抖動（95.3%／0%）：有界進程內重播——1 次供應商呼叫＋5 次零 token 重播。7,937-token 全語料 RAG 與零 token 維基百科資料門已上線。全套 AI 37,984 綠、web 707 綠、verify_all 全綠。",
-  "headline_zh": "Layer R 開啟 · 171 章三語臂 · 十個 LLM 通道 · 快取抖動已修 · 7,937-token 語料 RAG · 真實維基資料 · 所有閘門全綠。",
+  "milestone_full_zh": "Layer S（水泉澳邨）已開啟。全部 180 章香港系列以三語臂呈現（繁體香港／opencc 簡體／完整英文）。Layer R 以銅牌被認走收官；Layer S 跟著阿文在沙田等頭班車、那張只有時間的無名票，以及隔天他帶著留下來的票再等一次。深度 LLM 通道（世界向導、故事回顧、Wayfinder、全語料問答、真實維基資料）配合有界進程內重播快取運行。管理員分析從真實數字推導下一步措施並顯示每小時分佈；確定性且標明來源的模擬事件供離線檢視。**重要：gpt-6.2-sol API 已因成本控制關閉；後續章節由程式在受控詞彙內撰寫，不再假設有 live 模型呼叫。** 全套 AI 38,065 綠、web 975 綠、verify_all 全綠。",
+  "headline_zh": "Layer S 開啟 · 180 章三語臂 · 不再呼叫 live 模型 · 有界重播快取 · 真實聯網資料 · 管理員措施由數字推導 · 所有閘門全綠。",
   "features_zh": [
-    "D1501–D1502：第 167–171 章相繼落地（劉太太／背面地址／銅扣／第一聲電車鈴／編號銅牌）。全系列 171 章三語臂，每章與凍結圖譜鎖步（171/171/171）。",
-    "D1502：真實資料門——POST /ai/v1/world/web-facts 調度 SSRF 防護的維基百科工具。實測：4 筆真實資料、1.16 秒、零 LLM token。",
-    "D1499：實測供應商快取抖動（5 次 95.3%、1 次 0%）並以有界進程內重播修掉。產品 router 實測：1 次供應商呼叫、5 次零 token 重播。",
-    "D1497：全語料跨章節 RAG（對真實章節內文運行的 retrieve→answer→verify StateGraph）。實測：7,937 prompt tokens，答案有據引用第158／165章。",
-    "D1496：並行會話快取隔離（修好 inflight 鍵維度）＋ Wayfinder StateGraph 終於在 /world 有了使用者入口。",
-    "D1491–D1492：/try 帶玩教練；4 條路由 368 請求壓力測試，零失敗。"
+    "D1557：第 180 章——帶著留下來的票再等一次。全系列 180 章三語臂；修好 WORLD_ROADMAP 漂移（原仍寫 175／Layer R）；Layer R 於 167–177 收官，Layer S 從 178 開啟。",
+    "API 關閉：gpt-6.2-sol key 因成本控制由指令關閉。不再有 live 選節拍；章節由程式在受控詞彙內撰寫。先前的 live 測量仍是事實，不是承諾。",
+    "D1513：由 /insights 讀者模擬器衍生的確定性、標明來源的模擬事件，現在供離線管理員分析頁使用（密碼 123）；不再把讀取失敗當成假零。",
+    "D1512：管理員「下一步措施」從真實數字推導（最小平方法斜率、尖峰小時、漏斗計數、工作階段密度），並終於渲染伺服器每小時直方圖。",
+    "D1499：實測並修掉快取抖動（相同呼叫 95.3%／0%）——有界進程內重播：1 次供應商呼叫＋5 次零 token 重播。",
+    "D1497：對真實章節內文做跨章節 RAG（實測 7,937-token prompt），附圍欄引文；另有零 token 維基百科資料門。"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
