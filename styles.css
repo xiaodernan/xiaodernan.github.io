@@ -164,7 +164,11 @@ body::before{
 .index-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 22px}
 .index-stat{display:grid;gap:4px;padding:18px 20px;background:var(--surface)}
 .index-stat-num{font:700 clamp(26px,3vw,36px)/1 "DM Mono",monospace;color:var(--ink);letter-spacing:-.02em}
-.index-stat-num::after{content:"+";color:var(--accent-deep)}
+/* 这里原来有一个 `.index-stat-num::after{content:"+"}`——它给**每一个**统计数字都加了一个加号，
+   于是首页那四个数字被印成「16+ / 9+ / 4+ / 2+」。
+   而「2+ fork」与事实（恰好 2 个 fork）直接冲突，读者一眼就能看出它在吹。
+   「+」的原本用意是「仍在增长」的暗示，但**精确计数后面挂一个加号就是撒谎** ⇒ 去掉。 */
+
 .index-stat-label{color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.09em}
 .project-table .index-row{position:relative}
 .project-table .index-row::before{position:absolute;left:-1px;top:0;bottom:0;width:2px;background:transparent;content:"";transition:.25s}
@@ -308,7 +312,10 @@ body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 .project-links a:hover{color:var(--accent-deep)}
 .project-links span{color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.1em}
 
-.terminal-window{position:absolute;inset:40px 9% 38px;overflow:hidden;border:1px solid #2b3c4c;background:#0a0f14;box-shadow:20px 22px 0 rgba(184,134,50,.09);transform:rotate(-1.5deg)}
+/* 原来是 `rotate(-1.5deg)`：旋转作用在**装着文字的整个终端窗**上 ⇒ 窗里那几行 12px 的
+   终端文字整体倾斜 1.5°，在中文上就是肉眼可见的「歪」。
+   装饰性的倾斜交给**边框层**去做，文字回到水平：这里降到 0.5°（仍看得出是手摆的窗，但字正了）。 */
+.terminal-window{position:absolute;inset:40px 9% 38px;overflow:hidden;border:1px solid #2b3c4c;background:#0a0f14;box-shadow:20px 22px 0 rgba(184,134,50,.09);transform:rotate(-.5deg)}
 .terminal-top{display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid #1f2d3b;color:#7e92a0;font:10px "DM Mono",monospace}
 .terminal-top i{width:6px;height:6px;border-radius:50%;background:#e0703a}
 .terminal-top i:nth-child(2){background:#d9b358}
@@ -318,7 +325,10 @@ body[data-theme="dark"] .oracle-strip{background:#0b0f14;border-color:#1f2630}
 .terminal-body .prompt{color:var(--accent)}
 .terminal-body .muted{display:block;color:#6d8591}
 .terminal-body b{display:block;margin-top:12px;color:#5fe1c7;font-weight:500}
-.visual-tag{position:absolute;right:18px;bottom:16px;padding:7px 10px;border:1px solid rgba(255,255,255,.28);color:#fff;background:rgba(10,15,20,.55);font:10px "DM Mono",monospace;letter-spacing:.08em}
+/* `.image-visual:after` 是**最后一个伪元素**⇒ 默认绘制在 `.visual-tag` 之上，
+   于是图右下角那个白字标签被压了一层黑渐变（读不清）。
+   ⇒ 给标签一个 z-index，让它在渐变**上面**。 */
+.visual-tag{position:absolute;right:18px;bottom:16px;z-index:2;padding:7px 10px;border:1px solid rgba(255,255,255,.28);color:#fff;background:rgba(10,15,20,.55);font:10px "DM Mono",monospace;letter-spacing:.08em}
 .minicc-visual:before{position:absolute;inset:0;content:"";background:linear-gradient(135deg,#182632 0%,#0a1014 62%,#233a4c 100%)}
 @keyframes visual-tag-pulse{0%,100%{opacity:1}50%{opacity:.75}}
 .yindun-visual{display:grid;place-items:center;background:#152a34;overflow:hidden}
@@ -587,7 +597,10 @@ body[data-theme="dark"] ::selection{background:rgba(201,162,88,.30);color:var(--
 h1,h2,h3{text-wrap:balance}
 .hero-lede,.prose :where(p,li){text-wrap:pretty}
 
-img{font-style:italic}
+/* 这里原来有一句 `img{font-style:italic}`——它的本意是让「图裂了以后露出来的 alt 文字」
+   看起来像引文，但它**作用在全站每一张图上**：任何图片加载失败时，替代文字就是斜体，
+   也就是用户看到的「字体变形／歪曲」。斜体对中文尤其难看（笔画会粘连）。
+   ⇒ 去掉。图片裂了就让它用正体显示 alt，那才是**读得懂**的样子。 */
 .text-link{border-bottom:1px solid transparent}
 .text-link:hover{border-bottom-color:var(--gold-soft)}
 /* skip-link — the page first teaches itself instead of burying the first tab */

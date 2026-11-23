@@ -63,8 +63,41 @@ window.__teachInteractive = function teachInteractive() {
   document.querySelectorAll('[data-auto-title]').forEach((el) => {
     el.removeAttribute('title');
     el.removeAttribute('data-auto-title');
+    // 切换语言时旧的说明节点要一起收走，否则上一次语言的说明会**叠**在新的上面
+    const ids = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter((id) => id.startsWith('site-tip-'));
+    ids.forEach((id) => { const n = document.getElementById(id); if (n) n.remove(); });
+    const kept = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter((id) => id && !id.startsWith('site-tip-'));
+    if (kept.length) el.setAttribute('aria-describedby', kept.join(' '));
+    else el.removeAttribute('aria-describedby');
   });
+  /* 提示句的**唯一**出口：它同时落到三个地方——
+     ① `title`（鼠标悬停看得见）；
+     ② `aria-describedby`（读屏软件念得出来——**触屏根本没有 title 浮层**，
+        只写 title 的话，手机上这些说明等于不存在）；
+     ③ 一个视觉隐藏的说明节点（给 aria-describedby 指过去）。
+     说明书里那句「说明会同步出现在可访问名称中」以前是**没有实现的**（只写了 title），
+     而说明书是对外承诺 ⇒ 这里把它变成事实。 */
+  let tipSeq = 0;
+  const tipHost = document.getElementById('site-tip-host') || (() => {
+    const host = document.createElement('div');
+    host.id = 'site-tip-host';
+    host.setAttribute('aria-live', 'polite');
+    host.style.cssText = 'position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0';
+    document.body.appendChild(host);
+    return host;
+  })();
   const set = (el, tip) => {
+    if (!el || el.getAttribute('title')) return;
+    el.setAttribute('title', tip);
+    el.setAttribute('data-auto-title', '1');
+    const id = `site-tip-${++tipSeq}`;
+    const node = document.createElement('span');
+    node.id = id;
+    node.textContent = tip;
+    tipHost.appendChild(node);
+    const prev = el.getAttribute('aria-describedby');
+    el.setAttribute('aria-describedby', prev ? `${prev} ${id}` : id);
+  };
     if (!el || el.getAttribute('title')) return;
     el.setAttribute('title', tip);
     el.setAttribute('data-auto-title', '1');
