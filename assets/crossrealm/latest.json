@@ -1,52 +1,52 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-21T12:37:48.712Z",
+  "generated_at": "2026-11-23T04:54:40.823Z",
   "branch": "main",
-  "head": "089ae954",
-  "total_commits": 2448,
-  "pushed_at": "2026-11-21T20:29:49+08:00",
+  "head": "236ea525",
+  "total_commits": 2506,
+  "pushed_at": "2026-11-23T12:53:26+08:00",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
     {
-      "short": "089ae95",
-      "at": "2026-11-21T20:29:49+08:00",
-      "subject": "chore(latest): W-Z503 fact pack head=2ad890b (novels 290 · lore 611 · i18n 3272 · commits 2447)"
+      "short": "236ea52",
+      "at": "2026-11-23T12:53:26+08:00",
+      "subject": "chore(lint): zero-warning tree - remove 9 dead imports/vars and stale eslint disables"
     },
     {
-      "short": "2ad890b",
-      "at": "2026-11-21T20:29:28+08:00",
-      "subject": "docs(deploy): W-Z503 运行栈与代码对齐——重建 ai-service 镜像，LLM 新能力真正上线"
+      "short": "7e01b77",
+      "at": "2026-11-23T12:41:34+08:00",
+      "subject": "feat(lore): W-Z519 offline oracle returns verbatim BM25 canon excerpts instead of 503; honest offline stats"
     },
     {
-      "short": "03aad53",
-      "at": "2026-11-21T20:24:52+08:00",
-      "subject": "chore(latest): W-Z502 fact pack head=ed27abd (novels 290 · lore 611 · i18n 3272 · commits 2445)"
+      "short": "f063e2d",
+      "at": "2026-11-23T12:33:08+08:00",
+      "subject": "feat(ui): W-Z519 offline-mode message - distinguish LLM switch-off from transient circuit break (zh/en + 2 tests)"
     },
     {
-      "short": "ed27abd",
-      "at": "2026-11-21T20:24:08+08:00",
-      "subject": "feat(admin): W-Z502 真·行为信号贯通管理员页——session_end/guide_asked 不再白建模"
+      "short": "aaae391",
+      "at": "2026-11-23T12:22:45+08:00",
+      "subject": "chore(latest): fact pack head=da6bd6b (novels 290 lore 611 i18n 3296 tests 508 commits 2502) - offline LLM switch"
     },
     {
-      "short": "ccab677",
-      "at": "2026-11-21T20:16:08+08:00",
-      "subject": "chore(latest): W-Z501 fact pack head=537de8b (novels 290 · lore 611 · i18n 3272 · commits 2443)"
+      "short": "da6bd6b",
+      "at": "2026-11-23T12:19:48+08:00",
+      "subject": "feat(ai): W-Z519 LLM master switch - zero upstream calls when API closed, 503 graceful degradation"
     }
   ],
-  "tracked_files": 1936,
-  "test_files": 485,
-  "i18n_keys": 3272,
+  "tracked_files": 1971,
+  "test_files": 508,
+  "i18n_keys": 3297,
   "lore_sources": 611,
   "novel_chapters_zh": 290,
   "novel_chapters_en": 290,
-  "milestone": "W-Z503",
+  "milestone": "W-Z519",
   "milestone_full": "卷 290 · 六百年守火线（290 / 290 卷双语同源）· StateGraph [J] 锚火三问真路由 · 说明书星图章节双语讲授 StateGraph · Lore Oracle 611 源守护",
   "headline": "跨界纪元 · Crossrealm Chronicles —— 一个极其庞大、全内嵌双语教学的 Three.js 开放位面 RPG：290 卷史诗小说（中英双语全文）× 电影剧本 × 25 首 OST，Spring Cloud 微服务矩阵 + Redis 四殿，Lore Oracle 以 BM25 两段式检索引经据典，LangGraph StateGraph 真路由（锚火三问 · 守火六百年），全部内容中英双语逐字对齐。",
   "feature_surface": [
     "spring-cloud-plane",
     "redis-everywhere",
     "lore-oracle-rag",
-    "bilingual-3272-keys",
+    "bilingual-3297-keys",
     "three-js-world",
     "quickstart-embed",
     "stategraph-teaching",
