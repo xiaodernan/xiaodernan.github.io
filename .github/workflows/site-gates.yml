@@ -16,7 +16,9 @@ on:
       - 'scripts/**'
       - 'data/**'
       - 'assets/nexus-platform/latest.json'
+      - 'assets/football/latest.json'
       - '.github/workflows/site-gates.yml'
+      - '.github/workflows/sync-football-os.yml'
   pull_request:
     paths:
       - 'index.html'
@@ -27,6 +29,8 @@ on:
       - 'scripts/**'
       - 'data/**'
       - 'assets/nexus-platform/latest.json'
+      - 'assets/football/latest.json'
+      - '.github/workflows/sync-football-os.yml'
   workflow_dispatch:
 
 permissions:
@@ -42,6 +46,8 @@ jobs:
           node-version: '22'
       - name: Identity / forbidden-word / portrait / NaN gate
         run: node scripts/identity-guard.mjs
+      - name: Homepage JavaScript syntax gate
+        run: node --check script.js
       # The GitHub figures panel is restated by scripts/gh-stats.mjs on a weekly schedule. This step
       # exercises the SAME restatement code offline with synthetic figures, so a needle that stops
       # matching the page's wording reddens the run here instead of freezing one visible number
@@ -62,6 +68,8 @@ jobs:
       # 所以人手改一次静态半区就红一次，而不是等下一周事实包刷新时中文模式又漏一句英文。
       - name: Fact-pack static half agrees with the fact pack
         run: node scripts/paint-fact-packs.mjs --check
+      - name: Football OS static figures agree with the fact pack
+        run: node scripts/sync-football-os.mjs --check
       # 2026-11-23 · 结构闸门。
       #
       # 抓到过两个**真的坏掉**的东西：

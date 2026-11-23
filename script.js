@@ -135,10 +135,6 @@ window.__teachInteractive = function teachInteractive() {
     const prev = el.getAttribute('aria-describedby');
     el.setAttribute('aria-describedby', prev ? `${prev} ${id}` : id);
   };
-    if (!el || el.getAttribute('title')) return;
-    el.setAttribute('title', tip);
-    el.setAttribute('data-auto-title', '1');
-  };
   const labelOf = (el) => (el.textContent || '').replace(/\s+/g, ' ').trim();
   const setAll = (sel, zh, eng) => document.querySelectorAll(sel).forEach((el) => set(el, T(zh, eng)));
   const fromText = (sel, zhPrefix, engPrefix) => document.querySelectorAll(sel).forEach((el) => {

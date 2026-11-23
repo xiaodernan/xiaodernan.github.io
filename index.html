@@ -136,7 +136,7 @@
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/football-os" target="_blank" rel="noreferrer">
             <span class="milestone-num">§386</span>
-            <span class="milestone-label">Football OS · <span class="fw-hero-commits">1,856</span> 次提交 · 270 场真实决赛 · 13.1 万 token 深度档案 · 每一卷都装订归档</span>
+            <span class="milestone-label">Football OS · <span class="fw-hero-commits">1,869</span> 次提交 · 270 场真实决赛 · 13.1 万 token 深度档案 · 每一卷都装订归档</span>
           </a>
           <a class="milestone-cell milestone-cell-accent" href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">
             <span class="milestone-num">M1226</span>
@@ -316,15 +316,15 @@
         </article>
         <!-- footos:latest-start -->
         <div class="minicc-latest" id="footos-latest" aria-label="Football OS 最新指标">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code class="fw-head">master @ 6b781b2a</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code class="fw-head">master @ 4917c353</code></div>
           <div class="minicc-latest-grid">
-            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-commits">1,856</span><span class="minicc-latest-label">提交总数</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-commits">1,869</span><span class="minicc-latest-label">提交总数</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-milestone">§386</span><span class="minicc-latest-label">当前里程碑</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-screens">97</span><span class="minicc-latest-label">动态屏幕</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-locales">6</span><span class="minicc-latest-label">语种</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-assets">236</span><span class="minicc-latest-label">质量资产</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-assets">242</span><span class="minicc-latest-label">质量资产</span></div>
           </div>
-          <div class="minicc-latest-foot"><span class="fw-generated">事实包 2026-11-22 · 270 部真实决赛 · 长卷可装订、可引用、可重读</span><span>特性集 <code class="fw-features">深度档案 · 档案库 · 世界志 · 十一人</code></span></div>
+          <div class="minicc-latest-foot"><span class="fw-generated">事实包 2026-11-23 · 里程碑 §386 · 366 章</span><span>特性集 <code class="fw-features">深度档案 · 档案库 · 世界志 · 十一人</code></span></div>
         </div>
         <!-- footos:latest-end -->
 
@@ -525,7 +525,7 @@
   </main>
   <footer data-i18n-block="footer" class="footer section-pad"><span><span class="seal-chip" aria-hidden="true">欣</span>© 2026 赵欣曈</span><span>AI 应用工程师 · 每一句都有证据</span><a href="manual.html" title="打开内嵌《简明说明书》· 全部功能的教学小册子">说明书</a><a href="admin.html" title="管理员面板 · 口令 123 · 查看本机行为记录与优化建议">管理员</a><a href="#top">返回顶部 →</a></footer>
 </div>
-<script src="script.js?v=20261122a" defer></script>
+<script src="script.js?v=20261124a" defer></script>
 
 <!-- ══ inline hydration · live fact pack for every card ══ -->
 <script>
@@ -719,26 +719,21 @@
       if (!r.ok) return;
       const d = await r.json();
       const set = (id, v) => { document.querySelectorAll('.' + id).forEach((el) => { el.textContent = v; }); };
+      const commits = Number.isFinite(Number(d.total_commits)) ? Number(d.total_commits).toLocaleString('en-US') : '—';
+      const basket = d.basket_chapters != null ? String(d.basket_chapters) : '—';
+      const fwEn = document.documentElement.dataset.lang === 'en';
       set('fw-head', `master @ ${d.head}`);
-      set('fw-commits', String(d.total_commits ?? '—'));
+      set('fw-commits', commits);
       set('fw-milestone', d.milestone ?? '—');
       set('fw-screens', String(d.screens ?? '—'));
       set('fw-locales', String(d.locales ?? '—'));
       set('fw-assets', String(d.assets ?? '—'));
-      /* 这里原来只有一句 `Number(d.total_commits).toLocaleString('en-US')`——
-         全页**唯一**没做 isFinite 保护的一处数值格式化：上游 JSON 里只要把提交数写成
-         "1,856"（带千分位），`Number("1,856")` 就不是一个数 ⇒ 页面直接印出「非数字 次提交」。
-         读者看到的正是一串非数字字符。⇒ 加一道护栏：不是有限数就当没有，别印出去。 */
-      const heroCommits = Number.isFinite(Number(d.total_commits)) ? Number(d.total_commits).toLocaleString('en-US') : '';
-      set('fw-hero-commits', heroCommits);
-      set('fw-basket', d.basket_chapters != null ? String(d.basket_chapters) : '');
-      const fwEn = document.documentElement.dataset.lang === 'en';
-      const fwMilestone = (fwEn ? (d.milestone_full_en || d.milestone_full) : (d.milestone_full_zh || d.milestone_full)) ?? '';
+      set('fw-hero-commits', commits === '—' ? '' : commits);
+      set('fw-basket', basket);
       set('fw-generated', d.generated_at
-        ? `${fwEn ? 'Fact pack' : '事实包'} ${String(d.generated_at).slice(0, 10)} · ${fwMilestone} · ${d.basket_chapters ?? '—'} ${fwEn ? 'basket chapters' : '章篮筐'}`
+        ? `${fwEn ? 'Fact pack' : '事实包'} ${String(d.generated_at).slice(0, 10)} · ${fwEn ? 'milestone' : '里程碑'} ${d.milestone ?? '—'} · ${basket} ${fwEn ? 'basket chapters' : '章'}`
         : '');
-      set('fw-features', Array.isArray(d.feature_surface) ? d.feature_surface.slice(0, 4).join(' · ') : '—');
-    } catch (_) { /* strip stays placeholding when both sources are unreachable */ }
+    } catch (_) { /* strip keeps its static, localized fallback when both sources are unreachable */ }
   };
   window.addEventListener('portfolio:lang', refreshFw);
   refreshFw();
@@ -954,7 +949,7 @@
           </a>
           <a class="milestone-cell" href="https://github.com/xiaodernan/football-os" target="_blank" rel="noreferrer">
             <span class="milestone-num">§386</span>
-            <span class="milestone-label">Football OS · <span class="fw-hero-commits">1,856</span> commits · 270 real finals · 131k-token Deep Dossier · a shelf that keeps every bound volume</span>
+            <span class="milestone-label">Football OS · <span class="fw-hero-commits">1,869</span> commits · 270 real finals · 131k-token Deep Dossier · a shelf that keeps every bound volume</span>
           </a>
           <a class="milestone-cell milestone-cell-accent" href="https://xiaodernan.github.io/football-os-web/" target="_blank" rel="noreferrer">
             <span class="milestone-num">M1226</span>
@@ -1137,15 +1132,15 @@
         </article>
         <!-- footos:latest-start -->
         <div class="minicc-latest" id="footos-latest" aria-label="Football OS latest metrics">
-          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code class="fw-head">master @ 6b781b2a</code></div>
+          <div class="minicc-latest-kicker"><span class="minicc-latest-dot"></span><span>MASTER · LATEST</span><code class="fw-head">master @ 4917c353</code></div>
           <div class="minicc-latest-grid">
-            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-commits">1,856</span><span class="minicc-latest-label">commits</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-commits">1,869</span><span class="minicc-latest-label">commits</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-milestone">§386</span><span class="minicc-latest-label">current milestone</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-screens">97</span><span class="minicc-latest-label">dynamic screens</span></div>
             <div class="minicc-latest-cell"><span class="minicc-latest-number fw-locales">6</span><span class="minicc-latest-label">locales</span></div>
-            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-assets">236</span><span class="minicc-latest-label">quality assets</span></div>
+            <div class="minicc-latest-cell"><span class="minicc-latest-number fw-assets">242</span><span class="minicc-latest-label">quality assets</span></div>
           </div>
-          <div class="minicc-latest-foot"><span class="fw-generated">Fact pack 2026-11-22 · 270 real finals · a bound volume keeps its slug, receipt and readers</span><span>feature set <code class="fw-features">Deep Dossier · Dossier Library · The World · The XI</code></span></div>
+          <div class="minicc-latest-foot"><span class="fw-generated">Fact pack 2026-11-23 · milestone §386 · 366 basket chapters</span><span>feature set <code class="fw-features">Deep Dossier · Dossier Library · The World · The XI</code></span></div>
         </div>
         <!-- footos:latest-end -->
 
