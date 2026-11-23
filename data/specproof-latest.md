@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-23 · 8064d805**
+**2026-11-23 · e54658cb**
 - 分支: `master`
 - ledger: `#2076 LLM 网关实测复活：代理下 chat_completions 95.2% 缓存命中 + 流式/能力全通（修正"已关"断电报）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（479.1 KB）
