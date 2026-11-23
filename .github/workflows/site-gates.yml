@@ -6,7 +6,7 @@ name: site-gates
 # （gh-stats-check）。任何一个红灯都不允许合并。
 on:
   push:
-    branches: [master]
+    branches: [main, master]
     paths:
       - 'index.html'
       - 'manual.html'
@@ -62,3 +62,13 @@ jobs:
       # 所以人手改一次静态半区就红一次，而不是等下一周事实包刷新时中文模式又漏一句英文。
       - name: Fact-pack static half agrees with the fact pack
         run: node scripts/paint-fact-packs.mjs --check
+      # 2026-11-23 · 结构闸门。
+      #
+      # 抓到过两个**真的坏掉**的东西：
+      #   ① 切换语言时 applyLang 用 replaceWith 把中文区块换成英文区块 ⇒ 被换出去的旧节点
+      #      **脱离文档**，而 IntersectionObserver 仍 observe 着它 ⇒ 浏览器不再派发交叠事件
+      #      ⇒ 切到英文后顶栏的「当前区块」高亮**整条静默失效**（已用最小 DOM 模拟复现）；
+      #   ② 以 <img> 引入的 SVG 没有 width/height ⇒ 浏览器加载前不知道占多大 ⇒ 页面抖。
+      # ⇒ 这一道门同时守住：图片尺寸、文档内 id 唯一性、语言切换重绑、脚本版本号。
+      - name: Page structure gate (image sizes / id uniqueness / language-switch rebinding)
+        run: node scripts/structure-audit.mjs

@@ -34,15 +34,52 @@ filterButtons.forEach((button) => {
   });
 });
 
-const sectionLinks = [...document.querySelectorAll('.main-nav a')];
-const sections = sectionLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    sectionLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
-  });
-}, { rootMargin: '-36% 0px -56% 0px', threshold: 0 });
-sections.forEach((section) => sectionObserver.observe(section));
+/* ── Scroll-spy（顶栏 + 底部章节轨）──────────────────────────────────────
+   **必须可重入**：切换语言时 `applyLang` 用 `replaceWith` 把中文区块换成英文区块
+   —— 被换出去的旧节点**脱离文档**，而 IntersectionObserver 仍 observe 着它。
+   浏览器不再向已脱离的节点派发交叠事件 ⇒ 切到英文后整条 spy 静默失效，
+   顶栏的「当前区块」高亮再也不动。
+   ⇒ 每次语言切换后**重新解析目标并重新观察**（旧 observer 先断开）。
+   `portfolio:lang` 事件由 applyLang 在替换完成后派发。 */
+function rebindScrollSpies() {
+  const sectionLinks = [...document.querySelectorAll('.main-nav a')];
+  const sections = sectionLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if (window.__zxSectionObserver) window.__zxSectionObserver.disconnect();
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      sectionLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-36% 0px -56% 0px', threshold: 0 });
+  sections.forEach((section) => sectionObserver.observe(section));
+  window.__zxSectionObserver = sectionObserver;
+
+  /* Anchor-dock scroll-spy — mirrors the top-nav spy for the bottom chapter
+     rail. Marks aria-current and paints the active pill. */
+  const dockLinks = [...document.querySelectorAll('.anchor-dock a[data-dot-go]')];
+  if (!dockLinks.length) return;
+  const dockTargets = dockLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if (window.__zxDockObserver) window.__zxDockObserver.disconnect();
+  const dockObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      dockLinks.forEach((link) => {
+        const hit = link.getAttribute('href') === '#' + entry.target.id;
+        link.classList.toggle('is-current', hit);
+        if (hit) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+  dockTargets.forEach((target) => dockObserver.observe(target));
+  window.__zxDockObserver = dockObserver;
+}
+rebindScrollSpies();
+window.addEventListener('portfolio:lang', rebindScrollSpies);
 
 const repoFilterButtons = [...document.querySelectorAll('[data-repo-filter]')];
 const repoCards = [...document.querySelectorAll('.repo-card')];
@@ -249,26 +286,7 @@ window.__teachInteractive = function teachInteractive() {
   applyLang(store.get());
 })();
 
-/* Anchor-dock scroll-spy — mirrors the top-nav spy for the bottom chapter
-   rail. Marks aria-current and paints the active pill. */
-const dockLinks = [...document.querySelectorAll('.anchor-dock a[data-dot-go]')];
-if (dockLinks.length) {
-  const dockTargets = dockLinks
-    .map((link) => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
-  const dockObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      dockLinks.forEach((link) => {
-        const hit = link.getAttribute('href') === '#' + entry.target.id;
-        link.classList.toggle('is-current', hit);
-        if (hit) link.setAttribute('aria-current', 'true');
-        else link.removeAttribute('aria-current');
-      });
-    });
-  }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-  dockTargets.forEach((target) => dockObserver.observe(target));
-}
+/* 底部章节轨的 scroll-spy 已并入上面的 rebindScrollSpies()（切换语言时必须一起重绑）。 */
 
 /* ── D1500 · 本机行为遥测 ──────────────────────────────────────────────
    纯静态站点没有服务端数据库，所以这里只写 localStorage：
