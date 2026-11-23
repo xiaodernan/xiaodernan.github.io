@@ -1,30 +1,28 @@
 {
   "schema_version": "nexus-platform.latest.v1",
-  "generated_at": "2026-11-23T08:37:00.000Z",
+  "generated_at": "2026-11-23T09:25:00.000Z",
   "branch": "master",
-  "head": "a7376fc",
-  "total_commits": 1830,
-  "pushed_at": "2026-11-23T08:34:09Z",
-  "milestone": "D1563",
-  "milestone_full": "Layer S continues: 183 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose), with the atlas in lockstep at 183/183/183 and a derived fence. The five-chapter ticket arc (a nameless ticket found at Shui Chuen O, kept, waited with, given a second name, claimed, given a third, carried across the harbour at 23:05 to a terminus where another ticket is already waiting) is now a curated, server-rendered walk available from any of its chapters — no model, no network, no client state. Two real optimizations landed earlier: FactBundle lazy attribute index and mtime-cached ranking weights, per-request Python CPU ~107ms -> ~30ms. The stack was siege-tested at PRODUCTION rate limits: 2,702 credential-stuffing requests ALL 429 at p50=25 ms, zero 5xx, and the unscoped read plane stayed 244/244 OK at p50=8 ms THROUGHOUT the flood. Spring Cloud edge (Eureka / Config / Gateway / OpenFeign / LoadBalancer / resilience4j), 12 StateGraph lanes, admin behavior analytics with password 123, an embedded handbook, and an English arm enforced by contract. The gpt-6.2-sol API was CLOSED by directive: all recent work is code-and-rules only, with no further live model claims. verify_all NO OFFENDER, 994 web tests, 38k AI tests green.",
-  "headline": "183 Hong Kong chapters in three arms · the ticket arc (179-183) made walkable · production-limit siege: 2,702 stuffing requests ALL 429 at p50=25ms, zero 5xx, read plane 244/244 · Spring Cloud edge + 12 StateGraph lanes · 994 web tests + 38k AI green · LLM API closed, no further live calls.",
+  "head": "20a8a3f",
+  "total_commits": 1836,
+  "pushed_at": "2026-11-23T09:18:00Z",
+  "milestone": "D1568",
+  "milestone_full": "184 Hong Kong chapters ship in three arms (Traditional HK / opencc Simplified fold / full English prose), with the atlas in lockstep at 184/184/184 and a derived fence. TWO curated arcs now walk the corpus: the ticket arc (179-183, one object across a whole day) and the crossing arc (64-61-62-65-67, one border from midnight into the morning - Man Kam To's first rice truck at 00:45, the Huanggang night gate at 02:45, the night market below Lo Wu at 03:45, Ho Ming's third run at 07:15, his second truck out at 08:15). Chapter 184 closes the ticket's story: at 23:30 the ticket that carried only a time is claimed at the Central terminus, and a fresh ticket is weighted on the corner. Both rails are curated, server-rendered walks available from any of their chapters - no model, no network, no client state; titles derive from the live locale corpus so a rename can never leave a stale string. The stack was siege-tested at PRODUCTION rate limits: 2,702 credential-stuffing requests ALL 429 at p50=25 ms, zero 5xx, read plane 244/244 at p50=8 ms throughout. Spring Cloud edge (Eureka / Config / Gateway / OpenFeign / LoadBalancer / resilience4j), 12 StateGraph lanes, admin behavior analytics with password 123, an embedded handbook teaching both arcs, and an English arm enforced by contract. The gpt-6.2-sol API was CLOSED by directive: all recent work is code-and-rules only. verify_all NO OFFENDER, 1,005 web tests, 38k AI tests green.",
+  "headline": "184 Hong Kong chapters in three arms · two curated arcs walkable (ticket 179-183, crossing 64-67) · production-limit siege: 2,702 stuffing requests ALL 429 at p50=25ms, zero 5xx, read plane 244/244 · Spring Cloud edge + 12 StateGraph lanes · 1,005 web tests + 38k AI green · LLM API closed.",
   "features": [
-    "D1563: the ticket arc — five chapters (179-183), one object, a whole day, made walkable from any of its chapters; curated, server-rendered, local-only.",
-    "D1562: chapter 183 — the three-name ticket crosses the harbour at 23:05 and lands beside ANOTHER ticket already waiting at the Central terminus.",
-    "D1561: chapter 182 — the second name comes to claim the ticket; the count ripple caught and fixed a self-contradicting series claim.",
-    "D1541: siege re-measured at PRODUCTION limits — 10 grants then the 429 wall; stuffing 2,702 ALL 429 at p50=25ms; read plane 244/244 throughout, zero 5xx.",
-    "D1540: World Answer full-read tier (40x4000, the retrieval contract's own clamps) toward the 50k-token context goal; the live 50k measurement is pending — the key was exhausted and the API is now closed.",
-    "D1538: FactBundle lazy attribute index + ranking-weights mtime cache — per-request Python CPU ~107ms -> ~30ms, measured in-process with the lifespan actually run."
+    "D1568: chapter 184 - the ticket's coda: the time-only ticket is claimed at 23:30 and a fresh one is weighted on the desk corner; count ripple clean to 184.",
+    "D1567: the crossing arc - five border chapters (64, 61, 62, 65, 67) form one border's night into morning; the arc primitive is now shared (story-arc.ts) and the handbook teaches both arcs.",
+    "D1563: the ticket arc - five chapters (179-183), one object, a whole day, made walkable from any of its chapters; curated, server-rendered, local-only.",
+    "D1541: siege re-measured at PRODUCTION limits - stuffing 2,702 ALL 429 at p50=25ms; read plane 244/244 throughout, zero 5xx.",
+    "D1538: FactBundle lazy attribute index + ranking-weights mtime cache - per-request Python CPU ~107ms -> ~30ms, measured in-process."
   ],
-  "milestone_full_zh": "Layer S 持續：183 章香港系列三語臂（繁體香港／opencc 簡體／完整英文），圖譜鎖步 183/183/183，圍欄數字由索引推導。五章「票之弧」——水泉澳邨街邊的無名票被拾起、留下、再等、寫上第二個名字、被認領、補上第三個名字、23:05 由夜車司機帶過海，落在中環終點站另一張仍在等認領的票旁——已成為可從任一章走完整條的路徑，全程服務端渲染、零模型、零網絡、零客戶端狀態。早前兩項真實優化落地：FactBundle 惰性屬性索引與排序權重 mtime 緩存，每請求 Python CPU 約 107ms → 約 30ms。以生產級限流實測攻城：2,702 發撞庫全部 429（p50=25ms、零 5xx），讀面在攻擊全程 244/244 全綠（p50=8ms）。Spring Cloud 邊緣（Eureka／Config／Gateway／OpenFeign／LoadBalancer／resilience4j）、12 條 StateGraph、密碼 123 的管理員行為分析、嵌入式說明書、契約測試強制英文臂。gpt-6.2-sol API 已按指令關閉：近期工作皆為純程式與規則，不再宣稱 live 模型能力。verify_all 全綠、web 994、AI 38k 全綠。",
-  "headline_zh": "183 章香港系列三語臂 · 「票之弧」（179–183）可沿章節走完 · 生產級攻城：2,702 發撞庫全數 429、p50=25ms、零 5xx、讀面 244/244 · Spring Cloud 邊緣＋12 條 StateGraph · 994 web＋38k AI 全綠 · 大模型 API 已關閉，不再有 live 呼叫。",
+  "milestone_full_zh": "184 章香港系列三語臂（繁體香港／opencc 簡體／完整英文），圖譜鎖步 184/184/184，圍欄數字由索引推導。兩條策展弧可沿章節走完：「票之弧」（179–183，一件東西走過一整天）與「渡之弧」（64–61–62–65–67，一道口岸由午夜走到早晨——文錦渡零點四十五分的第一班米車、皇崗夜閘、羅湖橋下夜市、浩明第三班折返、第二輛米車出閘）。第 184 章寫尾聲：23:30，那張只寫了時間的票在中環終點站被人認走，收車司機把新票壓在桌角。兩條弧皆為策展式、服務端渲染，標題由當前語言語料即時推導；零模型、零網絡、零客戶端狀態。以生產級限流實測攻城：2,702 發撞庫全部 429（p50=25ms、零 5xx），讀面全程 244/244（p50=8ms）。Spring Cloud 邊緣、12 條 StateGraph、密碼 123 的管理員行為分析、教兩條弧的嵌入式說明書、契約測試強制英文臂。gpt-6.2-sol API 已按指令關閉：近期工作皆為純程式與規則。verify_all 全綠、web 1,005、AI 38k 全綠。",
+  "headline_zh": "184 章香港系列三語臂 · 兩條策展弧可走完（票之弧 179–183、渡之弧 64–67）· 生產級攻城：2,702 發撞庫全數 429、p50=25ms、零 5xx、讀面 244/244 · Spring Cloud 邊緣＋12 條 StateGraph · 1,005 web＋38k AI 全綠 · 大模型 API 已關閉。",
   "features_zh": [
-    "D1563：「票之弧」——五章（179–183）、一件東西、一整天，可從任一章沿路走完；策展式、服務端渲染、純本機。",
-    "D1562：第 183 章——寫了三個名字的票在 23:05 過海，落在中環終點站另一張仍在等認領的票旁。",
-    "D1561：第 182 章——第二個名字前來認票；計數漣漪抓到並修好一處自相矛盾的系列總數聲明。",
-    "D1541：以生產級限流重測攻城——10 次配額後即 429 牆；撞庫 2,702 發全數 429（p50=25ms）；讀面全程 244/244，零 5xx。",
-    "D1540：跨章問答全讀檔（40×4000，檢索契約自身上限），向 5 萬 token 上下文目標推進；5 萬 live 實測待辦——key 已耗盡且 API 現已關閉。",
-    "D1538：FactBundle 惰性屬性索引＋排序權重 mtime 緩存——每請求 Python CPU 約 107ms → 約 30ms（帶 lifespan 的進程內實測）。"
+    "D1568：第 184 章——票的尾聲：只寫時間的票 23:30 被認走，新票壓上桌角；計數漣漪乾淨推到 184。",
+    "D1567：「渡之弧」——五個口岸章（64、61、62、65、67）連成口岸的一夜到早；弧原語下沉為共享模組，說明書教兩條弧。",
+    "D1563：「票之弧」——五章（179–183）、一件東西、一整天，可從任一章沿路走完。",
+    "D1541：以生產級限流重測攻城——撞庫 2,702 發全數 429（p50=25ms）；讀面全程 244/244，零 5xx。",
+    "D1538：FactBundle 惰性屬性索引＋排序權重 mtime 緩存——每請求 Python CPU 約 107ms → 約 30ms（進程內實測）。"
   ],
   "privacy_note": "All consumer fixtures are synthetic (demo flags); no real merchant, stall or operator is represented. /insights replay is deterministic synthetic inference, not stored user data. All REAL-HK figures are public sources with URLs inline on the handbook page."
 }
