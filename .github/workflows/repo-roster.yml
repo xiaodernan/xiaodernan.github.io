@@ -1,0 +1,47 @@
+name: Guard the repository roster
+
+# 名册对账：页面上的每一个仓库链接都必须还活着，每一个星数声明都必须与 GitHub 上此刻一致，
+# 而账号上每一个公开仓都必须出现在页面上。
+#
+# 为什么要有这道闸门（实测 2026-11-23）：
+#   · 页面上的 `CS308_-ImageCaptioning-` 与 `team-project-25spring-59` 挂在
+#     `github.com/xiaodernan/` 下，而它们真正的家在课程组织 `ReverseRain` /
+#     `sustech-cs304` 下——本人仓已删，个人链接 404，页面却照旧挂着，还写着它们的星数；
+#   · `risc-v-single-cycle-cpu` 更彻底：全网都搜不到，星数却写着 ⭐0。
+#   星数对不存在的仓库是没有意义的数字——它是一句没人核对过的话，而且它看起来像真话。
+#
+# 节奏：每周一，跟其它事实包同步错开几分钟（用户要求"降低更新频率，有大提升再更新"）。
+# 需要仓库 secret `GH_PAT`：能读公开仓的 personal access token。GITHUB_TOKEN 是机器人身份，
+# 读不到 /user/repos 的本人仓，所以不是替代品。secret 缺失时本 job 警告并放过——它守的是
+# 名册，不该因为凭据不在就把整仓卡住。
+
+on:
+  schedule:
+    - cron: "50 13 * * 1"   # Monday 13:50 UTC — after the other weekly syncs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repo-roster
+  cancel-in-progress: true
+
+jobs:
+  roster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Roster / dead-link / star-count gate
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_PAT:-}" ]; then
+            echo "::warning::GH_PAT secret is not configured — skipping the live roster check."
+            exit 0
+          fi
+          node scripts/repo-roster-guard.mjs

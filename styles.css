@@ -145,6 +145,11 @@ body::before{
 .repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
 .repo-card{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease}
 .repo-card:hover{border-color:var(--accent-deep);transform:translateY(-2px);box-shadow:0 16px 36px rgba(24,32,38,.10)}
+/* 源仓已下架的卡片：它不能点，所以它不该有"可点"的视觉暗示——虚线、静止、不抬起。
+   一张看上去能点、点了 404 的卡片，比一张明说"已下架"的卡片更让人上当。 */
+.repo-card-archived{border-style:dashed;cursor:default;opacity:.82}
+.repo-card-archived:hover{border-color:var(--line);transform:none;box-shadow:none}
+.repo-card-archived .repo-top strong{color:var(--muted)}
 .repo-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .repo-top strong{font-size:15px;letter-spacing:.01em;font-family:"DM Mono",ui-monospace,monospace}
 .repo-lang{font:10px "DM Mono",ui-monospace,monospace;color:var(--ink-soft,#2b2f37);letter-spacing:.06em;text-transform:uppercase}

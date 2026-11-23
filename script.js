@@ -112,6 +112,13 @@ window.__teachInteractive = function teachInteractive() {
   document.querySelectorAll('.repo-card').forEach((card) => {
     const strong = card.querySelector('.repo-top strong');
     const name = strong ? strong.textContent.trim() : '';
+    // 一张**不能点**的卡片不能说"打开公开仓库"——源仓已下架的卡片要说它自己的实话，
+    // 而不是把一个死链接说成活的。
+    if (!card.hasAttribute('href')) {
+      set(card, T(`「${name}」· 源仓已下架，GitHub 上已无此仓，没有链接也没有星数`,
+        `“${name}” · source repo is gone; no link, no star count`));
+      return;
+    }
     set(card, T(`打开公开仓库「${name}」· 在 GitHub 查看源码与提交`, `Open the public repo “${name}” · source and commits on GitHub`));
   });
   // 联系卡

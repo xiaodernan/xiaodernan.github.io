@@ -1,7 +1,9 @@
 name: site-gates
 
-# 三道闸门：身份信息不可回归（identity-guard）、每个可操作元素都有教学说明
-# （tooltip-audit）、中英两语不互相夹杂（lang-audit）。任何一个红灯都不允许合并。
+# 五道闸门：身份信息不可回归（identity-guard）、每个可操作元素都有教学说明
+# （tooltip-audit）、中英两语不互相夹杂（lang-audit）、GitHub 事实包的静态半区
+# 与事实包一致（paint-fact-packs --check）、GitHub 数字面板的针脚仍命中
+# （gh-stats-check）。任何一个红灯都不允许合并。
 on:
   push:
     branches: [master]
@@ -13,6 +15,7 @@ on:
       - 'styles.css'
       - 'scripts/**'
       - 'data/**'
+      - 'assets/nexus-platform/latest.json'
       - '.github/workflows/site-gates.yml'
   pull_request:
     paths:
@@ -23,6 +26,7 @@ on:
       - 'styles.css'
       - 'scripts/**'
       - 'data/**'
+      - 'assets/nexus-platform/latest.json'
   workflow_dispatch:
 
 permissions:
@@ -48,3 +52,13 @@ jobs:
         run: node scripts/tooltip-audit.mjs
       - name: Bilingual no-mixing gate
         run: node scripts/lang-audit.mjs
+      # 2026-11-23 · 静态半区与事实包一致性闸门。
+      #
+      # 事实包卡片的运行时（index.html 内联的 refreshNp）会按当前语言刷两半，用的是事实包自带的
+      # 中文镜像 features_zh；而**静态半区**是人手维护的——上次有人更新那张卡时把英文原文粘进了
+      # 中文半区，于是中文模式里出现一整句英文，lang-audit 红灯，主干 CI 变红。
+      #
+      # 这个闸门只判定"静态半区 == 事实包"，离线可跑（读本仓的 assets/*/latest.json），
+      # 所以人手改一次静态半区就红一次，而不是等下一周事实包刷新时中文模式又漏一句英文。
+      - name: Fact-pack static half agrees with the fact pack
+        run: node scripts/paint-fact-packs.mjs --check

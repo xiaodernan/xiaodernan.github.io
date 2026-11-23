@@ -60,15 +60,20 @@ jobs:
           PY
           echo "assembled assets/nexus-platform/latest.json (head $HEAD, $TOTAL commits)"
 
+      - name: Repaint the static half from the fresh fact pack
+        # 静态半区必须与事实包说同一句话：中文半区用事实包自带的中文镜像（features_zh），
+        # 英文半区用英文原文。这一步不做，人手维护的静态半区迟早会把英文灌回中文模式。
+        run: node scripts/paint-fact-packs.mjs --write
+
       - name: Commit if anything moved
         run: |
-          if git diff --quiet -- assets/nexus-platform/latest.json 2>/dev/null; then
+          if git diff --quiet -- assets/nexus-platform/latest.json index.html 2>/dev/null; then
             echo "no change"
           else
             git config user.name "pages-sync-bot"
             git config user.email "pages-sync-bot@users.noreply.github.com"
-            git add assets/nexus-platform/latest.json
-            git commit -m "sync(nexus-platform): refresh the showcase fact pack from master"
+            git add assets/nexus-platform/latest.json index.html
+            git commit -m "sync(nexus-platform): refresh the showcase fact pack and repaint the static half"
             git pull --rebase origin master
             git push
           fi
