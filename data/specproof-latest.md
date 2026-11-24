@@ -1,8 +1,8 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · 54fcb2d2**
+**2026-11-24 · 4e15faa3**
 - 分支: `master`
-- ledger: `#2084 owner 决定：LLM 网关因成本关闭，后续开发不再调用`
+- ledger: `#2086 给 `_FakeRedis.eval` 与 `_RENEW_LEASE_LUA` 的语义一致性加门（#2071 §四.1 遗留闭环）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
 - 页面: 52 个模块
 - changelog: 2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）
