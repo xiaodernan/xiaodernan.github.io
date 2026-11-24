@@ -96,6 +96,22 @@ if (out) {
   }
 }
 
+// 3 · the NaN guard: a GitHub response with zero bytes for every language must be
+// refused, not painted. The width formula divides by the first bar, so a zero
+// base used to write NaN% into every row — the stale number the panel once shipped.
+for (const [label, badBars] of [
+  ["所有语言字节为 0", [{ name: "Zero", pct: 0 }]],
+  ["语言字节不是有限数", [{ name: "NaN", pct: NaN }]],
+]) {
+  let refused = false;
+  try {
+    applyRestatements(html, { ...fig, bars: badBars });
+  } catch {
+    refused = true; // throwing is the correct outcome — no repaint with NaN
+  }
+  if (!refused) problems.push(`${label} 时 applyRestatements 没有拒绝 —— NaN 会写进页面`);
+}
+
 if (problems.length) {
   console.error(`gh-stats-check FAILED (${problems.length} 项)：`);
   for (const one of problems) console.error(`  · ${one}`);

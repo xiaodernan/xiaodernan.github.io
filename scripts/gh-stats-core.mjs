@@ -45,8 +45,15 @@ export function applyRestatements(html, fig) {
   const { today, reposTotal, ownCount, forkCount, stars, mibStr, languageCount, bars, rest } = fig;
   if (!bars.length) throw new Error("applyRestatements: bars 为空 —— 百分比没有归一化的基准，宁可不写");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(today))) throw new Error(`applyRestatements: today 形状不对：${today}`);
-
+  // The width is pct / base. If the GitHub response carries no bytes for any
+  // language (a rate-limited or empty languages_url), base is 0 and every bar
+  // becomes NaN% — the exact stale number the panel once shipped. Refuse to
+  // repaint rather than write a NaN into the page.
+  if (!bars.every((b) => Number.isFinite(b.pct) && b.pct >= 0)) {
+    throw new Error("applyRestatements: 语言字节占比不是有限非负数，拒绝写入 NaN");
+  }
   const base = bars[0].pct;
+  if (!(base > 0)) throw new Error("applyRestatements: 第一语言占比为 0 —— 归一化基准无效");
   const pct2 = (n) => n.toFixed(2);
   const aria = `Languages by source bytes: ${bars.map((b) => `${b.name} ${pct2(b.pct)}%`).join(", ")}`;
   const rowOf = ({ name, pct }) => `<li class="lang-row"><span class="lang-name">${name}</span>`
