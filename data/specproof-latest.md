@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · 6efdf6a3**
+**2026-11-24 · 5c839ac3**
 - 分支: `master`
 - ledger: `#2092 robots.txt 缺失导致 Lighthouse SEO 0.8 → 补合法文件 + 门（原则五）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
