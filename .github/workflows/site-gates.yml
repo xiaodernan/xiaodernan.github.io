@@ -70,6 +70,10 @@ jobs:
         run: node scripts/paint-fact-packs.mjs --check
       - name: Football OS static figures agree with the fact pack
         run: node scripts/sync-football-os.mjs --check
+      # 2026-11-24 · 首页跨界纪元事实条的双语兜底值与事实包同值。
+      # 运行时 JS 会刷新它，但 JS 没跑起来时玩家看到的是手写值——两份语言曾各写 611 / 587。
+      - name: Crossrealm ribbon fallback agrees across locales and with the fact pack
+        run: node scripts/crossrealm-ribbon-guard.mjs
       # 2026-11-23 · 结构闸门。
       #
       # 抓到过两个**真的坏掉**的东西：
