@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · a89fb32f**
+**2026-11-24 · 95ebe2a0**
 - 分支: `master`
 - ledger: `#2095 原则三「Spring Cloud 微服务元素」评估结论：当前架构下不加（基于证据的决策）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
