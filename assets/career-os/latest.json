@@ -1,8 +1,8 @@
 {
   "schema_version": "career-os.latest.v1",
-  "generated_at": "2026-11-24T07:06:37.420349Z",
+  "generated_at": "2026-11-24T07:09:09.965542Z",
   "branch": "main",
-  "head": "f1a25d4",
+  "head": "f2efa3e",
   "total_commits": 1,
   "milestone": "Epic 435",
   "milestone_full": "the ledger of done epics (through 588 items), closed at Epic 435 — Closed the last zero-teaching gaps on the main screens (2026-11-24)",
