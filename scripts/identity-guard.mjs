@@ -24,7 +24,7 @@ const readme = readFileSync(fileURLToPath(new URL('../README.md', import.meta.ur
 const manual = readFileSync(fileURLToPath(new URL('../manual.html', import.meta.url)), 'utf8')
 const adminPage = readFileSync(fileURLToPath(new URL('../admin.html', import.meta.url)), 'utf8')
 
-const need = ['赵欣曈', '南方科技大学', '香港中文大学', '计算机科学与技术', '全国中学生物理竞赛', '铜牌', '江西省一等奖', '江西省二等奖', '法狗狗公司', '隐盾', '应用工程师', '雅思 6.5', 'IELTS 6.5', 'CET6 546',
+const need = ['赵欣曈', '南方科技大学', '香港中文大学', '计算机科学与技术', '全国中学生物理竞赛', '铜牌', '江西省一等奖', '江西省二等奖', '法狗狗公司', '隐盾', '应用工程师', '雅思 6.5', 'IELTS 6.5',
   // 2026-11-20 · both mirrored tiles must name the live milestone and door count.
   'M1226', '16 扇 imprisoned StateGraph 门', '16 imprisoned StateGraph doors']
 const ban = ['隐图',
@@ -42,6 +42,12 @@ for (const s of need) {
     console.error(`::error::identity-guard: MISSING required phrase: ${s}`)
     fail = 1
   }
+}
+// 2026-11-25 · CET-6 546 两种写法都算数：用户本次总指令写的是「CET-6 546」，
+// 旧的 2026-11-18 记录写的是「CET6 546」——同一事实，守卫不该因连字符误红。
+if (!html.includes('CET-6 546') && !html.includes('CET6 546')) {
+  console.error('::error::identity-guard: MISSING required phrase: CET-6 546 (or CET6 546)')
+  fail = 1
 }
 for (const s of ban) {
   for (const [surface, text] of [['index.html', html], ['README.md', readme], ['manual.html', manual], ['admin.html', adminPage]]) {
