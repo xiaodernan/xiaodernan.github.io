@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · e7a6dff7**
+**2026-11-24 · 24a96834**
 - 分支: `master`
 - ledger: `#2093 主按钮文字对比度 3.76:1 → 7:1（Lighthouse Accessibility 0.96 → 1.0）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
