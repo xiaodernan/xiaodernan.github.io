@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · 352148f8**
+**2026-11-24 · 54fcb2d2**
 - 分支: `master`
 - ledger: `#2084 owner 决定：LLM 网关因成本关闭，后续开发不再调用`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
