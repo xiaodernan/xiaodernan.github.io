@@ -1,12 +1,27 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-24T11:24:50.058Z",
+  "generated_at": "2026-11-24T11:36:33.498Z",
   "branch": "main",
-  "head": "30638597",
-  "total_commits": 2538,
-  "pushed_at": "2026-11-24T19:23:52+08:00",
+  "head": "9293c176",
+  "total_commits": 2541,
+  "pushed_at": "2026-11-24T19:35:49+08:00",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
+    {
+      "short": "9293c17",
+      "at": "2026-11-24T19:35:49+08:00",
+      "subject": "chore(latest): fact pack head=39b119f (novels 291 lore 613 i18n 3301 tests 515)"
+    },
+    {
+      "short": "39b119f",
+      "at": "2026-11-24T19:34:31+08:00",
+      "subject": "docs(showcase): W-Z521 feed entry for manual chapter + offline fallback"
+    },
+    {
+      "short": "1b8eec2",
+      "at": "2026-11-24T19:31:47+08:00",
+      "subject": "fix(i18n): 7 EN manual chapters had Chinese punctuation - gate now scans template literals for CJK punctuation too"
+    },
     {
       "short": "3063859",
       "at": "2026-11-24T19:23:52+08:00",
@@ -16,21 +31,6 @@
       "short": "592f7ec",
       "at": "2026-11-24T19:01:55+08:00",
       "subject": "chore(latest): refresh fact pack head=1380ce0"
-    },
-    {
-      "short": "1380ce0",
-      "at": "2026-11-24T19:00:31+08:00",
-      "subject": "fix(network): one-click UAC-elevation script to stop and disable Clash system services"
-    },
-    {
-      "short": "07a6cfe",
-      "at": "2026-11-24T18:49:08+08:00",
-      "subject": "chore(latest): fact pack head=7f145a7 (novels 291 lore 613 i18n 3299 tests 515 commits 2534) - CI green"
-    },
-    {
-      "short": "7f145a7",
-      "at": "2026-11-24T15:12:22+08:00",
-      "subject": "test(offline): consolidated guard for all LLM consumer fallbacks"
     }
   ],
   "tracked_files": 1999,
