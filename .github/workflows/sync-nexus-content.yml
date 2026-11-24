@@ -1,0 +1,56 @@
+name: sync-nexus-content
+
+# 把 NEXUS Content Platform 的最新成果事实包（docs/showcase/latest.json）
+# 自动拉进个人主页的 assets/nexus-content/latest.json，让访客点进去看到最新 head。
+# 周期：每周一 13:20 UTC —— 错开 nexus-platform(13:00)、crossrealm(13:00)、
+# career-os(13:30)、gh-languages(13:30)、football(13:17)，避免同一波 cron 抢部署。
+# 与 pages.yml 的每 3 小时 deploy 配合：这里只更新事实包，deploy 由 pages.yml 统一做。
+
+on:
+  schedule:
+    - cron: '20 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest fact pack from source repo
+        env:
+          SRC: https://raw.githubusercontent.com/xiaodernan/nexus-content-platform/main/docs/showcase/latest.json
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --max-time 60 "$SRC" -o /tmp/nexus-latest.json
+          python3 - <<'PY'
+          import json, io, os, sys
+          src = '/tmp/nexus-latest.json'
+          dst = 'assets/nexus-content/latest.json'
+          with io.open(src, encoding='utf-8') as fh:
+              data = json.load(fh)
+          # 只认约定 schema，避免上游出错时把半成品写进展示面
+          if data.get('schema_version') != 'nexus-content.latest.v1':
+              sys.exit('unexpected schema_version, skip')
+          os.makedirs(os.path.dirname(dst), exist_ok=True)
+          with io.open(dst, 'w', encoding='utf-8', newline='\n') as fh:
+              json.dump(data, fh, ensure_ascii=False, indent=2)
+              fh.write('\n')
+          print('synced head', data.get('head'), 'commits', data.get('total_commits'))
+          PY
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/nexus-content/latest.json; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "NEXUS Pages Sync"
+          git config user.email "dev@nexus.local"
+          git add assets/nexus-content/latest.json
+          git commit -m "chore(nexus-content): sync fact pack to latest main head [skip ci]"
+          git pull --rebase origin master || true
+          git push origin master
