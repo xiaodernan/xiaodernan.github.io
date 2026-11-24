@@ -1,8 +1,8 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · 4bc61a53**
+**2026-11-24 · 6efdf6a3**
 - 分支: `master`
-- ledger: `#2091 世界书阅读室 `#/worldbook` 同步公开（同主题续作）`
+- ledger: `#2092 robots.txt 缺失导致 Lighthouse SEO 0.8 → 补合法文件 + 门（原则五）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
 - 页面: 52 个模块
 - changelog: 2026-11-18（世界书双卷落册 · D2 全程自动 · cache 实敲 94% · io 瓷砖 CDN 脱困）
