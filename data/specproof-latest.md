@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-24 · 1ba3086c**
+**2026-11-24 · 846ff8dd**
 - 分支: `master`
 - ledger: `#2094 外部存储不可达不再冻结流水线：Redis/MinIO 就绪探测快速失败（队列第9项根因）`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（492.1 KB）
