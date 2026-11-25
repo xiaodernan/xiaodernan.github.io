@@ -1,42 +1,42 @@
 {
   "schema_version": "minicc.latest.v1",
-  "generated_at": "2026-11-23T20:14:52.340Z",
+  "generated_at": "2026-11-25T03:21:11.390Z",
   "branch": "main",
-  "head": "9b96883",
-  "total_commits": 2180,
+  "head": "e798954",
+  "total_commits": 2220,
   "recent_commits": [
     {
-      "short": "9b96883d",
-      "at": "2026-11-24T04:14:15+08:00",
-      "subject": "M8-T1325: missing-count 夹具补齐真实 bundle 依赖"
+      "short": "e798954c",
+      "at": "2026-11-25T11:20:34+08:00",
+      "subject": "M8-T1346 ledger: LLM transition-router E2E passed against the local zero-network model (qwen2.5:7b, 127.0.0.1) - verify->repair accepted, proving req #4 LLM sta"
     },
     {
-      "short": "d68487d3",
-      "at": "2026-11-23T20:03:58Z",
+      "short": "b431e8bf",
+      "at": "2026-11-25T02:58:32Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "18855844",
-      "at": "2026-11-24T04:03:28+08:00",
-      "subject": "M8-T1324: CI 摘要分清零覆盖、部分覆盖与浏览器缺席"
+      "short": "c8d204a6",
+      "at": "2026-11-25T10:58:07+08:00",
+      "subject": "M8-T1345: harden the no-clash gate - Get-NetAdapter timeout no longer fails the gate (retry with generous budget, treat repeated timeout as no adapter); test pa"
     },
     {
-      "short": "dd5faf86",
-      "at": "2026-11-23T19:44:44Z",
+      "short": "8cb90a99",
+      "at": "2026-11-24T21:02:17Z",
       "subject": "chore(latest): refresh showcase fact pack"
     },
     {
-      "short": "6471666b",
-      "at": "2026-11-24T03:43:50+08:00",
-      "subject": "M8-T1323: 上下文超时按实测走，不再冒充不可达"
+      "short": "540350b3",
+      "at": "2026-11-25T04:55:09+08:00",
+      "subject": "M8-T1344 ledger: a background doc-cleanup finished late (26 files) - committed those remaining Clash usage-example removals locally across 9 worktrees, verified"
     }
   ],
   "first_commit_at": "2026-08-24",
-  "roadmap_batches": 557,
+  "roadmap_batches": 578,
   "changelog_entries": 26,
-  "roadmap_lines": 57251,
-  "tracked_files": 1197,
-  "test_files": 771,
+  "roadmap_lines": 57651,
+  "tracked_files": 1204,
+  "test_files": 775,
   "almanac_chapters": 81,
   "module_count": 14,
   "feature_surface": [
