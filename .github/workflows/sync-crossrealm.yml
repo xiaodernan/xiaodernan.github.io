@@ -50,14 +50,20 @@ jobs:
           cp .sync/crossrealm-chronicles/docs/latest.json assets/crossrealm/latest.json
           echo "synced $(wc -c assets/crossrealm/latest.json) bytes"
 
+      # The site-gates crossrealm-ribbon guard checks the HTML fallback against
+      # this fact pack. Refresh the fallback in the same commit so this sync
+      # never turns the deploy gate red (same class as paint-fact-packs).
+      - name: Refresh static ribbon fallback from the fact pack
+        run: node scripts/crossrealm-ribbon-guard.mjs --write
+
       - name: Commit if anything moved
         run: |
-          if git diff --quiet -- assets/crossrealm/latest.json 2>/dev/null; then
+          if git diff --quiet -- assets/crossrealm/latest.json index.html 2>/dev/null; then
             echo "no change"
           else
             git config user.name "pages-sync-bot"
             git config user.email "pages-sync-bot@users.noreply.github.com"
-            git add assets/crossrealm/latest.json
+            git add assets/crossrealm/latest.json index.html
             git commit -m "sync(crossrealm): refresh the showcase fact pack from main"
             # W-Z504：io 仓有多个 cron（pages/sync-career-os/sync-minicc…）与手工推送并行，
             # 纯 git push 会被非快进拒绝（本次实测 failure）。rebase 到最新 master 再推。

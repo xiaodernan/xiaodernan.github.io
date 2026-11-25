@@ -17,12 +17,37 @@
  * 用法：node scripts/crossrealm-ribbon-guard.mjs
  * 退出码：0 = 一致；1 = 漂移或缺字段。
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const fact = JSON.parse(readFileSync(join(ROOT, 'assets/crossrealm/latest.json'), 'utf8'));
+
+// --write 只把静态兜底数字刷成事实包的当前值；默认（无参）检查逻辑完全不变，
+// 任何未刷写的漂移仍然会被下面的判据抓红——门没有被弱化。
+if (process.argv.includes('--write')) {
+  const 卷目标 = Number(fact.novel_chapters_zh);
+  const 源目标 = Number(fact.lore_sources);
+  if (!Number.isFinite(卷目标) || 卷目标 <= 0 || !Number.isFinite(源目标) || 源目标 <= 0) {
+    console.error('crossrealm-ribbon-guard: 事实包数值非法，拒绝写入');
+    process.exit(1);
+  }
+  let out = html;
+  const 刷 = (cls, want) => {
+    out = out.replace(new RegExp(`(class="[^"]*${cls}[^"]*"[^>]*>)([\\s\\S]{0,120}?)(<)`, 'g'),
+      (_m, head, body, tail) => head + body.replace(/\d[\d,]*/, String(want)) + tail);
+  };
+  刷('cr-volumes', 卷目标);
+  刷('cr-sources-label', 源目标);
+  if (out === html) {
+    console.log(`crossrealm-ribbon-guard: 静态兜底已一致（${卷目标} 卷 / ${源目标} 源）`);
+  } else {
+    writeFileSync(join(ROOT, 'index.html'), out, 'utf8');
+    console.log(`crossrealm-ribbon-guard: 已刷写双语兜底 → ${卷目标} 卷 / ${源目标} 源`);
+  }
+  process.exit(0);
+}
 
 const 取数 = (cls) => [...html.matchAll(new RegExp(`class="[^"]*${cls}[^"]*"[^>]*>([\\s\\S]{0,120}?)<`, 'g'))]
   .map((m) => m[1].replace(/<[^>]*>/g, '').trim());
