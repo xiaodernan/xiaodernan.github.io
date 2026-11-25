@@ -9,47 +9,6 @@
   <meta name="description" content="对照需求检查代码变更，以可追溯的证据支持每一次交付。" />
   <title>SpecProof · 代码变更验收</title>
   <script>
-    // Static demo banner — this copy was shipped from a build of apps/web but served
-    // without any backend. It is straight talk, not marketing: no live model, no live DB, no glowing stat.
-    (function () {
-      try {
-        if (localStorage.getItem("sp-specproof-static-note-dismissed") === "1") return;
-        var mount = function () {
-          if (!document.body) { setTimeout(mount, 50); return; }
-          var note = document.createElement("div");
-          note.id = "sp-specproof-static-note";
-          note.setAttribute("role", "note");
-          note.style.cssText =
-            "position:fixed;left:14px;bottom:14px;max-width:min(560px, calc(100vw - 28px));" +
-            "z-index:99999;background:rgba(16,23,32,.96);border:1px solid #ee8052;color:#f7f5ee;" +
-            "padding:12px 16px;border-radius:10px;font:13px/1.55 ui-monospace,Consolas,monospace;" +
-            "box-shadow:0 24px 40px rgba(0,0,0,.45)";
-          note.innerHTML =
-            '<div style="display:flex;gap:12px;align-items:flex-start">' +
-              '<span style="flex:0 0 auto;display:inline-block;width:10px;height:10px;border-radius:50%;background:#ee8052;margin-top:6px"></span>' +
-              '<div>' +
-                '<div style="font-weight:700;color:#f6c985;margin-bottom:4px">离线静态快照 · offline snapshot</div>' +
-                '<div>这是 SpecProof 的 <strong>静态、无后端、无凭证演示包</strong>。' +
-                '完整 "AI 验收" 功能在静态环境下会显示 <em>模型暂时不可用</em>（这是故意的，不是 bug）。' +
-                '想真的问这本书、想翻真正的原文？打开 <code style="color:#f4c98a">#/ask-the-book</code>，书里原文会接上。' +
-                '要看原生验收闭环？请把这个仓库 clone 下来运行：<code style="color:#f4c98a">npm run dev</code>' +
-                '+ 本地起 <code style="color:#f4c98a">uvicorn api.server:app</code>。' +
-                '</div>' +
-                '<button id="sp-static-note-close" type="button" style="margin-top:10px;border:1px solid #ee8052;background:transparent;color:#f7f5ee;padding:4px 10px;border-radius:6px;cursor:pointer;font:inherit;font-size:12px">知道了 · got it</button>' +
-              '</div>' +
-            '</div>';
-          document.body.appendChild(note);
-          var btn = document.getElementById("sp-static-note-close");
-          if (btn) btn.addEventListener("click", function () {
-            note.remove();
-            try { localStorage.setItem("sp-specproof-static-note-dismissed", "1"); } catch (e) {}
-          });
-        };
-        mount();
-      } catch (e) { /* nothing blocks the SPA */ }
-    })();
-  </script>
-  <script>
     // No-flash theme bootstrap: mirrors ThemeProvider's storage key and
     // resolved-theme logic before the first paint.
     (function () {
@@ -67,12 +26,11 @@
       }
     })();
   </script>
-  <script type="module" crossorigin src="/specproof-web/assets/index-_1qGwuLw.js"></script>
-  <link rel="modulepreload" crossorigin href="/specproof-web/assets/i18n-vfO8JWUE.js">
-  <link rel="stylesheet" crossorigin href="/specproof-web/assets/index-DAsDKxxw.css">
+  <script type="module" crossorigin src="/assets/index-oTja7jmA.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/i18n-Cp7PhXYP.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-Bkerkiux.css">
 </head>
 <body>
   <div id="root"></div>
-
 </body>
 </html>
