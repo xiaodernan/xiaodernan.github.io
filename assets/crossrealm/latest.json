@@ -1,12 +1,27 @@
 {
   "schema_version": "crossrealm.latest.v1",
-  "generated_at": "2026-11-25T03:21:40.907Z",
+  "generated_at": "2026-11-25T03:34:16.343Z",
   "branch": "main",
-  "head": "c46f3ad3",
-  "total_commits": 2549,
-  "pushed_at": "2026-11-25T11:20:22+08:00",
+  "head": "8b1d097a",
+  "total_commits": 2552,
+  "pushed_at": "2026-11-25T11:32:24+08:00",
   "first_commit_at": "2026-09-23",
   "recent_commits": [
+    {
+      "short": "8b1d097",
+      "at": "2026-11-25T11:32:24+08:00",
+      "subject": "chore(latest): fact pack head=ff03745 (novels 292 lore 615 tests 519)"
+    },
+    {
+      "short": "ff03745",
+      "at": "2026-11-25T11:31:04+08:00",
+      "subject": "fix(canon): W-Z524 vol.292 codex line rendered after footer - moved into timeline + guard"
+    },
+    {
+      "short": "0e5abc2",
+      "at": "2026-11-25T11:23:16+08:00",
+      "subject": "chore(latest): fact pack head=c46f3ad (novels 292 lore 615 i18n 3301 tests 518)"
+    },
     {
       "short": "c46f3ad",
       "at": "2026-11-25T11:20:22+08:00",
@@ -16,25 +31,10 @@
       "short": "0a3a0c4",
       "at": "2026-11-25T03:57:19+08:00",
       "subject": "chore(latest): fact pack head=af60852 (tests 519)"
-    },
-    {
-      "short": "af60852",
-      "at": "2026-11-25T03:56:40+08:00",
-      "subject": "docs(ci): smoke.ps1 comment reflects offline reason variants (W-Z519)"
-    },
-    {
-      "short": "0a23b6c",
-      "at": "2026-11-25T03:53:05+08:00",
-      "subject": "fix(ci): server advisor queue probe accepts llm-disabled offline reason (W-Z519 followup)"
-    },
-    {
-      "short": "0071865",
-      "at": "2026-11-25T03:32:34+08:00",
-      "subject": "fix(ci): W-Z523 derive showcase fallback from fact pack - stop manual test_files drift"
     }
   ],
-  "tracked_files": 2004,
-  "test_files": 518,
+  "tracked_files": 2005,
+  "test_files": 519,
   "i18n_keys": 3301,
   "lore_sources": 615,
   "novel_chapters_zh": 292,
