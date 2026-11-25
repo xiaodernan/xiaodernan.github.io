@@ -26,9 +26,9 @@ const adminPage = readFileSync(fileURLToPath(new URL('../admin.html', import.met
 
 const need = ['赵欣曈', '南方科技大学', '香港中文大学', '计算机科学与技术', '全国中学生物理竞赛', '铜牌', '江西省一等奖', '江西省二等奖', '法狗狗公司', '隐盾', '应用工程师', '雅思 6.5', 'IELTS 6.5',
   // 2026-11-20 · both mirrored tiles must name the live milestone and door count.
-  'M1226', '16 扇 imprisoned StateGraph 门', '16 imprisoned StateGraph doors']
+  'M1249', '16 扇 imprisoned StateGraph 门', '16 imprisoned StateGraph doors']
 const ban = ['隐图',
-  'M1217', '13 扇 imprisoned StateGraph 门', '13 imprisoned StateGraph doors', 'M1219', '14 扇 imprisoned StateGraph 门', '14 imprisoned StateGraph doors', // stale milestone tiles
+  'M1217', '13 扇 imprisoned StateGraph 门', '13 imprisoned StateGraph doors', 'M1219', '14 扇 imprisoned StateGraph 门', '14 imprisoned StateGraph doors', 'M1226', // stale milestone tiles
   'teedyas', 'teedyassi', 'teedy-assign', // phantom repos — removed 2026-11-20
  '践哲', '暨南大学', '国家网络安全竞赛', '硕士研究生', '十九篇', '二十一篇', 'WCAG 1.0', '国家中学生物理竞赛',
   '铜板', '一等将', '二等将', '獎', '賽', '既使', '做为', '其它', '登陆', '真象', '气慨',
