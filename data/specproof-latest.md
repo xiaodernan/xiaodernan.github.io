@@ -1,6 +1,6 @@
 ## SpecProof · 最新一次 ship
 
-**2026-11-25 · c066d134**
+**2026-11-25 · 850142f7**
 - 分支: `master`
 - ledger: `#2097 自动同步闭环：让 SpecProof 同步顺手刷齐共享静态半区`
 - 世界书: `docs/world/SPECROOF_WORLD.md`（497.6 KB）
